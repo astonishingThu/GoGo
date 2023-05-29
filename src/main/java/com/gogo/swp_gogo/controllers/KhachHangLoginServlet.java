@@ -29,7 +29,10 @@ public class KhachHangLoginServlet extends HttpServlet {
 //        requestDispatcher.forward(req,resp);
         if (khachHang.login(req)) {
             System.out.println("Succeeded");
+            System.out.println(khachHang);
             resp.sendRedirect("HomePage.html");
+        } else {
+            System.out.println("Fail");
         }
     }
 }

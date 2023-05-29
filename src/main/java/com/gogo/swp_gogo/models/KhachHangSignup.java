@@ -30,8 +30,11 @@ public class KhachHangSignup {
         setEmail();
         if (email!=null) {
             setPassword();
+            System.out.println("email is not null");
             return true;
+
         }
+        System.out.println("Email is null");
         return false;
     }
 

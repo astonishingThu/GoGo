@@ -10,6 +10,17 @@ public class KhachHang implements Account {
     private String hoTenLot;
     private String ten;
 
+    public KhachHang(){}
+
+    public KhachHang(String idKhachHang, String email, String phoneNumber, String password, String hoTenLot, String ten) {
+        this.idKhachHang = idKhachHang;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.password = password;
+        this.hoTenLot = hoTenLot;
+        this.ten = ten;
+    }
+
     @Override
     public boolean signup(HttpServletRequest request) {
         KhachHangSignup khachHangSignup = new KhachHangSignup(request);
@@ -31,7 +42,20 @@ public class KhachHang implements Account {
     public boolean login(HttpServletRequest request) {
 
         KhachHangLogin khachHangLogin = new KhachHangLogin(request);
-        return khachHangLogin.run();
+        if (khachHangLogin.run()) {
+            setFullInfo(MyQueries.getKhachHangByCol("email",request.getParameter("email")));
+            return true;
+        }
+        return false;
+    }
+
+    public void setFullInfo(KhachHang khachHang) {
+        setIdKhachHang(khachHang.getIdKhachHang());
+        setEmail(khachHang.getEmail());
+        setPassword(khachHang.getPassword());
+        setHoTenLot(khachHang.getHoTenLot());
+        setTen(khachHang.getTen());
+        setPhoneNumber(khachHang.getPhoneNumber());
     }
 
     public String getIdKhachHang() {
@@ -80,5 +104,17 @@ public class KhachHang implements Account {
 
     public void setTen(String ten) {
         this.ten = ten;
+    }
+
+    @Override
+    public String toString() {
+        return "KhachHang{" +
+                "idKhachHang='" + idKhachHang + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", password='" + password + '\'' +
+                ", hoTenLot='" + hoTenLot + '\'' +
+                ", ten='" + ten + '\'' +
+                '}';
     }
 }

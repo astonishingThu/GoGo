@@ -91,4 +91,21 @@ public class MyQueries {
         return null;
     }
 
+    public static KhachHang getKhachHangByCol(String col, String data) {
+        Connection connection = getConnection();
+        try {
+            String q = "Select * from GoGo.dbo.KhachHang where "+col+" = ?";
+            PreparedStatement statement = connection.prepareStatement(q);
+            statement.setString(1,data);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                return new KhachHang(resultSet.getString("idKhachHang"),resultSet.getString("email"),resultSet.getString("phoneNumber"),resultSet.getString("password"),resultSet.getString("hoTenLot"),resultSet.getString("ten"));
+            }
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
 }
