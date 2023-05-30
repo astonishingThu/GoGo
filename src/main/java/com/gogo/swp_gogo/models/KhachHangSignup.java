@@ -2,27 +2,30 @@ package com.gogo.swp_gogo.models;
 
 import jakarta.servlet.http.HttpServletRequest;
 
-public class KhachHangSignup {
-    private String email;
-    private String password;
+public class KhachHangSignup extends KhachHang {
     private HttpServletRequest req;
-    private String khachHangId;
-    private String phoneNumber;
 
     public KhachHangSignup(HttpServletRequest req) {
         this.req = req;
     }
 
+    public KhachHang returnValidKhachHang() {
+        String fullName = req.getParameter("fullName");
+        String ten = fullName.substring(fullName.lastIndexOf(" ")+1);
+        String hoTenLot = fullName.substring(0,fullName.length()-ten.length()-1);
+        return new KhachHang(getIdKhachHang(),getEmail(),getPhoneNumber(),getPassword(),hoTenLot,ten);
+    }
+
     public void setKhachHangId() {
         do {
-            khachHangId = MyRandom.generateRandomId(8,"KH");
-        } while (DataValidator.isTableInfoExist("idKhachHang",khachHangId,"KhachHang"));
+            setIdKhachHang(MyRandom.generateRandomId(8,"KH"));
+        } while (DataValidator.isTableInfoExist("idKhachHang",getIdKhachHang(),"KhachHang"));
     }
 
     private void setEmail() {
-        email = req.getParameter("email");
-        if (DataValidator.isTableInfoExist("email",email,"KhachHang")) {
-            email = null;
+        setEmail(req.getParameter("email"));
+        if (DataValidator.isTableInfoExist("email",getEmail(),"KhachHang")) {
+            setEmail(null);
         }
     }
 
@@ -30,40 +33,25 @@ public class KhachHangSignup {
         setKhachHangId();
         setEmail();
         setPhoneNumber();
-        if (email!=null && phoneNumber!=null) {
+        if (getEmail()!=null && getPhoneNumber()!=null) {
             setPassword();
             System.out.println("email is not null");
             return true;
-
         }
         System.out.println("Email is null");
         return false;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
     public void setPhoneNumber() {
-        phoneNumber = req.getParameter("phoneNumber");
-        if (DataValidator.isTableInfoExist("phoneNumber",phoneNumber,"KhachHang")) {
-            phoneNumber = null;
+        setPhoneNumber(req.getParameter("phoneNumber"));
+        if (DataValidator.isTableInfoExist("phoneNumber",getPhoneNumber(),"KhachHang")) {
+            setPhoneNumber(null);
         }
     }
 
     private void setPassword() {
-        password = req.getParameter("password");
+        setPassword(req.getParameter("password"));
     }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public String getKhachHangId() {
-        return khachHangId;
-    }
 }
