@@ -30,7 +30,7 @@ public class KhachHang implements Account {
             String hoTenLot = fullName.substring(0,fullName.length()-ten.length());
             setTen(ten);
             setHoTenLot(hoTenLot);
-            setPhoneNumber(request.getParameter("phoneNumber"));
+            setPhoneNumber(khachHangSignup.getPhoneNumber());
             setEmail(khachHangSignup.getEmail());
             setIdKhachHang(khachHangSignup.getKhachHangId());
             setPassword(khachHangSignup.getPassword());

@@ -7,6 +7,7 @@ public class KhachHangSignup {
     private String password;
     private HttpServletRequest req;
     private String khachHangId;
+    private String phoneNumber;
 
     public KhachHangSignup(HttpServletRequest req) {
         this.req = req;
@@ -28,7 +29,8 @@ public class KhachHangSignup {
     public boolean run() {
         setKhachHangId();
         setEmail();
-        if (email!=null) {
+        setPhoneNumber();
+        if (email!=null && phoneNumber!=null) {
             setPassword();
             System.out.println("email is not null");
             return true;
@@ -36,6 +38,17 @@ public class KhachHangSignup {
         }
         System.out.println("Email is null");
         return false;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber() {
+        phoneNumber = req.getParameter("phoneNumber");
+        if (DataValidator.isTableInfoExist("phoneNumber",phoneNumber,"KhachHang")) {
+            phoneNumber = null;
+        }
     }
 
     private void setPassword() {

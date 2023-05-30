@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,11 +12,11 @@
     <div class="login login--hanhkhach container">
         <div class="login__left">
           <h2>Đăng nhập</h2>
-          <form class="login__form" action="NhaXeGoGoLogin" method="post">
-            <label abel>Username: </label>
+          <form class="login__form" action="GoGoLogin" method="post">
+            <label abel>Email: </label>
             <p class="star">*</p>
             <input
-              type="text" name="username"
+              type="email" name="email"
               required
             ></input>
             <label>Mật khẩu: </label>
@@ -31,7 +32,7 @@
           </form>
           <div>
             Bạn chưa có tài khoản?
-            <a href="SignUp__Khach.jsp">Đăng ký</a>
+            <Link to="/dangky">Đăng ký</Link>
           </div>
         </div>
         <div class="login__ill">
@@ -41,3 +42,14 @@
       </div>
 </body>
 </html>
+
+<%
+    if (request.getAttribute("connection")!=null) {
+        if (request.getAttribute("connection").equals(true)) {
+            out.print("true");
+        } else {
+            out.print("false");
+        }
+    }
+
+%>
