@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,16 +41,11 @@
         </div>
         <div class="login__right"></div>
       </div>
+    <c:set var = "connection" scope="request" value="${connection}"/>
+    <c:if test = "${connection!=null}">
+        <c:if test = "${connection==true}">
+            <h2><c:out value="${connection}"/></h2>
+        </c:if>
+    </c:if>
 </body>
 </html>
-
-<%
-    if (request.getAttribute("connection")!=null) {
-        if (request.getAttribute("connection").equals(true)) {
-            out.print("true");
-        } else {
-            out.print("false");
-        }
-    }
-
-%>
