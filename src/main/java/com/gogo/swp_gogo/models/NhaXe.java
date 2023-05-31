@@ -50,4 +50,14 @@ public class NhaXe implements Account {
     public boolean signup(HttpServletRequest request) {
         return false;
     }
+
+    @Override
+    public String toString() {
+        return "NhaXe{" +
+                "idNhaXe='" + idNhaXe + '\'' +
+                ", tenNhaXe='" + tenNhaXe + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
