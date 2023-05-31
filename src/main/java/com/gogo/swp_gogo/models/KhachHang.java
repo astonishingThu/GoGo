@@ -25,8 +25,15 @@ public class KhachHang implements Account {
     public boolean signup(HttpServletRequest request) {
         KhachHangSignup khachHangSignup = new KhachHangSignup(request);
         if (khachHangSignup.run()) {
-            setFullInfo(khachHangSignup.returnValidKhachHang());
-            MyQueries.addKhachHang(this);
+            String fullName = request.getParameter("fullName");
+            String ten = fullName.substring(fullName.lastIndexOf(" ")+1);
+            String hoTenLot = fullName.substring(0,fullName.length()-ten.length());
+            setTen(ten);
+            setHoTenLot(hoTenLot);
+            setPhoneNumber(request.getParameter("phoneNumber"));
+            setEmail(khachHangSignup.getEmail());
+            setIdKhachHang(khachHangSignup.getKhachHangId());
+            setPassword(khachHangSignup.getPassword());
             return true;
         } else return false;
     }

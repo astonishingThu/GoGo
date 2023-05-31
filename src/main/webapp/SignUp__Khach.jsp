@@ -37,20 +37,9 @@
         </form>
         <div>
           Bạn đã có tài khoản?
-          <a href="Login_NhaXe.jsp">Đăng nhập</a>
+          <a href="Login_NhaXe.html">Đăng nhập</a>
         </div>
       </div>
     </div>
   </body>
 </html>
-
-<%
-  if (request.getAttribute("connection")!=null) {
-    if (request.getAttribute("connection").equals(true)) {
-      out.print("true");
-    } else {
-      out.print("false");
-    }
-  }
-
-%>
