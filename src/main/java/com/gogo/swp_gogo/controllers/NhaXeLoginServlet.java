@@ -21,6 +21,7 @@ public class NhaXeLoginServlet extends HttpServlet {
             req.setAttribute("connection",true);
             req.setAttribute("nhaXe",nhaXe);
             System.out.println("Succeeded");
+            System.out.println(nhaXe);
         } else {
             requestDispatcher = req.getRequestDispatcher("Login_NhaXe.jsp");
             req.setAttribute("connection",false);

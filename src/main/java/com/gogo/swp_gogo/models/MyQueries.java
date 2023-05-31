@@ -108,4 +108,22 @@ public class MyQueries {
         return null;
     }
 
+    public static NhaXe getNhaXeByCol(String col, String data) {
+        Connection connection = getConnection();
+        try {
+            String q = "Select * from GoGo.dbo.NhaXe where "+col+" = ?";
+            System.out.println(q);
+            PreparedStatement statement = connection.prepareStatement(q);
+            statement.setString(1,data);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                return new NhaXe(resultSet.getString("idNhaxe"),resultSet.getString("tenNhaXe"),resultSet.getString("username"),resultSet.getString("password"));
+            }
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
 }
