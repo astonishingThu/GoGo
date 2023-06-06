@@ -1,0 +1,94 @@
+/* -------DANH SÁCH XE---------- */
+h4 {
+  text-align: center;
+}
+.addXe {
+  background-color: #f8f9fa;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.xe {
+  border-bottom: 1px solid #000;
+  position: relative;
+}
+.del-cf {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+}
+.price {
+  color: #e2c0bb;
+}
+.dsLoTrinh {
+  margin-top: 50px;
+}
+.loTrinh {
+  display: flex;
+}
+.loTrinh div {
+  padding: 10px 15px 5px;
+}
+.add-form {
+  display: flex;
+  flex-direction: column;
+}
+.loaiGhe {
+  display: block;
+}
+.soDoGhe {
+  padding-right: -50px !important;
+  display: none !important;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-between;
+}
+.xemSoDo {
+  margin-left: 10px;
+}
+.ghe {
+  display: flex;
+  justify-content: space-between;
+}
+.icon-bus {
+  display: inline-block;
+  margin: 5px;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+}
+.del-cf {
+  display: none;
+  z-index: 3;
+  color: #fff;
+}
+.xe-overlay {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: none;
+}
+
+.open {
+  display: flex !important;
+}
+.icon-close {
+  position: absolute;
+  z-index: 1;
+  padding: 20px;
+  right: 0;
+  top: 0;
+}

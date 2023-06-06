@@ -7,6 +7,7 @@ public class DataValidator {
     public static boolean isTableInfoExist(String col, String data, String table) {
         List<String> list = MyQueries.getAllTableInfo(col,table);
         for (String sample:list) {
+            if (sample==null) continue;
             if (sample.equals(data)) return true;
         }
         return false;

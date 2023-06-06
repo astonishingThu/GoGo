@@ -8,6 +8,15 @@ public class NhaXe implements Account {
     private String username;
     private String password;
 
+    public NhaXe(){}
+
+    public NhaXe(String idNhaXe, String tenNhaXe, String username, String password) {
+        this.idNhaXe = idNhaXe;
+        this.tenNhaXe = tenNhaXe;
+        this.username = username;
+        this.password = password;
+    }
+
     public String getIdNhaXe() {
         return idNhaXe;
     }
@@ -42,12 +51,33 @@ public class NhaXe implements Account {
 
     @Override
     public boolean login(HttpServletRequest request) {
+        NhaXeLogin nhaXeLogin = new NhaXeLogin(request);
+        if (nhaXeLogin.run()) {
+            setFullInfo(MyQueries.getNhaXeByCol("username",request.getParameter("username")));
+            return true;
+        }
+        return false;
+    }
 
-        return new NhaXeLogin(request).run();
+    public void setFullInfo(NhaXe nhaXe) {
+        setIdNhaXe(nhaXe.getIdNhaXe());
+        setPassword(nhaXe.getPassword());
+        setUsername(nhaXe.getUsername());
+        setTenNhaXe(nhaXe.getTenNhaXe());
     }
 
     @Override
     public boolean signup(HttpServletRequest request) {
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return "NhaXe{" +
+                "idNhaXe='" + idNhaXe + '\'' +
+                ", tenNhaXe='" + tenNhaXe + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }
