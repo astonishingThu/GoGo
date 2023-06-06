@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +33,7 @@
           </form>
           <div>
             Bạn chưa có tài khoản?
-            <a href="SignUp__Khach.jsp">Đăng ký</a>
+            <a href="SignUp_Khach.jsp">Đăng ký</a>
           </div>
         </div>
         <div class="login__ill">
@@ -39,5 +41,11 @@
         </div>
         <div class="login__right"></div>
       </div>
+    <c:set var = "connection" scope="request" value="${connection}"/>
+    <c:if test = "${connection!=null}">
+        <c:if test = "${connection==true}">
+            <h2><c:out value="${connection}"/></h2>
+        </c:if>
+    </c:if>
 </body>
 </html>

@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,3 +42,14 @@
       </div>
 </body>
 </html>
+
+<%
+    if (request.getAttribute("connection")!=null) {
+        if (request.getAttribute("connection").equals(true)) {
+            out.print("true");
+        } else {
+            out.print("false");
+        }
+    }
+
+%>
