@@ -14,7 +14,7 @@
         <div class="login__left">
           <h2>Đăng nhập</h2>
           <form class="login__form" action="NhaXeGoGoLogin" method="post">
-            <label abel>Username: </label>
+            <label abel>Tên tài khoản: </label>
             <p class="star">*</p>
             <input
               type="text" name="username"
@@ -37,7 +37,7 @@
           </div>
         </div>
         <div class="login__ill">
-          <img src="/image/Vector1.svg"></img>
+          <img src="image/Vector1.svg"></img>
         </div>
         <div class="login__right"></div>
       </div>
