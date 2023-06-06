@@ -1,6 +1,4 @@
 package com.gogo.swp_gogo.models;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class DataValidator {
@@ -12,7 +10,6 @@ public class DataValidator {
         }
         return false;
     }
-
     public static boolean isAccountValid(String base, String data, String password,String table) {
         return MyQueries.getTableInfoByBase(base, "password",data,table).equals(password);
     }
