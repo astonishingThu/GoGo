@@ -150,6 +150,10 @@
               <label>*Chú thích:</label>
               <div class="icon-bus col-md-8 btn btn-primary ml-3">Ghế VIP</div>
             </div>
+            <div class="mt-5">
+              <label>Phụ thu ghế VIP: </label>
+              <input type="number" class="form-control" id="soGhe" />
+            </div>
           </div>
         </div>
       </div>
@@ -180,22 +184,22 @@
               >
             </li>
             <li class="nav-item">
-              <a href="index.html#services-section" class="nav-link"
+              <a href="#" class="nav-link"
                 ><span>Xe</span></a
               >
             </li>
             <li class="nav-item">
-              <a href="index.html#about-section" class="nav-link"
+              <a href="TuyenDuong_NhaXe.html" class="nav-link"
                 ><span>Tuyến xe</span></a
               >
             </li>
             <li class="nav-item">
-              <a href="index.html#destination-section" class="nav-link"
+              <a href="HanhKhach_NhaXe.html" class="nav-link"
                 ><span>Hành khách</span></a
               >
             </li>
             <li class="nav-item">
-              <a href="index.html#hotel-section" class="nav-link"
+              <a href="index.html#home-section" class="nav-link"
                 ><span>Logout</span></a
               >
             </li>
@@ -220,15 +224,15 @@
           <div class="col-md-9 ftco-animate pb-4">
             <h1 class="mb-3 bread">GoGo xin chào</h1>
             <p>
-              <a href="#" class="btn btn-primary py-2 px-4">Xe chạy</a>
-              <a href="#" class="btn btn-black py-2 px-4">Tuyến xe</a>
+              <a href="#xe" class="btn btn-primary py-2 px-4">Xe chạy</a>
+              <a href="TuyenDuong_NhaXe.html" class="btn btn-black py-2 px-4">Tuyến xe</a>
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="ftco-section ftco-services-2 ftco-no-pt">
+    <section class="ftco-section ftco-services-2 ftco-no-pt" id="xe">
       <div class="container">
         <div class="row">
           <div class="col-md-12 mb-5">
@@ -236,30 +240,37 @@
               <div class="col-md-3 ftco-animate">
                 <img src="images/about.jpg" class="img-fluid" />
               </div>
-              <div class="col-md-5 ftco-animate">
+              <div class="col-md-3 ftco-animate">
                 <div class="text py-5">
                   <h3>74MĐ-000000</h3>
                   <p class="pos">
-                    Giường nằm - <span class="price">300000đ </span> - 42 chỗ
+                    Giường nằm - 42 chỗ
                   </p>
+                  <p class="price">300.000đ </p>
                   <p>Khăn ướt, điều hòa</p>
                   <p>
-                    <button class="btn btn-secondary">Chỉnh sửa</button>
+                    <button class="btn btn-secondary js-chinhsua">Chỉnh sửa</button>
                     <button class="btn btn-primary js-del-cf-btn">Xóa</button>
                   </p>
                 </div>
               </div>
-              <div class="col-md-4 ftco-animate dsLoTrinh">
+              <div class="col-md-6 ftco-animate dsLoTrinh">
                 <h3>Tuyến chạy</h3>
                 <div class="loTrinh">
+                  <div>T01</div>
                   <div class="noiXuatPhat">Hà Nội</div>
                   <div><div class="icon-exchange"></div></div>
                   <div class="dichDen">Đà Nẵng</div>
+                  <div>03 Tháng 6, 09:30</div>
+
                 </div>
                 <div class="loTrinh">
+                  <div>T02</div>
                   <div class="noiXuatPhat">Hà Nội</div>
                   <div><div class="icon-exchange"></div></div>
                   <div class="dichDen">Đà Nẵng</div>
+                  <div>03 Tháng 6, 14:00</div>
+
                 </div>
               </div>
               <div class="del-cf js-del-cf">
@@ -464,6 +475,7 @@
       const soDoGhe = document.querySelector(".js-soDoGhe");
       const confirmDels = document.querySelectorAll(".js-del-cf");
       const modal__closer = document.querySelector(".js-close");
+      const modal__opener2 = document.querySelector(".js-chinhsua");
       const modal__opener = document.querySelector(".js-addXe");
       const soDo__opener = document.querySelector(".js-xemSoDo");
 
@@ -478,6 +490,7 @@
       }
       modal__closer.addEventListener("click", closeModal);
       modal__opener.addEventListener("click", openModal);
+      modal__opener2.addEventListener("click", openModal);
       soDo__opener.addEventListener("click", openSoDo);
     </script>
 

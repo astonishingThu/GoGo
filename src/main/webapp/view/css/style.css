@@ -8773,7 +8773,7 @@ h1, h2, h3, h4, h5,
   display: block;
   overflow: hidden;
   z-index: 0;
-  margin-bottom: 50px; }
+  margin-bottom: 10px; }
   .project .img {
     position: relative;
     overflow: hidden;
@@ -9120,7 +9120,7 @@ textarea.form-control {
   font-size: 24px; }
 
 .ftco-section {
-  padding: 7em 0;
+  padding: 3em 0;
   position: relative; }
   @media (max-width: 767.98px) {
     .ftco-section {
@@ -9421,7 +9421,7 @@ textarea.form-control {
       .testimony-wrap .user-img .quote i {
         color: #fff; }
   .testimony-wrap .text {
-    padding-top: 6em;
+    padding-top: 4em;
     margin-top: -65px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;

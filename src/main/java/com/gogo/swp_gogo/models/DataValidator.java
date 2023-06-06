@@ -11,7 +11,6 @@ public class DataValidator {
         }
         return false;
     }
-
     public static boolean isAccountValid(String base, String data, String password,String table) {
         return MyQueries.getTableInfoByBase(base, "password",data,table).equals(password);
     }
