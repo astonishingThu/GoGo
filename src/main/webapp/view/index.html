@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="myCSS/newStyle.css">
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target" id="ftco-navbar">
@@ -36,8 +37,20 @@
 	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Trang chủ</span></a></li>
 	          <li class="nav-item"><a href="#tuyenDuong" class="nav-link"><span>Tuyến đường</span></a></li>
 	          <li class="nav-item"><a href="#uuDai" class="nav-link"><span>Ưu đãi</span></a></li>
-	          <li class="nav-item"><a href="Login_Khach.html" class="nav-link"><span>Đăng nhập</span></a></li>
-	          <li class="nav-item"><a href="SignUp_Khach.html" class="nav-link"><span>Đăng ký</span></a></li>
+            <li class="nav-item has-children">
+              <a class="nav-link"><span>Đăng nhập</span></a>
+              <ul class="dropdown">
+                <li><a href="Login_Khach.html">Hành khách</a></li>
+                <li><a href="Login_NhaXe.html">Nhà xe</a></li>
+              </ul>
+            </li>
+	          <li class="nav-item has-children">
+              <a href="SignUp_Khach.html" class="nav-link"><span>Đăng ký</span></a>
+              <ul class="dropdown">
+                <li><a href="SignUp_Khach.html">Hành khách</a></li>
+                <li><a href="SignUp_NhaXe.html">Nhà xe</a></li>
+              </ul>
+            </li>
 	          <!-- <li class="nav-item"><a href="#destination-section" class="nav-link"><span>Destination</span></a></li>
 	          <li class="nav-item"><a href="#hotel-section" class="nav-link"><span>Hotel</span></a></li>
 	          <li class="nav-item"><a href="#restaurant-section" class="nav-link"><span>Restaurant</span></a></li>
