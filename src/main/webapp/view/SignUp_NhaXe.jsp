@@ -19,9 +19,9 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav nav ml-auto">
-                <li class="nav-item"><a href="#home-section" class="nav-link"><span>Trang chủ</span></a></li>
-                <li class="nav-item"><a href="#" class="nav-link"><span>Ưu đãi</span></a></li>
-                <li class="nav-item"><a href="#" class="nav-link"><span>Tuyến đường</span></a></li>
+                <li class="nav-item"><a href="index.html#home-section" class="nav-link"><span>Trang chủ</span></a></li>
+                <li class="nav-item"><a href="index.html#uuDai" class="nav-link"><span>Ưu đãi</span></a></li>
+                <li class="nav-item"><a href="index.html#tuyenDuong" class="nav-link"><span>Tuyến đường</span></a></li>
                 <li class="nav-item has-children">
                     <a class="nav-link"><span>Đăng nhập</span></a>
                     <ul class="dropdown">
@@ -132,7 +132,7 @@
 </section>
 
 
-<footer class="ftco-footer ftco-section">
+<!-- <footer class="ftco-footer ftco-section">
     <div class="container">
         <div class="row mb-5">
             <div class="col-md">
@@ -201,7 +201,7 @@
             </div>
         </div>
     </div>
-</footer>
+</footer> -->
 
 
 <!-- loader -->

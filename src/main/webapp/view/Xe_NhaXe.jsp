@@ -5,8 +5,8 @@
   Time: 8:54 AM
   To change this template use File | Settings | File Templates.
 --%>
-<jsp:include page="Head.jsp"></jsp:include>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:include page="Head.jsp"></jsp:include>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 <div class="modal js-modal">
     <div class="addXe">
@@ -35,7 +35,7 @@
                     </div>
                     <div class="form-group ml-3">
                         <label for="#">Sơ đồ ghế *</label>
-                        <button class="xemSoDo btn btn-secondary mt-2 js-xemSoDo">
+                        <button class="xemSoDo btn btn-secondary mt-2 " onclick="openSoDo()">
                             Xem sơ đồ
                         </button>
                     </div>
@@ -51,16 +51,21 @@
             </form>
         </div>
         <div id="soDoGhe" class="col-md-6 soDoGhe pt-5 js-soDoGhe">
-            <h4 id="titleGhe">32 ghế</h4>
-            <div class="row p-5">
-                <div class="col-md-6" id="hang-1"></div>
-                <div class="col-md-6" id="hang-2"></div>
-                <div class="mt-5">
-                    <label>*Chú thích:</label>
-                    <div class="icon-bus col-md-8 btn btn-primary ml-3">Ghế VIP</div>
+            <form type="hidden" action>
+                <h4 id="titleGhe">32 ghế</h4>
+                <div class="row p-5">
+                    <div class="col-md-6" id="hang-1"></div>
+                    <div class="col-md-6" id="hang-2"></div>
+                    <div class="mt-5">
+                        <label>*Chú thích:</label>
+                        <div class="icon-bus col-md-8 btn btn-primary ml-3">Ghế VIP</div>
+                    </div>
+                    <div class="mt-5">
+                        <label>*Phụ thu ghế VIP:</label>
+                        <input type="number" class="form-control" id="soGhe" />
+                    </div>
                 </div>
-                
-            </div>
+            </form>
         </div>
     </div>
 </div>
@@ -302,7 +307,6 @@
     const confirmDels = document.querySelectorAll(".js-del-cf");
     const modal__closer = document.querySelector(".js-close");
     const modal__opener = document.querySelector(".js-addXe");
-    const soDo__opener = document.querySelector(".js-xemSoDo");
 
     function closeModal() {
         modal.classList.remove("open");
@@ -325,26 +329,33 @@
             let ghe = document.createElement("div");
             hang1.append(ghe);
             ghe.className = "icon-bus col-md-5 btn btn-secondary m-1";
-            ghe.id = "ghe"+Math.round(i);
-            ghe.setAttribute("onclick", "gheVip('ghe"+Math.round(i)+"')");
-            ghe.innerHTML = "A" + Math.round(i);
+            ghe.id = ""+Math.round(i);
+            ghe.innerHTML = ghe.id;
+            ghe.setAttribute("onclick","setGheVip("+Math.round(i)+")");
         }
         for (let i = (soGhe.value/2+1); i <= soGhe.value; i++) {
             let ghe = document.createElement("div");
             hang2.append(ghe);
             ghe.className = "icon-bus col-md-5 btn btn-secondary m-1";
-            ghe.id = "ghe"+Math.round(i);
-            ghe.setAttribute("onclick", "gheVip('ghe"+Math.round(i)+"')");
-            ghe.innerHTML = "A" + Math.round(i);
+            ghe.id = ""+Math.round(i);
+            ghe.innerHTML = ghe.id;
+            ghe.setAttribute("onclick","setGheVip("+Math.round(i)+")");
         }
     }
-    function gheVip(id) {
+    function setGheVip(id) {
+        let vip = false;
         let ghe = document.getElementById(id);
-        ghe.className = "icon-bus col-md-5 btn btn-primary m-1";
+        if (ghe.classList.contains("btn-secondary")){
+            vip = true;
+            ghe.className = "icon-bus col-md-5 btn btn-primary m-1";
+        } else {
+            vip = false;
+            ghe.className = "icon-bus col-md-5 btn btn-secondary m-1";
+        }
     }
+
     modal__closer.addEventListener("click", closeModal);
     modal__opener.addEventListener("click", openModal);
-    soDo__opener.addEventListener("click", openSoDo);
 </script>
 <script>
     $(document).ready(function () {
