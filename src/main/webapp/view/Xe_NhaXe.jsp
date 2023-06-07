@@ -82,13 +82,13 @@
                     <a href="#" class="nav-link"><span>Xe</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="TuyenDuong_NhaXe.html" class="nav-link"><span>Tuyến xe</span></a>
+                    <a href="TuyenDuong_NhaXe.jsp" class="nav-link"><span>Tuyến xe</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="HanhKhach_NhaXe.html" class="nav-link"><span>Hành khách</span></a>
+                    <a href="HanhKhach_NhaXe.jsp" class="nav-link"><span>Hành khách</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="index.html#home-section" class="nav-link"><span>Logout</span></a>
+                    <a href="index.jsp#home-section" class="nav-link"><span>Logout</span></a>
                 </li>
                 <!-- <li class="nav-item"><a href="index.html#restaurant-section" class="nav-link"><span>Restaurant</span></a></li>
                     <li class="nav-item"><a href="index.html#blog-section" class="nav-link"><span>Blog</span></a></li>
@@ -107,7 +107,7 @@
                 <h1 class="mb-3 bread">GoGo xin chào</h1>
                 <p>
                     <a href="#xe" class="btn btn-primary py-2 px-4">Xe chạy</a>
-                    <a href="TuyenDuong_NhaXe.html#tuyenDuong" class="btn btn-black py-2 px-4">Tuyến xe</a>
+                    <a href="TuyenDuong_NhaXe.jsp#tuyenDuong" class="btn btn-black py-2 px-4">Tuyến xe</a>
                 </p>
             </div>
         </div>

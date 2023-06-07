@@ -22,15 +22,15 @@
                 <li class="nav-item has-children">
                     <a class="nav-link"><span>Đăng nhập</span></a>
                     <ul class="dropdown">
-                        <li><a href="Login_Khach.html">Hành khách</a></li>
-                        <li><a href="Login_NhaXe.html">Nhà xe</a></li>
+                        <li><a href="Login_Khach.jsp">Hành khách</a></li>
+                        <li><a href="Login_NhaXe.jsp">Nhà xe</a></li>
                     </ul>
                 </li>
                 <li class="nav-item has-children">
-                    <a href="SignUp_Khach.html" class="nav-link"><span>Đăng ký</span></a>
+                    <a href="SignUp_Khach.jsp" class="nav-link"><span>Đăng ký</span></a>
                     <ul class="dropdown">
-                        <li><a href="SignUp_Khach.html">Hành khách</a></li>
-                        <li><a href="SignUp_NhaXe.html">Nhà xe</a></li>
+                        <li><a href="SignUp_Khach.jsp">Hành khách</a></li>
+                        <li><a href="SignUp_NhaXe.jsp">Nhà xe</a></li>
                     </ul>
                 </li>
                 <!-- <li class="nav-item"><a href="#destination-section" class="nav-link"><span>Destination</span></a></li>
@@ -157,7 +157,7 @@
                                 <div class="project">
                                     <div class="img">
                                         <div class="vr"><span>Giảm giá</span></div>
-                                        <a href="destination-single.html"
+                                        <a href="destination-single.jsp"
                                         ><img
                                                 src="images/destination-1.jpg"
                                                 class="img-fluid"
@@ -170,7 +170,7 @@
                                         </h4>
                                         <span>TOP 1: Thời gian?</span>
                                         <h3>
-                                            <a href="destination-single.html"
+                                            <a href="destination-single.jsp"
                                             >Đà Nẵng - Hà Nội</a
                                             >
                                         </h3>
@@ -190,12 +190,12 @@
                             <div class="col-md-12 ftco-animate">
                                 <div class="project">
                                     <div class="img">
-                                        <a href="destination-single.html"><img src="images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
+                                        <a href="destination-single.jsp"><img src="images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
                                         <h4 class="price">300 000Đ</h4>
                                         <span>15 Days Tour</span>
-                                        <h3><a href="destination-single.html">Gurtnellen, Swetzerland</a></h3>
+                                        <h3><a href="destination-single.jsp">Gurtnellen, Swetzerland</a></h3>
                                     </div>
                                     <a href="images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
@@ -209,12 +209,12 @@
                             <div class="col-md-12 ftco-animate">
                                 <div class="project">
                                     <div class="img">
-                                        <a href="destination-single.html"><img src="images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
+                                        <a href="destination-single.jsp"><img src="images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
                                         <h4 class="price">$400</h4>
                                         <span>15 Days Tour</span>
-                                        <h3><a href="destination-single.html">Gurtnellen, Swetzerland</a></h3>
+                                        <h3><a href="destination-single.jsp">Gurtnellen, Swetzerland</a></h3>
                                     </div>
                                     <a href="images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
@@ -228,12 +228,12 @@
                             <div class="col-md-12 ftco-animate">
                                 <div class="project">
                                     <div class="img">
-                                        <a href="destination-single.html"><img src="images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
+                                        <a href="destination-single.jsp"><img src="images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
                                         <h4 class="price">$400</h4>
                                         <span>15 Days Tour</span>
-                                        <h3><a href="destination-single.html">Gurtnellen, Swetzerland</a></h3>
+                                        <h3><a href="destination-single.jsp">Gurtnellen, Swetzerland</a></h3>
                                     </div>
                                     <a href="images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
@@ -247,12 +247,12 @@
                             <div class="col-md-12 ftco-animate">
                                 <div class="project">
                                     <div class="img">
-                                        <a href="destination-single.html"><img src="images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
+                                        <a href="destination-single.jsp"><img src="images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
                                         <h4 class="price">$400</h4>
                                         <span>15 Days Tour</span>
-                                        <h3><a href="destination-single.html">Gurtnellen, Swetzerland</a></h3>
+                                        <h3><a href="destination-single.jsp">Gurtnellen, Swetzerland</a></h3>
                                     </div>
                                     <a href="images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
@@ -266,12 +266,12 @@
                             <div class="col-md-12 ftco-animate">
                                 <div class="project">
                                     <div class="img">
-                                        <a href="destination-single.html"><img src="images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
+                                        <a href="destination-single.jsp"><img src="images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
                                         <h4 class="price">$400</h4>
                                         <span>15 Days Tour</span>
-                                        <h3><a href="destination-single.html">Gurtnellen, Swetzerland</a></h3>
+                                        <h3><a href="destination-single.jsp">Gurtnellen, Swetzerland</a></h3>
                                     </div>
                                     <a href="images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
@@ -301,7 +301,7 @@
         <div class="row d-flex">
             <div class="col-md-6 col-lg-4 d-flex ftco-animate">
                 <div class="blog-entry justify-content-end">
-                    <a href="single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+                    <a href="single.jsp" class="block-20" style="background-image: url('images/image_1.jpg');">
                     </a>
                     <div class="text float-right d-block">
                         <div class="d-flex align-items-center pt-2 mb-4 topp">
@@ -313,7 +313,7 @@
                                 <span class="mos">april</span>
                             </div>
                         </div>
-                        <h3 class="heading"><a href="single.html">Why Lead Generation is Key for Business Growth</a></h3>
+                        <h3 class="heading"><a href="single.jsp">Why Lead Generation is Key for Business Growth</a></h3>
                         <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                         <div class="d-flex align-items-center mt-4 meta">
                             <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
@@ -327,7 +327,7 @@
             </div>
             <div class="col-md-6 col-lg-4 d-flex ftco-animate">
                 <div class="blog-entry justify-content-end">
-                    <a href="single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
+                    <a href="single.jsp" class="block-20" style="background-image: url('images/image_2.jpg');">
                     </a>
                     <div class="text float-right d-block">
                         <div class="d-flex align-items-center pt-2 mb-4 topp">
@@ -339,7 +339,7 @@
                                 <span class="mos">april</span>
                             </div>
                         </div>
-                        <h3 class="heading"><a href="single.html">Why Lead Generation is Key for Business Growth</a></h3>
+                        <h3 class="heading"><a href="single.jsp">Why Lead Generation is Key for Business Growth</a></h3>
                         <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                         <div class="d-flex align-items-center mt-4 meta">
                             <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
@@ -353,7 +353,7 @@
             </div>
             <div class="col-md-6 col-lg-4 d-flex ftco-animate">
                 <div class="blog-entry">
-                    <a href="single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
+                    <a href="single.jsp" class="block-20" style="background-image: url('images/image_3.jpg');">
                     </a>
                     <div class="text float-right d-block">
                         <div class="d-flex align-items-center pt-2 mb-4 topp">
@@ -365,7 +365,7 @@
                                 <span class="mos">april</span>
                             </div>
                         </div>
-                        <h3 class="heading"><a href="single.html">Ưu đãi</a></h3>
+                        <h3 class="heading"><a href="single.jsp">Ưu đãi</a></h3>
                         <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                         <div class="d-flex align-items-center mt-4 meta">
                             <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>

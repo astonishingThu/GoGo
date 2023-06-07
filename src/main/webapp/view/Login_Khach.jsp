@@ -35,7 +35,7 @@
             </form>
             <div>
                 Bạn chưa có tài khoản?
-                <a href="#">Đăng ký</a>
+                <a href="SignUp_Khach.jsp">Đăng ký</a>
             </div>
         </div>
     </div>

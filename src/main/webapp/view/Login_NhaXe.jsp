@@ -35,7 +35,7 @@
             </form>
             <div>
                 Bạn chưa có tài khoản?
-                <a href="SignUp_NhaXe.html">Đăng ký</a>
+                <a href="SignUp_NhaXe.jsp">Đăng ký</a>
             </div>
         </div>
     </div>
