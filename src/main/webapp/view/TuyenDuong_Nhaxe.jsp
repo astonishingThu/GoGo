@@ -26,19 +26,23 @@
                     >
                 </li>
                 <li class="nav-item">
-                    <a href="Xe_NhaXe.html#xe" class="nav-link"
+                    <a href="Xe_NhaXe.jsp#xe" class="nav-link"
                     ><span>Xe</span></a
                     >
                 </li>
-                <li class="nav-item">
-                    <a href="TuyenDuong_NhaXe.html" class="nav-link"
-                    ><span>Tuyến xe</span></a
-                    >
+                <li class="nav-item has-children">
+                    <a class="nav-link"><span>Đăng nhập</span></a>
+                    <ul class="dropdown">
+                        <li><a href="Login_Khach.jsp">Hành khách</a></li>
+                        <li><a href="Login_NhaXe.jsp">Nhà xe</a></li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="HanhKhach_NhaXe.html" class="nav-link"
-                    ><span>Hành khách</span></a
-                    >
+                <li class="nav-item has-children">
+                    <a href="SignUp_Khach.jsp" class="nav-link"><span>Đăng ký</span></a>
+                    <ul class="dropdown">
+                        <li><a href="SignUp_Khach.jsp">Hành khách</a></li>
+                        <li><a href="SignUp_NhaXe.jsp">Nhà xe</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a href="index.html#home-section" class="nav-link"
@@ -63,7 +67,7 @@
             <div class="col-md-9 ftco-animate pb-4">
                 <h1 class="mb-3 bread">GoGo xin chào</h1>
                 <p>
-                    <a href="Xe_NhaXe.html#xe" class="btn btn-primary py-2 px-4">Xe chạy</a>
+                    <a href="Xe_NhaXe.jsp#xe" class="btn btn-primary py-2 px-4">Xe chạy</a>
                     <a href="#tuyenDuong" class="btn btn-black py-2 px-4">Tuyến xe</a>
                 </p>
             </div>

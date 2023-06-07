@@ -8,10 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="Head.jsp"></jsp:include>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target" id="ftco-navbar">
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
+     id="ftco-navbar">
     <div class="container">
         <a class="navbar-brand" href="index.html">GoGo</a>
-        <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
+                data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
         </button>
 
@@ -20,8 +22,20 @@
                 <li class="nav-item"><a href="#home-section" class="nav-link"><span>Trang chủ</span></a></li>
                 <li class="nav-item"><a href="#" class="nav-link"><span>Ưu đãi</span></a></li>
                 <li class="nav-item"><a href="#" class="nav-link"><span>Tuyến đường</span></a></li>
-                <li class="nav-item"><a href="#" class="nav-link"><span>Đăng nhập</span></a></li>
-                <li class="nav-item"><a href="#" class="nav-link"><span>Đăng ký</span></a></li>
+                <li class="nav-item has-children">
+                    <a class="nav-link"><span>Đăng nhập</span></a>
+                    <ul class="dropdown">
+                        <li><a href="Login_Khach.jsp">Hành khách</a></li>
+                        <li><a href="Login_NhaXe.jsp">Nhà xe</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item has-children">
+                    <a href="SignUp_Khach.jsp" class="nav-link"><span>Đăng ký</span></a>
+                    <ul class="dropdown">
+                        <li><a href="SignUp_Khach.jsp">Hành khách</a></li>
+                        <li><a href="SignUp_NhaXe.jsp">Nhà xe</a></li>
+                    </ul>
+                </li>
                 <!-- <li class="nav-item"><a href="#destination-section" class="nav-link"><span>Destination</span></a></li>
                 <li class="nav-item"><a href="#hotel-section" class="nav-link"><span>Hotel</span></a></li>
                 <li class="nav-item"><a href="#restaurant-section" class="nav-link"><span>Restaurant</span></a></li>
@@ -55,7 +69,8 @@
                         <input type="text" class="form-control" placeholder="Số điện thoại">
                     </div>
                     <div class="form-group">
-                        <textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="Lời nhắn"></textarea>
+                        <textarea name="" id="" cols="30" rows="3" class="form-control"
+                                  placeholder="Lời nhắn"></textarea>
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Nhận tư vấn" class="btn btn-primary py-3 px-5">
@@ -123,7 +138,8 @@
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
                     <h2 class="ftco-heading-2">About <span><a href="index.html">Ecoland</a></span></h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
+                        live the blind texts.</p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                         <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                         <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -162,9 +178,12 @@
                     <h2 class="ftco-heading-2">Have a Questions?</h2>
                     <div class="block-23 mb-3">
                         <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+                            <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span>
+                            </li>
+                            <li><a href="#"><span class="icon icon-phone"></span><span
+                                    class="text">+2 392 3929 210</span></a></li>
+                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -174,7 +193,10 @@
             <div class="col-md-12 text-center">
 
                 <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                    All rights reserved | This template is made with <i class="icon-heart color-danger"
+                                                                        aria-hidden="true"></i> by <a
+                            href="https://colorlib.com" target="_blank">Colorlib</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
             </div>
         </div>
@@ -182,9 +204,14 @@
 </footer>
 
 
-
 <!-- loader -->
-<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
 
 
 <script src="js/jquery.min.js"></script>
