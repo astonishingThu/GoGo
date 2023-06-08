@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: BaoNgoc.
@@ -7,6 +8,9 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="Head.jsp"></jsp:include>
+<%--set bien nha xe--%>
+<c:set var = "nhaXe" scope="request" value="${nhaXe}"/>
+<c:out value="${nhaXe.username}"/>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 <div class="modal js-modal">
     <div class="addXe">
@@ -93,7 +97,7 @@
                     <a href="view/HanhKhach_NhaXe.jsp" class="nav-link"><span>Hành khách</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="../index.jsp#home-section" class="nav-link"><span>Logout</span></a>
+                    <a href="${pageContext.request.contextPath}/index.jsp" class="nav-link"><span>Logout</span></a>
                 </li>
             </ul>
         </div>
