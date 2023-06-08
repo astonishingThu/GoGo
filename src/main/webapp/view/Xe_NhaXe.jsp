@@ -87,10 +87,10 @@
                     <a href="#" class="nav-link"><span>Xe</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="TuyenDuong_NhaXe.jsp#tuyenDuong" class="nav-link"><span>Tuyến xe</span></a>
+                    <a href="view/TuyenDuong_NhaXe.jsp#tuyenDuong" class="nav-link"><span>Tuyến xe</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="HanhKhach_NhaXe.jsp" class="nav-link"><span>Hành khách</span></a>
+                    <a href="view/HanhKhach_NhaXe.jsp" class="nav-link"><span>Hành khách</span></a>
                 </li>
                 <li class="nav-item">
                     <a href="../index.jsp#home-section" class="nav-link"><span>Logout</span></a>
