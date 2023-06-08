@@ -93,7 +93,7 @@
                     <a href="HanhKhach_NhaXe.jsp" class="nav-link"><span>Hành khách</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="index.jsp#home-section" class="nav-link"><span>Logout</span></a>
+                    <a href="../index.jsp#home-section" class="nav-link"><span>Logout</span></a>
                 </li>
                 <!-- <li class="nav-item"><a href="index.html#restaurant-section" class="nav-link"><span>Restaurant</span></a></li>
                     <li class="nav-item"><a href="index.html#blog-section" class="nav-link"><span>Blog</span></a></li>

@@ -5,11 +5,12 @@
   Time: 10:08 AM
   To change this template use File | Settings | File Templates.
 --%>
-<jsp:include page="Head.jsp"></jsp:include>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:include page="view/Head.jsp"></jsp:include>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="index.html">GoGo</a>
+        <a class="navbar-brand" href="view/index.html">GoGo</a>
         <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
         </button>
@@ -22,15 +23,15 @@
                 <li class="nav-item has-children">
                     <a class="nav-link"><span>Đăng nhập</span></a>
                     <ul class="dropdown">
-                        <li><a href="Login_Khach.jsp">Hành khách</a></li>
-                        <li><a href="Login_NhaXe.jsp">Nhà xe</a></li>
+                        <li><a href="GoGoLogin">Hành khách</a></li>
+                        <li><a href="NhaXeGoGoLogin">Nhà xe</a></li>
                     </ul>
                 </li>
                 <li class="nav-item has-children">
-                    <a href="SignUp_Khach.jsp" class="nav-link"><span>Đăng ký</span></a>
+                    <a href="view/SignUp_Khach.jsp" class="nav-link"><span>Đăng ký</span></a>
                     <ul class="dropdown">
-                        <li><a href="SignUp_Khach.jsp">Hành khách</a></li>
-                        <li><a href="SignUp_NhaXe.jsp">Nhà xe</a></li>
+                        <li><a href="view/SignUp_Khach.jsp">Hành khách</a></li>
+                        <li><a href="view/SignUp_NhaXe.jsp">Nhà xe</a></li>
                     </ul>
                 </li>
                 <!-- <li class="nav-item"><a href="#destination-section" class="nav-link"><span>Destination</span></a></li>
@@ -44,18 +45,18 @@
 </nav>
 
 <section id="home-section" class="hero">
-    <img src="images/blob-shape-3.svg" class="svg-blob" alt="Colorlib Free Template">
+    <img src="<%=request.getContextPath()%>/view/images/blob-shape-3.svg" class="svg-blob" alt="Colorlib Free Template">
     <div class="home-slider owl-carousel">
         <div class="slider-item">
             <div class="overlay"></div>
             <div class="container-fluid p-0">
                 <div class="row d-md-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
                     <div class="one-third order-md-last">
-                        <div class="img" style="background-image:url(images/bg_1.jpg);">
+                        <div class="img" style="background-image:url(view/images/bg_1.jpg);">
                             <div class="overlay"></div>
                         </div>
                         <div class="bg-primary">
-                            <div class="vr"><span class="pl-3 py-4" style="background-image: url(images/bg_1-1.jpg);">GoGo</span></div>
+                            <div class="vr"><span class="pl-3 py-4" style="background-image: url(view/images/bg_1-1.jpg);">GoGo</span></div>
                         </div>
                     </div>
                     <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
@@ -159,7 +160,7 @@
                                         <div class="vr"><span>Giảm giá</span></div>
                                         <a href="destination-single.jsp"
                                         ><img
-                                                src="images/destination-1.jpg"
+                                                src="<%=request.getContextPath()%>/view/images/destination-1.jpg"
                                                 class="img-fluid"
                                                 alt="Colorlib Template"
                                         /></a>
@@ -176,7 +177,7 @@
                                         </h3>
                                     </div>
                                     <a
-                                            href="images/destination-1.jpg"
+                                            href="<%=request.getContextPath()%>/view/images/destination-1.jpg"
                                             class="icon image-popup d-flex justify-content-center align-items-center"
                                     >
                                         <span class="icon-expand"></span>
@@ -190,14 +191,14 @@
                             <div class="col-md-12 ftco-animate">
                                 <div class="project">
                                     <div class="img">
-                                        <a href="destination-single.jsp"><img src="images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
+                                        <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img src="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
                                         <h4 class="price">300 000Đ</h4>
                                         <span>15 Days Tour</span>
-                                        <h3><a href="destination-single.jsp">Gurtnellen, Swetzerland</a></h3>
+                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Gurtnellen, Swetzerland</a></h3>
                                     </div>
-                                    <a href="images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                                    <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
                                     </a>
                                 </div>
@@ -209,14 +210,14 @@
                             <div class="col-md-12 ftco-animate">
                                 <div class="project">
                                     <div class="img">
-                                        <a href="destination-single.jsp"><img src="images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
+                                        <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img src="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
                                         <h4 class="price">$400</h4>
                                         <span>15 Days Tour</span>
-                                        <h3><a href="destination-single.jsp">Gurtnellen, Swetzerland</a></h3>
+                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Gurtnellen, Swetzerland</a></h3>
                                     </div>
-                                    <a href="images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                                    <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
                                     </a>
                                 </div>
@@ -228,14 +229,14 @@
                             <div class="col-md-12 ftco-animate">
                                 <div class="project">
                                     <div class="img">
-                                        <a href="destination-single.jsp"><img src="images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
+                                        <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img src="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
                                         <h4 class="price">$400</h4>
                                         <span>15 Days Tour</span>
-                                        <h3><a href="destination-single.jsp">Gurtnellen, Swetzerland</a></h3>
+                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Gurtnellen, Swetzerland</a></h3>
                                     </div>
-                                    <a href="images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                                    <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
                                     </a>
                                 </div>
@@ -247,14 +248,14 @@
                             <div class="col-md-12 ftco-animate">
                                 <div class="project">
                                     <div class="img">
-                                        <a href="destination-single.jsp"><img src="images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
+                                        <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img src="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
                                         <h4 class="price">$400</h4>
                                         <span>15 Days Tour</span>
-                                        <h3><a href="destination-single.jsp">Gurtnellen, Swetzerland</a></h3>
+                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Gurtnellen, Swetzerland</a></h3>
                                     </div>
-                                    <a href="images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                                    <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
                                     </a>
                                 </div>
@@ -266,14 +267,14 @@
                             <div class="col-md-12 ftco-animate">
                                 <div class="project">
                                     <div class="img">
-                                        <a href="destination-single.jsp"><img src="images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
+                                        <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img src="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
                                         <h4 class="price">$400</h4>
                                         <span>15 Days Tour</span>
-                                        <h3><a href="destination-single.jsp">Gurtnellen, Swetzerland</a></h3>
+                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Gurtnellen, Swetzerland</a></h3>
                                     </div>
-                                    <a href="images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                                    <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
                                     </a>
                                 </div>
@@ -301,7 +302,7 @@
         <div class="row d-flex">
             <div class="col-md-6 col-lg-4 d-flex ftco-animate">
                 <div class="blog-entry justify-content-end">
-                    <a href="single.jsp" class="block-20" style="background-image: url('images/image_1.jpg');">
+                    <a href="single.jsp" class="block-20" style="background-image: url('view/images/image_1.jpg');">
                     </a>
                     <div class="text float-right d-block">
                         <div class="d-flex align-items-center pt-2 mb-4 topp">
@@ -327,7 +328,7 @@
             </div>
             <div class="col-md-6 col-lg-4 d-flex ftco-animate">
                 <div class="blog-entry justify-content-end">
-                    <a href="single.jsp" class="block-20" style="background-image: url('images/image_2.jpg');">
+                    <a href="single.jsp" class="block-20" style="background-image: url('view/images/image_2.jpg');">
                     </a>
                     <div class="text float-right d-block">
                         <div class="d-flex align-items-center pt-2 mb-4 topp">
@@ -353,7 +354,7 @@
             </div>
             <div class="col-md-6 col-lg-4 d-flex ftco-animate">
                 <div class="blog-entry">
-                    <a href="single.jsp" class="block-20" style="background-image: url('images/image_3.jpg');">
+                    <a href="single.jsp" class="block-20" style="background-image: url('view/images/image_3.jpg');">
                     </a>
                     <div class="text float-right d-block">
                         <div class="d-flex align-items-center pt-2 mb-4 topp">
@@ -386,7 +387,7 @@
         <div class="row mb-5">
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">About <span><a href="index.html">Ecoland</a></span></h2>
+                    <h2 class="ftco-heading-2">About <span><a href="view/index.html">Ecoland</a></span></h2>
                     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                         <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
@@ -451,22 +452,22 @@
 <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery-migrate-3.0.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.easing.1.3.js"></script>
-<script src="js/jquery.waypoints.min.js"></script>
-<script src="js/jquery.stellar.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/aos.js"></script>
-<script src="js/jquery.animateNumber.min.js"></script>
-<script src="js/scrollax.min.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/jquery.min.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/popper.min.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/bootstrap.min.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/jquery.easing.1.3.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/jquery.waypoints.min.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/jquery.stellar.min.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/owl.carousel.min.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/jquery.magnific-popup.min.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/aos.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/jquery.animateNumber.min.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/scrollax.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script src="js/google-map.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/google-map.js"></script>
 
-<script src="js/main.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/main.js"></script>
 
 </body>
 </html>

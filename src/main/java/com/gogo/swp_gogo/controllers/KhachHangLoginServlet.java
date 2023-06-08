@@ -14,8 +14,9 @@ import java.io.PrintWriter;
 @WebServlet(name="loginServlet", value = "/GoGoLogin")
 public class KhachHangLoginServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/view/Login_Khach.jsp");
+        requestDispatcher.forward(req,resp);
     }
 
     @Override
