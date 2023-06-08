@@ -78,92 +78,75 @@
 
 <section class="ftco-section ftco-services-2 ftco-no-pt">
     <div class="container">
-        <div class="modal">
-            <div class="addTuyenDuong row">
-                <div class="col-md-8">
-                    <form action="#" class="p-5 bg-light">
-                        <h3 class="mb-5">Thêm tuyến</h3>
-                        <div class="ghe">
-                            <div class="form-group">
-                                <label for="name">Nơi đi *</label>
-                                <input type="text" class="form-control" id="name"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="loaiXe">Nơi đến *</label>
-                                <input type="text" class="form-control" id="name"/>
-                            </div>
-                        </div>
-                        <div class="ghe">
-                            <div class="form-group">
-                                <label for="name">Điểm đón *</label>
-                                <input type="text" class="form-control" id="name"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="loaiXe">Điểm trả *</label>
-                                <input type="text" class="form-control" id="name"/>
-                            </div>
-                        </div>
-                        <div class="ghe">
-                            <div class="form-group">
-                                <label for="name">Giờ khởi hành *</label>
-                                <input type="text" class="form-control" id="name"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="loaiXe">Ngày khởi hành *</label>
-                                <input type="text" class="form-control" id="name"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="loaiXe">Thời gian di chuyển *</label>
+        <div class="modal js-modal">
+            <div class="addTuyenDuong col-md-8 ">
+                <div class="icon-close js-close" onclick="closeModal()"></div>
+                <form action="#" class="p-5 bg-light">
+                    <h4 class="mb-2">Thêm tuyến</h4>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="name">Nơi đi *</label>
                             <input type="text" class="form-control" id="name"/>
                         </div>
-                        <div class="form-group">
-                            <label for="loaiXe">Giá vé *</label>
+                        <div class="form-group col-md-6">
+                            <label for="loaiXe">Nơi đến *</label>
                             <input type="text" class="form-control" id="name"/>
-                        </div>
-                        <div class="ghe">
-                            <div class="form-group">
-                                <label for="soGhe">Danh sách xe chạy *</label>
-                                <input type="text" class="form-control" id="soGhe"/>
-                            </div>
-                            <div class="mt-5">
-                                <button class="btn btn-secondary">Chọn</button>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <input
-                                    type="submit"
-                                    value="Thêm tuyến"
-                                    class="btn py-3 px-5 btn-primary"
-                            />
-                        </div>
-                    </form>
-                </div>
-                <div class="col-md-4 pt-5">
-                    <h4>Danh sách xe chạy</h4>
-                    <div class="row p-5">
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-5 btn btn-secondary m-2"><input type="checkbox"/> <span class="icon-bus"> Xe01
-                                </div>
-                                <div class="col-md-5 btn btn-secondary m-2"><input type="checkbox"/> <span class="icon-bus"> Xe01
-                                </div>
-                                <div class="col-md-5 btn btn-secondary m-2"><input type="checkbox"/> <span class="icon-bus"> Xe01
-                                </div>
-                                <div class="col-md-5 btn btn-secondary m-2"><input type="checkbox"/> <span class="icon-bus"> Xe01
-                                </div>
-                                <div class="col-md-5 btn btn-secondary m-2"><input type="checkbox"/> <span class="icon-bus"> Xe01
-                                </div>
-                                <div class="col-md-5 btn btn-secondary m-2"><input type="checkbox"/> <span class="icon-bus"> Xe01
-                                </div>
-                            </div>
-
                         </div>
                     </div>
-                </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="name">Điểm đón *</label>
+                            <input type="text" class="form-control" id="name"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="loaiXe">Điểm trả *</label>
+                            <input type="text" class="form-control" id="name"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="name">Giờ khởi hành *</label>
+                            <input type="text" class="form-control" id="name"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="loaiXe">Ngày khởi hành *</label>
+                            <input type="text" class="form-control" id="name"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="loaiXe">Thời gian di chuyển *</label>
+                            <input type="text" class="form-control"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="loaiXe">Giá vé *</label>
+                            <input type="text" class="form-control"/>
+                        </div>
+                    </div>
+                        <label>Danh sách xe chạy *</label>
+                        <div>
+                            <div class="col-md-3 btn btn-secondary m-2"><input type="checkbox"/> <span
+                                    class="icon-bus"> Xe01
+                            </div>
+                            <div class="col-md-3 btn btn-secondary m-2"><input type="checkbox"/> <span
+                                    class="icon-bus"> Xe01
+                            </div>
+                            <div class="col-md-3 btn btn-secondary m-2"><input type="checkbox"/> <span
+                                    class="icon-bus"> Xe01
+                            </div>
+                        </div>
+                    <div class="form-group">
+                        <input
+                                type="submit"
+                                value="Thêm tuyến"
+                                class="btn py-3 px-5 btn-primary"
+                                onclick="closeModal()"
+                        />
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
     </div>
     <div class="col-md-12" id="tuyenDuong">
         <table class="table container">
@@ -211,7 +194,7 @@
         </table>
         <div class="col-md-12 ">
             <p>
-                <button href="#" class="btn btn-primary py-3 px-4" onclick="openModal()">Thêm tuyến</button>
+                <button class="btn btn-primary py-3 px-4" onclick="openModal()">Thêm tuyến</button>
             </p>
         </div>
     </div>
@@ -242,7 +225,7 @@
         </svg>
     </div>
 </section>
-
+<script src="myJS/TuyenDuong_NhaXe.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="js/jquery-migrate-3.0.1.min.js"></script>

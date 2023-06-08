@@ -46,7 +46,7 @@
                     <textarea name="" id="message" cols="30" rows="2" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Thêm xe" class="btn py-3 px-5 btn-primary" />
+                    <input type="submit" value="Thêm xe" class="btn py-3 px-5 btn-primary" onclick="closeModal()"/>
                 </div>
             </form>
         </div>
@@ -87,7 +87,7 @@
                     <a href="#" class="nav-link"><span>Xe</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="TuyenDuong_NhaXe.jsp" class="nav-link"><span>Tuyến xe</span></a>
+                    <a href="TuyenDuong_NhaXe.jsp#tuyenDuong" class="nav-link"><span>Tuyến xe</span></a>
                 </li>
                 <li class="nav-item">
                     <a href="HanhKhach_NhaXe.jsp" class="nav-link"><span>Hành khách</span></a>
@@ -95,9 +95,6 @@
                 <li class="nav-item">
                     <a href="index.jsp#home-section" class="nav-link"><span>Logout</span></a>
                 </li>
-                <!-- <li class="nav-item"><a href="index.html#restaurant-section" class="nav-link"><span>Restaurant</span></a></li>
-                    <li class="nav-item"><a href="index.html#blog-section" class="nav-link"><span>Blog</span></a></li>
-                    <li class="nav-item"><a href="index.html#contact-section" class="nav-link"><span>Contact</span></a></li> -->
             </ul>
         </div>
     </div>
@@ -135,7 +132,7 @@
                             </p>
                             <p>Khăn ướt, điều hòa</p>
                             <p>
-                                <button class="btn btn-secondary">Chỉnh sửa</button>
+                                <button class="btn btn-secondary" onclick="openModal()">Chỉnh sửa</button>
                                 <button class="btn btn-primary js-del-cf-btn">Xóa</button>
                             </p>
                         </div>
@@ -313,7 +310,6 @@
     }
     function openModal() {
         modal.classList.add("open");
-
     }
     function openSoDo() {
         soDoGhe.classList.add("open");
