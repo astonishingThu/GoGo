@@ -16,7 +16,7 @@
     <title>GoGo - Đặt xe thôi nào!</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <script src="<%=request.getContextPath()%>/view/js/index.js"></script>
+<%--    <script src="${resourcePath}index.js"></script>--%>
     <script
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet"/>

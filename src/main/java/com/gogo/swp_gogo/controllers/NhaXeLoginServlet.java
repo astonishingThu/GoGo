@@ -28,14 +28,14 @@ public class NhaXeLoginServlet extends HttpServlet {
 //            req.setAttribute("nhaXe",nhaXe);
             System.out.println("Succeeded");
             System.out.println(nhaXe);
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("NhaXeGoGoLogin");
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("NhaXeMainPage");
             requestDispatcher.forward(req,resp);
 //            requestDispatcher.forward(req,resp);
         } else {
+            System.out.println("helooooooooo");
 //            requestDispatcher = req.getRequestDispatcher("/NhaXeGoGoLogin");
 //            req.setAttribute("connection",false);
 //            System.out.println("Fail");
         }
-
     }
 }

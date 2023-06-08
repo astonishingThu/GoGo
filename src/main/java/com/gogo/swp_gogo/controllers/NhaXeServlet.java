@@ -13,12 +13,11 @@ import java.io.IOException;
 public class NhaXeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/view/Xe_NhaXe.jsp");
-        requestDispatcher.forward(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/view/Xe_NhaXe.jsp");
+        requestDispatcher.forward(req,resp);
     }
 }
