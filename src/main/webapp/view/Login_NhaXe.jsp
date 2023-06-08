@@ -14,13 +14,13 @@
             <h2>Đăng nhập</h2>
             <form
                     class="bg-light p-4 p-md-5 login-form"
-                    action="GoGoLogin"
+                    action="NhaXeGoGoLogin"
                     method="post"
             >
                 <div class="form-group">
                     <label>Tên tài khoản:<span class="star">*</span> </label>
 
-                    <input type="email" name="email" required />
+                    <input type="text" name="username" required />
                 </div>
                 <div class="form-group">
                     <label>Mật khẩu: <span class="star">*</span></label>
