@@ -40,5 +40,11 @@
         </div>
     </div>
 </div>
+<c:set var = "connection" scope="request" value="${connection}"/>
+<c:if test = "${connection!=null}">
+    <h2><c:out value="${connection.toString()}"/></h2>
+</c:if>
 </body>
 </html>
+
+

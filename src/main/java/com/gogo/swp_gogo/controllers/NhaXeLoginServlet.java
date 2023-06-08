@@ -21,21 +21,16 @@ public class NhaXeLoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         NhaXe nhaXe = new NhaXe();
-
+        RequestDispatcher requestDispatcher;
         if (nhaXe.login(req)) {
-//            RequestDispatcher requestDispatcher = req.getRequestDispatcher("NhaXeMainPage");
-//            req.setAttribute("connection",true);
-//            req.setAttribute("nhaXe",nhaXe);
             System.out.println("Succeeded");
             System.out.println(nhaXe);
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("NhaXeMainPage");
-            requestDispatcher.forward(req,resp);
-//            requestDispatcher.forward(req,resp);
+            requestDispatcher = req.getRequestDispatcher("NhaXeMainPage");
         } else {
-            System.out.println("helooooooooo");
-//            requestDispatcher = req.getRequestDispatcher("/NhaXeGoGoLogin");
-//            req.setAttribute("connection",false);
-//            System.out.println("Fail");
+            requestDispatcher = req.getRequestDispatcher("/view/Login_NhaXe.jsp");
+            req.setAttribute("connection",false);
+            System.out.println("Fail");
         }
+        requestDispatcher.forward(req,resp);
     }
 }
