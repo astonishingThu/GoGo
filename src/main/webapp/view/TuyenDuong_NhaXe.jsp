@@ -89,7 +89,7 @@
                             <input type="text" class="form-control" id="name"/>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="loaiXe">Nơi đến *</label>
+                            <label>Nơi đến *</label>
                             <input type="text" class="form-control" id="name"/>
                         </div>
                     </div>

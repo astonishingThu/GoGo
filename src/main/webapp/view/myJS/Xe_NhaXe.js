@@ -69,8 +69,8 @@ function getVipList() {
     // vipList1.value(vipList);
 }
 
-// modal__closer.addEventListener("click", closeModal);
-// modal__opener.addEventListener("click", openModal);
+modal__closer.addEventListener("click", closeModal);
+modal__opener.addEventListener("click", openModal);
 
 // --------------- Tắt bật Overlay ------------------------
 $(document).ready(function () {

@@ -47,8 +47,9 @@
     <h2><c:out value="${connection.toString()}"/></h2>
 </c:if>
 <div type="hidden" value="${connection.toString()}" id="status"></div>
+</body>
 <script>
-    var result = ${connection.toString()};
+    var result = '${connection.toString()}';
     function handleNotice(){
         console.log(result);
         // let result = document.getElementById(status);
@@ -64,7 +65,6 @@
         // }
     }
 </script>
-</body>
 </html>
 
 

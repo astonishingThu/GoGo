@@ -73,6 +73,7 @@
                         <div class="form-group">
                             <label>Số ghế ngồi *</label>
                             <input name="soLuongGhe" type="number" class="form-control" id="soGhe" />
+                            <small></small>
                         </div>
                         <div class="form-group ml-3">
                             <label>Sơ đồ ghế *</label>
@@ -103,6 +104,7 @@
                             <div class="mt-5">
                                 <label>*Phụ thu ghế VIP:</label>
                                 <input name="giaGhe" type="number" class="form-control"  id="phuThu" />
+                                <small></small>
                             </div>
                         </div>
                 </div>
@@ -145,7 +147,7 @@
                             </p>
                             <p>Khăn ướt, điều hòa</p>
                             <p>
-                                <button class="btn btn-secondary" onclick="openModal()">Chỉnh sửa</button>
+                                <button class="btn btn-secondary" >Chỉnh sửa</button>
                                 <button class="btn btn-primary js-del-cf-btn">Xóa</button>
                             </p>
                         </div>
@@ -177,7 +179,7 @@
                 </div>
             </div>
             <div class="col-md-12">
-                <button class="btn btn-primary py-3 px-4 js-addXe">Thêm xe</button>
+                <button class="btn btn-primary py-3 px-4 js-addXe" onclick="openModal()">Thêm xe</button>
             </div>
         </div>
     </div>
