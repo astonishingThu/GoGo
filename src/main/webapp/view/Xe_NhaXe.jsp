@@ -121,7 +121,7 @@
                 <h1 class="mb-3 bread">GoGo xin chào</h1>
                 <p>
                     <a href="#xe" class="btn btn-primary py-2 px-4">Xe chạy</a>
-                    <a href="TuyenDuong_NhaXe.jsp#tuyenDuong" class="btn btn-black py-2 px-4">Tuyến xe</a>
+                    <a href="AddTuyenXe" class="btn btn-black py-2 px-4">Tuyến xe</a>
                 </p>
             </div>
         </div>
