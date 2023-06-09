@@ -16,6 +16,7 @@ public class AddTuyenXe extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/view/TuyenDuong_NhaXe.jsp");
+        System.out.println(req.getParameter("idNhaXe"));
         requestDispatcher.forward(req,resp);
     }
 

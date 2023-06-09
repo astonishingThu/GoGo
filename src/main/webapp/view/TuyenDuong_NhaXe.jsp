@@ -28,28 +28,21 @@
                     >
                 </li>
                 <li class="nav-item">
-                    <a href="Xe_NhaXe.jsp#xe" class="nav-link"
+                    <a href="${resourcePath}Xe_NhaXe.jsp#xe" class="nav-link"
                     ><span>Xe</span></a
                     >
                 </li>
-                <li class="nav-item has-children">
-                    <a class="nav-link"><span>Đăng nhập</span></a>
-                    <ul class="dropdown">
-                        <li><a href="Login_Khach.jsp">Hành khách</a></li>
-                        <li><a href="Login_NhaXe.jsp">Nhà xe</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item has-children">
-                    <a href="SignUp_Khach.jsp" class="nav-link"><span>Đăng ký</span></a>
-                    <ul class="dropdown">
-                        <li><a href="SignUp_Khach.jsp">Hành khách</a></li>
-                        <li><a href="SignUp_NhaXe.jsp">Nhà xe</a></li>
-                    </ul>
+                <li class="nav-item">
+                    <a href="#" class="nav-link"><span>Tuyến xe</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="index.html#home-section" class="nav-link"
-                    ><span>Logout</span></a
-                    >
+                    <a href="${resourcePath}HanhKhach_NhaXe.jsp" class="nav-link"><span>Hành khách</span></a>
+                </li>
+                <li class="nav-item has-children">
+                    <a class="nav-link" id="logout"><icon class="icon-account_circle"> </icon><span> ${nhaXe.tenNhaXe}</span></a>
+                    <ul class="dropdown">
+                        <li><a href="${pageContext.request.contextPath}/index.jsp">Logout</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>
@@ -104,7 +97,7 @@
                             <input type="text" class="form-control" id="name" name="noiDonKhach"/>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="loaiXe">Điểm trả *</label>
+                            <label>Điểm trả *</label>
                             <input type="text" class="form-control" id="name" name="noiTraKhach"/>
                         </div>
                     </div>
@@ -117,8 +110,8 @@
                             <label for="">Ngày khởi hành *</label>
                             <input type="date" class="form-control" id="name" name="ngayKhoiHanh"/>
                         </div>
-                        <div class="form-group col-md-4">
-                            <label for="">Lặp lại *</label>
+                        <div class="form-group col-md-6">
+                            <label>Lặp lại *</label>
                             <div class="col-md-12">
                                 <div class="row check-mark-group">
                                     <label class="check-mark"><input type="checkbox" class="choice" placeholder="T2" name="lapLaiList" value="T2"/>T2</label>
@@ -131,6 +124,13 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group col-md-6">
+                            <label>Ngày bắt đầu *</label>
+                            <input type="date" class="form-control" id="name"/>
+                        </div><div class="form-group col-md-6">
+                        <label>Ngày kết thúc *</label>
+                        <input type="date" class="form-control" id="name"/>
+                    </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
