@@ -1,5 +1,7 @@
 package com.gogo.swp_gogo.controllers;
 
+import com.gogo.swp_gogo.models.MyQueries;
+import com.gogo.swp_gogo.models.NhaXe;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -19,5 +21,8 @@ public class AddTuyenXe extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println(req.getParameter("idNhaXe")==null);
+        NhaXe nhaXe = MyQueries.getNhaXeByCol("idNhaXe",req.getParameter("idNhaXe"));
+        nhaXe.addTuyenXe(req);
     }
 }

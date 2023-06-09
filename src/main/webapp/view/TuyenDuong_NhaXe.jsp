@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="Head.jsp"></jsp:include>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -81,48 +82,52 @@
         <div class="modal js-modal">
             <div class="addTuyenDuong col-md-9 ">
                 <div class="icon-close js-close" onclick="closeModal()"></div>
-                <form action="#" class="p-5 bg-light" >
+                <form action="AddTuyenXe?idNhaXe=${idNhaXe}" class="p-5 bg-light" method="post" >
+<%--                    <c:if test="${idNhaXe}!=null">--%>
+<%--                        <h1>Id nha xe: <c:out value="${idNhaXe}"/></h1>--%>
+<%--                    </c:if>--%>
+<%--                    <input type="hidden" id="idNhaXe" name="idNhaXe" value="${idNhaXe}"/>--%>
                     <h4 class="mb-2">Thêm tuyến</h4>
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="name">Nơi đi *</label>
-                            <input type="text" class="form-control" id="name"/>
+                            <input type="text" class="form-control" id="name" name="noiBatDau"/>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Nơi đến *</label>
-                            <input type="text" class="form-control" id="name"/>
+                            <input type="text" class="form-control" id="name" name="dichDen"/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="name">Điểm đón *</label>
-                            <input type="text" class="form-control" id="name"/>
+                            <input type="text" class="form-control" id="name" name="noiDonKhach"/>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="loaiXe">Điểm trả *</label>
-                            <input type="text" class="form-control" id="name"/>
+                            <input type="text" class="form-control" id="name" name="noiTraKhach"/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-4">
                             <label for="name">Giờ khởi hành *</label>
-                            <input type="time" class="form-control" id="name"/>
+                            <input type="time" class="form-control" id="name" name="gioKhoiHanh"/>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="">Ngày khởi hành *</label>
-                            <input type="date" class="form-control" id="name"/>
+                            <input type="date" class="form-control" id="name" name="ngayKhoiHanh"/>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="">Lặp lại *</label>
                             <div class="col-md-12">
                                 <div class="row check-mark-group">
-                                    <label class="check-mark"><input type="checkbox" class="choice" placeholder="T2"/>T2</label>
-                                    <label class="check-mark"><input type="checkbox" class="choice"/>T3</label>
-                                    <label class="check-mark"><input type="checkbox" class="choice"/>T4</label>
-                                    <label class="check-mark"><input type="checkbox" class="choice"/>T5</label>
-                                    <label class="check-mark"><input type="checkbox" class="choice"/>T6</label>
-                                    <label class="check-mark"><input type="checkbox" class="choice"/>T7</label>
-                                    <label class="check-mark"><input type="checkbox" class="choice"/>CN</label>
+                                    <label class="check-mark"><input type="checkbox" class="choice" placeholder="T2" name="lapLaiList" value="T2"/>T2</label>
+                                    <label class="check-mark"><input type="checkbox" class="choice" name="lapLaiList" value="T3"/>T3</label>
+                                    <label class="check-mark"><input type="checkbox" class="choice" name="lapLaiList" value="T4"/>T4</label>
+                                    <label class="check-mark"><input type="checkbox" class="choice" name="lapLaiList" value="T5"/>T5</label>
+                                    <label class="check-mark"><input type="checkbox" class="choice" name="lapLaiList" value="T6"/>T6</label>
+                                    <label class="check-mark"><input type="checkbox" class="choice" name="lapLaiList" value="T7"/>T7</label>
+                                    <label class="check-mark"><input type="checkbox" class="choice" name="lapLaiList" value="CN"/>CN</label>
                                 </div>
                             </div>
                         </div>
@@ -130,11 +135,11 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="loaiXe">Thời gian di chuyển *</label>
-                            <input type="text" class="form-control"/>
+                            <input type="number" class="form-control" name="khoangThoiGianDiChuyen"/>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="loaiXe">Giá vé *</label>
-                            <input type="text" class="form-control"/>
+                            <input type="number" class="form-control" name="giaLoTrinh"/>
                         </div>
                     </div>
                     <div>
