@@ -10,17 +10,17 @@
 <jsp:include page="Head.jsp"></jsp:include>
 <%--set bien nha xe--%>
 <c:set var = "nhaXe" scope="request" value="${nhaXe}"/>
-<c:out value="${nhaXe.username}"/>
+<%--<c:out value="${nhaXe.username}"/>--%>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 <div class="modal js-modal">
     <div class="addXe">
         <div class="icon-close js-close"></div>
         <div class="col-md-6">
-            <form action="" class="p-5 bg-light">
+            <form action="#" class="p-5 bg-light">
                 <h3 class="mb-5">Thêm xe</h3>
                 <div class="form-group">
                     <label for="name">Biển số xe *</label>
-                    <input type="text" class="form-control" id="name" />
+                    <input type="text" class="form-control" id="name" name=""/>
                 </div>
                 <div class="form-group">
                     <label for="loaiXe">Loại xe *</label>
@@ -97,7 +97,7 @@
                     <a href="view/HanhKhach_NhaXe.jsp" class="nav-link"><span>Hành khách</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="${pageContext.request.contextPath}/index.jsp" class="nav-link"><span>Logout</span></a>
+                    <a href="${pageContext.request.contextPath}/index.jsp" class="nav-link"><icon class="icon-account_circle"> </icon><span> ${nhaXe.tenNhaXe}</span></a>
                 </li>
             </ul>
         </div>
