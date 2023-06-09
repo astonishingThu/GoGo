@@ -16,7 +16,7 @@
     <div class="addXe">
         <div class="icon-close js-close"></div>
         <div class="col-md-6">
-            <form action="#" class="p-5 bg-light">
+            <form action="" class="p-5 bg-light">
                 <h3 class="mb-5">Thêm xe</h3>
                 <div class="form-group">
                     <label for="name">Biển số xe *</label>
@@ -39,9 +39,9 @@
                     </div>
                     <div class="form-group ml-3">
                         <label>Sơ đồ ghế *</label>
-                        <button class="xemSoDo btn btn-secondary mt-2 " onclick="openSoDo()">
+                        <div class="xemSoDo btn btn-secondary mt-2 " onclick="openSoDo()">
                             Xem sơ đồ
-                        </button>
+                        </div>
                     </div>
                 </div>
 
