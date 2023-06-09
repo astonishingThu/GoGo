@@ -13,7 +13,7 @@ public class MyQueries {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             String connectionUrl = "jdbc:sqlserver://localhost:1433;database=GoGo;encrypt=false;trustServerCertificate=true";
-            Connection connection = DriverManager.getConnection(connectionUrl,"sa","092301");
+            Connection connection = DriverManager.getConnection(connectionUrl,"sa","140801");
             return connection;
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println("Cannot connect to the database");
@@ -32,6 +32,36 @@ public class MyQueries {
             statement.setString(4,khachHang.getHoTenLot());
             statement.setString(5,khachHang.getTen());
             statement.setString(6,khachHang.getPhoneNumber());
+            statement.executeUpdate();
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void addXe(Xe xe) {
+        Connection connection = getConnection();
+        try {
+            PreparedStatement statement = connection.prepareStatement("Insert Into GoGo.dbo.Xe(idXe,moTa,soLuongghe,loaiXe,idNhaXe) Values(?,?,?,?,?)");
+            statement.setString(1,xe.getIdXe());
+            statement.setString(2,xe.getMoTa());
+            statement.setString(3, String.valueOf(xe.getSoLuongGhe()));
+            statement.setString(4,xe.getLoaiXe());
+            statement.setString(5,xe.getIdNhaXe());
+            statement.executeUpdate();
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void addGheXe(GheXe gheXe) {
+        Connection connection = getConnection();
+        try {
+            PreparedStatement statement = connection.prepareStatement("Insert Into GoGo.dbo.GheXe(idGhe,giaGhe,idXe) Values(?,?,?)");
+            statement.setString(1,gheXe.getIdGhe());
+            statement.setString(2, String.valueOf(gheXe.getGiaGhe()));
+            statement.setString(3,gheXe.getIdXe());
             statement.executeUpdate();
             connection.close();
         } catch (SQLException e) {
@@ -124,6 +154,25 @@ public class MyQueries {
             throw new RuntimeException(e);
         }
         return null;
+    }
+
+    public static List<Xe> getAllXeOfOneNhaXeByCol(String col, String data) {
+        Connection connection = getConnection();
+        try {
+            String q = "Select * from GoGo.dbo.Xe where "+col+" = ?";
+            System.out.println(q);
+            PreparedStatement statement = connection.prepareStatement(q);
+            statement.setString(1,data);
+            ResultSet resultSet = statement.executeQuery();
+            List<Xe> res = new ArrayList<>();
+            while (resultSet.next()) {
+                res.add(new Xe(resultSet.getString("idXe"),resultSet.getString("moTa"),Byte.parseByte(resultSet.getString("soLuongGhe")),resultSet.getString("loaiXe"),resultSet.getString("idNhaXe")));
+            }
+            connection.close();
+            return res;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

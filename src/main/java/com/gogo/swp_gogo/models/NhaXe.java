@@ -2,11 +2,16 @@ package com.gogo.swp_gogo.models;
 
 import jakarta.servlet.http.HttpServletRequest;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NhaXe implements Account {
     private String idNhaXe;
     private String tenNhaXe;
     private String username;
     private String password;
+    private Xe xe;
+    private List<Xe> xeList;
 
     public NhaXe(){}
 
@@ -15,6 +20,33 @@ public class NhaXe implements Account {
         this.tenNhaXe = tenNhaXe;
         this.username = username;
         this.password = password;
+    }
+
+    public boolean addXe(HttpServletRequest request) {
+        // get data from request
+        String idNhaXe = request.getParameter("idNhaXe");
+        byte soLuongGhe = Byte.parseByte(request.getParameter("soLuongGhe"));
+        String loaiXe = request.getParameter("loaiXe");
+        String idXe = request.getParameter("bienSoXe");
+        String moTaXe = request.getParameter("moTa");
+        int giaGheVip = Integer.parseInt(request.getParameter("giaGhe"));
+        String[] vipList = request.getParameter("vipList").split(",");
+        // process data, add xe, add gheXe to database
+        xe = new Xe(idXe,moTaXe,soLuongGhe,loaiXe,idNhaXe);
+        MyQueries.addXe(xe);
+        List<GheXe> gheXeList = new ArrayList<>();
+        int i=0;
+        for (String idGhe : vipList) {
+            GheXe gheXe = new GheXe(idGhe, giaGheVip, idXe);
+            System.out.println(idGhe);
+            gheXeList.add(gheXe);
+            MyQueries.addGheXe(gheXe);
+            i++;
+        }
+        System.out.println("Length: "+vipList.length);
+        System.out.println("count = "+i);
+        xe.setGheXeList(gheXeList);
+        return true;
     }
 
     public String getIdNhaXe() {
@@ -49,6 +81,14 @@ public class NhaXe implements Account {
         this.password = password;
     }
 
+    public List<Xe> getXeList() {
+        return xeList;
+    }
+
+    public void setXeList(List<Xe> xeList) {
+        this.xeList = xeList;
+    }
+
     @Override
     public boolean login(HttpServletRequest request) {
         NhaXeLogin nhaXeLogin = new NhaXeLogin(request);
@@ -79,5 +119,13 @@ public class NhaXe implements Account {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';
+    }
+
+    public Xe getXe() {
+        return xe;
+    }
+
+    public void setXe(Xe xe) {
+        this.xe = xe;
     }
 }
