@@ -20,8 +20,10 @@ public class AddGheXeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        String[] vipList = req.getRequ("vipList");
         String[] vipList = new String[]{req.getParameter("vipList")};
+        String idnhaxe = req.getParameter("idNhaXe");
         for(int i =0 ; i<vipList.length; i++){
             System.out.println(vipList[i]);
         }
+        System.out.println(idnhaxe);
     }
 }

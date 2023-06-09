@@ -9,8 +9,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="Head.jsp"></jsp:include>
 <%--set bien nha xe--%>
-<c:set var = "nhaXe" scope="request" value="${nhaXe}"/>
-<%--<c:out value="${nhaXe.username}"/>--%>
+<c:set var = "nhaXe" scope="application" value="${nhaXe}"/>
+<c:out value="${nhaXe.idNhaXe}"/>
+
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 <div class="modal js-modal">
     <div class="addXe">
@@ -19,23 +20,22 @@
             <form class="p-5 bg-light row" action="AddGheXe" method="post">
                 <div col-md-6>
                     <h3 class="mb-5">Thêm xe</h3>
+                    <input type="hidden" id="idNhaXe" name="idNhaXe" value="${nhaXe.idNhaXe}"/>
                     <div class="form-group">
                         <label for="name">Biển số xe *</label>
-                        <input type="text" class="form-control" id="name" name=""/>
+                        <input type="text" class="form-control" id="name" name="bienSoXe"/>
                     </div>
                     <div class="form-group">
-                        <label for="loaiXe">Loại xe *</label>
-
+                        <label>Loại xe *</label>
                         <select name="loaiXe" class="loaiGhe form-control">
                             <option>Ghế ngồi</option>
                             <option>Giường nằm</option>
                             <option>Limousine</option>
-                            <!-- <input type="text" class="form-control" id="loaiXe" /> -->
                         </select>
                     </div>
                     <div class="ghe">
                         <div class="form-group">
-                            <label for="soGhe">Số ghế ngồi *</label>
+                            <label>Số ghế ngồi *</label>
                             <input name="soLuongghe" type="number" class="form-control" id="soGhe" />
                         </div>
                         <div class="form-group ml-3">
@@ -63,7 +63,7 @@
                                 <label>*Chú thích:</label>
                                 <div class="icon-bus col-md-8 btn btn-primary ml-3">Ghế VIP</div>
                             </div>
-                            <input type="hidden" id="vipList" name="vipList"/>
+                            <input type="hidden" id="vipList" name="vipList" />
                             <div class="mt-5">
                                 <label>*Phụ thu ghế VIP:</label>
                                 <input type="number" class="form-control" name="giaGhe"/>
@@ -320,7 +320,6 @@
     }
     function openSoDo() {
         soDoGhe.classList.add("open");
-
         let titleGhe = document.getElementById("titleGhe");
         let soGhe = document.getElementById("soGhe");
         var hang1 = document.getElementById("hang-1");
@@ -364,9 +363,10 @@
                 vipList.push(gheList[i].id);
             }
         }
-        $("#vipList").val(vipList);
-        $("#vipList").val(vipList);
-        console.log(vipList);
+        let vipList1 = document.getElementById("vipList");
+        vipList1.setAttribute("value",vipList);
+        // vipList1.value(vipList);
+        // $("#vipList").val(vipList);
     }
     modal__closer.addEventListener("click", closeModal);
     modal__opener.addEventListener("click", openModal);
