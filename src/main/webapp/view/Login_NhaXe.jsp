@@ -51,7 +51,7 @@
 <script>
     var result = '${connection.toString()}';
     function handleNotice(){
-        console.log(result);
+        console.log("hi");
         // let result = document.getElementById(status);
         // console.log("Vao ham");
         // notice("hi");
