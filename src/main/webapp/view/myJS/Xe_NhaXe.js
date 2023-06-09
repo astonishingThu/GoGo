@@ -64,8 +64,9 @@ function getVipList() {
             vipList.push(gheList[i].id);
         }
     }
-    let vipList1 = document.getElementById("vipList");
-    vipList1.setAttribute("value", vipList);
+    $("#vipList").val(vipList);
+    // let vipList1 = document.getElementById("vipList");
+    // vipList1.setAttribute("value", vipList);
     // vipList1.value(vipList);
 }
 
