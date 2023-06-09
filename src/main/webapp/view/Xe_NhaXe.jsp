@@ -13,7 +13,7 @@
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 <div class="modal js-modal">
     <div class="addXe">
-        <div class="icon-close js-close"></div>
+        <div class="icon-close js-close" onclick="closeModal()"></div>
         <div class="col-md-12">
             <form class="p-5 bg-light row" action="AddGheXe" method="post">
                 <div col-md-6>
@@ -172,7 +172,7 @@
                 </div>
             </div>
             <div class="col-md-12">
-                <button class="btn btn-primary py-3 px-4 js-addXe">Thêm xe</button>
+                <button class="btn btn-primary py-3 px-4 js-addXe" onclick="openModal()">Thêm xe</button>
             </div>
         </div>
     </div>
@@ -320,5 +320,6 @@
 <script src="${resourcePath}js/scrollax.min.js"></script>
 <script src="${resourcePath}js/google-map.js"></script>
 <script src="${resourcePath}js/main.js"></script>
+<script src="${resourcePath}myJS/Xe_NhaXe.js"></script>
 </body>
 </html>
