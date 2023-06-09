@@ -156,4 +156,23 @@ public class MyQueries {
         return null;
     }
 
+    public static List<Xe> getAllXeOfOneNhaXeByCol(String col, String data) {
+        Connection connection = getConnection();
+        try {
+            String q = "Select * from GoGo.dbo.Xe where "+col+" = ?";
+            System.out.println(q);
+            PreparedStatement statement = connection.prepareStatement(q);
+            statement.setString(1,data);
+            ResultSet resultSet = statement.executeQuery();
+            List<Xe> res = new ArrayList<>();
+            while (resultSet.next()) {
+                res.add(new Xe(resultSet.getString("idXe"),resultSet.getString("moTa"),Byte.parseByte(resultSet.getString("soLuongGhe")),resultSet.getString("loaiXe"),resultSet.getString("idNhaXe")));
+            }
+            connection.close();
+            return res;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

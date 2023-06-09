@@ -11,6 +11,7 @@ public class NhaXe implements Account {
     private String username;
     private String password;
     private Xe xe;
+    private List<Xe> xeList;
 
     public NhaXe(){}
 
@@ -78,6 +79,14 @@ public class NhaXe implements Account {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Xe> getXeList() {
+        return xeList;
+    }
+
+    public void setXeList(List<Xe> xeList) {
+        this.xeList = xeList;
     }
 
     @Override

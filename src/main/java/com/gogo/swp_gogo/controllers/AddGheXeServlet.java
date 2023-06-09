@@ -2,6 +2,7 @@ package com.gogo.swp_gogo.controllers;
 
 import com.gogo.swp_gogo.models.MyQueries;
 import com.gogo.swp_gogo.models.NhaXe;
+import com.gogo.swp_gogo.models.Xe;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -24,8 +25,11 @@ public class AddGheXeServlet extends HttpServlet {
         NhaXe nhaXe = MyQueries.getNhaXeByCol("idNhaXe",req.getParameter("idNhaXe"));
         nhaXe.addXe(req);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("NhaXeMainPage");
+        nhaXe.setXeList(MyQueries.getAllXeOfOneNhaXeByCol("idNhaXe",nhaXe.getIdNhaXe()));
         req.setAttribute("nhaXe",nhaXe);
         requestDispatcher.forward(req,resp);
-
+        for (Xe xe: nhaXe.getXeList()) {
+            System.out.println(xe);
+        }
     }
 }

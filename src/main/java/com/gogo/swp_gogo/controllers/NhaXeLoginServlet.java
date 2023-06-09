@@ -1,5 +1,6 @@
 package com.gogo.swp_gogo.controllers;
 
+import com.gogo.swp_gogo.models.MyQueries;
 import com.gogo.swp_gogo.models.NhaXe;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -26,6 +27,7 @@ public class NhaXeLoginServlet extends HttpServlet {
             System.out.println("Succeeded");
             System.out.println(nhaXe);
             requestDispatcher = req.getRequestDispatcher("NhaXeMainPage");
+            nhaXe.setXeList(MyQueries.getAllXeOfOneNhaXeByCol("idNhaXe",nhaXe.getIdNhaXe()));
             req.setAttribute("nhaXe",nhaXe);
         } else {
             requestDispatcher = req.getRequestDispatcher("/view/Login_NhaXe.jsp");
