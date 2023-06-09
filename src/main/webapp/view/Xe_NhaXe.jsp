@@ -20,8 +20,9 @@
                 <div col-md-6>
                     <h3 class="mb-5">Thêm xe</h3>
                     <div class="form-group">
-                        <label for="name">Biển số xe *</label>
-                        <input type="text" class="form-control" id="name" name=""/>
+                        <label>Biển số xe *</label>
+                        <input type="text" class="form-control" id="bienSoXe" name=""/>
+                        <small></small>
                     </div>
                     <div class="form-group">
                         <label for="loaiXe">Loại xe *</label>
@@ -37,10 +38,11 @@
                         <div class="form-group">
                             <label for="soGhe">Số ghế ngồi *</label>
                             <input name="soLuongghe" type="number" class="form-control" id="soGhe" />
+                            <small></small>
                         </div>
                         <div class="form-group ml-3">
                             <label>Sơ đồ ghế *</label>
-                            <div class="xemSoDo btn btn-secondary mt-2 " onclick="openSoDo()">
+                            <div class="xemSoDo btn btn-secondary mt-2 " id="xemSoDo">
                                 Xem sơ đồ
                             </div>
                         </div>
@@ -51,7 +53,7 @@
                         <textarea name="moTa" id="message" cols="30" rows="2" class="form-control"></textarea>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Thêm xe" class="btn py-3 px-5 btn-primary" onclick="closeModal()"/>
+                        <input type="submit" value="Thêm xe" class="btn py-3 px-5 btn-primary" id="themXe"/>
                     </div>
                 </div>
                 <div id="soDoGhe" class="col-md-6 soDoGhe pt-5 js-soDoGhe">
@@ -66,7 +68,8 @@
                             <input type="hidden" id="vipList" name="vipList"/>
                             <div class="mt-5">
                                 <label>*Phụ thu ghế VIP:</label>
-                                <input type="number" class="form-control" name="giaGhe"/>
+                                <input type="number" class="form-control" name="giaGhe" id="phuThu"/>
+                                <small></small>
                             </div>
                         </div>
                 </div>
@@ -310,6 +313,8 @@
     const confirmDels = document.querySelectorAll(".js-del-cf");
     const modal__closer = document.querySelector(".js-close");
     const modal__opener = document.querySelector(".js-addXe");
+    const xemSoDo = document.getElementById("xemSoDo");
+    const themXe = document.getElementById("themXe");
 
     function closeModal() {
         modal.classList.remove("open");
@@ -370,6 +375,18 @@
     }
     modal__closer.addEventListener("click", closeModal);
     modal__opener.addEventListener("click", openModal);
+    xemSoDo.addEventListener("click", function () {
+        let isValid = validateSoGhe();
+        if (isValid) {
+            openSoDo();
+        }
+    });
+    themXe.addEventListener("click", function () {
+        let isValid = validateThemXe();
+        if (isValid) {
+            closeModal();
+        }
+    });
 </script>
 <script>
     $(document).ready(function () {
@@ -402,5 +419,6 @@
 <script src="${resourcePath}js/scrollax.min.js"></script>
 <script src="${resourcePath}js/google-map.js"></script>
 <script src="${resourcePath}js/main.js"></script>
+<script src="${resourcePath}myJS/Xe_NhaXe.js"></script>
 </body>
 </html>
