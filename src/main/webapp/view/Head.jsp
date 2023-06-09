@@ -22,17 +22,18 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i"
           rel="stylesheet"/>
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/view/css/open-iconic-bootstrap.min.css"/>
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/view/css/animate.css"/>
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/view/css/owl.carousel.min.css"/>
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/view/css/owl.theme.default.min.css"/>
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/view/css/magnific-popup.css"/>
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/view/css/aos.css"/>
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/view/css/ionicons.min.css"/>
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/view/css/flaticon.css"/>
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/view/css/icomoon.css"/>
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/view/css/style.css"/>
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/view/myCSS/newStyle.css"/>
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/view/myCSS/TuyenDuong_NhaXe.css"/>
+    <link rel="stylesheet" href="${resourcePath}css/open-iconic-bootstrap.min.css"/>
+    <link rel="stylesheet" href="${resourcePath}css/animate.css"/>
+    <link rel="stylesheet" href="${resourcePath}css/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="${resourcePath}css/owl.theme.default.min.css"/>
+    <link rel="stylesheet" href="${resourcePath}css/magnific-popup.css"/>
+    <link rel="stylesheet" href="${resourcePath}css/aos.css"/>
+    <link rel="stylesheet" href="${resourcePath}css/ionicons.min.css"/>
+    <link rel="stylesheet" href="${resourcePath}css/flaticon.css"/>
+    <link rel="stylesheet" href="${resourcePath}css/icomoon.css"/>
+    <link rel="stylesheet" href="${resourcePath}css/style.css"/>
+    <link rel="stylesheet" href="${resourcePath}myCSS/newStyle.css"/>
+    <link rel="stylesheet" href="${resourcePath}myCSS/TuyenDuong_NhaXe.css"/>
+    <script src="${resourcePath}myJS/newJS.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>

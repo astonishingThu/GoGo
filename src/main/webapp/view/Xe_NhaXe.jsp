@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="Head.jsp"></jsp:include>
 <%--set bien nha xe--%>
-<c:set var = "nhaXe" scope="request" value="${nhaXe}"/>
+<c:set var = "nhaXe" scope="session" value="${nhaXe}"/>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 <div class="modal js-modal">
     <div class="addXe">
@@ -95,13 +95,16 @@
                     <a href="#" class="nav-link"><span>Xe</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="view/TuyenDuong_NhaXe.jsp#tuyenDuong" class="nav-link"><span>Tuyến xe</span></a>
+                    <a href="${resourcePath}TuyenDuong_NhaXe.jsp#tuyenDuong" class="nav-link"><span>Tuyến xe</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="view/HanhKhach_NhaXe.jsp" class="nav-link"><span>Hành khách</span></a>
+                    <a href="${resourcePath}HanhKhach_NhaXe.jsp" class="nav-link"><span>Hành khách</span></a>
                 </li>
-                <li class="nav-item">
-                    <a href="${pageContext.request.contextPath}/index.jsp" class="nav-link"><icon class="icon-account_circle"> </icon><span> ${nhaXe.tenNhaXe}</span></a>
+                <li class="nav-item has-children">
+                    <a class="nav-link" id="logout"><icon class="icon-account_circle"> </icon><span> ${nhaXe.tenNhaXe}</span></a>
+                    <ul class="dropdown">
+                        <li><a href="${pageContext.request.contextPath}/index.jsp">Logout</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>

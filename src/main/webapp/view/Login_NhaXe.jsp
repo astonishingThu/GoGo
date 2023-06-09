@@ -10,6 +10,7 @@
 <jsp:include page="Head.jsp"></jsp:include>
 <body>
 <div>
+    <div id="notice">Xin chao</div>
     <div class="col-md-7 order-md-last d-flex">
         <div class="login__left">
             <h2>Đăng nhập</h2>
@@ -47,10 +48,16 @@
 </c:if>
 <script>
     function handleNotice(){
-        if (${connection}.toString() === "false"){
+        let result = ${connection}.toString();
+        // console.log("Vao ham");
+        // notice("hi");
+        // notice("Tên tài khoản hoặc mật khẩu không đúng!");
+        if (result==="false"){
             notice("Tên tài khoản hoặc mật khẩu không đúng!");
+            console.log("NOT OK");
         } else {
             notice("Đăng nhập thành công!");
+            console.log("OK");
         }
     }
 </script>

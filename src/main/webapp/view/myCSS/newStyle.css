@@ -5,6 +5,11 @@ h4 {
 .icon-account_circle{
   font-size: 20px;
   display: inline-block;
+  padding-top: 5px;
+}
+#logout{
+  display: flex;
+  flex-wrap: nowrap;
 }
 .addXe {
   background-color: #f8f9fa;
@@ -126,10 +131,13 @@ h4 {
 small{
   color: red;
 }
+
 .notice{
- display: block;
+  display: block;
   position: absolute;
   top: 50px;
   right: 50px;
-  color: ;
+  color: red;
+  padding: 20px;
+  z-index: 8000;
 }
