@@ -104,7 +104,7 @@ function validateThemXe() {
     if (phuThu.value < 1) {
         setError(phuThu, "Phụ thu không được âm hoặc bằng 0");
         isCheck = false;
-    } else if (phuThu > 1000000) {
+    } else if (phuThu.value > 1000000) {
         setError(phuThu, "Phụ thu không được quá 1,000,000VNĐ");
         isCheck = false;
     } else if (bienSoXe.value === "") {
