@@ -1,5 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="Head.jsp"></jsp:include>
+<jsp:useBean id="nhaXe" class="com.gogo.swp_gogo.models.NhaXe" scope="request"/>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 <nav
         class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
@@ -74,44 +76,185 @@
         <div class="modal js-modal">
             <div class="addTuyenDuong col-md-9 ">
                 <div class="icon-close js-close" onclick="closeModal()"></div>
-                <form action="#" class="p-5 bg-light" >
+                <form action="AddTuyenXe" class="p-5 bg-light" method="post" >
+                    <input type="hidden" name="idNhaXe" value="${nhaXe.idNhaXe}"/>
                     <h4 class="mb-2">Thêm tuyến</h4>
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="name">Nơi đi *</label>
-                            <input type="text" class="form-control" id="name"/>
+<%--                            <input type="text" class="form-control" id="name" name="noiBatDau"/>--%>
+                            <select name= "noiBatDau" class="form-control">
+                                <option value="An Giang">An Giang
+                                <option value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu
+                                <option value="Bắc Giang">Bắc Giang
+                                <option value="Bắc Kạn">Bắc Kạn
+                                <option value="Bạc Liêu">Bạc Liêu
+                                <option value="Bắc Ninh">Bắc Ninh
+                                <option value="Bến Tre">Bến Tre
+                                <option value="Bình Định">Bình Định
+                                <option value="Bình Dương">Bình Dương
+                                <option value="Bình Phước">Bình Phước
+                                <option value="Bình Thuận">Bình Thuận
+                                <option value="Bình Thuận">Bình Thuận
+                                <option value="Cà Mau">Cà Mau
+                                <option value="Cao Bằng">Cao Bằng
+                                <option value="Đắk Lắk">Đắk Lắk
+                                <option value="Đắk Nông">Đắk Nông
+                                <option value="Điện Biên">Điện Biên
+                                <option value="Đồng Nai">Đồng Nai
+                                <option value="Đồng Tháp">Đồng Tháp
+                                <option value="Đồng Tháp">Đồng Tháp
+                                <option value="Gia Lai">Gia Lai
+                                <option value="Hà Giang">Hà Giang
+                                <option value="Hà Nam">Hà Nam
+                                <option value="Hà Tĩnh">Hà Tĩnh
+                                <option value="Hải Dương">Hải Dương
+                                <option value="Hậu Giang">Hậu Giang
+                                <option value="Hòa Bình">Hòa Bình
+                                <option value="Hưng Yên">Hưng Yên
+                                <option value="Khánh Hòa">Khánh Hòa
+                                <option value="Kiên Giang">Kiên Giang
+                                <option value="Kon Tum">Kon Tum
+                                <option value="Lai Châu">Lai Châu
+                                <option value="Lâm Đồng">Lâm Đồng
+                                <option value="Lạng Sơn">Lạng Sơn
+                                <option value="Lào Cai">Lào Cai
+                                <option value="Long An">Long An
+                                <option value="Nam Định">Nam Định
+                                <option value="Nghệ An">Nghệ An
+                                <option value="Ninh Bình">Ninh Bình
+                                <option value="Ninh Thuận">Ninh Thuận
+                                <option value="Phú Thọ">Phú Thọ
+                                <option value="Quảng Bình">Quảng Bình
+                                <option value="Quảng Bình">Quảng Bình
+                                <option value="Quảng Ngãi">Quảng Ngãi
+                                <option value="Quảng Ninh">Quảng Ninh
+                                <option value="Quảng Trị">Quảng Trị
+                                <option value="Sóc Trăng">Sóc Trăng
+                                <option value="Sơn La">Sơn La
+                                <option value="Tây Ninh">Tây Ninh
+                                <option value="Thái Bình">Thái Bình
+                                <option value="Thái Nguyên">Thái Nguyên
+                                <option value="Thanh Hóa">Thanh Hóa
+                                <option value="Thừa Thiên Huế">Thừa Thiên Huế
+                                <option value="Tiền Giang">Tiền Giang
+                                <option value="Trà Vinh">Trà Vinh
+                                <option value="Tuyên Quang">Tuyên Quang
+                                <option value="Vĩnh Long">Vĩnh Long
+                                <option value="Vĩnh Phúc">Vĩnh Phúc
+                                <option value="Yên Bái">Yên Bái
+                                <option value="Phú Yên">Phú Yên
+                                <option value="Tp.Cần Thơ">Tp.Cần Thơ
+                                <option value="Tp.Đà Nẵng">Tp.Đà Nẵng
+                                <option value="Tp.Hải Phòng">Tp.Hải Phòng
+                                <option value="Tp.Hà Nội">Tp.Hà Nội
+                                <option value="TP  HCM">TP HCM
+                            </select>
+
                         </div>
+
                         <div class="form-group col-md-6">
                             <label>Nơi đến *</label>
-                            <input type="text" class="form-control" id="name"/>
+<%--                            <input type="text" class="form-control" id="name" name="dichDen"/>--%>
+                            <select name= "dichDen" class="form-control">
+                                <option value="An Giang">An Giang
+                                <option value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu
+                                <option value="Bắc Giang">Bắc Giang
+                                <option value="Bắc Kạn">Bắc Kạn
+                                <option value="Bạc Liêu">Bạc Liêu
+                                <option value="Bắc Ninh">Bắc Ninh
+                                <option value="Bến Tre">Bến Tre
+                                <option value="Bình Định">Bình Định
+                                <option value="Bình Dương">Bình Dương
+                                <option value="Bình Phước">Bình Phước
+                                <option value="Bình Thuận">Bình Thuận
+                                <option value="Bình Thuận">Bình Thuận
+                                <option value="Cà Mau">Cà Mau
+                                <option value="Cao Bằng">Cao Bằng
+                                <option value="Đắk Lắk">Đắk Lắk
+                                <option value="Đắk Nông">Đắk Nông
+                                <option value="Điện Biên">Điện Biên
+                                <option value="Đồng Nai">Đồng Nai
+                                <option value="Đồng Tháp">Đồng Tháp
+                                <option value="Đồng Tháp">Đồng Tháp
+                                <option value="Gia Lai">Gia Lai
+                                <option value="Hà Giang">Hà Giang
+                                <option value="Hà Nam">Hà Nam
+                                <option value="Hà Tĩnh">Hà Tĩnh
+                                <option value="Hải Dương">Hải Dương
+                                <option value="Hậu Giang">Hậu Giang
+                                <option value="Hòa Bình">Hòa Bình
+                                <option value="Hưng Yên">Hưng Yên
+                                <option value="Khánh Hòa">Khánh Hòa
+                                <option value="Kiên Giang">Kiên Giang
+                                <option value="Kon Tum">Kon Tum
+                                <option value="Lai Châu">Lai Châu
+                                <option value="Lâm Đồng">Lâm Đồng
+                                <option value="Lạng Sơn">Lạng Sơn
+                                <option value="Lào Cai">Lào Cai
+                                <option value="Long An">Long An
+                                <option value="Nam Định">Nam Định
+                                <option value="Nghệ An">Nghệ An
+                                <option value="Ninh Bình">Ninh Bình
+                                <option value="Ninh Thuận">Ninh Thuận
+                                <option value="Phú Thọ">Phú Thọ
+                                <option value="Quảng Bình">Quảng Bình
+                                <option value="Quảng Bình">Quảng Bình
+                                <option value="Quảng Ngãi">Quảng Ngãi
+                                <option value="Quảng Ninh">Quảng Ninh
+                                <option value="Quảng Trị">Quảng Trị
+                                <option value="Sóc Trăng">Sóc Trăng
+                                <option value="Sơn La">Sơn La
+                                <option value="Tây Ninh">Tây Ninh
+                                <option value="Thái Bình">Thái Bình
+                                <option value="Thái Nguyên">Thái Nguyên
+                                <option value="Thanh Hóa">Thanh Hóa
+                                <option value="Thừa Thiên Huế">Thừa Thiên Huế
+                                <option value="Tiền Giang">Tiền Giang
+                                <option value="Trà Vinh">Trà Vinh
+                                <option value="Tuyên Quang">Tuyên Quang
+                                <option value="Vĩnh Long">Vĩnh Long
+                                <option value="Vĩnh Phúc">Vĩnh Phúc
+                                <option value="Yên Bái">Yên Bái
+                                <option value="Phú Yên">Phú Yên
+                                <option value="Tp.Cần Thơ">Tp.Cần Thơ
+                                <option value="Tp.Đà Nẵng">Tp.Đà Nẵng
+                                <option value="Tp.Hải Phòng">Tp.Hải Phòng
+                                <option value="Tp.Hà Nội">Tp.Hà Nội
+                                <option value="TP  HCM">TP HCM
+                            </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="name">Điểm đón *</label>
-                            <input type="text" class="form-control" id="name"/>
+                            <input type="text" class="form-control" id="name" name="noiDonKhach"/>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Điểm trả *</label>
-                            <input type="text" class="form-control" id="name"/>
+                            <input type="text" class="form-control" id="name" name="noiTraKhach"/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-4">
                             <label for="name">Giờ khởi hành *</label>
-                            <input type="time" class="form-control" id="name"/>
+                            <input type="time" class="form-control" id="name" name="gioKhoiHanh"/>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="">Ngày khởi hành *</label>
+                            <input type="date" class="form-control" id="name" name="ngayKhoiHanh"/>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Lặp lại *</label>
                             <div class="col-md-12">
                                 <div class="row check-mark-group">
-                                    <label class="check-mark"><input type="checkbox" class="choice" placeholder="T2"/>T2</label>
-                                    <label class="check-mark"><input type="checkbox" class="choice"/>T3</label>
-                                    <label class="check-mark"><input type="checkbox" class="choice"/>T4</label>
-                                    <label class="check-mark"><input type="checkbox" class="choice"/>T5</label>
-                                    <label class="check-mark"><input type="checkbox" class="choice"/>T6</label>
-                                    <label class="check-mark"><input type="checkbox" class="choice"/>T7</label>
-                                    <label class="check-mark"><input type="checkbox" class="choice"/>CN</label>
+                                    <label class="check-mark"><input type="checkbox" class="choice" placeholder="T2" name="lapLaiList" value="T2"/>T2</label>
+                                    <label class="check-mark"><input type="checkbox" class="choice" name="lapLaiList" value="T3"/>T3</label>
+                                    <label class="check-mark"><input type="checkbox" class="choice" name="lapLaiList" value="T4"/>T4</label>
+                                    <label class="check-mark"><input type="checkbox" class="choice" name="lapLaiList" value="T5"/>T5</label>
+                                    <label class="check-mark"><input type="checkbox" class="choice" name="lapLaiList" value="T6"/>T6</label>
+                                    <label class="check-mark"><input type="checkbox" class="choice" name="lapLaiList" value="T7"/>T7</label>
+                                    <label class="check-mark"><input type="checkbox" class="choice" name="lapLaiList" value="CN"/>CN</label>
                                 </div>
                             </div>
                         </div>
@@ -125,12 +268,12 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label>Thời gian di chuyển *</label>
-                            <input type="text" class="form-control"/>
+                            <label for="loaiXe">Thời gian di chuyển *</label>
+                            <input type="number" class="form-control" name="khoangThoiGianDiChuyen"/>
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Giá vé *</label>
-                            <input type="text" class="form-control"/>
+                            <label for="loaiXe">Giá vé *</label>
+                            <input type="number" class="form-control" name="giaLoTrinh"/>
                         </div>
                     </div>
                     <div>

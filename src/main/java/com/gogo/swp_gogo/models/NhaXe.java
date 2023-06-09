@@ -49,6 +49,28 @@ public class NhaXe implements Account {
         return true;
     }
 
+    public void addTuyenXe(HttpServletRequest request) {
+        String noiBatDau = request.getParameter("noiBatDau");
+        String dichDen = request.getParameter("dichDen");
+        String noiDonKhach = request.getParameter("noiDonKhach");
+        String noiTraKhach = request.getParameter("noiTraKhach");
+        int khoangThoiGianDiChuyen = Integer.parseInt(request.getParameter("khoangThoiGianDiChuyen"));
+        int giaLoTrinh = Integer.parseInt(request.getParameter("giaLoTrinh"));
+//        List<String> xeChayList = List.of(request.getParameterValues("xeChayList"));
+        String gioKhoiHanh = request.getParameter("gioKhoiHanh");
+        String ngayKhoiHanh = request.getParameter("ngayKhoiHanh");
+        List<String> lapLaiList = List.of(request.getParameterValues("lapLaiList"));
+        System.out.println(noiBatDau);
+        System.out.println(dichDen);
+        System.out.println(noiDonKhach);
+        System.out.println(noiTraKhach);
+        System.out.println(khoangThoiGianDiChuyen);
+        System.out.println(giaLoTrinh);
+        System.out.println(gioKhoiHanh);
+        System.out.println(ngayKhoiHanh);
+        System.out.println(lapLaiList);
+    }
+
     public String getIdNhaXe() {
         return idNhaXe;
     }
