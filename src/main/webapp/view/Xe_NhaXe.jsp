@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="Head.jsp"></jsp:include>
 <jsp:useBean id="nhaXe" class="com.gogo.swp_gogo.models.NhaXe" scope="request"/>
-<jsp:getProperty name="nhaXe" property="xe"/>
+<%--<jsp:getProperty name="nhaXe" property="xe"/>--%>
 <c:forEach var="xe" items="${nhaXe.xeList}">
     <p>${xe.idXe}</p>
 </c:forEach>
@@ -121,69 +121,76 @@
         <div class="row no-gutters slider-text align-items-center justify-content-start">
             <div class="col-md-9 ftco-animate pb-4">
                 <h1 class="mb-3 bread">GoGo xin chào</h1>
-                <p>
+                <div>
                     <a href="#xe" class="btn btn-primary py-2 px-4">Xe chạy</a>
-                    <a href="AddTuyenXe" class="btn btn-black py-2 px-4">Tuyến xe</a>
-                </p>
+                    <form action="AddTuyenXe" class="btn btn-black py-2 px-4" method="get">
+                        <input type="hidden" name="idNhaXe" value="${nhaXe.idNhaXe}"/>
+                        <input  type="submit" value="Tuyến xe"/>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- .section -->
-<section class="ftco-section ftco-services-2 ftco-no-pt">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 mb-5">
-                <div class="row xe" id="xe">
-                    <div class="col-md-3 ftco-animate">
-                        <img src="${resourcePath}images/about.jpg" class="img-fluid" />
-                    </div>
-                    <div class="col-md-5 ftco-animate">
-                        <div class="text py-5">
-                            <h3>74MĐ-000000</h3>
-                            <p class="pos">
-                                Giường nằm - <span class="price">300000đ </span> - 42 chỗ
-                            </p>
-                            <p>Khăn ướt, điều hòa</p>
-                            <p>
-                                <button class="btn btn-secondary" >Chỉnh sửa</button>
-                                <button class="btn btn-primary js-del-cf-btn">Xóa</button>
-                            </p>
+<div class="col-md-12">
+    <button class="btn btn-primary py-3 px-4 js-addXe" onclick="openModal()">Thêm xe</button>
+</div>
+<c:forEach var="xe" items="${nhaXe.xeList}">
+    <section class="ftco-section ftco-services-2 ftco-no-pt">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mb-5">
+                    <div class="row xe" id="xe">
+                        <div class="col-md-3 ftco-animate">
+                            <img src="${resourcePath}images/about.jpg" class="img-fluid" />
                         </div>
-                    </div>
-                    <div class="col-md-4 ftco-animate dsLoTrinh">
-                        <h3>Tuyến chạy</h3>
-                        <div class="loTrinh">
-                            <div class="noiXuatPhat">Hà Nội</div>
-                            <div>
-                                <div class="icon-exchange"></div>
+                        <div class="col-md-5 ftco-animate">
+                            <div class="text py-5">
+                                <h3>${xe.idXe}</h3>
+                                <p class="pos">
+                                    Giường nằm - <span class="price"> ${xe.gheXeList[3].giaGhe} </span> - 42 chỗ
+                                </p>
+                                <p>${xe.moTa}</p>
+                                <p>
+                                    <button class="btn btn-secondary" >Chỉnh sửa</button>
+                                    <button class="btn btn-primary js-del-cf-btn">Xóa</button>
+                                </p>
                             </div>
-                            <div class="dichDen">Đà Nẵng</div>
                         </div>
-                        <div class="loTrinh">
-                            <div class="noiXuatPhat">Hà Nội</div>
-                            <div>
-                                <div class="icon-exchange"></div>
+                        <div class="col-md-4 ftco-animate dsLoTrinh">
+                            <h3>Tuyến chạy</h3>
+                            <div class="loTrinh">
+                                <div class="noiXuatPhat">Hà Nội</div>
+                                <div>
+                                    <div class="icon-exchange"></div>
+                                </div>
+                                <div class="dichDen">Đà Nẵng</div>
                             </div>
-                            <div class="dichDen">Đà Nẵng</div>
+                            <div class="loTrinh">
+                                <div class="noiXuatPhat">Hà Nội</div>
+                                <div>
+                                    <div class="icon-exchange"></div>
+                                </div>
+                                <div class="dichDen">Đà Nẵng</div>
+                            </div>
                         </div>
+                        <div class="del-cf js-del-cf">
+                            Bạn muốn xóa xe này? <br /><button class="btn btn-primary js-del">
+                            Xóa
+                        </button>
+                            <button class="btn btn-black js-cancel">Hủy</button>
+                        </div>
+                        <div class="xe-overlay"></div>
                     </div>
-                    <div class="del-cf js-del-cf">
-                        Bạn muốn xóa xe này? <br /><button class="btn btn-primary js-del">
-                        Xóa
-                    </button>
-                        <button class="btn btn-black js-cancel">Hủy</button>
-                    </div>
-                    <div class="xe-overlay"></div>
                 </div>
-            </div>
-            <div class="col-md-12">
-                <button class="btn btn-primary py-3 px-4 js-addXe" onclick="openModal()">Thêm xe</button>
+
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</c:forEach>
+
 
 <!-- loader -->
 <div id="ftco-loader" class="show fullscreen">
