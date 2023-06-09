@@ -46,19 +46,22 @@
 <c:if test = "${connection!=null}">
     <h2><c:out value="${connection.toString()}"/></h2>
 </c:if>
+<div type="hidden" value="${connection.toString()}" id="status"></div>
 <script>
+    var result = ${connection.toString()};
     function handleNotice(){
-        let result = ${connection}.toString();
+        console.log(result);
+        // let result = document.getElementById(status);
         // console.log("Vao ham");
         // notice("hi");
         // notice("Tên tài khoản hoặc mật khẩu không đúng!");
-        if (result==="false"){
-            notice("Tên tài khoản hoặc mật khẩu không đúng!");
-            console.log("NOT OK");
-        } else {
-            notice("Đăng nhập thành công!");
-            console.log("OK");
-        }
+        // if (status==="false"){
+        //     notice("Tên tài khoản hoặc mật khẩu không đúng!");
+        //     console.log("NOT OK");
+        // } else {
+        //     notice("Đăng nhập thành công!");
+        //     console.log("OK");
+        // }
     }
 </script>
 </body>
