@@ -1,3 +1,0 @@
-function notice(String message) {
-
-}

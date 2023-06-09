@@ -16,7 +16,7 @@
         <div class="icon-close js-close" onclick="closeModal()"></div>
         <div class="col-md-12">
             <form class="p-5 bg-light row" action="AddGheXe" method="post">
-                <div col-md-6>
+                <div class="col-md-6">
                     <h3 class="mb-5">Thêm xe</h3>
                     <div class="form-group">
                         <label>Biển số xe *</label>

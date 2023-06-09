@@ -30,7 +30,7 @@
 
                 <p class="alter">Đăng nhập bằng SĐT</p>
 
-                <button type="submit" class="btn btn-primary py-3 px-5">
+                <button type="submit" class="btn btn-primary py-3 px-5" onclick="handleNotice()">
                     Đăng nhập
                 </button>
             </form>
@@ -45,6 +45,15 @@
 <c:if test = "${connection!=null}">
     <h2><c:out value="${connection.toString()}"/></h2>
 </c:if>
+<script>
+    function handleNotice(){
+        if (${connection}.toString() === "false"){
+            notice("Tên tài khoản hoặc mật khẩu không đúng!");
+        } else {
+            notice("Đăng nhập thành công!");
+        }
+    }
+</script>
 </body>
 </html>
 

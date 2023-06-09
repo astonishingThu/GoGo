@@ -65,12 +65,12 @@ function getVipList() {
         }
     }
     let vipList1 = document.getElementById("vipList");
-    vipList1.setAttribute("value", vipList);
+    $("#vipList").val(vipList);
     // vipList1.value(vipList);
 }
 
-modal__closer.addEventListener("click", closeModal);
-modal__opener.addEventListener("click", openModal);
+// modal__closer.addEventListener("click", closeModal);
+// modal__opener.addEventListener("click", openModal);
 
 // --------------- Tắt bật Overlay ------------------------
 $(document).ready(function () {
@@ -99,6 +99,8 @@ themXe.addEventListener("click", function () {
         closeModal();
     }
 });
+
+// ----------------- VALIDATE DỮ LIỆU -------------------
 function setError(ele, message) {
     ele.classList.add('alert-danger');
     ele.parentNode.querySelector('small').innerText = message;

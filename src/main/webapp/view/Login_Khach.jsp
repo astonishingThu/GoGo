@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="Head.jsp"></jsp:include>
 <body>
+<div class="notice"></div>
 <div>
     <div class="col-md-7 order-md-last d-flex">
         <div class="login__left">
