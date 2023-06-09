@@ -82,7 +82,7 @@
         <div class="modal js-modal">
             <div class="addTuyenDuong col-md-9 ">
                 <div class="icon-close js-close" onclick="closeModal()"></div>
-                <form action="AddTuyenXe?idNhaXe=${idNhaXe}" class="p-5 bg-light" method="post" >
+                <form action="AddTuyenXe" class="p-5 bg-light" method="post" >
 <%--                    <c:if test="${idNhaXe}!=null">--%>
 <%--                        <h1>Id nha xe: <c:out value="${idNhaXe}"/></h1>--%>
 <%--                    </c:if>--%>
