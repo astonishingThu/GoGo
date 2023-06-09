@@ -51,5 +51,4 @@
             out.print("false");
         }
     }
-
 %>
