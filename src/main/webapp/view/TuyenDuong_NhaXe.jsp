@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="Head.jsp"></jsp:include>
+<jsp:useBean id="nhaXe" class="com.gogo.swp_gogo.models.NhaXe" scope="request"/>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 <nav
         class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
@@ -76,7 +77,8 @@
             <div class="addTuyenDuong col-md-9 ">
                 <div class="icon-close js-close" onclick="closeModal()"></div>
                 <form action="AddTuyenXe" class="p-5 bg-light" method="post" >
-<%--                    <c:if test="${idNhaXe}!=null">--%>
+                    <input type="hidden" name="idNhaXe" value="${nhaXe.idNhaXe}"/>
+                <%--                    <c:if test="${idNhaXe}!=null">--%>
 <%--                        <h1>Id nha xe: <c:out value="${idNhaXe}"/></h1>--%>
 <%--                    </c:if>--%>
 <%--                    <input type="hidden" id="idNhaXe" name="idNhaXe" value="${idNhaXe}"/>--%>
