@@ -33,5 +33,6 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/view/css/icomoon.css"/>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/view/css/style.css"/>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/view/myCSS/newStyle.css"/>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/view/myCSS/TuyenDuong_NhaXe.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>

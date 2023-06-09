@@ -34,7 +34,7 @@
                         <input type="number" class="form-control" id="soGhe" />
                     </div>
                     <div class="form-group ml-3">
-                        <label for="#">Sơ đồ ghế *</label>
+                        <label>Sơ đồ ghế *</label>
                         <button class="xemSoDo btn btn-secondary mt-2 " onclick="openSoDo()">
                             Xem sơ đồ
                         </button>

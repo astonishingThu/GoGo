@@ -1,0 +1,25 @@
+.addTuyenDuong{
+    max-height: 100vh;
+    overflow-y: scroll;
+}
+.addTuyenDuong::-webkit-scrollbar{
+    display: none;
+}
+.them-btn{
+    margin: 10px auto;
+    text-align: center;
+}
+.check-mark-group{
+    display: flex;
+    justify-content: space-between;
+}
+.check-mark{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+.check-mark input {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+}
