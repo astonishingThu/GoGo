@@ -25,5 +25,6 @@ public class AddGheXeServlet extends HttpServlet {
             System.out.println(vipList[i]);
         }
         System.out.println(idnhaxe);
+        System.out.println("Hello");
     }
 }
