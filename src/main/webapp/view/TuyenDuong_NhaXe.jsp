@@ -57,7 +57,7 @@
 
 <section
         class="hero-wrap"
-        style="background-image: url('images/destination-single.jpg')"
+        style="background-image: url('${resourcePath}images/destination-single.jpg')"
         data-stellar-background-ratio="0.5"
 >
     <div class="overlay"></div>
@@ -239,23 +239,23 @@
         </svg>
     </div>
 </section>
-<script src="myJS/TuyenDuong_NhaXe.js"></script>
-<script src="js/jquery.min.js"></script>
+<script src="${resourcePath}myJS/TuyenDuong_NhaXe.js"></script>
+<script src="${resourcePath}js/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="js/jquery-migrate-3.0.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.easing.1.3.js"></script>
-<script src="js/jquery.waypoints.min.js"></script>
-<script src="js/jquery.stellar.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/aos.js"></script>
-<script src="js/jquery.animateNumber.min.js"></script>
-<script src="js/scrollax.min.js"></script>
+<script src="${resourcePath}js/jquery-migrate-3.0.1.min.js"></script>
+<script src="${resourcePath}js/popper.min.js"></script>
+<script src="${resourcePath}js/bootstrap.min.js"></script>
+<script src="${resourcePath}js/jquery.easing.1.3.js"></script>
+<script src="${resourcePath}js/jquery.waypoints.min.js"></script>
+<script src="${resourcePath}js/jquery.stellar.min.js"></script>
+<script src="${resourcePath}js/owl.carousel.min.js"></script>
+<script src="${resourcePath}js/jquery.magnific-popup.min.js"></script>
+<script src="${resourcePath}js/aos.js"></script>
+<script src="${resourcePath}js/jquery.animateNumber.min.js"></script>
+<script src="${resourcePath}js/scrollax.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script src="js/google-map.js"></script>
-<script src="js/main.js"></script>
+<script src="${resourcePath}js/google-map.js"></script>
+<script src="${resourcePath}js/main.js"></script>
 
 </body>
 </html>
