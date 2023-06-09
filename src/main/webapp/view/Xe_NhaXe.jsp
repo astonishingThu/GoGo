@@ -15,62 +15,64 @@
 <div class="modal js-modal">
     <div class="addXe">
         <div class="icon-close js-close"></div>
-        <div class="col-md-6">
-            <form action="#" class="p-5 bg-light">
-                <h3 class="mb-5">Thêm xe</h3>
-                <div class="form-group">
-                    <label for="name">Biển số xe *</label>
-                    <input type="text" class="form-control" id="name" name=""/>
-                </div>
-                <div class="form-group">
-                    <label for="loaiXe">Loại xe *</label>
-
-                    <select class="loaiGhe form-control">
-                        <option>Ghế ngồi</option>
-                        <option>Giường nằm</option>
-                        <option>Limousine</option>
-                        <!-- <input type="text" class="form-control" id="loaiXe" /> -->
-                    </select>
-                </div>
-                <div class="ghe">
+        <div class="col-md-12">
+            <form class="p-5 bg-light row" action="AddGheXe" method="post">
+                <div col-md-6>
+                    <h3 class="mb-5">Thêm xe</h3>
                     <div class="form-group">
-                        <label for="soGhe">Số ghế ngồi *</label>
-                        <input type="number" class="form-control" id="soGhe" />
+                        <label for="name">Biển số xe *</label>
+                        <input type="text" class="form-control" id="name" name=""/>
                     </div>
-                    <div class="form-group ml-3">
-                        <label>Sơ đồ ghế *</label>
-                        <div class="xemSoDo btn btn-secondary mt-2 " onclick="openSoDo()">
-                            Xem sơ đồ
+                    <div class="form-group">
+                        <label for="loaiXe">Loại xe *</label>
+
+                        <select name="loaiXe" class="loaiGhe form-control">
+                            <option>Ghế ngồi</option>
+                            <option>Giường nằm</option>
+                            <option>Limousine</option>
+                            <!-- <input type="text" class="form-control" id="loaiXe" /> -->
+                        </select>
+                    </div>
+                    <div class="ghe">
+                        <div class="form-group">
+                            <label for="soGhe">Số ghế ngồi *</label>
+                            <input name="soLuongghe" type="number" class="form-control" id="soGhe" />
+                        </div>
+                        <div class="form-group ml-3">
+                            <label>Sơ đồ ghế *</label>
+                            <div class="xemSoDo btn btn-secondary mt-2 " onclick="openSoDo()">
+                                Xem sơ đồ
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label for="message">Mô tả</label>
-                    <textarea name="" id="message" cols="30" rows="2" class="form-control"></textarea>
+                    <div class="form-group">
+                        <label for="message">Mô tả</label>
+                        <textarea name="moTa" id="message" cols="30" rows="2" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Thêm xe" class="btn py-3 px-5 btn-primary" onclick="closeModal()"/>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="submit" value="Thêm xe" class="btn py-3 px-5 btn-primary" onclick="closeModal()"/>
+                <div id="soDoGhe" class="col-md-6 soDoGhe pt-5 js-soDoGhe">
+                        <h4 id="titleGhe">32 ghế</h4>
+                        <div class="row p-5">
+                            <div class="col-md-6" id="hang-1"></div>
+                            <div class="col-md-6" id="hang-2"></div>
+                            <div class="mt-5">
+                                <label>*Chú thích:</label>
+                                <div class="icon-bus col-md-8 btn btn-primary ml-3">Ghế VIP</div>
+                            </div>
+                            <input type="hidden" id="vipList" name="vipList"/>
+                            <div class="mt-5">
+                                <label>*Phụ thu ghế VIP:</label>
+                                <input type="number" class="form-control" name="giaGhe"/>
+                            </div>
+                        </div>
                 </div>
             </form>
         </div>
-        <div id="soDoGhe" class="col-md-6 soDoGhe pt-5 js-soDoGhe">
-            <form type="hidden" action>
-                <h4 id="titleGhe">32 ghế</h4>
-                <div class="row p-5">
-                    <div class="col-md-6" id="hang-1"></div>
-                    <div class="col-md-6" id="hang-2"></div>
-                    <div class="mt-5">
-                        <label>*Chú thích:</label>
-                        <div class="icon-bus col-md-8 btn btn-primary ml-3">Ghế VIP</div>
-                    </div>
-                    <div class="mt-5">
-                        <label>*Phụ thu ghế VIP:</label>
-                        <input type="number" class="form-control" id="soGhe" />
-                    </div>
-                </div>
-            </form>
-        </div>
+
     </div>
 </div>
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
@@ -302,7 +304,7 @@
     </svg>
 </div>
 <script>
-
+    var vipList = [];
     const modal = document.querySelector(".js-modal");
     const soDoGhe = document.querySelector(".js-soDoGhe");
     const confirmDels = document.querySelectorAll(".js-del-cf");
@@ -311,6 +313,7 @@
 
     function closeModal() {
         modal.classList.remove("open");
+        getVipList();
     }
     function openModal() {
         modal.classList.add("open");
@@ -328,7 +331,7 @@
         for (let i = 1; i <= Math.round(soGhe.value/2); i++) {
             let ghe = document.createElement("div");
             hang1.append(ghe);
-            ghe.className = "icon-bus col-md-5 btn btn-secondary m-1";
+            ghe.className = "ghe icon-bus col-md-5 btn btn-secondary m-1";
             ghe.id = ""+Math.round(i);
             ghe.innerHTML = ghe.id;
             ghe.setAttribute("onclick","setGheVip("+Math.round(i)+")");
@@ -336,7 +339,7 @@
         for (let i = (soGhe.value/2+1); i <= soGhe.value; i++) {
             let ghe = document.createElement("div");
             hang2.append(ghe);
-            ghe.className = "icon-bus col-md-5 btn btn-secondary m-1";
+            ghe.className = "ghe icon-bus col-md-5 btn btn-secondary m-1";
             ghe.id = ""+Math.round(i);
             ghe.innerHTML = ghe.id;
             ghe.setAttribute("onclick","setGheVip("+Math.round(i)+")");
@@ -347,13 +350,24 @@
         let ghe = document.getElementById(id);
         if (ghe.classList.contains("btn-secondary")){
             vip = true;
-            ghe.className = "icon-bus col-md-5 btn btn-primary m-1";
+            ghe.className = "ghe icon-bus col-md-5 btn btn-primary m-1";
         } else {
             vip = false;
-            ghe.className = "icon-bus col-md-5 btn btn-secondary m-1";
+            ghe.className = "ghe icon-bus col-md-5 btn btn-secondary m-1";
         }
     }
-
+    function getVipList(){
+        let vipList=[];
+        let gheList = document.querySelectorAll(".ghe");
+        for (let i = 0; i < gheList.length; i++){
+            if (gheList[i].classList.contains("btn-primary")){
+                vipList.push(gheList[i].id);
+            }
+        }
+        $("#vipList").val(vipList);
+        $("#vipList").val(vipList);
+        console.log(vipList);
+    }
     modal__closer.addEventListener("click", closeModal);
     modal__opener.addEventListener("click", openModal);
 </script>
