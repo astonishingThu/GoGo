@@ -36,7 +36,6 @@ h4 {
   color: #e2c0bb;
 }
 .dsLoTrinh {
-  margin-top: 50px;
 }
 .loTrinh {
   display: flex;
@@ -69,7 +68,9 @@ h4 {
   display: inline-block;
   margin: 5px;
 }
-
+.ill{
+  aspect-ratio: 1;
+}
 .modal {
   background-color: rgba(0, 0, 0, 0.4);
   justify-content: center;
@@ -140,4 +141,11 @@ small{
   color: red;
   padding: 20px;
   z-index: 8000;
+}
+
+.js-addXe{
+  position: fixed;
+  right: 150px;
+  bottom: 80px;
+  z-index: 1000;
 }

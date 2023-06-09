@@ -10,9 +10,9 @@
 <jsp:include page="Head.jsp"></jsp:include>
 <jsp:useBean id="nhaXe" class="com.gogo.swp_gogo.models.NhaXe" scope="request"/>
 <%--<jsp:getProperty name="nhaXe" property="xe"/>--%>
-<c:forEach var="xe" items="${nhaXe.xeList}">
-    <p>${xe.idXe}</p>
-</c:forEach>
+<%--<c:forEach var="xe" items="${nhaXe.xeList}">--%>
+<%--    <p>${xe.idXe}</p>--%>
+<%--</c:forEach>--%>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
      id="ftco-navbar">
@@ -121,11 +121,11 @@
         <div class="row no-gutters slider-text align-items-center justify-content-start">
             <div class="col-md-9 ftco-animate pb-4">
                 <h1 class="mb-3 bread">GoGo xin chào</h1>
-                <div>
+                <div class="row">
                     <a href="#xe" class="btn btn-primary py-2 px-4">Xe chạy</a>
-                    <form action="AddTuyenXe" class="btn btn-black py-2 px-4" method="get">
-                        <input type="hidden" name="idNhaXe" value="${nhaXe.idNhaXe}"/>
-                        <input  type="submit" value="Tuyến xe"/>
+                    <form action="AddTuyenXe" class="" method="get">
+                        <input type="hidden" name="idNhaXe" value="${nhaXe.idNhaXe}" style="width: 0"/>
+                        <input  type="submit " class="btn btn-black py-2 px-4" value="Tuyến xe" style="width: 120px"/>
                     </form>
                 </div>
             </div>
@@ -141,13 +141,13 @@
     <section class="ftco-section ftco-services-2 ftco-no-pt">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 mb-5">
+                <div class="col-md-12">
                     <div class="row xe" id="xe">
                         <div class="col-md-3 ftco-animate">
-                            <img src="${resourcePath}images/about.jpg" class="img-fluid" />
+                            <img src="${resourcePath}images/about.jpg" class="ill img-fluid" />
                         </div>
                         <div class="col-md-5 ftco-animate">
-                            <div class="text py-5">
+                            <div class="text">
                                 <h3>${xe.idXe}</h3>
                                 <p class="pos">
                                     Giường nằm - <span class="price"> ${xe.gheXeList[3].giaGhe} </span> - 42 chỗ
@@ -176,7 +176,7 @@
                                 <div class="dichDen">Đà Nẵng</div>
                             </div>
                         </div>
-                        <div class="del-cf js-del-cf">
+                        <div class="del-cf js-del-cf" id="">
                             Bạn muốn xóa xe này? <br /><button class="btn btn-primary js-del">
                             Xóa
                         </button>
