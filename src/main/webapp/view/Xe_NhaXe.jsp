@@ -124,8 +124,8 @@
                 <div class="row">
                     <a href="#xe" class="btn btn-primary py-2 px-4">Xe chạy</a>
                     <form action="AddTuyenXe" class="" method="get">
-                        <input type="hidden" name="idNhaXe" value="${nhaXe.idNhaXe}" style="width: 0"/>
-                        <input  type="submit " class="btn btn-black py-2 px-4" value="Tuyến xe" style="width: 120px"/>
+                        <input type="hidden" name="idNhaXe" value="${nhaXe.idNhaXe}"/>
+                        <input  type="submit" class="btn btn-black py-2 px-4" value="Tuyến xe" style="width: 120px"/>
                     </form>
                 </div>
             </div>

@@ -236,43 +236,39 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-6">
                             <label for="name">Giờ khởi hành *</label>
                             <input type="time" class="form-control" id="name" name="gioKhoiHanh"/>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="">Ngày khởi hành *</label>
-                            <input type="date" class="form-control" id="name" name="ngayKhoiHanh"/>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Lặp lại *</label>
                             <div class="col-md-12">
                                 <div class="row check-mark-group">
-                                    <label class="check-mark"><input type="checkbox" class="choice" placeholder="T2" name="lapLaiList" value="T2"/>T2</label>
-                                    <label class="check-mark"><input type="checkbox" class="choice" name="lapLaiList" value="T3"/>T3</label>
-                                    <label class="check-mark"><input type="checkbox" class="choice" name="lapLaiList" value="T4"/>T4</label>
-                                    <label class="check-mark"><input type="checkbox" class="choice" name="lapLaiList" value="T5"/>T5</label>
-                                    <label class="check-mark"><input type="checkbox" class="choice" name="lapLaiList" value="T6"/>T6</label>
-                                    <label class="check-mark"><input type="checkbox" class="choice" name="lapLaiList" value="T7"/>T7</label>
-                                    <label class="check-mark"><input type="checkbox" class="choice" name="lapLaiList" value="CN"/>CN</label>
+                                    <label class="check-mark"><input type="checkbox" class="choice" name="lapLaiList" value="T2" onchange="getThu()"/>T2</label>
+                                    <label class="check-mark"><input type="checkbox" class="choice" name="lapLaiList" value="T3" onchange="getThu()"/>T3</label>
+                                    <label class="check-mark"><input type="checkbox" class="choice" name="lapLaiList" value="T4" onchange="getThu()"/>T4</label>
+                                    <label class="check-mark"><input type="checkbox" class="choice" name="lapLaiList" value="T5" onchange="getThu()"/>T5</label>
+                                    <label class="check-mark"><input type="checkbox" class="choice" name="lapLaiList" value="T6" onchange="getThu()"/>T6</label>
+                                    <label class="check-mark"><input type="checkbox" class="choice" name="lapLaiList" value="T7" onchange="getThu()"/>T7</label>
+                                    <label class="check-mark"><input type="checkbox" class="choice" name="lapLaiList" value="CN" onchange="getThu()"/>CN</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Ngày bắt đầu *</label>
-                            <input type="date" class="form-control" id="name"/>
+                            <input type="date" class="form-control" name="ngayBatDau" id="ngayBatDau"/>
                         </div><div class="form-group col-md-6">
                         <label>Ngày kết thúc *</label>
-                        <input type="date" class="form-control" id="name"/>
+                        <input type="date" class="form-control" name="ngayKetThuc" id="ngayKetThuc"/>
                     </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label for="loaiXe">Thời gian di chuyển *</label>
-                            <input type="number" class="form-control" name="khoangThoiGianDiChuyen"/>
+                            <label>Thời gian di chuyển *</label>
+                            <input type="text" class="form-control" name="khoangThoiGianDiChuyen" onchange="getNgay()"/>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="loaiXe">Giá vé *</label>
+                            <label>Giá vé *</label>
                             <input type="number" class="form-control" name="giaLoTrinh"/>
                         </div>
                     </div>
