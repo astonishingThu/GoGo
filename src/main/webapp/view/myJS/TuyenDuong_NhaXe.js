@@ -55,5 +55,6 @@ function getNgay(){
         }
         ngaybd.setDate(ngaybd.getDate()+1);
     }
+    $("#ngayList").val(ngayChay);
     return ngayChay;
 }

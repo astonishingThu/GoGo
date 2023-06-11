@@ -266,6 +266,7 @@
                         <div class="form-group col-md-6">
                             <label>Thời gian di chuyển *</label>
                             <input type="text" class="form-control" name="khoangThoiGianDiChuyen" onchange="getNgay()"/>
+                            <input type="hidden" id="ngayList" name="ngayList"/>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Giá vé *</label>
