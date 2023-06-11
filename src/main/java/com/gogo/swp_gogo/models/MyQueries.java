@@ -1,5 +1,7 @@
 package com.gogo.swp_gogo.models;
 
+import org.eclipse.tags.shaded.org.apache.bcel.generic.Select;
+
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -64,6 +66,77 @@ public class MyQueries {
             statement.setString(3,gheXe.getIdXe());
             statement.executeUpdate();
             connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void addTuyenDuong(TuyenDuong tuyenDuong) {
+        Connection connection = getConnection();
+        try {
+            PreparedStatement statement = connection.prepareStatement("Insert Into GoGo.dbo.TuyenDuong(idTuyenDuong,noiBatDau,dichDen) Values(?,?,?)");
+            statement.setString(1,tuyenDuong.getIdTuyenDuong());
+            statement.setString(2, tuyenDuong.getNoiBatDau());
+            statement.setString(3,tuyenDuong.getDichDen());
+            statement.executeUpdate();
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void addNoiDonKhach(DonKhach donKhach) {
+        Connection connection = getConnection();
+        try {
+            PreparedStatement statement = connection.prepareStatement("Insert Into GoGo.dbo.DonKhach(idLoTrinh,noiDonKhach) Values(?,?)");
+            statement.setString(1,donKhach.getIdLoTrinh());
+            statement.setString(2, donKhach.getNoiDonKhach());
+            statement.executeUpdate();
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void addNoiTraKhach(TraKhach traKhach) {
+        Connection connection = getConnection();
+        try {
+            PreparedStatement statement = connection.prepareStatement("Insert Into GoGo.dbo.TraKhach(idLoTrinh,noiTraKhach) Values(?,?)");
+            statement.setString(1,traKhach.getIdLoTrinh());
+            statement.setString(2, traKhach.getNoiTraKhach());
+            statement.executeUpdate();
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void addThoiGianKhoiHanh(ThoiGianKhoiHanh thoiGianKhoiHanh) {
+        Connection connection = getConnection();
+        try {
+            PreparedStatement statement = connection.prepareStatement("Insert Into GoGo.dbo.ThoiGianKhoiHanh(idThoiGian,gioKhoiHanh,ngayKhoiHanh) Values(?,?,?)");
+            statement.setString(1,thoiGianKhoiHanh.getIdThoiGian());
+            statement.setString(2, thoiGianKhoiHanh.getGioKhoiHanh());
+            statement.setString(3, thoiGianKhoiHanh.getNgayKhoiHanh());
+            statement.executeUpdate();
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static String getIdTuyenDuongExist(String noiBatDau, String dichDen) {
+        Connection connection = getConnection();
+        try {
+            PreparedStatement statement = connection.prepareStatement("Select idTuyenDuong from TuyenDuong where noiBatDau = ? and dichDen = ?");
+            statement.setString(1,noiBatDau);
+            statement.setString(2,dichDen);
+            ResultSet resultSet = statement.executeQuery();
+            while(resultSet.next()) {
+                return resultSet.getString("idTuyenDuong");
+            }
+            connection.close();
+            return null;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -175,4 +248,40 @@ public class MyQueries {
         }
     }
 
+    public static List<String> getAvailableXeOfNhaXe(String idNhaXe) {
+        Connection connection = getConnection();
+        List<String> res = new ArrayList<>();
+        try {
+            String q = "Select x.idXe from Xe x where x.idNhaXe = ? except select Xe.idXe from Xe join LoTrinh LT on Xe.idXe = LT.idXe where xe.idNhaXe = ?";
+            PreparedStatement statement = connection.prepareStatement(q);
+            statement.setString(1,idNhaXe);
+            statement.setString(2,idNhaXe);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                res.add(resultSet.getString(1));
+            }
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return res;
+    }
+
+    public static void removeXe(String idXe) {
+        Connection connection = getConnection();
+        try {
+            PreparedStatement statement = connection.prepareStatement("Delete from GoGo.dbo.Xe where idXe = ?");
+            statement.setString(1,idXe);
+            PreparedStatement statement2 = connection.prepareStatement("Delete from GoGo.dbo.GheXe where idXe = ?");
+            statement2.setString(1,idXe);
+            PreparedStatement statement3 = connection.prepareStatement("Delete from GoGo.dbo.LoTrinh where idXe = ?");
+            statement3.setString(1,idXe);
+            statement2.executeUpdate();
+            statement3.executeUpdate();
+            statement.executeUpdate();
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

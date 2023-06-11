@@ -2,8 +2,10 @@ package com.gogo.swp_gogo.models;
 
 import jakarta.servlet.http.HttpServletRequest;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class NhaXe implements Account {
     private String idNhaXe;
@@ -49,27 +51,66 @@ public class NhaXe implements Account {
         return true;
     }
 
-    public void addTuyenXe(HttpServletRequest request) {
-        String noiBatDau = request.getParameter("noiBatDau");
-        String dichDen = request.getParameter("dichDen");
-        String noiDonKhach = request.getParameter("noiDonKhach");
-        String noiTraKhach = request.getParameter("noiTraKhach");
+    public void addLoTrinh(HttpServletRequest request) {
+        String idLoTrinh = MyRandom.generateRandomId(5,"LT");
+        String idTuyenDuong = addTuyenDuong(request);
+        addNoiDonKhach(request,idLoTrinh);
+        addNoiTraKhach(request,idLoTrinh);
+        addThoiGianKhoiHanh(request);
+
         int khoangThoiGianDiChuyen = Integer.parseInt(request.getParameter("khoangThoiGianDiChuyen"));
         int giaLoTrinh = Integer.parseInt(request.getParameter("giaLoTrinh"));
 //        List<String> xeChayList = List.of(request.getParameterValues("xeChayList"));
+        String ngayKhoiHanh = request.getParameter("ngayKhoiHanh");
+        String ngayKetThuc = request.getParameter("ngayKetThuc");
+        System.out.println(request.getParameter("gioKhoiHanh"));
+        System.out.println(ngayKhoiHanh);
+        System.out.println(ngayKetThuc);
+    }
+
+    private String addTuyenDuong(HttpServletRequest request) {
+        TuyenDuong tuyenDuong;
+        String noiBatDau = request.getParameter("noiBatDau");
+        String dichDen = request.getParameter("dichDen");
+        if (!DataValidator.isTuyenDuongExist(noiBatDau,dichDen)) {
+            String idTuyenDuong = MyRandom.generateRandomId(5,"TD");
+            tuyenDuong = new TuyenDuong(idTuyenDuong,noiBatDau,dichDen);
+            MyQueries.addTuyenDuong(tuyenDuong);
+            return idTuyenDuong;
+        }
+        return MyQueries.getIdTuyenDuongExist(noiBatDau,dichDen);
+    }
+
+    private void addNoiDonKhach(HttpServletRequest request, String idLoTrinh) {
+        String noiDonKhach = request.getParameter("noiDonKhach");
+        MyQueries.addNoiDonKhach(new DonKhach(idLoTrinh,noiDonKhach));
+    }
+
+    private void addNoiTraKhach(HttpServletRequest request, String idLoTrinh) {
+        String noiTraKhach = request.getParameter("noiTraKhach");
+        MyQueries.addNoiTraKhach(new TraKhach(idLoTrinh,noiTraKhach));
+    }
+
+    private String addThoiGianKhoiHanh(HttpServletRequest request) {
         String gioKhoiHanh = request.getParameter("gioKhoiHanh");
         String ngayKhoiHanh = request.getParameter("ngayKhoiHanh");
+        String ngayKetThuc = request.getParameter("ngayKetThuc");
         List<String> lapLaiList = List.of(request.getParameterValues("lapLaiList"));
-        System.out.println(noiBatDau);
-        System.out.println(dichDen);
-        System.out.println(noiDonKhach);
-        System.out.println(noiTraKhach);
-        System.out.println(khoangThoiGianDiChuyen);
-        System.out.println(giaLoTrinh);
-        System.out.println(gioKhoiHanh);
-        System.out.println(ngayKhoiHanh);
-        System.out.println(lapLaiList);
+
+
+
+        String idThoiGian = MyRandom.generateRandomId(5,"TG");
+        MyQueries.addThoiGianKhoiHanh(new ThoiGianKhoiHanh(idThoiGian,gioKhoiHanh,ngayKhoiHanh));
+        return idThoiGian;
     }
+
+    private static List<LocalDate> getDatesBetweenUsingJava9(
+            LocalDate startDate, LocalDate endDate) {
+
+        return startDate.datesUntil(endDate)
+                .collect(Collectors.toList());
+    }
+
 
     public String getIdNhaXe() {
         return idNhaXe;
