@@ -28,8 +28,5 @@ public class AddGheXeServlet extends HttpServlet {
         nhaXe.setXeList(MyQueries.getAllXeOfOneNhaXeByCol("idNhaXe",nhaXe.getIdNhaXe()));
         req.setAttribute("nhaXe",nhaXe);
         requestDispatcher.forward(req,resp);
-        for (Xe xe: nhaXe.getXeList()) {
-            System.out.println(xe);
-        }
     }
 }

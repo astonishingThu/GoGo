@@ -177,7 +177,7 @@
                             </div>
                         </div>
                         <div class="del-cf js-del-cf" id="">
-                            Bạn muốn xóa xe này? <br /><button class="btn btn-primary js-del">
+                            Bạn muốn xóa xe này? <br /><button onclick="window.location.href='RemoveXe?idXe=${xe.idXe}&idNhaXe=${nhaXe.idNhaXe}'" class="btn btn-primary js-del">
                             Xóa
                         </button>
                             <button class="btn btn-black js-cancel">Hủy</button>

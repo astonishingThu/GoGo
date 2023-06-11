@@ -5,6 +5,15 @@ public class TuyenDuong {
     private String noiBatDau;
     private String dichDen;
 
+    public TuyenDuong() {
+    }
+
+    public TuyenDuong(String idTuyenDuong, String noiBatDau, String dichDen) {
+        this.idTuyenDuong = idTuyenDuong;
+        this.noiBatDau = noiBatDau;
+        this.dichDen = dichDen;
+    }
+
     public String getIdTuyenDuong() {
         return idTuyenDuong;
     }
