@@ -37,7 +37,7 @@
                     <a href="#" class="nav-link"><span>Tuyến xe</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="${resourcePath}HanhKhach_NhaXe.jsp" class="nav-link"><span>Hành khách</span></a>
+                    <a href="${resourcePath}HanhKhach_NhaXe.jsp" class="nav-link"><span>Doanh thu</span></a>
                 </li>
                 <li class="nav-item has-children">
                     <a class="nav-link" id="logout"><icon class="icon-account_circle"> </icon><span> ${nhaXe.tenNhaXe}</span></a>

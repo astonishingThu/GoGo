@@ -120,6 +120,7 @@
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-start">
             <div class="col-md-9 ftco-animate pb-4">
+            <div class="col-md-9 ftco-animate pb-4">
                 <h1 class="mb-3 bread">GoGo xin chào</h1>
                 <div class="row">
                     <a href="#xe" class="btn btn-primary py-2 px-4">Xe chạy</a>
@@ -155,7 +156,7 @@
                                 <p>${xe.moTa}</p>
                                 <p>
                                     <button class="btn btn-secondary" >Chỉnh sửa</button>
-                                    <button class="btn btn-primary js-del-cf-btn">Xóa</button>
+                                    <button class="btn btn-primary js-del-cf-btn" id=${xe.idXe}>Xóa</button>
                                 </p>
                             </div>
                         </div>

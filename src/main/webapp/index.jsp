@@ -88,39 +88,25 @@
                         <div class="row">
                             <div class="col-lg align-items-end">
                                 <div class="form-group">
-                                    <label >Nơi xuất phát</label>
+                                    <label ><span class="ion-ios-pin"></span> Nơi xuất phát </label>
                                     <div class="form-field">
-                                        <div class="icon"><span class="ion-ios-search"></span></div>
-                                        <input type="text" class="form-control" placeholder="Nhập điểm đón">
+                                        <input type="text" class="form-control" placeholder=" Nhập điểm đón">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg align-items-end">
                                 <div class="form-group">
-                                    <label>Nơi đến</label>
+                                    <label><span class="ion-ios-pin"></span> Nơi đến </label>
                                     <div class="form-field">
-                                        <div class="icon"><span class="ion-ios-calendar"></span></div>
                                         <input type="text" class="form-control checkin_date" placeholder="Nhập điểm trả">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg align-items-end">
                                 <div class="form-group">
-                                    <label >Ngày đi</label>
+                                    <label ><span class="ion-ios-calendar"></span> Ngày đi</label>
                                     <div class="form-field">
-                                        <div class="icon"><span class="ion-ios-calendar"></span></div>
                                         <input type="date" class="form-control checkout_date" placeholder="Ngày đi">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg align-items-end">
-                                <div class="form-group">
-                                    <!-- <label for="#">Price Limit</label> -->
-                                    <div class="form-field">
-                                        <div class="select-wrap">
-                                            <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -195,8 +181,8 @@
                                     </div>
                                     <div class="text">
                                         <h4 class="price">300 000Đ</h4>
-                                        <span>15 Days Tour</span>
-                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Gurtnellen, Swetzerland</a></h3>
+                                        <span>2 giờ 30 phút</span>
+                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Đà Nẵng - Quảng Bình</a></h3>
                                     </div>
                                     <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
@@ -213,9 +199,9 @@
                                         <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img src="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
-                                        <h4 class="price">$400</h4>
-                                        <span>15 Days Tour</span>
-                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Gurtnellen, Swetzerland</a></h3>
+                                        <h4 class="price">250000Đ</h4>
+                                        <span>2 giờ 30 phút</span>
+                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Đà Nẵng - Quảng Bình</a></h3>
                                     </div>
                                     <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
@@ -232,9 +218,9 @@
                                         <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img src="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
-                                        <h4 class="price">$400</h4>
-                                        <span>15 Days Tour</span>
-                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Gurtnellen, Swetzerland</a></h3>
+                                        <h4 class="price">250000Đ</h4>
+                                        <span>2 giờ 30 phút</span>
+                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Đà Nẵng - Quảng Bình</a></h3>
                                     </div>
                                     <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
@@ -251,9 +237,9 @@
                                         <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img src="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
-                                        <h4 class="price">$400</h4>
-                                        <span>15 Days Tour</span>
-                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Gurtnellen, Swetzerland</a></h3>
+                                        <h4 class="price">250000Đ</h4>
+                                        <span>2 giờ 30 phút</span>
+                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Đà Nẵng - Quảng Bình</a></h3>
                                     </div>
                                     <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
@@ -270,9 +256,9 @@
                                         <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img src="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
-                                        <h4 class="price">$400</h4>
-                                        <span>15 Days Tour</span>
-                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Gurtnellen, Swetzerland</a></h3>
+                                        <h4 class="price">250000Đ</h4>
+                                        <span>2 giờ 30 phút</span>
+                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Đà Nẵng - Quảng Bình</a></h3>
                                     </div>
                                     <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
@@ -305,13 +291,13 @@
                     <a href="single.jsp" class="block-20" style="background-image: url('view/images/image_1.jpg');">
                     </a>
                     <div class="text float-right d-block">
-                        <div class="d-flex align-items-center pt-2 mb-4 topp">
+                        <div class="d-flex align-items-center pt-5 mb-4 topp">
                             <div class="one mr-2">
-                                <span class="day">12</span>
+                                <span class="day">20%</span>
                             </div>
                             <div class="two">
-                                <span class="yr">2019</span>
-                                <span class="mos">april</span>
+                                <span class="yr"></span>
+                                <span class="mos">Bạn mới</span>
                             </div>
                         </div>
                         <h3 class="heading"><a href="single.jsp">Why Lead Generation is Key for Business Growth</a></h3>
@@ -331,13 +317,13 @@
                     <a href="single.jsp" class="block-20" style="background-image: url('view/images/image_2.jpg');">
                     </a>
                     <div class="text float-right d-block">
-                        <div class="d-flex align-items-center pt-2 mb-4 topp">
+                        <div class="d-flex align-items-center mt-5 mb-4 topp">
                             <div class="one mr-2">
-                                <span class="day">12</span>
+                                <span class="day">10%</span>
                             </div>
                             <div class="two">
-                                <span class="yr">2019</span>
-                                <span class="mos">april</span>
+                                <span class="yr">Thanh toán bằng</span>
+                                <span class="mos">VNPay</span>
                             </div>
                         </div>
                         <h3 class="heading"><a href="single.jsp">Why Lead Generation is Key for Business Growth</a></h3>

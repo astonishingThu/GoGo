@@ -1,0 +1,101 @@
+.rating {
+    /*background-color: #000000;*/
+    padding: 2px 10px;
+    color: #e0a800;
+}
+.rating span{
+    color: #e0a800;
+    font-size: 15px;
+}
+.giaVe{
+    padding: 30px;
+    font-size: 24px;
+    font-weight: 500;
+    color: #b21f2d;
+}
+.dash-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -5px;
+    margin: auto;
+    text-align: center;
+    transform: rotate(90deg);
+    font-size: 20px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.loTrinh-xe{
+    position: relative;
+}
+
+.xp-icon, .dd-icon{
+    font-size: 25px;
+    font-weight: 600;
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+}
+.xuatPhat{
+margin-bottom: 10px;
+}
+.diemDen{
+    margin-top: 10px;
+}
+.time{
+    padding: 0;
+    font-size: 25px;
+    font-weight: 600;
+    display: inline-block;
+    margin: 0 20px 0 10px;
+}
+.tgdc{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50px;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    font-size:18px;
+}
+.diemdon, .diemtra{
+    margin-left: 20px;
+}
+.ttct{
+    color: #0F59C5;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+    float:right;
+}
+.btn-chonCho{
+    position: absolute;
+    bottom: 30px;
+    right: 0px;
+    left: 0;
+    margin: auto;
+    width: fit-content;
+}
+.choTrong{
+    color: #0F59C5;
+    font-weight: 600;
+}
+.xe{
+    padding: 20px 0;
+}
+.thuocchuyen{
+    font-style: italic;
+    margin: 0;
+    font-size: 14px;
+}
+.thuocchuyen span{
+    color: red;
+}
+.ill{
+    padding-bottom: 20px;
+}
+.mota-xe{
+    margin-bottom: 0;
+}

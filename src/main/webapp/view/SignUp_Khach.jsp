@@ -8,43 +8,40 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="Head.jsp"></jsp:include>
 <body>
-<div class="signup container">
-    <div class="signup__left">
-        <div class="recta1"></div>
-        <div class="recta2"></div>
-        <div class="signup__ill">
-            <img src="image/vector2.svg" />
+    <div class="hero-wrap p-5 pb-5" style="background-image: url('${resourcePath}images/destination-1.jpg')">
+        <div class="col-md-6 mx-auto my-auto mt-5">
+            <form class="bg-light p-4 p-md-5 login-form" method="post" action="GoGoSignup">
+                <h2 class="text-center">Đăng ký</h2>
+                <div class="form-group">
+                    <label>Họ và tên: <span>*</span> </label>
+                    <input class="col-md-12" type="text" required name="fullName"/>
+                </div>
+                <div class="form-group">
+                    <label>Email: <span>*</span> </label>
+                    <input class="col-md-12" type="email" name="email" required/>
+                </div>
+                <div class="form-group">
+                    <label>Mật khẩu: <span>*</span></label>
+                    <input class="col-md-12" type="password" name="password" required/>
+                </div>
+                <div class="form-group">
+                    <label>Số điện thoại:<span>*</span> </label>
+                    <input class="col-md-12" type="number" name="phoneNumber" required/>
+                </div>
+                <button type="submit" class="btn btn-secondary py-3 px-5 py-2 px-5 mt-2 col-md-12 mb-4">
+                    Đăng ký
+                </button>
+                <div>
+                    Bạn đã có tài khoản?
+                    <a href="Login_Khach.jsp">Đăng nhập</a>
+                </div>
+            </form>
         </div>
-    </div>
-
-    <div class="signup__right">
-        <h2>Đăng ký</h2>
-        <form class="signup__form" method="post" action="GoGoSignup">
-            <label>Họ và tên: </label>
-            <p class="star">*</p>
-            <input type="text" required name="fullName"/>
-            <label>Email: </label>
-            <p class="star">*</p>
-            <input type="email" name="email" required />
-            <label>Mật khẩu: </label>
-            <p class="star">*</p>
-            <input type="password" name="password" required />
-            <label>Số điện thoại: </label>
-            <p class="star">*</p>
-            <input type="number" name="phoneNumber" required />
-            <button type="submit">Đăng ký</button>
-        </form>
-        <div>
-            Bạn đã có tài khoản?
-            <a href="Login_NhaXe.jsp">Đăng nhập</a>
-        </div>
-    </div>
-</div>
 </body>
 </html>
 
 <%
-    if (request.getAttribute("connection")!=null) {
+    if (request.getAttribute("connection") != null) {
         if (request.getAttribute("connection").equals(true)) {
             out.print("true");
         } else {
