@@ -126,22 +126,20 @@ function validateSoGhe() {
 }
 function validateThemXe() {
     let isCheck = true;
-    let phuThu = document.getElementById("phuThu");
     let bienSoXe = document.getElementById("bienSoXe");
-    phuThu.classList.remove("alert-danger");
-    phuThu.classList.remove("alert-success");
+    let phuThu = document.getElementById("phuThu");
     bienSoXe.classList.remove("alert-danger");
     bienSoXe.classList.remove("alert-success");
-    if (phuThu.value < 1) {
-        setError(phuThu, "Phụ thu không được âm hoặc bằng 0");
-        isCheck = false;
-    } else if (phuThu > 1000000) {
-        setError(phuThu, "Phụ thu không được quá 1,000,000VNĐ");
-        isCheck = false;
-    } else if (bienSoXe.value === "") {
+    phuThu.classList.remove("alert-danger");
+    phuThu.classList.remove("alert-success");
+    if (bienSoXe.value === "") {
         setError(bienSoXe, "Biển số xe không được bỏ trống");
         isCheck = false;
-    } return isCheck;
+    } else if (phuThu.value === "") {
+        setError(phuThu, "Phụ thu không được bỏ trống");
+        isCheck = false;
+    }
+    return isCheck;
 }
 
 

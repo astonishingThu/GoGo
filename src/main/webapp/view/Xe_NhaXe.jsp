@@ -60,7 +60,7 @@
                     <input type="hidden" id="idNhaXe" name="idNhaXe" value="${nhaXe.idNhaXe}"/>
                     <div class="form-group">
                         <label>Biển số xe *</label>
-                        <input type="text" class="form-control" id="bienSoXe" name="bienSoXe"/>
+                        <input type="text" class="form-control" id="bienSoXe" name="bienSoXe" required/>
                         <small></small>
                     </div>
                     <div class="form-group">
@@ -102,10 +102,10 @@
                             <label>*Chú thích:</label>
                             <div class="icon-bus col-md-8 btn btn-primary ml-3">Ghế VIP</div>
                         </div>
-                        <input type="hidden" id="vipList" name="vipList"/>
+                        <input type="hidden" id="vipList" name="vipList" />
                         <div class="mt-5">
                             <label>*Phụ thu ghế VIP:</label>
-                            <input name="giaGhe" type="number" class="form-control" id="phuThu"/>
+                            <input name="giaGhe" type="number" class="form-control"  id="phuThu" min="1" max="1000000" required />
                             <small></small>
                         </div>
                     </div>
@@ -134,6 +134,7 @@
                 </div>
             </div>
         </div>
+    </div>
 </section>
 
 <!-- .section -->
