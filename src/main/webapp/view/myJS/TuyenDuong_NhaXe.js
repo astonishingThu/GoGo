@@ -1,3 +1,15 @@
+const ngayBatDau = document.getElementById("ngayBatDau");
+const ngayKetThuc = document.getElementById("ngayKetThuc");
+const today = new Date().toLocaleDateString('fr-CA');
+const themTuyenSubmit = document.getElementById("themTuyenSubmit");
+ngayKetThuc.min = today;
+ngayBatDau.min = today;
+themTuyenSubmit.addEventListener("click", function () {
+    let isValid = validateTuyenDuong();
+    if (isValid) {
+        closeModal();
+    }
+});
 function openModal(){
     const modal = document.querySelector(".js-modal");
     modal.classList.add("open");
@@ -56,4 +68,26 @@ function getNgay(){
     }
     $("#ngayList").val(ngayChay);
     return ngayChay;
+}
+function validateTuyenDuong() {
+    let diemDon = document.getElementById("diemDon");
+    let diemTra = document.getElementById("diemTra");
+    let gioKhoiHanh = document.getElementById("gioKhoiHanh");
+    let thoiGianDiChuyen = document.getElementById("thoiGianDiChuyen");
+    let giaVe = document.getElementById("giaVe");
+    let isCheck = true;
+    if (diemDon === "") {
+        setError(diemDon, "Điểm đón không được bỏ trống");
+        isCheck = false;
+    } else if (diemTra === "") {
+        setError(diemTra, "Điểm trả không được bỏ trống");
+        isCheck = false
+    } else if (thoiGianDiChuyen === "") {
+        setError(thoiGianDiChuyen, "Thời gian di chuyển không được bỏ trống");
+        isCheck = false;
+    } else if (giaVe === "") {
+        setError(giaVe, "Giá vé không được bỏ trống");
+        isCheck = false;
+    }
+    return isCheck;
 }

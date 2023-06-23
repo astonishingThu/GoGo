@@ -8,10 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="view/Head.jsp"></jsp:include>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target" id="ftco-navbar">
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
+     id="ftco-navbar">
     <div class="container">
         <a class="navbar-brand" href="view/index.html">GoGo</a>
-        <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
+                data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
         </button>
 
@@ -34,8 +36,15 @@
                         <li><a href="view/SignUp_NhaXe.jsp">Nhà xe</a></li>
                     </ul>
                 </li>
+                <%--                <li class="nav-item has-children">--%>
+                <%--                    <a class="nav-link" id="logout">--%>
+                <%--                        <icon class="icon-account_circle"></icon>--%>
+                <%--                        <span> Bao Ngoc </span></a>--%>
+                <%--                    <ul class="dropdown">--%>
+                <%--                        <li><a href="${pageContext.request.contextPath}/index.jsp">Logout</a></li>--%>
+                <%--                    </ul>--%>
+                <%--                </li>--%>
                 <!-- <li class="nav-item"><a href="#destination-section" class="nav-link"><span>Destination</span></a></li>
-                <li class="nav-item"><a href="#hotel-section" class="nav-link"><span>Hotel</span></a></li>
                 <li class="nav-item"><a href="#restaurant-section" class="nav-link"><span>Restaurant</span></a></li>
                 <li class="nav-item"><a href="#blog-section" class="nav-link"><span>Blog</span></a></li>
                 <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li> -->
@@ -50,22 +59,27 @@
         <div class="slider-item">
             <div class="overlay"></div>
             <div class="container-fluid p-0">
-                <div class="row d-md-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
+                <div class="row d-md-flex no-gutters slider-text align-items-center justify-content-end"
+                     data-scrollax-parent="true">
                     <div class="one-third order-md-last">
                         <div class="img" style="background-image:url(view/images/bg_1.jpg);">
                             <div class="overlay"></div>
                         </div>
                         <div class="bg-primary">
-                            <div class="vr"><span class="pl-3 py-4" style="background-image: url(view/images/bg_1-1.jpg);">GoGo</span></div>
+                            <div class="vr"><span class="pl-3 py-4"
+                                                  style="background-image: url(view/images/bg_1-1.jpg);">GoGo</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                    <div class="one-forth d-flex align-items-center ftco-animate"
+                         data-scrollax=" properties: { translateY: '70%' }">
                         <div class="text">
                             <span class="subheading pl-5">GoGo xin chào</span>
                             <h1 class="mb-4 mt-3">GoGo, hỗ trợ đặt vé xe khách!</h1>
                             <p></p>
 
-                            <p><a href="#search" class="btn btn-primary px-5 py-3 mt-3">ĐẶT VÉ <span class="ion-ios-arrow-forward"> </span></a></p>
+                            <p><a href="#search" class="btn btn-primary px-5 py-3 mt-3">ĐẶT VÉ <span
+                                    class="ion-ios-arrow-forward"> </span></a></p>
                         </div>
                     </div>
                 </div>
@@ -88,39 +102,91 @@
                         <div class="row">
                             <div class="col-lg align-items-end">
                                 <div class="form-group">
-                                    <label >Nơi xuất phát</label>
+                                    <label><span class="ion-ios-pin"></span> Nơi xuất phát </label>
                                     <div class="form-field">
-                                        <div class="icon"><span class="ion-ios-search"></span></div>
-                                        <input type="text" class="form-control" placeholder="Nhập điểm đón">
+                                        <input list="places1" class="form-control">
+                                        <datalist id="places1">
+                                            <option value="An Giang">An Giang
+                                            <option value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu
+                                            <option value="Bắc Giang">Bắc Giang
+                                            <option value="Bắc Kạn">Bắc Kạn
+                                            <option value="Bạc Liêu">Bạc Liêu
+                                            <option value="Bắc Ninh">Bắc Ninh
+                                            <option value="Bến Tre">Bến Tre
+                                            <option value="Bình Định">Bình Định
+                                            <option value="Bình Dương">Bình Dương
+                                            <option value="Bình Phước">Bình Phước
+                                            <option value="Bình Thuận">Bình Thuận
+                                            <option value="Bình Thuận">Bình Thuận
+                                            <option value="Cà Mau">Cà Mau
+                                            <option value="Cao Bằng">Cao Bằng
+                                            <option value="Đắk Lắk">Đắk Lắk
+                                            <option value="Đắk Nông">Đắk Nông
+                                            <option value="Điện Biên">Điện Biên
+                                            <option value="Đồng Nai">Đồng Nai
+                                            <option value="Đồng Tháp">Đồng Tháp
+                                            <option value="Đồng Tháp">Đồng Tháp
+                                            <option value="Gia Lai">Gia Lai
+                                            <option value="Hà Giang">Hà Giang
+                                            <option value="Hà Nam">Hà Nam
+                                            <option value="Hà Tĩnh">Hà Tĩnh
+                                            <option value="Hải Dương">Hải Dương
+                                            <option value="Hậu Giang">Hậu Giang
+                                            <option value="Hòa Bình">Hòa Bình
+                                            <option value="Hưng Yên">Hưng Yên
+                                            <option value="Khánh Hòa">Khánh Hòa
+                                            <option value="Kiên Giang">Kiên Giang
+                                            <option value="Kon Tum">Kon Tum
+                                            <option value="Lai Châu">Lai Châu
+                                            <option value="Lâm Đồng">Lâm Đồng
+                                            <option value="Lạng Sơn">Lạng Sơn
+                                            <option value="Lào Cai">Lào Cai
+                                            <option value="Long An">Long An
+                                            <option value="Nam Định">Nam Định
+                                            <option value="Nghệ An">Nghệ An
+                                            <option value="Ninh Bình">Ninh Bình
+                                            <option value="Ninh Thuận">Ninh Thuận
+                                            <option value="Phú Thọ">Phú Thọ
+                                            <option value="Quảng Bình">Quảng Bình
+                                            <option value="Quảng Bình">Quảng Bình
+                                            <option value="Quảng Ngãi">Quảng Ngãi
+                                            <option value="Quảng Ninh">Quảng Ninh
+                                            <option value="Quảng Trị">Quảng Trị
+                                            <option value="Sóc Trăng">Sóc Trăng
+                                            <option value="Sơn La">Sơn La
+                                            <option value="Tây Ninh">Tây Ninh
+                                            <option value="Thái Bình">Thái Bình
+                                            <option value="Thái Nguyên">Thái Nguyên
+                                            <option value="Thanh Hóa">Thanh Hóa
+                                            <option value="Thừa Thiên Huế">Thừa Thiên Huế
+                                            <option value="Tiền Giang">Tiền Giang
+                                            <option value="Trà Vinh">Trà Vinh
+                                            <option value="Tuyên Quang">Tuyên Quang
+                                            <option value="Vĩnh Long">Vĩnh Long
+                                            <option value="Vĩnh Phúc">Vĩnh Phúc
+                                            <option value="Yên Bái">Yên Bái
+                                            <option value="Phú Yên">Phú Yên
+                                            <option value="Tp.Cần Thơ">Tp.Cần Thơ
+                                            <option value="Tp.Đà Nẵng">Tp.Đà Nẵng
+                                            <option value="Tp.Hải Phòng">Tp.Hải Phòng
+                                            <option value="Tp.Hà Nội">Tp.Hà Nội
+                                            <option value="TP  HCM">TP HCM
+                                        </datalist>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg align-items-end">
                                 <div class="form-group">
-                                    <label>Nơi đến</label>
-                                    <div class="form-field">
-                                        <div class="icon"><span class="ion-ios-calendar"></span></div>
-                                        <input type="text" class="form-control checkin_date" placeholder="Nhập điểm trả">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg align-items-end">
-                                <div class="form-group">
-                                    <label >Ngày đi</label>
-                                    <div class="form-field">
-                                        <div class="icon"><span class="ion-ios-calendar"></span></div>
-                                        <input type="date" class="form-control checkout_date" placeholder="Ngày đi">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg align-items-end">
-                                <div class="form-group">
-                                    <!-- <label for="#">Price Limit</label> -->
-                                    <div class="form-field">
-                                        <div class="select-wrap">
-                                            <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                    <label><span class="ion-ios-pin"></span> Nơi đến </label>
+                                    <input list="places1" class="form-control">
 
-                                        </div>
+                                </div>
+                            </div>
+                            <div class="col-lg align-items-end">
+                                <div class="form-group">
+                                    <label><span class="ion-ios-calendar"></span> Ngày đi</label>
+                                    <div class="form-field">
+                                        <input type="date" class="form-control checkout_date" id="ngayDi" placeholder="Ngày đi">
                                     </div>
                                 </div>
                             </div>
@@ -191,14 +257,18 @@
                             <div class="col-md-12 ftco-animate">
                                 <div class="project">
                                     <div class="img">
-                                        <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img src="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
+                                        <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img
+                                                src="<%=request.getContextPath()%>/view/images/destination-2.jpg"
+                                                class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
                                         <h4 class="price">300 000Đ</h4>
-                                        <span>15 Days Tour</span>
-                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Gurtnellen, Swetzerland</a></h3>
+                                        <span>2 giờ 30 phút</span>
+                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Đà Nẵng
+                                            - Quảng Bình</a></h3>
                                     </div>
-                                    <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                                    <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg"
+                                       class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
                                     </a>
                                 </div>
@@ -210,14 +280,18 @@
                             <div class="col-md-12 ftco-animate">
                                 <div class="project">
                                     <div class="img">
-                                        <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img src="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
+                                        <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img
+                                                src="<%=request.getContextPath()%>/view/images/destination-2.jpg"
+                                                class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
-                                        <h4 class="price">$400</h4>
-                                        <span>15 Days Tour</span>
-                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Gurtnellen, Swetzerland</a></h3>
+                                        <h4 class="price">250000Đ</h4>
+                                        <span>2 giờ 30 phút</span>
+                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Đà Nẵng
+                                            - Quảng Bình</a></h3>
                                     </div>
-                                    <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                                    <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg"
+                                       class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
                                     </a>
                                 </div>
@@ -229,14 +303,18 @@
                             <div class="col-md-12 ftco-animate">
                                 <div class="project">
                                     <div class="img">
-                                        <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img src="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
+                                        <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img
+                                                src="<%=request.getContextPath()%>/view/images/destination-2.jpg"
+                                                class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
-                                        <h4 class="price">$400</h4>
-                                        <span>15 Days Tour</span>
-                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Gurtnellen, Swetzerland</a></h3>
+                                        <h4 class="price">250000Đ</h4>
+                                        <span>2 giờ 30 phút</span>
+                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Đà Nẵng
+                                            - Quảng Bình</a></h3>
                                     </div>
-                                    <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                                    <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg"
+                                       class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
                                     </a>
                                 </div>
@@ -248,14 +326,18 @@
                             <div class="col-md-12 ftco-animate">
                                 <div class="project">
                                     <div class="img">
-                                        <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img src="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
+                                        <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img
+                                                src="<%=request.getContextPath()%>/view/images/destination-2.jpg"
+                                                class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
-                                        <h4 class="price">$400</h4>
-                                        <span>15 Days Tour</span>
-                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Gurtnellen, Swetzerland</a></h3>
+                                        <h4 class="price">250000Đ</h4>
+                                        <span>2 giờ 30 phút</span>
+                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Đà Nẵng
+                                            - Quảng Bình</a></h3>
                                     </div>
-                                    <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                                    <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg"
+                                       class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
                                     </a>
                                 </div>
@@ -267,14 +349,18 @@
                             <div class="col-md-12 ftco-animate">
                                 <div class="project">
                                     <div class="img">
-                                        <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img src="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="img-fluid" alt="Colorlib Template"></a>
+                                        <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img
+                                                src="<%=request.getContextPath()%>/view/images/destination-2.jpg"
+                                                class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
-                                        <h4 class="price">$400</h4>
-                                        <span>15 Days Tour</span>
-                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Gurtnellen, Swetzerland</a></h3>
+                                        <h4 class="price">250000Đ</h4>
+                                        <span>2 giờ 30 phút</span>
+                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Đà Nẵng
+                                            - Quảng Bình</a></h3>
                                     </div>
-                                    <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                                    <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg"
+                                       class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
                                     </a>
                                 </div>
@@ -287,8 +373,6 @@
         <!-- ----- GIỮ END------------ -->
     </div>
 </section>
-
-
 
 
 <section class="ftco-section bg-light" id="uuDai">
@@ -305,19 +389,21 @@
                     <a href="single.jsp" class="block-20" style="background-image: url('view/images/image_1.jpg');">
                     </a>
                     <div class="text float-right d-block">
-                        <div class="d-flex align-items-center pt-2 mb-4 topp">
+                        <div class="d-flex align-items-center pt-5 mb-4 topp">
                             <div class="one mr-2">
-                                <span class="day">12</span>
+                                <span class="day">20%</span>
                             </div>
                             <div class="two">
-                                <span class="yr">2019</span>
-                                <span class="mos">april</span>
+                                <span class="yr"></span>
+                                <span class="mos">Bạn mới</span>
                             </div>
                         </div>
                         <h3 class="heading"><a href="single.jsp">Why Lead Generation is Key for Business Growth</a></h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                        <p>A small river named Duden flows by their place and supplies it with the necessary
+                            regelialia.</p>
                         <div class="d-flex align-items-center mt-4 meta">
-                            <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
+                            <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span
+                                    class="ion-ios-arrow-round-forward"></span></a></p>
                             <p class="ml-auto mb-0">
                                 <a href="#" class="mr-2">Admin</a>
                                 <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
@@ -331,19 +417,21 @@
                     <a href="single.jsp" class="block-20" style="background-image: url('view/images/image_2.jpg');">
                     </a>
                     <div class="text float-right d-block">
-                        <div class="d-flex align-items-center pt-2 mb-4 topp">
+                        <div class="d-flex align-items-center mt-5 mb-4 topp">
                             <div class="one mr-2">
-                                <span class="day">12</span>
+                                <span class="day">10%</span>
                             </div>
                             <div class="two">
-                                <span class="yr">2019</span>
-                                <span class="mos">april</span>
+                                <span class="yr">Thanh toán bằng</span>
+                                <span class="mos">VNPay</span>
                             </div>
                         </div>
                         <h3 class="heading"><a href="single.jsp">Why Lead Generation is Key for Business Growth</a></h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                        <p>A small river named Duden flows by their place and supplies it with the necessary
+                            regelialia.</p>
                         <div class="d-flex align-items-center mt-4 meta">
-                            <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
+                            <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span
+                                    class="ion-ios-arrow-round-forward"></span></a></p>
                             <p class="ml-auto mb-0">
                                 <a href="#" class="mr-2">Admin</a>
                                 <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
@@ -367,9 +455,11 @@
                             </div>
                         </div>
                         <h3 class="heading"><a href="single.jsp">Ưu đãi</a></h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                        <p>A small river named Duden flows by their place and supplies it with the necessary
+                            regelialia.</p>
                         <div class="d-flex align-items-center mt-4 meta">
-                            <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
+                            <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span
+                                    class="ion-ios-arrow-round-forward"></span></a></p>
                             <p class="ml-auto mb-0">
                                 <a href="#" class="mr-2">Admin</a>
                                 <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
@@ -388,7 +478,8 @@
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
                     <h2 class="ftco-heading-2">About <span><a href="view/index.html">Ecoland</a></span></h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
+                        live the blind texts.</p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                         <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                         <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -427,9 +518,12 @@
                     <h2 class="ftco-heading-2">Have a Questions?</h2>
                     <div class="block-23 mb-3">
                         <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+                            <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span>
+                            </li>
+                            <li><a href="#"><span class="icon icon-phone"></span><span
+                                    class="text">+2 392 3929 210</span></a></li>
+                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -439,7 +533,10 @@
             <div class="col-md-12 text-center">
 
                 <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                    All rights reserved | This template is made with <i class="icon-heart color-danger"
+                                                                        aria-hidden="true"></i> by <a
+                            href="https://colorlib.com" target="_blank">Colorlib</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
             </div>
         </div>
@@ -447,9 +544,14 @@
 </footer>
 
 
-
 <!-- loader -->
-<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
 
 
 <script src="<%=request.getContextPath()%>/view/js/jquery.min.js"></script>
@@ -466,7 +568,7 @@
 <script src="<%=request.getContextPath()%>/view/js/scrollax.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="<%=request.getContextPath()%>/view/js/google-map.js"></script>
-
+<script src="<%=request.getContextPath()%>/view/myJS/newJS.js"></script>
 <script src="<%=request.getContextPath()%>/view/js/main.js"></script>
 
 </body>

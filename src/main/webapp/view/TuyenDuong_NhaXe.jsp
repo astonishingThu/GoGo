@@ -37,7 +37,7 @@
                     <a href="#" class="nav-link"><span>Tuyến xe</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="${resourcePath}HanhKhach_NhaXe.jsp" class="nav-link"><span>Hành khách</span></a>
+                    <a href="${resourcePath}HanhKhach_NhaXe.jsp" class="nav-link"><span>Doanh thu</span></a>
                 </li>
                 <li class="nav-item has-children">
                     <a class="nav-link" id="logout"><icon class="icon-account_circle"> </icon><span> ${nhaXe.tenNhaXe}</span></a>
@@ -227,18 +227,21 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label for="name">Điểm đón *</label>
-                            <input type="text" class="form-control" id="name" name="noiDonKhach"/>
+                            <label>Điểm đón *</label>
+                            <input type="text" class="form-control" id="diemDon" name="noiDonKhach" required/>
+                            <small></small>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Điểm trả *</label>
-                            <input type="text" class="form-control" id="name" name="noiTraKhach"/>
+                            <input type="text" class="form-control" id="diemTra" name="noiTraKhach" required/>
+                            <small></small>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label for="name">Giờ khởi hành *</label>
-                            <input type="time" class="form-control" id="name" name="gioKhoiHanh"/>
+                            <label>Giờ khởi hành *</label>
+                            <input type="time" class="form-control" id="gioKhoiHanh" name="gioKhoiHanh" required/>
+                            <small></small>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Lặp lại *</label>
@@ -256,21 +259,25 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Ngày bắt đầu *</label>
-                            <input type="date" class="form-control" name="ngayBatDau" id="ngayBatDau"/>
+                            <input type="date" class="form-control" name="ngayBatDau" id="ngayBatDau" required />
+                            <small></small>
                         </div><div class="form-group col-md-6">
                         <label>Ngày kết thúc *</label>
-                        <input type="date" class="form-control" name="ngayKetThuc" id="ngayKetThuc"/>
+                        <input type="date" class="form-control" name="ngayKetThuc" id="ngayKetThuc" required />
+                        <small></small>
                     </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label>Thời gian di chuyển *</label>
-                            <input type="text" class="form-control" name="khoangThoiGianDiChuyen" onchange="getNgay()"/>
+                            <input type="text" class="form-control" id="thoiGianDiChuyen" name="khoangThoiGianDiChuyen" onchange="getNgay()" required />
                             <input type="hidden" id="ngayList" name="ngayList"/>
+                            <small></small>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Giá vé *</label>
-                            <input type="number" class="form-control" name="giaLoTrinh"/>
+                            <input type="number" class="form-control" id="giaVe" name="giaLoTrinh" required/>
+                            <small></small>
                         </div>
                     </div>
                     <div class="form-group them-btn">
@@ -278,7 +285,7 @@
                                 type="submit"
                                 value="Thêm tuyến"
                                 class="btn py-3 px-5 btn-primary"
-                                onclick="closeModal()"
+                                id="themTuyenSubmit"
                         />
                     </div>
                 </form>
@@ -373,6 +380,7 @@
     </div>
 </section>
 <script src="${resourcePath}myJS/TuyenDuong_NhaXe.js"></script>
+<script src="${resourcePath}myJS/Xe_NhaXe.js"></script>
 <script src="${resourcePath}js/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="${resourcePath}js/jquery-migrate-3.0.1.min.js"></script>

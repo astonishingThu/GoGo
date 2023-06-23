@@ -1,0 +1,160 @@
+.veXe{
+    margin-top: 5px;
+    padding: 8px;
+    border: 1px #999999 solid ;
+    border-radius: 5px;
+}
+.tenNhaXe {
+    font-size: 24px;
+}
+
+.rating {
+    /*background-color: #000000;*/
+    padding: 2px 10px;
+    color: #e0a800;
+}
+.rating span{
+    color: #e0a800;
+    font-size: 15px;
+}
+.giaVe{
+    padding: 30px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #b21f2d;
+}
+.dash-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -5px;
+    margin: auto;
+    text-align: center;
+    transform: rotate(90deg);
+    font-size: 20px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.loTrinh-xe{
+    position: relative;
+}
+
+.xp-icon, .dd-icon{
+    font-size: 25px;
+    font-weight: 600;
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+}
+.xuatPhat{
+margin-bottom: 10px;
+}
+.diemDen{
+    margin-top: 10px;
+}
+.time{
+    padding: 0;
+    font-size: 20px;
+    font-weight: 600;
+    display: inline-block;
+    margin: 0 20px 0 10px;
+}
+.tgdc{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50px;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    font-size:16px;
+}
+.diemdon, .diemtra{
+    margin-left: 20px;
+}
+.ttct-btn{
+    padding: 5px;
+    color: #0F59C5;
+    font-size: 16px;
+    font-weight: 600;
+    margin-right: 10px;
+    float:right;
+}
+.ttct-btn:hover{
+    cursor: pointer;
+}
+.btn-chonCho{
+    position: absolute;
+    bottom: 30px;
+    right: 0px;
+    left: 0;
+    margin: auto;
+    width: fit-content;
+}
+.choTrong{
+    color: #0F59C5;
+    font-weight: 600;
+}
+.xe{
+    padding: 20px 0;
+}
+.thuocchuyen{
+    font-style: italic;
+    margin: 0;
+    font-size: 14px;
+}
+.thuocchuyen span{
+    color: red;
+}
+.ill{
+    padding-bottom: 20px;
+}
+.mota-xe{
+    margin-bottom: 0;
+}
+.page-link{
+    color: #0b0b0b;
+}
+.carousel-control{
+    color: #3B3C40;
+    background-color: #3B3C40;
+    padding: 10px;
+    border-radius: 45px;
+}
+#hinhanh{
+    height: 300px;
+}
+#hinhanh img{
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+.ttct{
+    display: none;
+    flex-direction: column;
+    position: relative;
+}
+.field{
+    display: none;
+    flex-direction: column;
+}
+.empty{
+    background-color: #DEF3FF;
+}
+.choosing{
+    background-color: #FDEDE8;
+}
+.choosed{
+    background-color: #d5d9dd;
+}
+.soDoGhe{
+    background-color: #f8f9f9;
+}
+#ttLoTrinh{
+    display: none;
+}
+#nhapThongTin{
+    display: none;
+}

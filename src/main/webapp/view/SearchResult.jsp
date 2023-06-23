@@ -8,71 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="Head.jsp"></jsp:include>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-<div class="modal js-modal">
-    <div class="addXe">
-        <div class="icon-close js-close"></div>
-        <div class="col-md-6">
-            <form action="#" class="p-5 bg-light">
-                <h3 class="mb-5">Thêm xe</h3>
-                <div class="form-group">
-                    <label for="name">Biển số xe *</label>
-                    <input type="text" class="form-control" id="name" />
-                </div>
-                <div class="form-group">
-                    <label for="loaiXe">Loại xe *</label>
 
-                    <select class="loaiGhe form-control">
-                        <option>Ghế ngồi</option>
-                        <option>Giường nằm</option>
-                        <option>Limousine</option>
-                        <!-- <input type="text" class="form-control" id="loaiXe" /> -->
-                    </select>
-                </div>
-                <div class="ghe">
-                    <div class="form-group">
-                        <label for="soGhe">Số ghế ngồi *</label>
-                        <input type="number" class="form-control" id="soGhe" />
-                    </div>
-                    <div class="form-group ml-3">
-                        <label for="#">Sơ đồ ghế *</label>
-                        <button class="xemSoDo btn btn-secondary mt-2 " onclick="openSoDo()">
-                            Xem sơ đồ
-                        </button>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Mô tả</label>
-                    <textarea name="" id="message" cols="30" rows="2" class="form-control"></textarea>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Thêm xe" class="btn py-3 px-5 btn-primary" onclick="closeModal()"/>
-                </div>
-            </form>
-        </div>
-        <div id="soDoGhe" class="col-md-6 soDoGhe pt-5 js-soDoGhe">
-            <form type="hidden" action>
-                <h4 id="titleGhe">32 ghế</h4>
-                <div class="row p-5">
-                    <div class="col-md-6" id="hang-1"></div>
-                    <div class="col-md-6" id="hang-2"></div>
-                    <div class="mt-5">
-                        <label>*Chú thích:</label>
-                        <div class="icon-bus col-md-8 btn btn-primary ml-3">Ghế VIP</div>
-                    </div>
-                    <div class="mt-5">
-                        <label>*Phụ thu ghế VIP:</label>
-                        <input type="number" class="form-control" id="soGhe" />
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
      id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="index.html">GoGo</a>
+        <a class="navbar-brand" href="view/index.html">GoGo</a>
         <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
                 data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
@@ -80,37 +20,90 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav nav ml-auto">
-                <li class="nav-item">
-                    <a href="index.html#home-section" class="nav-link"><span>Trang chủ</span></a>
+                <li class="nav-item"><a href="#home-section" class="nav-link"><span>Trang chủ</span></a></li>
+                <li class="nav-item"><a href="#tuyenDuong" class="nav-link"><span>Tuyến đường</span></a></li>
+                <li class="nav-item"><a href="#uuDai" class="nav-link"><span>Ưu đãi</span></a></li>
+                <li class="nav-item has-children">
+                    <a class="nav-link"><span>Đăng nhập</span></a>
+                    <ul class="dropdown">
+                        <li><a href="GoGoLogin">Hành khách</a></li>
+                        <li><a href="NhaXeGoGoLogin">Nhà xe</a></li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link"><span>Xe</span></a>
+                <li class="nav-item has-children">
+                    <a href="view/SignUp_Khach.jsp" class="nav-link"><span>Đăng ký</span></a>
+                    <ul class="dropdown">
+                        <li><a href="view/SignUp_Khach.jsp">Hành khách</a></li>
+                        <li><a href="view/SignUp_NhaXe.jsp">Nhà xe</a></li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="view/TuyenDuong_NhaXe.jsp#tuyenDuong" class="nav-link"><span>Tuyến xe</span></a>
-                </li>
-                <li class="nav-item">
-                    <a href="view/HanhKhach_NhaXe.jsp" class="nav-link"><span>Hành khách</span></a>
-                </li>
-                <li class="nav-item">
-                    <a href="../index.jsp#home-section" class="nav-link"><span>Logout</span></a>
-                </li>
+                <!-- <li class="nav-item"><a href="#destination-section" class="nav-link"><span>Destination</span></a></li>
+                <li class="nav-item"><a href="#hotel-section" class="nav-link"><span>Hotel</span></a></li>
+                <li class="nav-item"><a href="#restaurant-section" class="nav-link"><span>Restaurant</span></a></li>
+                <li class="nav-item"><a href="#blog-section" class="nav-link"><span>Blog</span></a></li>
+                <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li> -->
             </ul>
         </div>
     </div>
 </nav>
 
-<section class="hero-wrap" style="background-image: url('${resourcePath}images/destination-single.jpg')"
+<section class="hero-wrap hero-wrap-2" style="background-image: url('images/destination-single.jpg');"
          data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
-        <div class="row no-gutters slider-text align-items-center justify-content-start">
-            <div class="col-md-9 ftco-animate pb-4">
-                <h1 class="mb-3 bread">GoGo xin chào</h1>
-                <p>
-                    <a href="#xe" class="btn btn-primary py-2 px-4">Xe chạy</a>
-                    <a href="TuyenDuong_NhaXe.jsp#tuyenDuong" class="btn btn-black py-2 px-4">Tuyến xe</a>
-                </p>
+        <div class="row no-gutters slider-text align-items-end justify-content-between pt-5">
+            <div class="container pt-5">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="search-wrap-2 ftco-animate">
+                            <form action="#" class="search-property-1">
+                                <div class="row">
+                                    <div class="col-lg align-items-end">
+                                        <div class="form-group">
+                                            <label><span class="ion-ios-pin"></span> Nơi xuất phát </label>
+                                            <div class="form-field" style="background-color: #ffffff">
+                                                <input type="text" class="form-control" placeholder=" Nhập điểm đón"
+                                                       value="Đà Lạt">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg align-items-end">
+                                        <div class="form-group">
+                                            <label><span class="ion-ios-pin"></span> Nơi đến </label>
+                                            <div class="form-field" style="background-color: #ffffff">
+                                                <input type="text" class="form-control checkin_date"
+                                                       placeholder="Nhập điểm trả" value="Sài Gòn">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg align-items-end">
+                                        <div class="form-group">
+                                            <label><span class="ion-ios-calendar"></span> Ngày đi</label>
+                                            <div class="form-field" style="background-color: #ffffff">
+                                                <input type="text" class="form-control checkout_date"
+                                                       placeholder="Ngày đi" value="15/06/2023">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg align-self-end">
+                                        <div class="form-group">
+                                            <div class="form-field">
+                                                <input type="submit" value="Tìm kiếm"
+                                                       class="form-control btn btn-primary">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-9 ftco-animate pb-1">
+                <h1 class="mb-3 bread">Vé xe phù hợp</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Vé xe khách <i
+                        class="ion-ios-arrow-forward"></i></a></span> <span>Đà Lạt - Sài Gòn</p>
             </div>
         </div>
     </div>
@@ -119,185 +112,270 @@
 <section class="ftco-section ftco-services-2 ftco-no-pt">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 mb-5">
-                <div class="row xe" id="xe">
+            <div class="col-md-10 mb-5">
+                <div class="row veXe">
                     <div class="col-md-3 ftco-animate">
-                        <img src="${resourcePath}images/about.jpg" class="img-fluid" />
+                        <img src="${resourcePath}images/about.jpg" class="img-fluid ill"/>
+
                     </div>
-                    <div class="col-md-5 ftco-animate">
-                        <div class="text py-5">
-                            <h3>74MĐ-000000</h3>
-                            <p class="pos">
-                                Giường nằm - <span class="price">300000đ </span> - 42 chỗ
-                            </p>
-                            <p>Khăn ướt, điều hòa</p>
-                            <p>
-                                <button class="btn btn-secondary" onclick="openModal()">Chỉnh sửa</button>
-                                <button class="btn btn-primary js-del-cf-btn">Xóa</button>
+                    <div class="col-md-6 ftco-animate">
+                        <div class="text text-center">
+                            <h3 class="tenNhaXe">Tân Quang Dũng <span class="rating">4.0<span class="icon-star"></span></span>
+                            </h3>
+                            <p class="mota-xe">
+                                Giường nằm - <span class="price"> <span id="soGhe">42</span> chỗ</span> - <span>Khăn ướt, điều hòa</span>
                             </p>
                         </div>
-                    </div>
-                    <div class="col-md-4 ftco-animate dsLoTrinh">
-                        <h3>Tuyến chạy</h3>
-                        <div class="loTrinh">
-                            <div class="noiXuatPhat">Hà Nội</div>
-                            <div>
-                                <div class="icon-exchange"></div>
+                        <div class="loTrinh-xe">
+                            <div class="xuatPhat">
+                                <icon class="icon-circle-o xp-icon"></icon>
+                                <p class="time">10:00</p>
+                                <icon class="icon-circle"></icon>
+                                <span class="diemdon">Bến xe Nước Ngầm</span>
                             </div>
-                            <div class="dichDen">Đà Nẵng</div>
-                        </div>
-                        <div class="loTrinh">
-                            <div class="noiXuatPhat">Hà Nội</div>
-                            <div>
-                                <div class="icon-exchange"></div>
+                            <p class="dash-line"> . . . . .</p>
+                            <div class="tgdc">8h</div>
+                            <div class="diemDen">
+                                <icon class="ion-ios-pin dd-icon"></icon>
+                                <p class="time">18:00</p>
+                                <icon class="icon-circle"></icon>
+                                <span class="diemtra">Văn phòng Thanh Chương</span>
                             </div>
-                            <div class="dichDen">Đà Nẵng</div>
                         </div>
+                        <div class="ttct-btn" onclick="openTTCT()"> Thông tin chi tiết <span
+                                class="ion-ios-arrow-dropdown"></span></div>
                     </div>
-                    <div class="del-cf js-del-cf">
-                        Bạn muốn xóa xe này? <br /><button class="btn btn-primary js-del">
-                        Xóa
-                    </button>
-                        <button class="btn btn-black js-cancel">Hủy</button>
+                    <div class="col-md-3 ftco-animate dsLoTrinh">
+                        <div class="giaVe text-center">149000Đ</div>
+                        <p class="choTrong  text-center m-0">02 chỗ trống</p>
+                        <a class="btn btn-black btn-chonCho" onclick="openSoDo()" href="#soDoGhe">CHỌN CHỖ</a>
                     </div>
-                    <div class="xe-overlay"></div>
+                    <p class="thuocchuyen"><span>*</span> Vé chặng thuộc chuyến 23:10 15-06-2023 Hà Nội - Vinh - Xuân
+                        Hội</p>
                 </div>
-            </div>
-            <div class="col-md-12">
-                <button class="btn btn-primary py-3 px-4 js-addXe">Thêm xe</button>
+                <div class="ttct">
+                    <icon class="icon-close" onClick=closeTTCT()></icon>
+                    <div>
+                        <nav aria-label="...">
+                            <ul class="pagination  justify-content-center pagination-sm ">
+                                <li class="page-item">
+                                    <a class="page-link" href="#hinhanh" tabindex="-1" onclick="hienthi('hinhanh')">Hình
+                                        ảnh</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#tienich" onclick="hienthi('tienich')">Tiện
+                                        ích</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#diemdontra" onclick="hienthi('diemdontra')">Điểm
+                                        đón trả</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#chinhsach" onclick="hienthi('chinhsach')">Chính
+                                        sách</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#danhgia" onclick="hienthi('danhgia')">Đánh
+                                        giá</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div id="hinhanh" class="field">
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner col-md-5 mx-auto my-auto">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="images/1575533534253.jpeg" alt="First slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="images/1575533508673.jpeg" alt="Second slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="images/1575533508897.jpeg" alt="Third slide">
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                               data-slide="prev">
+                                <span class="carousel-control-prev-icon carousel-control" aria-hidden="false"></span>
+                                <%--                                <span class="sr-only">Previous</span>--%>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                               data-slide="next">
+                                <span class="carousel-control-next-icon carousel-control" aria-hidden="false"></span>
+                                <%--                                <span class="sr-only">Next</span>--%>
+                            </a>
+                        </div>
+                    </div>
+                    <div id="tienich" class="field">
+                        <p>Nước uống, Sạc điện thoại, Điều hòa</p>
+                    </div>
+                    <div class="row justify-content-center field" id="diemdontra">
+                        <div class="diemDon col-md-5">
+                            <h3>Điểm đón</h3>
+                            <div><span>17:00 </span>
+                                <icon class="icon-circle"></icon>
+                                <span> Bến xe A</span></div>
+                            <div><span>17:30 </span>
+                                <icon class="icon-circle"></icon>
+                                <span> Bến xe B</span></div>
+                            <div><span>18:30 </span>
+                                <icon class="icon-circle"></icon>
+                                <span> QL1A</span></div>
+                        </div>
+                        <div class="diemTra col-md-5">
+                            <h3>Điểm trả</h3>
+                            <div><span>20:00 </span>
+                                <icon class="icon-circle"></icon>
+                                <span> Bến xe A</span></div>
+                            <div><span>20:30 </span>
+                                <icon class="icon-circle"></icon>
+                                <span> Bến xe B</span></div>
+                        </div>
+
+                    </div>
+                    <div id="chinhsach" class="field"></div>
+                    <div id="danhgia" class="field"></div>
+                </div>
+                <div class="datVe">
+                    <div id="soDoGhe" class="col-md-12 soDoGhe js-soDoGhe row flex-row justify-content-center">
+                        <icon class="icon-close" onClick=closeSoDoGhe()></icon>
+                        <div class="p-2 col-md-8 row">
+                            <h4 id="titleGhe" class="col-md-12">32 ghế</h4>
+                            <div class="col-md-6" id="hang-1"></div>
+                            <div class="col-md-6" id="hang-2"></div>
+                        </div>
+                        <div class="col-md-4 row">
+                            <div class="col-md-4">
+                                <div class="icon-bus  btn empty p-2 col-md-12"></div>
+                                <span class="text-center">Trống</span></div>
+                            <div class="col-md-4">
+                                <div class="icon-bus btn choosing p-2 col-md-12"></div>
+                                <span class="text-center">Đang chọn</span></div>
+                            <div class="col-md-4">
+                                <div class="icon-bus btn choosed p-2 col-md-12"></div>
+                                <span class="text-center">Đã đặt</span>
+                            </div>
+                            <div class="col-md-12 pt-5">
+                                <div><span class="soVe">01 </span>vé: <span class="listVe"> A16, A17</span></div>
+                                <div><span>Tổng tiền: </span><span class="soTien"> 400.000đ</span></div>
+                            </div>
+                            <div class="col-md-12">
+                                <button class="btn btn-primary w-100" onclick="chonLoTrinh()">Tiếp theo</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="ttLoTrinh" class="flex-column">
+                        <div class="row col-md-12">
+                            <div class="col-md-6">
+                                <h3 class="text-center">Điểm đón</h3>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" id="radio1" name="optradio"
+                                           value="hello" checked>
+                                    <div>
+                                        <span>17:00 </span>
+                                        <icon class="icon-circle"></icon>
+                                        <span> Bến xe A</span>
+                                    </div>
+                                    <label class="form-check-label" for="radio1"></label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" id="radio2" name="optradio"
+                                           value="hello" checked>
+                                    <div>
+                                        <span>17:00 </span>
+                                        <icon class="icon-circle"></icon>
+                                        <span> Bến xe A</span>
+                                    </div>
+                                    <label class="form-check-label" for="radio2"></label>
+                                </div>
+                            </div>
+                            <div div class="col-md-6">
+                                <h3 class="text-center">Điểm trả</h3>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" id="radio3" name="optradio"
+                                           value="hello"
+                                           checked>
+                                    <div>
+                                        <span>17:00 </span>
+                                        <icon class="icon-circle"></icon>
+                                        <span> Bến xe A</span>
+                                    </div>
+                                    <label class="form-check-label" for="radio1"></label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" id="radio4" name="optradio"
+                                           value="hello"
+                                           checked>
+                                    <div>
+                                        <span>17:00 </span>
+                                        <icon class="icon-circle"></icon>
+                                        <span> Bến xe A</span>
+                                    </div>
+                                    <label class="form-check-label" for="radio2"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row col-md-12 justify-content-between">
+                            <div class="col-md-3">
+                                <button class="btn btn-secondary w-100" onclick="openSoDo()">Quay lại</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-primary w-100" onclick="nhapThongTin()">Tiếp theo</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="nhapThongTin" class="flex-column">
+                        <div class="col-md-8 flex-column">
+                            <div class="form-group">
+                                <label>Họ tên<span class="star"> *</span></label>
+                                <input type="text" placeholder="Tên người đi" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Số điện thoại<span class="star"> *</span></label>
+                                <input type="number" placeholder="Nhập số điện thoại" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Email để nhận thông tin vé<span class="star"> *</span></label>
+                                <input placeholder="Email nhận thông tin vé" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row col-md-12 justify-content-between">
+                            <div class="col-md-3">
+                                <button class="btn btn-secondary w-100" onclick="openTtLoTrinh()">Quay lại</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-primary w-100" onclick="nhapThongTin()">Thanh toán</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Trước</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#">Sau</a>
+        </li>
+    </ul>
+</nav>
 <!-- .section -->
 
-<footer class="ftco-footer ftco-section">
-    <div class="container">
-        <div class="row mb-5">
-            <div class="col-md">
-                <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">
-                        About <span><a href="index.html">Ecoland</a></span>
-                    </h2>
-                    <p>
-                        Far far away, behind the word mountains, far from the countries
-                        Vokalia and Consonantia, there live the blind texts.
-                    </p>
-                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                        <li class="ftco-animate">
-                            <a href="#"><span class="icon-twitter"></span></a>
-                        </li>
-                        <li class="ftco-animate">
-                            <a href="#"><span class="icon-facebook"></span></a>
-                        </li>
-                        <li class="ftco-animate">
-                            <a href="#"><span class="icon-instagram"></span></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="ftco-footer-widget mb-4 ml-md-4">
-                    <h2 class="ftco-heading-2">Information</h2>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="#"><span class="icon-long-arrow-right mr-2"></span>Online
-                                Enquiry</a>
-                        </li>
-                        <li>
-                            <a href="#"><span class="icon-long-arrow-right mr-2"></span>General
-                                Enquiry</a>
-                        </li>
-                        <li>
-                            <a href="#"><span class="icon-long-arrow-right mr-2"></span>Booking</a>
-                        </li>
-                        <li>
-                            <a href="#"><span class="icon-long-arrow-right mr-2"></span>Privacy</a>
-                        </li>
-                        <li>
-                            <a href="#"><span class="icon-long-arrow-right mr-2"></span>Refund
-                                Policy</a>
-                        </li>
-                        <li>
-                            <a href="#"><span class="icon-long-arrow-right mr-2"></span>Call Us</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Experience</h2>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="#"><span class="icon-long-arrow-right mr-2"></span>Adventure</a>
-                        </li>
-                        <li>
-                            <a href="#"><span class="icon-long-arrow-right mr-2"></span>Hotel and
-                                Restaurant</a>
-                        </li>
-                        <li>
-                            <a href="#"><span class="icon-long-arrow-right mr-2"></span>Beach</a>
-                        </li>
-                        <li>
-                            <a href="#"><span class="icon-long-arrow-right mr-2"></span>Nature</a>
-                        </li>
-                        <li>
-                            <a href="#"><span class="icon-long-arrow-right mr-2"></span>Camping</a>
-                        </li>
-                        <li>
-                            <a href="#"><span class="icon-long-arrow-right mr-2"></span>Party</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Have a Questions?</h2>
-                    <div class="block-23 mb-3">
-                        <ul>
-                            <li>
-                                <span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San
-                    Francisco, California,
-                    USA</span>
-                            </li>
-                            <li>
-                                <a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a>
-                            </li>
-                            <li>
-                                <a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <p>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;
-                    <script>
-                        document.write(new Date().getFullYear());
-                    </script>
-                    All rights reserved | This template is made with
-                    <i class="icon-heart color-danger" aria-hidden="true"></i> by
-                    <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- loader -->
 <div id="ftco-loader" class="show fullscreen">
     <svg class="circular" width="48px" height="48px">
-        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
         <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-                stroke="#F96D00" />
+                stroke="#F96D00"/>
     </svg>
 </div>
- <script src="${resourcePath}js/jquery.min.js"></script>
+<script src="${resourcePath}js/jquery.min.js"></script>
 <script src="${resourcePath}https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="${resourcePath}js/jquery-migrate-3.0.1.min.js"></script>
 <script src="${resourcePath}js/popper.min.js"></script>
@@ -312,5 +390,6 @@
 <script src="${resourcePath}js/scrollax.min.js"></script>
 <script src="${resourcePath}js/google-map.js"></script>
 <script src="${resourcePath}js/main.js"></script>
+<script src="${resourcePath}myJS/SearchResult.js"></script>
 </body>
 </html>

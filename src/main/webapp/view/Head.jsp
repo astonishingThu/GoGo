@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="${resourcePath}css/style.css"/>
     <link rel="stylesheet" href="${resourcePath}myCSS/newStyle.css"/>
     <link rel="stylesheet" href="${resourcePath}myCSS/TuyenDuong_NhaXe.css"/>
+    <link rel="stylesheet" href="${resourcePath}myCSS/SearchResult.css"/>
     <script src="${resourcePath}myJS/newJS.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>

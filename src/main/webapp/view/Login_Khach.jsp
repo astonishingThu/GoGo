@@ -8,37 +8,34 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="Head.jsp"></jsp:include>
 <body>
-<div class="notice"></div>
-<div>
-    <div class="col-md-7 order-md-last d-flex">
-        <div class="login__left">
-            <h2>Đăng nhập</h2>
-            <form
-                    class="bg-light p-4 p-md-5 login-form"
-                    action="GoGoLogin"
-                    method="post"
-            >
-                <div class="form-group">
-                    <label>Email:<span class="star">*</span> </label>
+<div class="hero-wrap pt-5 pb-5" style="background-image: url('${resourcePath}images/destination-1.jpg')">
+    <div class="col-md-7 mx-auto my-auto mt-5">
+        <form
+                class="bg-light p-4 p-md-5 login-form"
+                action="GoGoLogin"
+                method="post"
+        >
+            <h2 class="text-center">Đăng nhập</h2>
+            <div class="form-group">
+                <label>Email:<span class="star">*</span> </label>
 
-                    <input type="email" name="email" required />
-                </div>
-                <div class="form-group">
-                    <label>Mật khẩu: <span class="star">*</span></label>
-                    <input type="password" name="password" required />
-                </div>
+                <input class="col-md-12" type="email" name="email" required/>
+            </div>
+            <div class="form-group">
+                <label>Mật khẩu: <span class="star">*</span></label>
+                <input class="col-md-12" type="password" name="password" required/>
+            </div>
 
-                <p class="alter">Đăng nhập bằng SĐT</p>
+            <p class="alter">Quên mật khẩu?</p>
 
-                <button type="submit" class="btn btn-primary py-3 px-5">
-                    Đăng nhập
-                </button>
-            </form>
+            <button type="submit" class="btn btn-primary py-3 px-5 py-2 px-5 mt-2 col-md-12 mb-4">
+                Đăng nhập
+            </button>
             <div>
                 Bạn chưa có tài khoản?
                 <a href="SignUp_Khach.jsp">Đăng ký</a>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 </body>
