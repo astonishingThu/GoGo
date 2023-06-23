@@ -186,7 +186,7 @@
                                 <div class="form-group">
                                     <label><span class="ion-ios-calendar"></span> Ngày đi</label>
                                     <div class="form-field">
-                                        <input type="date" class="form-control checkout_date" placeholder="Ngày đi">
+                                        <input type="date" class="form-control checkout_date" id="ngayDi" placeholder="Ngày đi">
                                     </div>
                                 </div>
                             </div>
@@ -568,7 +568,7 @@
 <script src="<%=request.getContextPath()%>/view/js/scrollax.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="<%=request.getContextPath()%>/view/js/google-map.js"></script>
-
+<script src="<%=request.getContextPath()%>/view/myJS/newJS.js"></script>
 <script src="<%=request.getContextPath()%>/view/js/main.js"></script>
 
 </body>
