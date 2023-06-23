@@ -1,8 +1,15 @@
 const ngayBatDau = document.getElementById("ngayBatDau");
 const ngayKetThuc = document.getElementById("ngayKetThuc");
 const today = new Date().toLocaleDateString('fr-CA');
+const themTuyenSubmit = document.getElementById("themTuyenSubmit");
 ngayKetThuc.min = today;
 ngayBatDau.min = today;
+themTuyenSubmit.addEventListener("click", function () {
+    let isValid = validateTuyenDuong();
+    if (isValid) {
+        closeModal();
+    }
+});
 function openModal(){
     const modal = document.querySelector(".js-modal");
     modal.classList.add("open");
@@ -76,5 +83,12 @@ function validateTuyenDuong() {
     } else if (diemTra === "") {
         setError(diemTra, "Điểm trả không được bỏ trống");
         isCheck = false
+    } else if (thoiGianDiChuyen === "") {
+        setError(thoiGianDiChuyen, "Thời gian di chuyển không được bỏ trống");
+        isCheck = false;
+    } else if (giaVe === "") {
+        setError(giaVe, "Giá vé không được bỏ trống");
+        isCheck = false;
     }
+    return isCheck;
 }

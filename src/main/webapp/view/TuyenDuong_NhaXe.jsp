@@ -297,7 +297,7 @@
                                 type="submit"
                                 value="Thêm tuyến"
                                 class="btn py-3 px-5 btn-primary"
-                                onclick="closeModal()"
+                                id="themTuyenSubmit"
                         />
                     </div>
                 </form>
