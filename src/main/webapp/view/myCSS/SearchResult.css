@@ -1,3 +1,13 @@
+.veXe{
+    margin-top: 5px;
+    padding: 8px;
+    border: 1px #999999 solid ;
+    border-radius: 5px;
+}
+.tenNhaXe {
+    font-size: 24px;
+}
+
 .rating {
     /*background-color: #000000;*/
     padding: 2px 10px;
@@ -10,7 +20,7 @@
 .giaVe{
     padding: 30px;
     font-size: 24px;
-    font-weight: 500;
+    font-weight: 600;
     color: #b21f2d;
 }
 .dash-line {
@@ -45,7 +55,7 @@ margin-bottom: 10px;
 }
 .time{
     padding: 0;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 600;
     display: inline-block;
     margin: 0 20px 0 10px;
@@ -58,17 +68,21 @@ margin-bottom: 10px;
     margin: auto;
     width: fit-content;
     height: fit-content;
-    font-size:18px;
+    font-size:16px;
 }
 .diemdon, .diemtra{
     margin-left: 20px;
 }
-.ttct{
+.ttct-btn{
+    padding: 5px;
     color: #0F59C5;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
-    margin-top: 10px;
+    margin-right: 10px;
     float:right;
+}
+.ttct-btn:hover{
+    cursor: pointer;
 }
 .btn-chonCho{
     position: absolute;
@@ -98,4 +112,49 @@ margin-bottom: 10px;
 }
 .mota-xe{
     margin-bottom: 0;
+}
+.page-link{
+    color: #0b0b0b;
+}
+.carousel-control{
+    color: #3B3C40;
+    background-color: #3B3C40;
+    padding: 10px;
+    border-radius: 45px;
+}
+#hinhanh{
+    height: 300px;
+}
+#hinhanh img{
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+.ttct{
+    display: none;
+    flex-direction: column;
+    position: relative;
+}
+.field{
+    display: none;
+    flex-direction: column;
+}
+.empty{
+    background-color: #DEF3FF;
+}
+.choosing{
+    background-color: #FDEDE8;
+}
+.choosed{
+    background-color: #d5d9dd;
+}
+.soDoGhe{
+    background-color: #f8f9f9;
+}
+#ttLoTrinh{
+    display: none;
+}
+#nhapThongTin{
+    display: none;
 }
