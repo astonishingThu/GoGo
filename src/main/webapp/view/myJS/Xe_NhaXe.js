@@ -33,7 +33,6 @@ function openSoDo() {
         ghe.innerHTML = ghe.id;
         ghe.setAttribute("onclick", "setGheVip(" + Math.round(i) + ")");
     }
-
     for (let i = (soGhe.value / 2 + 1); i <= soGhe.value; i++) {
         let ghe = document.createElement("div");
         hang2.append(ghe);

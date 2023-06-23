@@ -149,3 +149,16 @@ small{
   bottom: 80px;
   z-index: 1000;
 }
+
+.xoa-tuyen{
+  position: absolute;
+  top: 0;
+  display: block;
+
+}
+.xe-overlay{
+  display: block;
+}
+.star{
+  color:red;
+}

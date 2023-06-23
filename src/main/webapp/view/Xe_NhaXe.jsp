@@ -38,7 +38,9 @@
                     <a href="${resourcePath}HanhKhach_NhaXe.jsp" class="nav-link"><span>Hành khách</span></a>
                 </li>
                 <li class="nav-item has-children">
-                    <a class="nav-link" id="logout"><icon class="icon-account_circle"> </icon><span> ${nhaXe.tenNhaXe}</span></a>
+                    <a class="nav-link" id="logout">
+                        <icon class="icon-account_circle"></icon>
+                        <span> ${nhaXe.tenNhaXe}</span></a>
                     <ul class="dropdown">
                         <li><a href="${pageContext.request.contextPath}/index.jsp">Logout</a></li>
                     </ul>
@@ -52,7 +54,7 @@
     <div class="addXe">
         <div class="icon-close js-close"></div>
         <div class="col-md-12">
-            <form class="p-5 bg-light row" action="AddGheXe" method="post" >
+            <form class="p-5 bg-light row" action="AddGheXe" method="post">
                 <div col-md-6>
                     <h3 class="mb-5">Thêm xe</h3>
                     <input type="hidden" id="idNhaXe" name="idNhaXe" value="${nhaXe.idNhaXe}"/>
@@ -72,7 +74,7 @@
                     <div class="ghe">
                         <div class="form-group">
                             <label>Số ghế ngồi *</label>
-                            <input name="soLuongGhe" type="number" class="form-control" id="soGhe" />
+                            <input name="soLuongGhe" type="number" class="form-control" id="soGhe"/>
                             <small></small>
                         </div>
                         <div class="form-group ml-3">
@@ -92,21 +94,21 @@
                     </div>
                 </div>
                 <div id="soDoGhe" class="col-md-6 soDoGhe pt-5 js-soDoGhe">
-                        <h4 id="titleGhe">32 ghế</h4>
-                        <div class="row p-5">
-                            <div class="col-md-6" id="hang-1"></div>
-                            <div class="col-md-6" id="hang-2"></div>
-                            <div class="mt-5">
-                                <label>*Chú thích:</label>
-                                <div class="icon-bus col-md-8 btn btn-primary ml-3">Ghế VIP</div>
-                            </div>
-                            <input type="hidden" id="vipList" name="vipList" />
-                            <div class="mt-5">
-                                <label>*Phụ thu ghế VIP:</label>
-                                <input name="giaGhe" type="number" class="form-control"  id="phuThu" min="1" max="1000000" required />
-                                <small></small>
-                            </div>
+                    <h4 id="titleGhe">32 ghế</h4>
+                    <div class="row p-5">
+                        <div class="col-md-6" id="hang-1"></div>
+                        <div class="col-md-6" id="hang-2"></div>
+                        <div class="mt-5">
+                            <label>*Chú thích:</label>
+                            <div class="icon-bus col-md-8 btn btn-primary ml-3">Ghế VIP</div>
                         </div>
+                        <input type="hidden" id="vipList" name="vipList" />
+                        <div class="mt-5">
+                            <label>*Phụ thu ghế VIP:</label>
+                            <input name="giaGhe" type="number" class="form-control"  id="phuThu" min="1" max="1000000" required />
+                            <small></small>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
@@ -120,14 +122,15 @@
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-start">
             <div class="col-md-9 ftco-animate pb-4">
-            <div class="col-md-9 ftco-animate pb-4">
-                <h1 class="mb-3 bread">GoGo xin chào</h1>
-                <div class="row">
-                    <a href="#xe" class="btn btn-primary py-2 px-4">Xe chạy</a>
-                    <form action="AddTuyenXe" class="" method="get">
-                        <input type="hidden" name="idNhaXe" value="${nhaXe.idNhaXe}"/>
-                        <input  type="submit" class="btn btn-black py-2 px-4" value="Tuyến xe" style="width: 120px"/>
-                    </form>
+                <div class="col-md-9 ftco-animate pb-4">
+                    <h1 class="mb-3 bread">GoGo xin chào</h1>
+                    <div class="row">
+                        <a href="#xe" class="btn btn-primary py-2 px-4">Xe chạy</a>
+                        <form action="AddTuyenXe" class="" method="get">
+                            <input type="hidden" name="idNhaXe" value="${nhaXe.idNhaXe}"/>
+                            <input type="submit" class="btn btn-black py-2 px-4" value="Tuyến xe" style="width: 120px"/>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -145,7 +148,7 @@
                 <div class="col-md-12">
                     <div class="row xe" id="xe">
                         <div class="col-md-3 ftco-animate">
-                            <img src="${resourcePath}images/about.jpg" class="ill img-fluid" />
+                            <img src="${resourcePath}images/about.jpg" class="ill img-fluid"/>
                         </div>
                         <div class="col-md-5 ftco-animate">
                             <div class="text">
@@ -155,7 +158,7 @@
                                 </p>
                                 <p>${xe.moTa}</p>
                                 <p>
-                                    <button class="btn btn-secondary" >Chỉnh sửa</button>
+                                    <button class="btn btn-secondary">Chỉnh sửa</button>
                                     <button class="btn btn-primary js-del-cf-btn" id=${xe.idXe}>Xóa</button>
                                 </p>
                             </div>
@@ -178,9 +181,11 @@
                             </div>
                         </div>
                         <div class="del-cf js-del-cf" id="">
-                            Bạn muốn xóa xe này? <br /><button onclick="window.location.href='RemoveXe?idXe=${xe.idXe}&idNhaXe=${nhaXe.idNhaXe}'" class="btn btn-primary js-del">
-                            Xóa
-                        </button>
+                            Bạn muốn xóa xe này? <br/>
+                            <button onclick="window.location.href='RemoveXe?idXe=${xe.idXe}&idNhaXe=${nhaXe.idNhaXe}'"
+                                    class="btn btn-primary js-del">
+                                Xóa
+                            </button>
                             <button class="btn btn-black js-cancel">Hủy</button>
                         </div>
                         <div class="xe-overlay"></div>
@@ -196,9 +201,9 @@
 <!-- loader -->
 <div id="ftco-loader" class="show fullscreen">
     <svg class="circular" width="48px" height="48px">
-        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
         <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-                stroke="#F96D00" />
+                stroke="#F96D00"/>
     </svg>
 </div>
 
