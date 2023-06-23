@@ -3,10 +3,11 @@ package com.gogo.swp_gogo.models;
 public class TraKhach {
     private String idLoTrinh;
     private String noiTraKhach;
-
+    private String idTraKhach;
 
     public TraKhach(){}
-    public TraKhach(String idLoTrinh, String noiTraKhach) {
+    public TraKhach(String idTraKhach,String idLoTrinh, String noiTraKhach) {
+        this.idTraKhach = idTraKhach;
         this.idLoTrinh = idLoTrinh;
         this.noiTraKhach = noiTraKhach;
     }
@@ -25,5 +26,13 @@ public class TraKhach {
 
     public void setNoiTraKhach(String noiTraKhach) {
         this.noiTraKhach = noiTraKhach;
+    }
+
+    public String getIdTraKhach() {
+        return idTraKhach;
+    }
+
+    public void setIdTraKhach(String idTraKhach) {
+        this.idTraKhach = idTraKhach;
     }
 }

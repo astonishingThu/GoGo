@@ -1,13 +1,16 @@
 package com.gogo.swp_gogo.models;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 public class ThoiGianKhoiHanh {
     private String idThoiGian;
-    private String gioKhoiHanh;
-    private String ngayKhoiHanh;
+    private LocalTime gioKhoiHanh;
+    private LocalDate ngayKhoiHanh;
 
     public ThoiGianKhoiHanh(){}
 
-    public ThoiGianKhoiHanh(String idThoiGian, String gioKhoiHanh, String ngayKhoiHanh) {
+    public ThoiGianKhoiHanh(String idThoiGian, LocalTime gioKhoiHanh, LocalDate ngayKhoiHanh) {
         this.idThoiGian = idThoiGian;
         this.gioKhoiHanh = gioKhoiHanh;
         this.ngayKhoiHanh = ngayKhoiHanh;
@@ -21,19 +24,19 @@ public class ThoiGianKhoiHanh {
         this.idThoiGian = idThoiGian;
     }
 
-    public String getGioKhoiHanh() {
+    public LocalTime getGioKhoiHanh() {
         return gioKhoiHanh;
     }
 
-    public void setGioKhoiHanh(String gioKhoiHanh) {
+    public void setGioKhoiHanh(LocalTime gioKhoiHanh) {
         this.gioKhoiHanh = gioKhoiHanh;
     }
 
-    public String getNgayKhoiHanh() {
+    public LocalDate getNgayKhoiHanh() {
         return ngayKhoiHanh;
     }
 
-    public void setNgayKhoiHanh(String ngayKhoiHanh) {
+    public void setNgayKhoiHanh(LocalDate ngayKhoiHanh) {
         this.ngayKhoiHanh = ngayKhoiHanh;
     }
 }

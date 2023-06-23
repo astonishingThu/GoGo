@@ -273,18 +273,6 @@
                             <input type="number" class="form-control" name="giaLoTrinh"/>
                         </div>
                     </div>
-                    <div>
-                        <div>Danh sách xe chạy *</div>
-                        <div class="col-md-2 btn btn-secondary m-2"><input type="checkbox"/> <span
-                                class="icon-bus"> Xe01
-                        </div>
-                        <div class="col-md-2 btn btn-secondary m-2"><input type="checkbox"/> <span
-                                class="icon-bus"> Xe02
-                        </div>
-                        <div class="col-md-2 btn btn-secondary m-2"><input type="checkbox"/> <span
-                                class="icon-bus"> Xe03
-                        </div>
-                    </div>
                     <div class="form-group them-btn">
                         <input
                                 type="submit"
@@ -302,43 +290,52 @@
         <table class="table container">
             <thead>
             <tr>
-                <th scope="col">MS Tuyến</th>
+                <th scope="col">Id Lộ Trình</th>
                 <th scope="col">Điểm đi</th>
                 <th scope="col">Điểm đến</th>
                 <th scope="col">Thời điểm xuất phát</th>
-                <th scope="col">Thời gian di chuyển</th>
-                <th scope="col">Danh sách xe chạy</th>
-                <th scope="col">Thêm</th>
+                <th scope="col">Ngày khởi hành</th>
+                <th scope="col">Thời gian di chuyển(phút)</th>
+                <th scope="col">Giá Lộ Trình</th>
+                <th scope="col">Xe chạy</th>
+                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row"></span> TU0011 </span></th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td><span class="icon-edit"> | </span><span class="icon-trash"> </span></td>
-            </tr>
-            <tr>
-                <th scope="row"></span> TU0011 </span></th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td><span class="icon-edit"> | </span><span class="icon-trash"> </span></td>
-            </tr>
-            <tr>
-                <th scope="row"></span> TU0011 </span></th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td><span class="icon-edit"> | </span><span class="icon-trash"> </span></td>
-            </tr>
+            <c:forEach var="loTrinh" items="${nhaXe.loTrinhList}">
+                <tr>
+                    <th scope="row"></span> ${loTrinh.idLoTrinh} </span></th>
+                    <td>${loTrinh.tuyenDuong.noiBatDau}</td>
+                    <td>${loTrinh.tuyenDuong.dichDen}</td>
+                    <td>${loTrinh.thoiGianKhoiHanh.gioKhoiHanh}</td>
+                    <td>${loTrinh.thoiGianKhoiHanh.ngayKhoiHanh}</td>
+                    <td>${loTrinh.khoangThoiGianDiChuyen}</td>
+                    <td>${loTrinh.giaLoTrinh}</td>
+                    <td>${loTrinh.xe.idXe}</td>
+                    <td><button onclick="window.location.href='RemoveLoTrinh?idLoTrinh=${loTrinh.idLoTrinh}&idNhaXe=${nhaXe.idNhaXe}'" class="btn btn-primary js-del">
+                    </button></td>
+                        <%--                <td><span class="icon-edit"> | </span><span class="icon-trash"> </span></td>--%>
+                </tr>
+            </c:forEach>
+
+<%--            <tr>--%>
+<%--                <th scope="row"></span> TU0011 </span></th>--%>
+<%--                <td>Mark</td>--%>
+<%--                <td>Otto</td>--%>
+<%--                <td>@mdo</td>--%>
+<%--                <td>@mdo</td>--%>
+<%--                <td>@mdo</td>--%>
+<%--                <td><span class="icon-edit"> | </span><span class="icon-trash"> </span></td>--%>
+<%--            </tr>--%>
+<%--            <tr>--%>
+<%--                <th scope="row"></span> TU0011 </span></th>--%>
+<%--                <td>Mark</td>--%>
+<%--                <td>Otto</td>--%>
+<%--                <td>@mdo</td>--%>
+<%--                <td>@mdo</td>--%>
+<%--                <td>@mdo</td>--%>
+<%--                <td><span class="icon-edit"> | </span><span class="icon-trash"> </span></td>--%>
+<%--            </tr>--%>
 
             </tbody>
         </table>

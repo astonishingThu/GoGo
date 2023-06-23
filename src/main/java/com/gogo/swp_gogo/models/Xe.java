@@ -9,6 +9,7 @@ public class Xe {
     private String loaiXe;
     private String idNhaXe;
     private List<GheXe> gheXeList;
+    private List<LoTrinh> lichDiChuyen;
 
     public Xe(String idXe, String moTa, byte soLuongGhe, String loaiXe, String idNhaXe) {
         this.idXe = idXe;
@@ -78,5 +79,13 @@ public class Xe {
                 ", idNhaXe='" + idNhaXe + '\'' +
                 ", gheXeList=" + gheXeList +
                 '}';
+    }
+
+    public List<LoTrinh> getLichDiChuyen() {
+        return lichDiChuyen;
+    }
+
+    public void setLichDiChuyen(List<LoTrinh> lichDiChuyen) {
+        this.lichDiChuyen = lichDiChuyen;
     }
 }

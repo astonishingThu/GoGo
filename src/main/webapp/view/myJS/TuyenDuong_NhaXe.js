@@ -8,7 +8,6 @@ function closeModal(){
 }
 
 function getThu(){
-    console.log("hi");
     let days = document.querySelectorAll(".choice");
     let lap = [];
     for (let day of days){
