@@ -1,20 +1,30 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="Head.jsp"></jsp:include>
 <body>
- <div>
-     <div>
-         <h3>Phương thức thanh toán</h3>
-         <div>
-             <div><input type="radio" class="">Thanh toán VNPAY - QR</div>
-             <div class="desc">
-                 Thiết bị cần cài đặt Ứng dụng ngân hàng (Mobile Banking) hoặc ví VNPAY.
-                 Nhập mã "VNPAYVXRT6" - Nhận ngay ưu đãi 5% tối đa 20K -
-                 <a>Điều kiện sử dụng</a>
+ <section>
+     <div class=" container row">
+         <div class="thoigian col-md-12">
+             <h2>Thời gian giữ vé</h2>
+         </div>
+         <div class="col-md-8">
+
+             <div>
+                 <h3>Phương thức thanh toán</h3>
+                 <div><input type="radio" class="">Thanh toán VNPAY - QR</div>
+                 <div class="desc">
+                     Thiết bị cần cài đặt Ứng dụng ngân hàng (Mobile Banking) hoặc ví VNPAY.
+                     Nhập mã "VNPAYVXRT6" - Nhận ngay ưu đãi 5% tối đa 20K -
+                     <a>Điều kiện sử dụng</a>
+                     <h4>Hướng dẫn thanh toán</h4>
+                     <div>1. Đăng nhập Ứng dụng ngân hàng hoặc Ví VNPAY</div>
+                     <div>2. Quét mã VNPAY-QR để thanh toán</div>
+                     <div>3. Nhập số tiền thanh toán & mã giảm giá (nếu có), xác minh giao dịch để đặt vé</div>
+                 </div>
              </div>
          </div>
+         <div class="col-md-4"><h3>Thông tin chuyến đi</h3></div>
      </div>
-     <div><h3>Thông tin chuyến đi</h3></div>
- </div>
+ </section>
  <script src="${resourcePath}js/jquery.min.js"></script>
  <script src="${resourcePath}https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
  <script src="${resourcePath}js/jquery-migrate-3.0.1.min.js"></script>

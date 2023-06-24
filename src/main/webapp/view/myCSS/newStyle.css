@@ -157,7 +157,7 @@ small{
 
 }
 .xe-overlay{
-  display: block;
+  display: none;
 }
 .star{
   color:red;

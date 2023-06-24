@@ -98,7 +98,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="search-wrap-1 ftco-animate p-4">
-                    <form action="#" class="search-property-1">
+                    <form action="GoGoSearch" class="search-property-1">
                         <div class="row">
                             <div class="col-lg align-items-end">
                                 <div class="form-group">
