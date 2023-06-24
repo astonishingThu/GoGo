@@ -336,6 +336,11 @@ public class MyQueries {
                     idXeList.add(resultSet.getString("idXe"));
                 }
             }
+            PreparedStatement selectIdXeOutsideLoTrinh = connection.prepareStatement("select idXe from Xe except select lt.idXe from LoTrinh lt, Xe x where lt.idXe = x.idXe");
+            ResultSet resultSet1 = selectIdXeOutsideLoTrinh.executeQuery();
+            while (resultSet1.next()) {
+                res.add(getXeByCol("idXe",resultSet1.getString("idXe")));
+            }
             List<String> idXeListWithoutDuplicates = idXeList.stream().distinct().collect(Collectors.toList());
             for (String idXe:idXeListWithoutDuplicates) {
                 res.add(getXeByCol("idXe",idXe));

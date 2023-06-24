@@ -63,7 +63,7 @@
             <div class="col-md-9 ftco-animate pb-4">
                 <h1 class="mb-3 bread">GoGo xin chào</h1>
                 <p>
-                    <a href="Xe_NhaXe.jsp#xe" class="btn btn-primary py-2 px-4">Xe chạy</a>
+                    <a href="NhaXeMainPage?idNhaXe=${nhaXe.idNhaXe}" class="btn btn-primary py-2 px-4">Xe chạy</a>
                     <a href="#tuyenDuong" class="btn btn-black py-2 px-4">Tuyến xe</a>
                 </p>
             </div>
