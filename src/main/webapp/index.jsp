@@ -32,7 +32,7 @@
                 <li class="nav-item has-children">
                     <a href="view/SignUp_Khach.jsp" class="nav-link"><span>Đăng ký</span></a>
                     <ul class="dropdown">
-                        <li><a href="view/SignUp_Khach.jsp">Hành khách</a></li>
+                        <li><a href="GoGoSignup">Hành khách</a></li>
                         <li><a href="view/SignUp_NhaXe.jsp">Nhà xe</a></li>
                     </ul>
                 </li>

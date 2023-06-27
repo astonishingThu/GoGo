@@ -14,13 +14,14 @@ import java.io.IOException;
 public class KhachHangSignupServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("view/SignUp_Khach.jsp");
+        requestDispatcher.forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         KhachHang khachHang = new KhachHang();
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("SignUp_Khach.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("view/HomePage_HanhKhach.jsp");
         if (khachHang.signup(req)) {
             req.setAttribute("connection",true);
             System.out.println("Succeeded");
