@@ -325,32 +325,57 @@ public class MyQueries {
     public static List<Xe> getAvailableXeOfNhaXe(String idNhaXe, List<LocalDate> ngayChayList) {
         Connection connection = getConnection();
         List<Xe> res = new ArrayList<>();
+        List<String> idXeTrung = new ArrayList<>();
+        List<String> allIdXeFromLoTrinh = new ArrayList<>();
+
         try {
-            PreparedStatement statement = connection.prepareStatement("select lt.idXe, tg.* from Xe x, ThoiGianKhoiHanh tg, LoTrinh lt where x.idNhaXe = ? and x.idXe = lt.idXe and lt.idThoiGian = tg.idThoiGian ");
-            statement.setString(1,idNhaXe);
-            ResultSet resultSet = statement.executeQuery();
-            List<String> idXeList = new ArrayList<>();
-            while (resultSet.next()) {
-                System.out.println("hello"+resultSet.getString("ngayKhoiHanh"));
-                LocalDate ngayKhoiHanh = LocalDate.parse(resultSet.getString("ngayKhoiHanh"));
-                if(!ngayChayList.contains(ngayKhoiHanh)) {
-                    idXeList.add(resultSet.getString("idXe"));
+            PreparedStatement allXeFromLoTrinh = connection.prepareStatement("select lt.idXe, tg.* from Xe x, ThoiGianKhoiHanh tg, LoTrinh lt where x.idNhaXe = ? and x.idXe = lt.idXe and lt.idThoiGian = tg.idThoiGian ");
+            allXeFromLoTrinh.setString(1,idNhaXe);
+            ResultSet allXeFromLoTrinhSet = allXeFromLoTrinh.executeQuery();
+            while (allXeFromLoTrinhSet.next()) {
+                String idXe = allXeFromLoTrinhSet.getString(1);
+                if (!allIdXeFromLoTrinh.contains(idXe)) {
+                    allIdXeFromLoTrinh.add(idXe);
                 }
             }
-            PreparedStatement selectIdXeOutsideLoTrinh = connection.prepareStatement("select idXe from Xe except select lt.idXe from LoTrinh lt, Xe x where lt.idXe = x.idXe");
-            ResultSet resultSet1 = selectIdXeOutsideLoTrinh.executeQuery();
-            while (resultSet1.next()) {
-                res.add(getXeByCol("idXe",resultSet1.getString("idXe")));
+
+            PreparedStatement trungNgayKhoiHanh = connection.prepareStatement("select lt.idXe, tg.* from Xe x, ThoiGianKhoiHanh tg, LoTrinh lt where x.idNhaXe = ? and x.idXe = lt.idXe and lt.idThoiGian = tg.idThoiGian and tg.ngayKhoiHanh = ?");
+            trungNgayKhoiHanh.setString(1,idNhaXe);
+            for (LocalDate ngayChay:ngayChayList) {
+                trungNgayKhoiHanh.setString(2,ngayChay.toString());
+                ResultSet resultSet = trungNgayKhoiHanh.executeQuery();
+                while (resultSet.next()) {
+                    String idXe = resultSet.getString(1);
+                    if (!idXeTrung.contains(idXe)) {
+                        idXeTrung.add(idXe);
+                    }
+                }
             }
-            List<String> idXeListWithoutDuplicates = idXeList.stream().distinct().collect(Collectors.toList());
-            for (String idXe:idXeListWithoutDuplicates) {
-                res.add(getXeByCol("idXe",idXe));
+
+            for (String idXe:allIdXeFromLoTrinh) {
+                if (!idXeTrung.contains(idXe)) {
+                    res.add(MyQueries.getXeByCol("idXe",idXe));
+                }
             }
+
+            PreparedStatement selectIdXeOutsideLoTrinh = connection.prepareStatement("select idXe from Xe except select lt.idXe from LoTrinh lt, Xe x where x.idNhaXe = ? and lt.idNhaXe = x.idNhaXe ");
+            selectIdXeOutsideLoTrinh.setString(1,idNhaXe);
+            ResultSet selectIdXeOutsideLoTrinhSet = selectIdXeOutsideLoTrinh.executeQuery();
+            while (selectIdXeOutsideLoTrinhSet.next()) {
+                res.add(getXeByCol("idXe",selectIdXeOutsideLoTrinhSet.getString("idXe")));
+            }
+
+
+//            List<String> idXeListWithoutDuplicates = idXeList.stream().distinct().collect(Collectors.toList());
+//            for (String idXe:idXeListWithoutDuplicates) {
+//                res.add(getXeByCol("idXe",idXe));
+//            }
             connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         System.out.println("res ne" + res);
+        System.out.println("Res size: "+res.size());
         return res;
     }
 

@@ -13,7 +13,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
      id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="view/index.html">GoGo</a>
+        <a class="navbar-brand" href="index.jsp">GoGo</a>
         <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
                 data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
@@ -21,8 +21,8 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav nav ml-auto">
-                <li class="nav-item"><a href="#home-section" class="nav-link"><span>Trang chủ</span></a></li>
-                <li class="nav-item"><a href="#tuyenDuong" class="nav-link"><span>Tuyến đường</span></a></li>
+                <li class="nav-item"><a href="index.jsp" class="nav-link"><span>Trang chủ</span></a></li>
+                <li class="nav-item"><a href="index.jsp#tuyenDuong" class="nav-link"><span>Tuyến đường</span></a></li>
                 <li class="nav-item"><a href="#uuDai" class="nav-link"><span>Ưu đãi</span></a></li>
                 <li class="nav-item has-children">
                     <a class="nav-link"><span>Đăng nhập</span></a>
