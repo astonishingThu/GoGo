@@ -98,13 +98,13 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="search-wrap-1 ftco-animate p-4">
-                    <form action="GoGoSearch" class="search-property-1">
+                    <form action="SearchTuyenDuong" class="search-property-1" method="post">
                         <div class="row">
                             <div class="col-lg align-items-end">
                                 <div class="form-group">
                                     <label><span class="ion-ios-pin"></span> Nơi xuất phát </label>
                                     <div class="form-field">
-                                        <input list="places1" class="form-control">
+                                        <input list="places1" class="form-control" name="noiBatDau">
                                         <datalist id="places1">
                                             <option value="An Giang">An Giang
                                             <option value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu
@@ -178,7 +178,7 @@
                             <div class="col-lg align-items-end">
                                 <div class="form-group">
                                     <label><span class="ion-ios-pin"></span> Nơi đến </label>
-                                    <input list="places1" class="form-control">
+                                    <input list="places1" class="form-control" name="dichDen">
 
                                 </div>
                             </div>
@@ -186,7 +186,7 @@
                                 <div class="form-group">
                                     <label><span class="ion-ios-calendar"></span> Ngày đi</label>
                                     <div class="form-field">
-                                        <input type="date" class="form-control checkout_date" id="ngayDi" placeholder="Ngày đi">
+                                        <input type="date" class="form-control checkout_date" id="ngayDi" placeholder="Ngày đi" name="ngayKhoiHanh">
                                     </div>
                                 </div>
                             </div>
