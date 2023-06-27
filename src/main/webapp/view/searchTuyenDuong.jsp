@@ -8,7 +8,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="Head.jsp"></jsp:include>
-<jsp:useBean id="loTrinhList" class="com.gogo.swp_gogo.models.LoTrinhList" scope="request"/>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
      id="ftco-navbar">
@@ -107,7 +106,7 @@
 
 <section class="ftco-section ftco-services-2 ftco-no-pt">
     <div class="container">
-<%--        <c:forEach var="loTrinh" items="${loTrinhList.loTrinhList}">--%>
+        <c:forEach var="loTrinh" items="${loTrinhList}">
             <div class="row">
                 <div class="col-md-10 mb-5">
                     <div class="row veXe">
@@ -116,17 +115,17 @@
                         </div>
                         <div class="col-md-6 ftco-animate">
                             <div class="text text-center">
-                                <h3 class="tenNhaXe">Tân Quang Dũng<span class="rating">4.0<span
+                                <h3 class="tenNhaXe">${loTrinh.nhaXe.tenNhaXe}<span class="rating">4.0<span
                                         class="icon-star"></span></span>
                                 </h3>
                                 <p class="mota-xe">
-                                    Giường nằm - <span class="price"> <span id="soGhe">42</span> chỗ</span> - <span>Khăn ướt, điều hòa</span>
+                                        ${loTrinh.xe.loaiXe} - <span class="price"> <span id="soGhe">${loTrinh.xe.soLuongGhe}</span> chỗ</span> - <span>${loTrinh.xe.moTa}</span>
                                 </p>
                             </div>
                             <div class="loTrinh-xe">
                                 <div class="xuatPhat">
                                     <icon class="icon-circle-o xp-icon"></icon>
-                                    <p class="time">10:00</p>
+                                    <p class="time">${loTrinh.thoiGianKhoiHanh.gioKhoiHanh} </p>
                                     <icon class="icon-circle"></icon>
                                     <span class="diemdon">Bến xe Nước Ngầm</span>
                                 </div>
@@ -359,6 +358,7 @@
                     </form>
                 </div>
             </div>
+        </c:forEach>
     </div>
 </section>
 <nav aria-label="Page navigation example">

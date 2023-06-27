@@ -398,7 +398,7 @@ public class MyQueries {
     public static List<LoTrinh> searchLoTrinh(String noiBatDau, String dichDen, LocalDate ngayKhoiHanh) {
         Connection connection = getConnection();
         try {
-            PreparedStatement statement = connection.prepareStatement("select lt.idLoTrinh, td.idTuyenDuong, tg.idThoiGian, x.idXe, lt.giaLoTrinh, lt.khoangThoiGianDiChuyen from GoGo.dbo.LoTrinh lt, GoGo.dbo.Xe x, GoGo.dbo.TuyenDuong td, ThoiGianKhoiHanh tg where lt.idXe = x.idXe and td.idTuyenDuong = ? and lt.idTuyenDuong = td.idTuyenDuong and lt.idThoiGian = tg.idThoiGian and tg.ngayKhoiHanh=?");
+            PreparedStatement statement = connection.prepareStatement("select lt.idLoTrinh, td.idTuyenDuong, tg.idThoiGian, x.idXe, lt.giaLoTrinh, lt.khoangThoiGianDiChuyen, x.idNhaXe from GoGo.dbo.LoTrinh lt, GoGo.dbo.Xe x, GoGo.dbo.TuyenDuong td, ThoiGianKhoiHanh tg where lt.idXe = x.idXe and td.idTuyenDuong = ? and lt.idTuyenDuong = td.idTuyenDuong and lt.idThoiGian = tg.idThoiGian and tg.ngayKhoiHanh=?");
             statement.setString(1,searchIdTuyenDuong(noiBatDau,dichDen));
             statement.setString(2,ngayKhoiHanh.toString());
             ResultSet resultSet = statement.executeQuery();
@@ -411,6 +411,7 @@ public class MyQueries {
                 loTrinh.setXe(getXeByCol("idXe",resultSet.getString(4)));
                 loTrinh.setGiaLoTrinh(resultSet.getInt(5));
                 loTrinh.setKhoangThoiGianDiChuyen(resultSet.getInt(6));
+                loTrinh.setNhaXe(MyQueries.getNhaXeByCol("idNhaXe", resultSet.getString(7)));
                 res.add(loTrinh);
             }
             connection.close();

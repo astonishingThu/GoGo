@@ -24,8 +24,7 @@ public class SearchTuyenDuongServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("view/searchTuyenDuong.jsp");
-        LoTrinhList loTrinhList = new LoTrinhList();
-        loTrinhList.setLoTrinhList(MyQueries.searchLoTrinh(req.getParameter("noiBatDau"),req.getParameter("dichDen"), LocalDate.parse(req.getParameter("ngayKhoiHanh"))));
+        List<LoTrinh> loTrinhList= MyQueries.searchLoTrinh(req.getParameter("noiBatDau"),req.getParameter("dichDen"), LocalDate.parse(req.getParameter("ngayKhoiHanh")));
         req.setAttribute("loTrinhList",loTrinhList);
         for (LoTrinh lt:loTrinhList) {
             System.out.println(lt);
