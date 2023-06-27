@@ -33,7 +33,7 @@
             </button>
             <div>
                 Bạn chưa có tài khoản?
-                <a href="SignUp_Khach.jsp">Đăng ký</a>
+                <a href="${resourcePath}SignUp_Khach.jsp">Đăng ký</a>
             </div>
         </form>
     </div>

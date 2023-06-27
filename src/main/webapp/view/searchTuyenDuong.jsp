@@ -58,7 +58,7 @@
                                             <label><span class="ion-ios-pin"></span> Nơi xuất phát </label>
                                             <div class="form-field" style="background-color: #ffffff">
                                                 <input type="text" class="form-control" placeholder=" Nhập điểm đón"
-                                                       value="Đà Lạt">
+                                                       value="${loTrinh.}">
                                             </div>
                                         </div>
                                     </div>
