@@ -1,5 +1,6 @@
 package com.gogo.swp_gogo.models;
 
+import javax.xml.datatype.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 

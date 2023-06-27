@@ -1,5 +1,6 @@
 package com.gogo.swp_gogo.models;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -14,6 +15,7 @@ public class LoTrinh {
     private ThoiGianKhoiHanh thoiGianKhoiHanh;
     private TuyenDuong tuyenDuong;
     private NhaXe nhaXe;
+    private LocalTime thoiGianKetThuc;
 
     public String getIdLoTrinh() {
         return idLoTrinh;
@@ -85,6 +87,14 @@ public class LoTrinh {
 
     public void setTraKhach(TraKhach traKhach) {
         this.traKhach = traKhach;
+    }
+
+    public LocalTime getThoiGianKetThuc() {
+        return thoiGianKetThuc;
+    }
+
+    public void setThoiGianKetThuc() {
+        this.thoiGianKetThuc = thoiGianKhoiHanh.getGioKhoiHanh().plus(Duration.ofMinutes(khoangThoiGianDiChuyen));
     }
 
     @Override

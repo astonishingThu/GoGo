@@ -128,28 +128,25 @@
                                     <icon class="icon-circle-o xp-icon"></icon>
                                     <p class="time">${loTrinh.thoiGianKhoiHanh.gioKhoiHanh} </p>
                                     <icon class="icon-circle"></icon>
-                                    <span class="diemdon">Bến xe Nước Ngầm</span>
+                                    <span class="diemdon">${loTrinh.donKhach.noiDonKhach}</span>
                                 </div>
                                 <p class="dash-line"> . . . . .</p>
-                                <div class="tgdc">8h</div>
+                                <div class="tgdc">${loTrinh.khoangThoiGianDiChuyen} phút</div>
                                 <div class="diemDen">
                                     <icon class="ion-ios-pin dd-icon"></icon>
-                                    <p class="time">18:00</p>
+                                    <p class="time">${loTrinh.thoiGianKetThuc}</p>
                                     <icon class="icon-circle"></icon>
-                                    <span class="diemtra">Văn phòng Thanh Chương</span>
+                                    <span class="diemtra">${loTrinh.traKhach.noiTraKhach}</span>
                                 </div>
                             </div>
                             <div class="ttct-btn" onclick="openTTCT()"> Thông tin chi tiết <span
                                     class="ion-ios-arrow-dropdown"></span></div>
                         </div>
                         <div class="col-md-3 ftco-animate dsLoTrinh">
-                            <div class="giaVe text-center">149000Đ</div>
+                            <div class="giaVe text-center">${loTrinh.giaLoTrinh} VNĐ</div>
                             <p class="choTrong  text-center m-0">02 chỗ trống</p>
                             <a class="btn btn-black btn-chonCho" onclick="openSoDo()" href="#soDoGhe">CHỌN CHỖ</a>
                         </div>
-                        <p class="thuocchuyen"><span>*</span> Vé chặng thuộc chuyến 23:10 15-06-2023 Hà Nội - Vinh -
-                            Xuân
-                            Hội</p>
                     </div>
                     <div class="ttct">
                         <icon class="icon-close" onClick=closeTTCT()></icon>
@@ -207,7 +204,7 @@
                             </div>
                         </div>
                         <div id="tienich" class="field">
-                            <p>Nước uống, Sạc điện thoại, Điều hòa</p>
+                            <p>${loTrinh.xe.moTa}</p>
                         </div>
                         <div class="row justify-content-center field" id="diemdontra">
                             <div class="diemDon col-md-5">

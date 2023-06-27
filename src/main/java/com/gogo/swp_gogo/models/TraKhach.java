@@ -12,6 +12,9 @@ public class TraKhach {
         this.noiTraKhach = noiTraKhach;
     }
 
+    public TraKhach(String noiTraKhach) {
+        this.noiTraKhach = noiTraKhach;
+    }
     public String getIdLoTrinh() {
         return idLoTrinh;
     }

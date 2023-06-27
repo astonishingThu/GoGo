@@ -398,7 +398,7 @@ public class MyQueries {
     public static List<LoTrinh> searchLoTrinh(String noiBatDau, String dichDen, LocalDate ngayKhoiHanh) {
         Connection connection = getConnection();
         try {
-            PreparedStatement statement = connection.prepareStatement("select lt.idLoTrinh, td.idTuyenDuong, tg.idThoiGian, x.idXe, lt.giaLoTrinh, lt.khoangThoiGianDiChuyen, x.idNhaXe from GoGo.dbo.LoTrinh lt, GoGo.dbo.Xe x, GoGo.dbo.TuyenDuong td, ThoiGianKhoiHanh tg where lt.idXe = x.idXe and td.idTuyenDuong = ? and lt.idTuyenDuong = td.idTuyenDuong and lt.idThoiGian = tg.idThoiGian and tg.ngayKhoiHanh=?");
+            PreparedStatement statement = connection.prepareStatement("select lt.idLoTrinh, td.idTuyenDuong, tg.idThoiGian, x.idXe, lt.giaLoTrinh, lt.khoangThoiGianDiChuyen, x.idNhaXe, dk.noiDonKhach, tk.noiTraKhach from GoGo.dbo.LoTrinh lt, GoGo.dbo.Xe x, GoGo.dbo.TuyenDuong td, GoGo.dbo.DonKhach dk, GoGo.dbo.TraKhach tk, ThoiGianKhoiHanh tg where lt.idXe = x.idXe and td.idTuyenDuong = ? and lt.idTuyenDuong = td.idTuyenDuong and lt.idThoiGian = tg.idThoiGian and tg.ngayKhoiHanh=? and lt.idLoTrinh = dk.idLoTrinh and lt.idLoTrinh = tk.idLoTrinh");
             statement.setString(1,searchIdTuyenDuong(noiBatDau,dichDen));
             statement.setString(2,ngayKhoiHanh.toString());
             ResultSet resultSet = statement.executeQuery();
@@ -412,6 +412,9 @@ public class MyQueries {
                 loTrinh.setGiaLoTrinh(resultSet.getInt(5));
                 loTrinh.setKhoangThoiGianDiChuyen(resultSet.getInt(6));
                 loTrinh.setNhaXe(MyQueries.getNhaXeByCol("idNhaXe", resultSet.getString(7)));
+                loTrinh.setDonKhach(new DonKhach(resultSet.getString(8)));
+                loTrinh.setTraKhach(new TraKhach(resultSet.getString(9)));
+                loTrinh.setThoiGianKetThuc();
                 res.add(loTrinh);
             }
             connection.close();

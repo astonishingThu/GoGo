@@ -12,6 +12,10 @@ public class DonKhach {
         this.noiDonKhach = noiDonKhach;
     }
 
+    public DonKhach(String noiDonKhach) {
+        this.noiDonKhach = noiDonKhach;
+    }
+
     public String getIdLoTrinh() {
         return idLoTrinh;
     }
