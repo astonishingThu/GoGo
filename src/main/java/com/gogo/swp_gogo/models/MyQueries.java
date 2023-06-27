@@ -18,7 +18,7 @@ public class MyQueries {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             String connectionUrl = "jdbc:sqlserver://localhost:1433;database=GoGo;encrypt=false;trustServerCertificate=true";
-            Connection connection = DriverManager.getConnection(connectionUrl,"sa","140801");
+            Connection connection = DriverManager.getConnection(connectionUrl,"sa","092301");
             return connection;
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println("Cannot connect to the database");
@@ -331,6 +331,7 @@ public class MyQueries {
             ResultSet resultSet = statement.executeQuery();
             List<String> idXeList = new ArrayList<>();
             while (resultSet.next()) {
+                System.out.println("hello"+resultSet.getString("ngayKhoiHanh"));
                 LocalDate ngayKhoiHanh = LocalDate.parse(resultSet.getString("ngayKhoiHanh"));
                 if(!ngayChayList.contains(ngayKhoiHanh)) {
                     idXeList.add(resultSet.getString("idXe"));
@@ -349,6 +350,7 @@ public class MyQueries {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        System.out.println("res ne" + res);
         return res;
     }
 
@@ -376,47 +378,47 @@ public class MyQueries {
         }
     }
 
-    public static String searchIdTuyenDuong(String noiBatDau, String dichDen) {
-        Connection connection = getConnection();
-        String res = null;
-        try {
-            PreparedStatement statement = connection.prepareStatement("select idTuyenDuong from GoGo.dbo.TuyenDuong where noiBatDau=? and dichDen = ?");
-            statement.setString(1,noiBatDau);
-            statement.setString(2,dichDen);
-            ResultSet resultSet = statement.executeQuery();
-            while(resultSet.next()) {
-                res = resultSet.getString(1);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return res;
-    }
-
-    public static LoTrinh searchLoTrinh(String noiBatDau, String dichDen, LocalDate ngayKhoiHanh) {
-        Connection connection = getConnection();
-        try {
-            PreparedStatement statement = connection.prepareStatement("select lt.idLoTrinh, td.idTuyenDuong, tg.idThoiGian, x.idXe, lt.giaLoTrinh, lt.khoangThoiGianDiChuyen from GoGo.dbo.LoTrinh lt, GoGo.dbo.Xe x, GoGo.dbo.TuyenDuong td, ThoiGianKhoiHanh tg where lt.idXe = x.idXe and td.idTuyenDuong = ? and lt.idTuyenDuong = td.idTuyenDuong and lt.idThoiGian = tg.idThoiGian and tg.ngayKhoiHanh=?");
-            statement.setString(1,searchIdTuyenDuong(noiBatDau,dichDen));
-            statement.setString(2,new SimpleDateFormat("yyyy-MM-dd").format(ngayKhoiHanh));
-            ResultSet resultSet = statement.executeQuery();
-            List<LoTrinh> res = new ArrayList<>();
-            while (resultSet.next()) {
-                LoTrinh loTrinh = new LoTrinh();
-                loTrinh.setIdLoTrinh(resultSet.getString(1));
-                loTrinh.setTuyenDuong(getTuyenDuongByCol("idTuyenDuong",resultSet.getString(2)));
-                loTrinh.setThoiGianKhoiHanh(getThoiGianKhoiHanhByCol("idThoiGian",resultSet.getString(3)));
-                loTrinh.setXe(getXeByCol("idXe",resultSet.getString(4)));
-                loTrinh.setGiaLoTrinh(resultSet.getInt(5));
-                loTrinh.setKhoangThoiGianDiChuyen(resultSet.getInt(6));
-                res.add(loTrinh);
-            }
-            connection.close();
-            return res;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
+//    public static String searchIdTuyenDuong(String noiBatDau, String dichDen) {
+//        Connection connection = getConnection();
+//        String res = null;
+//        try {
+//            PreparedStatement statement = connection.prepareStatement("select idTuyenDuong from GoGo.dbo.TuyenDuong where noiBatDau=? and dichDen = ?");
+//            statement.setString(1,noiBatDau);
+//            statement.setString(2,dichDen);
+//            ResultSet resultSet = statement.executeQuery();
+//            while(resultSet.next()) {
+//                res = resultSet.getString(1);
+//            }
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//        return res;
+//    }
+//
+//    public static LoTrinh searchLoTrinh(String noiBatDau, String dichDen, LocalDate ngayKhoiHanh) {
+//        Connection connection = getConnection();
+//        try {
+//            PreparedStatement statement = connection.prepareStatement("select lt.idLoTrinh, td.idTuyenDuong, tg.idThoiGian, x.idXe, lt.giaLoTrinh, lt.khoangThoiGianDiChuyen from GoGo.dbo.LoTrinh lt, GoGo.dbo.Xe x, GoGo.dbo.TuyenDuong td, ThoiGianKhoiHanh tg where lt.idXe = x.idXe and td.idTuyenDuong = ? and lt.idTuyenDuong = td.idTuyenDuong and lt.idThoiGian = tg.idThoiGian and tg.ngayKhoiHanh=?");
+//            statement.setString(1,searchIdTuyenDuong(noiBatDau,dichDen));
+//            statement.setString(2,new SimpleDateFormat("yyyy-MM-dd").format(ngayKhoiHanh));
+//            ResultSet resultSet = statement.executeQuery();
+//            List<LoTrinh> res = new ArrayList<>();
+//            while (resultSet.next()) {
+//                LoTrinh loTrinh = new LoTrinh();
+//                loTrinh.setIdLoTrinh(resultSet.getString(1));
+//                loTrinh.setTuyenDuong(getTuyenDuongByCol("idTuyenDuong",resultSet.getString(2)));
+//                loTrinh.setThoiGianKhoiHanh(getThoiGianKhoiHanhByCol("idThoiGian",resultSet.getString(3)));
+//                loTrinh.setXe(getXeByCol("idXe",resultSet.getString(4)));
+//                loTrinh.setGiaLoTrinh(resultSet.getInt(5));
+//                loTrinh.setKhoangThoiGianDiChuyen(resultSet.getInt(6));
+//                res.add(loTrinh);
+//            }
+//            connection.close();
+//            return res;
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
     public static void removeXe(String idXe) {
         Connection connection = getConnection();
@@ -453,4 +455,17 @@ public class MyQueries {
             throw new RuntimeException(e);
         }
     }
+//    public static ArrayList searchTuyenDuong(String noiXuatPhat, String diemDen, Date ngayKhoiHanh) {
+//        Connection connection = getConnection();
+//        try {
+//            PreparedStatement statement = connection.prepareStatement("Select from GoGo.dbo.DonKhach where idLoTrinh = ?");
+//            statement.setString(1,idLoTrinh);
+//
+//            statement.executeUpdate();
+//
+//            connection.close();
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 }

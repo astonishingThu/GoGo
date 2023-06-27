@@ -236,7 +236,7 @@
                     <div id="chinhsach" class="field"></div>
                     <div id="danhgia" class="field"></div>
                 </div>
-                <div class="datVe">
+                <form action="ThanhToan" method="post" class="datVe">
                     <div id="soDoGhe" class="col-md-12 soDoGhe js-soDoGhe row flex-row justify-content-center">
                         <icon class="icon-close" onClick=closeSoDoGhe()></icon>
                         <div class="p-2 col-md-8 row">
@@ -260,7 +260,7 @@
                                 <div><span>Tổng tiền: </span><span class="soTien"> 400.000đ</span></div>
                             </div>
                             <div class="col-md-12">
-                                <button class="btn btn-primary w-100" onclick="chonLoTrinh()">Tiếp theo</button>
+                                <button type="button" class="btn btn-primary w-100" onclick="chonLoTrinh()">Tiếp theo</button>
                             </div>
                         </div>
                     </div>
@@ -317,10 +317,10 @@
                         </div>
                         <div class="row col-md-12 justify-content-between">
                             <div class="col-md-3">
-                                <button class="btn btn-secondary w-100" onclick="openSoDo()">Quay lại</button>
+                                <button type="button" class="btn btn-secondary w-100" onclick="openSoDo()">Quay lại</button>
                             </div>
                             <div class="col-md-3">
-                                <button class="btn btn-primary w-100" onclick="nhapThongTin()">Tiếp theo</button>
+                                <button type="button" class="btn btn-primary w-100" onclick="nhapThongTin()">Tiếp theo</button>
                             </div>
                         </div>
                     </div>
@@ -341,14 +341,14 @@
                         </div>
                         <div class="row col-md-12 justify-content-between">
                             <div class="col-md-3">
-                                <button class="btn btn-secondary w-100" onclick="openTtLoTrinh()">Quay lại</button>
+                                <button type="button" class="btn btn-secondary w-100" onclick="openTtLoTrinh()">Quay lại</button>
                             </div>
                             <div class="col-md-3">
-                                <button class="btn btn-primary w-100" onclick="nhapThongTin()">Thanh toán</button>
+                                <input type="submit" class="btn btn-primary w-100" value="Thanh toán">
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
