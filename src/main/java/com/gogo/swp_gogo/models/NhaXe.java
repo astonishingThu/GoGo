@@ -128,7 +128,7 @@ public class NhaXe implements Account {
         List<LocalDate> res = new ArrayList<>();
         String[] lapLaiList =  request.getParameter("ngayList").split(",");
 
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("M/d/yyyy");
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("d/M/yyyy");
         for (String s : lapLaiList) {
             res.add(LocalDate.parse(s,dateTimeFormatter));
 

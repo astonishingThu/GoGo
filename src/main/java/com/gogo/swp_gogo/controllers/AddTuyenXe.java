@@ -32,8 +32,10 @@ public class AddTuyenXe extends HttpServlet {
         nhaXe.setTempLoTrinhList(req);
         HttpSession session = req.getSession();
         session.setAttribute("nhaXe",nhaXe);
+
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/view/PickXe.jsp");
         req.setAttribute("xeList",nhaXe.getAvailableXe(req));
+        System.out.println("helllll"+ nhaXe.getAvailableXe(req));
         requestDispatcher.forward(req,resp);
     }
 }

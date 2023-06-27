@@ -4,7 +4,7 @@
  <section>
      <div class=" container row">
          <div class="thoigian col-md-12">
-             <h2>Thời gian giữ vé</h2>
+             <h2 class="text-center">Thời gian giữ vé</h2>
          </div>
          <div class="col-md-8">
 
