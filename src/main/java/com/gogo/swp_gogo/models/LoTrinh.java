@@ -86,4 +86,19 @@ public class LoTrinh {
     public void setTraKhach(TraKhach traKhach) {
         this.traKhach = traKhach;
     }
+
+    @Override
+    public String toString() {
+        return "LoTrinh{" +
+                "donKhach=" + donKhach +
+                ", traKhach=" + traKhach +
+                ", idLoTrinh='" + idLoTrinh + '\'' +
+                ", giaLoTrinh=" + giaLoTrinh +
+                ", khoangThoiGianDiChuyen=" + khoangThoiGianDiChuyen +
+                ", xe=" + xe +
+                ", thoiGianKhoiHanh=" + thoiGianKhoiHanh +
+                ", tuyenDuong=" + tuyenDuong +
+                ", nhaXe=" + nhaXe +
+                '}';
+    }
 }

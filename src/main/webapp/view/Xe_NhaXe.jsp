@@ -9,10 +9,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="Head.jsp"></jsp:include>
 <jsp:useBean id="nhaXe" class="com.gogo.swp_gogo.models.NhaXe" scope="request"/>
-<%--<jsp:getProperty name="nhaXe" property="xe"/>--%>
-<%--<c:forEach var="xe" items="${nhaXe.xeList}">--%>
-<%--    <p>${xe.idXe}</p>--%>
-<%--</c:forEach>--%>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
      id="ftco-navbar">

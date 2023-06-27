@@ -400,7 +400,7 @@ public class MyQueries {
         try {
             PreparedStatement statement = connection.prepareStatement("select lt.idLoTrinh, td.idTuyenDuong, tg.idThoiGian, x.idXe, lt.giaLoTrinh, lt.khoangThoiGianDiChuyen from GoGo.dbo.LoTrinh lt, GoGo.dbo.Xe x, GoGo.dbo.TuyenDuong td, ThoiGianKhoiHanh tg where lt.idXe = x.idXe and td.idTuyenDuong = ? and lt.idTuyenDuong = td.idTuyenDuong and lt.idThoiGian = tg.idThoiGian and tg.ngayKhoiHanh=?");
             statement.setString(1,searchIdTuyenDuong(noiBatDau,dichDen));
-            statement.setString(2,new SimpleDateFormat("yyyy-MM-dd").format(ngayKhoiHanh));
+            statement.setString(2,ngayKhoiHanh.toString());
             ResultSet resultSet = statement.executeQuery();
             List<LoTrinh> res = new ArrayList<>();
             while (resultSet.next()) {

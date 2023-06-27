@@ -1,6 +1,7 @@
 package com.gogo.swp_gogo.controllers;
 
 import com.gogo.swp_gogo.models.LoTrinh;
+import com.gogo.swp_gogo.models.LoTrinhList;
 import com.gogo.swp_gogo.models.MyQueries;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -23,8 +24,12 @@ public class SearchTuyenDuongServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("view/searchTuyenDuong.jsp");
-        List<LoTrinh> loTrinhList = MyQueries.searchLoTrinh(req.getParameter("noiBatDau"),req.getParameter("dichDen"), LocalDate.parse(req.getParameter("ngayKhoiHanh")));
+        LoTrinhList loTrinhList = new LoTrinhList();
+        loTrinhList.setLoTrinhList(MyQueries.searchLoTrinh(req.getParameter("noiBatDau"),req.getParameter("dichDen"), LocalDate.parse(req.getParameter("ngayKhoiHanh"))));
         req.setAttribute("loTrinhList",loTrinhList);
+        for (LoTrinh lt:loTrinhList) {
+            System.out.println(lt);
+        }
         requestDispatcher.forward(req,resp);
     }
 }
