@@ -25,10 +25,10 @@
                     <a href="<%=request.getContextPath()%>/index.jsp" class="nav-link"><span>Trang chủ</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link"><span>Xe</span></a>
+                    <a href="#xe" class="nav-link"><span>Xe</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="${resourcePath}TuyenDuong_NhaXe.jsp#tuyenDuong" class="nav-link"><span>Tuyến xe</span></a>
+                    <a href="AddTuyenXe?idNhaXe=${nhaXe.idNhaXe}" class="nav-link"><span>Tuyến xe</span></a>
                 </li>
                 <li class="nav-item">
                     <a href="${resourcePath}HanhKhach_NhaXe.jsp" class="nav-link"><span>Hành khách</span></a>
@@ -122,7 +122,7 @@
                     <h1 class="mb-3 bread">GoGo xin chào</h1>
                     <div class="row">
                         <a href="#xe" class="btn btn-primary py-2 px-4">Xe chạy</a>
-                        <form action="AddTuyenXe" class="" method="get">
+                        <form action="AddTuyenXe#tuyenDuong" class="" method="get">
                             <input type="hidden" name="idNhaXe" value="${nhaXe.idNhaXe}"/>
                             <input type="submit" class="btn btn-black py-2 px-4" value="Tuyến xe" style="width: 120px"/>
                         </form>

@@ -1,8 +1,6 @@
 package com.gogo.swp_gogo.controllers;
 
-import com.gogo.swp_gogo.models.LoTrinh;
-import com.gogo.swp_gogo.models.LoTrinhList;
-import com.gogo.swp_gogo.models.MyQueries;
+import com.gogo.swp_gogo.models.*;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -25,6 +23,10 @@ public class SearchTuyenDuongServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("view/searchTuyenDuong.jsp");
         List<LoTrinh> loTrinhList= MyQueries.searchLoTrinh(req.getParameter("noiBatDau"),req.getParameter("dichDen"), LocalDate.parse(req.getParameter("ngayKhoiHanh")));
+        LoTrinh loTrinhInput = new LoTrinh();
+        loTrinhInput.setTuyenDuong(new TuyenDuong(req.getParameter("noiBatDau"),req.getParameter("dichDen")));
+        loTrinhInput.setThoiGianKhoiHanh(new ThoiGianKhoiHanh(LocalDate.parse(req.getParameter("ngayKhoiHanh"))));
+        req.setAttribute("loTrinhInput",loTrinhInput);
         req.setAttribute("loTrinhList",loTrinhList);
         for (LoTrinh lt:loTrinhList) {
             System.out.println(lt);

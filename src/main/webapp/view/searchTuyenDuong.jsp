@@ -8,6 +8,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="Head.jsp"></jsp:include>
+<jsp:useBean id="loTrinhInput" class="com.gogo.swp_gogo.models.LoTrinh" scope="request"/>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
      id="ftco-navbar">
@@ -58,7 +59,7 @@
                                             <label><span class="ion-ios-pin"></span> Nơi xuất phát </label>
                                             <div class="form-field" style="background-color: #ffffff">
                                                 <input type="text" class="form-control" placeholder=" Nhập điểm đón"
-                                                       value="${loTrinh.}">
+                                                       value="${loTrinhInput.tuyenDuong.noiBatDau}">
                                             </div>
                                         </div>
                                     </div>
@@ -67,7 +68,7 @@
                                             <label><span class="ion-ios-pin"></span> Nơi đến </label>
                                             <div class="form-field" style="background-color: #ffffff">
                                                 <input type="text" class="form-control checkin_date"
-                                                       placeholder="Nhập điểm trả" value="Sài Gòn">
+                                                       placeholder="Nhập điểm trả" value="${loTrinhInput.tuyenDuong.dichDen}">
                                             </div>
                                         </div>
                                     </div>
@@ -76,7 +77,7 @@
                                             <label><span class="ion-ios-calendar"></span> Ngày đi</label>
                                             <div class="form-field" style="background-color: #ffffff">
                                                 <input type="text" class="form-control checkout_date"
-                                                       placeholder="Ngày đi" value="15/06/2023">
+                                                       placeholder="Ngày đi" value="${loTrinhInput.thoiGianKhoiHanh.ngayKhoiHanh}">
                                             </div>
                                         </div>
                                     </div>
@@ -97,8 +98,8 @@
 
             <div class="col-md-9 ftco-animate pb-1">
                 <h1 class="mb-3 bread">Vé xe phù hợp</h1>
-                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Vé xe khách <i
-                        class="ion-ios-arrow-forward"></i></a></span> <span>Đà Lạt - Sài Gòn</p>
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.jsp#search">Vé xe khách <i
+                        class="ion-ios-arrow-forward"></i></a></span> <span>${loTrinhInput.tuyenDuong.noiBatDau} → ${loTrinhInput.tuyenDuong.dichDen}</span></p>
             </div>
         </div>
     </div>

@@ -5,10 +5,9 @@
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 <nav
         class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
-        id="ftco-navbar"
->
+        id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="index.html">GoGo</a>
+        <a class="navbar-brand" href="index.jsp">GoGo</a>
         <button
                 class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle"
                 type="button"
@@ -24,17 +23,17 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav nav ml-auto">
                 <li class="nav-item">
-                    <a href="index.html#home-section" class="nav-link"
+                    <a href="index.jsp" class="nav-link"
                     ><span>Trang chủ</span></a
                     >
                 </li>
                 <li class="nav-item">
-                    <a href="${resourcePath}Xe_NhaXe.jsp#xe" class="nav-link"
+                    <a href="ViewXe?idNhaXe=${nhaXe.idNhaXe}#xe" class="nav-link"
                     ><span>Xe</span></a
                     >
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link"><span>Tuyến xe</span></a>
+                    <a href="#tuyenDuong" class="nav-link"><span>Tuyến xe</span></a>
                 </li>
                 <li class="nav-item">
                     <a href="${resourcePath}HanhKhach_NhaXe.jsp" class="nav-link"><span>Doanh thu</span></a>
@@ -63,7 +62,7 @@
             <div class="col-md-9 ftco-animate pb-4">
                 <h1 class="mb-3 bread">GoGo xin chào</h1>
                 <p>
-                    <a href="NhaXeMainPage?idNhaXe=${nhaXe.idNhaXe}" class="btn btn-primary py-2 px-4">Xe chạy</a>
+                    <a href="ViewXe?idNhaXe=${nhaXe.idNhaXe}#xe" class="btn btn-primary py-2 px-4">Xe chạy</a>
                     <a href="#tuyenDuong" class="btn btn-black py-2 px-4">Tuyến xe</a>
                 </p>
             </div>

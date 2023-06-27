@@ -16,7 +16,6 @@
                     class="bg-light p-4 p-md-5 login-form"
                     action="NhaXeGoGoLogin"
                     method="post"
-                    method="post"
             >
             <h2 class="text-center">Đăng nhập</h2>
                 <div class="form-group">
@@ -35,7 +34,7 @@
                 </button>
             <div>
                 Bạn chưa có tài khoản?
-                <a href="${resourcePath}SignUp_NhaXe.jsp">Đăng ký</a>
+                <a href="GoGoNhaXeSignup">Đăng ký</a>
             </div>
             </form>
         </div>

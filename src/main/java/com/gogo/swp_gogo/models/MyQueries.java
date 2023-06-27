@@ -18,7 +18,7 @@ public class MyQueries {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             String connectionUrl = "jdbc:sqlserver://localhost:1433;database=GoGo;encrypt=false;trustServerCertificate=true";
-            Connection connection = DriverManager.getConnection(connectionUrl,"sa","092301");
+            Connection connection = DriverManager.getConnection(connectionUrl,"sa","140801");
             return connection;
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println("Cannot connect to the database");

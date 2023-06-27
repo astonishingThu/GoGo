@@ -16,6 +16,10 @@ public class ThoiGianKhoiHanh {
         this.ngayKhoiHanh = ngayKhoiHanh;
     }
 
+    public ThoiGianKhoiHanh(LocalDate ngayKhoiHanh) {
+        this.ngayKhoiHanh = ngayKhoiHanh;
+    }
+
     public String getIdThoiGian() {
         return idThoiGian;
     }

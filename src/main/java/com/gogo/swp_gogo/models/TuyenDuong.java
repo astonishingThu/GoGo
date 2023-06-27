@@ -14,6 +14,11 @@ public class TuyenDuong {
         this.dichDen = dichDen;
     }
 
+    public TuyenDuong(String noiBatDau, String dichDen) {
+        this.noiBatDau = noiBatDau;
+        this.dichDen = dichDen;
+    }
+
     public String getIdTuyenDuong() {
         return idTuyenDuong;
     }
