@@ -13,4 +13,16 @@ public class DataValidator {
     public static boolean isAccountValid(String base, String data, String password,String table) {
         return MyQueries.getTableInfoByBase(base, "password",data,table).equals(password);
     }
+
+    public static boolean isTuyenDuongExist(String noiBatDau, String dichDen) {
+        List<String> noiBatDauList = MyQueries.getAllTableInfo("noiBatDau","TuyenDuong");
+        for (String s:noiBatDauList) {
+            if (noiBatDau.equals(s)) {
+                if (dichDen.equals(MyQueries.getTableInfoByBase("noiBatDau","dichDen",noiBatDau,"TuyenDuong"))) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

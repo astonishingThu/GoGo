@@ -1,35 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Ecoland - Free Bootstrap 4 Template by Colorlib</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i"
-          rel="stylesheet">
-
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-
-    <link rel="stylesheet" href="css/aos.css">
-
-    <link rel="stylesheet" href="css/ionicons.min.css">
-
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="myCSS/newStyle.css">
-</head>
+<%--
+  Created by IntelliJ IDEA.
+  User: ASUS
+  Date: 07-Jun-23
+  Time: 10:08 AM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:include page="view/Head.jsp"></jsp:include>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
      id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="index.html">GoGo</a>
+        <a class="navbar-brand" href="view/index.html">GoGo</a>
         <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
                 data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
@@ -48,14 +30,21 @@
                     </ul>
                 </li>
                 <li class="nav-item has-children">
-                    <a href="SignUp_Khach.jsp" class="nav-link"><span>Đăng ký</span></a>
+                    <a href="view/SignUp_Khach.jsp" class="nav-link"><span>Đăng ký</span></a>
                     <ul class="dropdown">
-                        <li><a href="SignUp_Khach.jsp">Hành khách</a></li>
-                        <li><a href="SignUp_NhaXe.jsp">Nhà xe</a></li>
+                        <li><a href="view/SignUp_Khach.jsp">Hành khách</a></li>
+                        <li><a href="view/SignUp_NhaXe.jsp">Nhà xe</a></li>
                     </ul>
                 </li>
+                <%--                <li class="nav-item has-children">--%>
+                <%--                    <a class="nav-link" id="logout">--%>
+                <%--                        <icon class="icon-account_circle"></icon>--%>
+                <%--                        <span> Bao Ngoc </span></a>--%>
+                <%--                    <ul class="dropdown">--%>
+                <%--                        <li><a href="${pageContext.request.contextPath}/index.jsp">Logout</a></li>--%>
+                <%--                    </ul>--%>
+                <%--                </li>--%>
                 <!-- <li class="nav-item"><a href="#destination-section" class="nav-link"><span>Destination</span></a></li>
-                <li class="nav-item"><a href="#hotel-section" class="nav-link"><span>Hotel</span></a></li>
                 <li class="nav-item"><a href="#restaurant-section" class="nav-link"><span>Restaurant</span></a></li>
                 <li class="nav-item"><a href="#blog-section" class="nav-link"><span>Blog</span></a></li>
                 <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li> -->
@@ -65,7 +54,7 @@
 </nav>
 
 <section id="home-section" class="hero">
-    <img src="images/blob-shape-3.svg" class="svg-blob" alt="Colorlib Free Template">
+    <img src="<%=request.getContextPath()%>/view/images/blob-shape-3.svg" class="svg-blob" alt="Colorlib Free Template">
     <div class="home-slider owl-carousel">
         <div class="slider-item">
             <div class="overlay"></div>
@@ -73,11 +62,12 @@
                 <div class="row d-md-flex no-gutters slider-text align-items-center justify-content-end"
                      data-scrollax-parent="true">
                     <div class="one-third order-md-last">
-                        <div class="img" style="background-image:url(images/bg_1.jpg);">
+                        <div class="img" style="background-image:url(view/images/bg_1.jpg);">
                             <div class="overlay"></div>
                         </div>
                         <div class="bg-primary">
-                            <div class="vr"><span class="pl-3 py-4" style="background-image: url(images/bg_1-1.jpg);">GoGo</span>
+                            <div class="vr"><span class="pl-3 py-4"
+                                                  style="background-image: url(view/images/bg_1-1.jpg);">GoGo</span>
                             </div>
                         </div>
                     </div>
@@ -108,51 +98,102 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="search-wrap-1 ftco-animate p-4">
-                    <form action="#" class="search-property-1">
+                    <form action="SearchTuyenDuong" class="search-property-1" method="post">
                         <div class="row">
                             <div class="col-lg align-items-end">
                                 <div class="form-group">
-                                    <label>Nơi xuất phát</label>
+                                    <label><span class="ion-ios-pin"></span> Nơi xuất phát </label>
                                     <div class="form-field">
-                                        <div class="icon"><span class="ion-ios-search"></span></div>
-                                        <input type="text" class="form-control" placeholder="Nhập điểm đón">
+                                        <input list="places1" class="form-control" name="noiBatDau">
+                                        <datalist id="places1">
+                                            <option value="An Giang">An Giang
+                                            <option value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu
+                                            <option value="Bắc Giang">Bắc Giang
+                                            <option value="Bắc Kạn">Bắc Kạn
+                                            <option value="Bạc Liêu">Bạc Liêu
+                                            <option value="Bắc Ninh">Bắc Ninh
+                                            <option value="Bến Tre">Bến Tre
+                                            <option value="Bình Định">Bình Định
+                                            <option value="Bình Dương">Bình Dương
+                                            <option value="Bình Phước">Bình Phước
+                                            <option value="Bình Thuận">Bình Thuận
+                                            <option value="Bình Thuận">Bình Thuận
+                                            <option value="Cà Mau">Cà Mau
+                                            <option value="Cao Bằng">Cao Bằng
+                                            <option value="Đắk Lắk">Đắk Lắk
+                                            <option value="Đắk Nông">Đắk Nông
+                                            <option value="Điện Biên">Điện Biên
+                                            <option value="Đồng Nai">Đồng Nai
+                                            <option value="Đồng Tháp">Đồng Tháp
+                                            <option value="Đồng Tháp">Đồng Tháp
+                                            <option value="Gia Lai">Gia Lai
+                                            <option value="Hà Giang">Hà Giang
+                                            <option value="Hà Nam">Hà Nam
+                                            <option value="Hà Tĩnh">Hà Tĩnh
+                                            <option value="Hải Dương">Hải Dương
+                                            <option value="Hậu Giang">Hậu Giang
+                                            <option value="Hòa Bình">Hòa Bình
+                                            <option value="Hưng Yên">Hưng Yên
+                                            <option value="Khánh Hòa">Khánh Hòa
+                                            <option value="Kiên Giang">Kiên Giang
+                                            <option value="Kon Tum">Kon Tum
+                                            <option value="Lai Châu">Lai Châu
+                                            <option value="Lâm Đồng">Lâm Đồng
+                                            <option value="Lạng Sơn">Lạng Sơn
+                                            <option value="Lào Cai">Lào Cai
+                                            <option value="Long An">Long An
+                                            <option value="Nam Định">Nam Định
+                                            <option value="Nghệ An">Nghệ An
+                                            <option value="Ninh Bình">Ninh Bình
+                                            <option value="Ninh Thuận">Ninh Thuận
+                                            <option value="Phú Thọ">Phú Thọ
+                                            <option value="Quảng Bình">Quảng Bình
+                                            <option value="Quảng Bình">Quảng Bình
+                                            <option value="Quảng Ngãi">Quảng Ngãi
+                                            <option value="Quảng Ninh">Quảng Ninh
+                                            <option value="Quảng Trị">Quảng Trị
+                                            <option value="Sóc Trăng">Sóc Trăng
+                                            <option value="Sơn La">Sơn La
+                                            <option value="Tây Ninh">Tây Ninh
+                                            <option value="Thái Bình">Thái Bình
+                                            <option value="Thái Nguyên">Thái Nguyên
+                                            <option value="Thanh Hóa">Thanh Hóa
+                                            <option value="Thừa Thiên Huế">Thừa Thiên Huế
+                                            <option value="Tiền Giang">Tiền Giang
+                                            <option value="Trà Vinh">Trà Vinh
+                                            <option value="Tuyên Quang">Tuyên Quang
+                                            <option value="Vĩnh Long">Vĩnh Long
+                                            <option value="Vĩnh Phúc">Vĩnh Phúc
+                                            <option value="Yên Bái">Yên Bái
+                                            <option value="Phú Yên">Phú Yên
+                                            <option value="Tp.Cần Thơ">Tp.Cần Thơ
+                                            <option value="Tp.Đà Nẵng">Tp.Đà Nẵng
+                                            <option value="Tp.Hải Phòng">Tp.Hải Phòng
+                                            <option value="Tp.Hà Nội">Tp.Hà Nội
+                                            <option value="TP  HCM">TP HCM
+                                        </datalist>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg align-items-end">
                                 <div class="form-group">
-                                    <label>Nơi đến</label>
-                                    <div class="form-field">
-                                        <div class="icon"><span class="ion-ios-calendar"></span></div>
-                                        <input type="text" class="form-control checkin_date"
-                                               placeholder="Nhập điểm trả">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg align-items-end">
-                                <div class="form-group">
-                                    <label>Ngày đi</label>
-                                    <div class="form-field">
-                                        <div class="icon"><span class="ion-ios-calendar"></span></div>
-                                        <input type="date" class="form-control checkout_date" placeholder="Ngày đi">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg align-items-end">
-                                <div class="form-group">
-                                    <!-- <label for="#">Price Limit</label> -->
-                                    <div class="form-field">
-                                        <div class="select-wrap">
-                                            <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                    <label><span class="ion-ios-pin"></span> Nơi đến </label>
+                                    <input list="places1" class="form-control" name="dichDen">
 
-                                        </div>
+                                </div>
+                            </div>
+                            <div class="col-lg align-items-end">
+                                <div class="form-group">
+                                    <label><span class="ion-ios-calendar"></span> Ngày đi</label>
+                                    <div class="form-field">
+                                        <input type="date" class="form-control checkout_date" id="ngayDi" placeholder="Ngày đi" name="ngayKhoiHanh">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg align-self-end">
                                 <div class="form-group">
                                     <div class="form-field">
-                                        <input href="" type="submit" value="Tìm kiếm" class="form-control btn btn-primary">
+                                        <input type="submit" value="Tìm kiếm" class="form-control btn btn-primary">
                                     </div>
                                 </div>
                             </div>
@@ -185,7 +226,7 @@
                                         <div class="vr"><span>Giảm giá</span></div>
                                         <a href="destination-single.jsp"
                                         ><img
-                                                src="images/destination-1.jpg"
+                                                src="<%=request.getContextPath()%>/view/images/destination-1.jpg"
                                                 class="img-fluid"
                                                 alt="Colorlib Template"
                                         /></a>
@@ -194,7 +235,7 @@
                                         <h4 class="price">
                                             <span class="old-price mr-2">300 000Đ</span>400 000Đ
                                         </h4>
-                                        <span> 8 giờ </span>
+                                        <span>TOP 1: Thời gian?</span>
                                         <h3>
                                             <a href="destination-single.jsp"
                                             >Đà Nẵng - Hà Nội</a
@@ -202,7 +243,7 @@
                                         </h3>
                                     </div>
                                     <a
-                                            href="images/destination-1.jpg"
+                                            href="<%=request.getContextPath()%>/view/images/destination-1.jpg"
                                             class="icon image-popup d-flex justify-content-center align-items-center"
                                     >
                                         <span class="icon-expand"></span>
@@ -216,15 +257,17 @@
                             <div class="col-md-12 ftco-animate">
                                 <div class="project">
                                     <div class="img">
-                                        <a href="destination-single.jsp"><img src="images/destination-2.jpg"
-                                                                              class="img-fluid" alt="Colorlib Template"></a>
+                                        <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img
+                                                src="<%=request.getContextPath()%>/view/images/destination-2.jpg"
+                                                class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
                                         <h4 class="price">300 000Đ</h4>
                                         <span>2 giờ 30 phút</span>
-                                        <h3><a href="destination-single.jsp">Quảng Trị - Huế</a></h3>
+                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Đà Nẵng
+                                            - Quảng Bình</a></h3>
                                     </div>
-                                    <a href="images/destination-2.jpg"
+                                    <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg"
                                        class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
                                     </a>
@@ -237,15 +280,17 @@
                             <div class="col-md-12 ftco-animate">
                                 <div class="project">
                                     <div class="img">
-                                        <a href="destination-single.jsp"><img src="images/destination-2.jpg"
-                                                                              class="img-fluid" alt="Colorlib Template"></a>
+                                        <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img
+                                                src="<%=request.getContextPath()%>/view/images/destination-2.jpg"
+                                                class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
-                                        <h4 class="price">$400</h4>
+                                        <h4 class="price">250000Đ</h4>
                                         <span>2 giờ 30 phút</span>
-                                        <h3><a href="destination-single.jsp">Quảng Bình - Đà Nẵng</a></h3>
+                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Đà Nẵng
+                                            - Quảng Bình</a></h3>
                                     </div>
-                                    <a href="images/destination-2.jpg"
+                                    <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg"
                                        class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
                                     </a>
@@ -258,15 +303,17 @@
                             <div class="col-md-12 ftco-animate">
                                 <div class="project">
                                     <div class="img">
-                                        <a href="destination-single.jsp"><img src="images/destination-2.jpg"
-                                                                              class="img-fluid" alt="Colorlib Template"></a>
+                                        <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img
+                                                src="<%=request.getContextPath()%>/view/images/destination-2.jpg"
+                                                class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
-                                        <h4 class="price">$400</h4>
+                                        <h4 class="price">250000Đ</h4>
                                         <span>2 giờ 30 phút</span>
-                                        <h3><a href="destination-single.jsp">Quảng Bình - Đà Nẵng</a></h3>
+                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Đà Nẵng
+                                            - Quảng Bình</a></h3>
                                     </div>
-                                    <a href="images/destination-2.jpg"
+                                    <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg"
                                        class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
                                     </a>
@@ -279,15 +326,17 @@
                             <div class="col-md-12 ftco-animate">
                                 <div class="project">
                                     <div class="img">
-                                        <a href="destination-single.jsp"><img src="images/destination-2.jpg"
-                                                                              class="img-fluid" alt="Colorlib Template"></a>
+                                        <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img
+                                                src="<%=request.getContextPath()%>/view/images/destination-2.jpg"
+                                                class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
-                                        <h4 class="price">$400</h4>
+                                        <h4 class="price">250000Đ</h4>
                                         <span>2 giờ 30 phút</span>
-                                        <h3><a href="destination-single.jsp">Quảng Bình - Đà Nẵng</a></h3>
+                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Đà Nẵng
+                                            - Quảng Bình</a></h3>
                                     </div>
-                                    <a href="images/destination-2.jpg"
+                                    <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg"
                                        class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
                                     </a>
@@ -300,15 +349,17 @@
                             <div class="col-md-12 ftco-animate">
                                 <div class="project">
                                     <div class="img">
-                                        <a href="destination-single.jsp"><img src="images/destination-2.jpg"
-                                                                              class="img-fluid" alt="Colorlib Template"></a>
+                                        <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img
+                                                src="<%=request.getContextPath()%>/view/images/destination-2.jpg"
+                                                class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
-                                        <h4 class="price">$400</h4>
+                                        <h4 class="price">250000Đ</h4>
                                         <span>2 giờ 30 phút</span>
-                                        <h3><a href="destination-single.jsp">Quảng Bình - Đà Nẵng</a></h3>
+                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Đà Nẵng
+                                            - Quảng Bình</a></h3>
                                     </div>
-                                    <a href="images/destination-2.jpg"
+                                    <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg"
                                        class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
                                     </a>
@@ -335,16 +386,16 @@
         <div class="row d-flex">
             <div class="col-md-6 col-lg-4 d-flex ftco-animate">
                 <div class="blog-entry justify-content-end">
-                    <a href="single.jsp" class="block-20" style="background-image: url('images/image_1.jpg');">
+                    <a href="single.jsp" class="block-20" style="background-image: url('view/images/image_1.jpg');">
                     </a>
                     <div class="text float-right d-block">
-                        <div class="d-flex align-items-center pt-2 mb-4 topp">
+                        <div class="d-flex align-items-center pt-5 mb-4 topp">
                             <div class="one mr-2">
-                                <span class="day">12</span>
+                                <span class="day">20%</span>
                             </div>
                             <div class="two">
-                                <span class="yr">2019</span>
-                                <span class="mos">april</span>
+                                <span class="yr"></span>
+                                <span class="mos">Bạn mới</span>
                             </div>
                         </div>
                         <h3 class="heading"><a href="single.jsp">Why Lead Generation is Key for Business Growth</a></h3>
@@ -363,16 +414,16 @@
             </div>
             <div class="col-md-6 col-lg-4 d-flex ftco-animate">
                 <div class="blog-entry justify-content-end">
-                    <a href="single.jsp" class="block-20" style="background-image: url('images/image_2.jpg');">
+                    <a href="single.jsp" class="block-20" style="background-image: url('view/images/image_2.jpg');">
                     </a>
                     <div class="text float-right d-block">
-                        <div class="d-flex align-items-center pt-2 mb-4 topp">
+                        <div class="d-flex align-items-center mt-5 mb-4 topp">
                             <div class="one mr-2">
-                                <span class="day">12</span>
+                                <span class="day">10%</span>
                             </div>
                             <div class="two">
-                                <span class="yr">2019</span>
-                                <span class="mos">april</span>
+                                <span class="yr">Thanh toán bằng</span>
+                                <span class="mos">VNPay</span>
                             </div>
                         </div>
                         <h3 class="heading"><a href="single.jsp">Why Lead Generation is Key for Business Growth</a></h3>
@@ -391,7 +442,7 @@
             </div>
             <div class="col-md-6 col-lg-4 d-flex ftco-animate">
                 <div class="blog-entry">
-                    <a href="single.jsp" class="block-20" style="background-image: url('images/image_3.jpg');">
+                    <a href="single.jsp" class="block-20" style="background-image: url('view/images/image_3.jpg');">
                     </a>
                     <div class="text float-right d-block">
                         <div class="d-flex align-items-center pt-2 mb-4 topp">
@@ -426,7 +477,7 @@
         <div class="row mb-5">
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">About <span><a href="index.html">Ecoland</a></span></h2>
+                    <h2 class="ftco-heading-2">About <span><a href="view/index.html">Ecoland</a></span></h2>
                     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
                         live the blind texts.</p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
@@ -503,22 +554,22 @@
 </div>
 
 
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery-migrate-3.0.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.easing.1.3.js"></script>
-<script src="js/jquery.waypoints.min.js"></script>
-<script src="js/jquery.stellar.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/aos.js"></script>
-<script src="js/jquery.animateNumber.min.js"></script>
-<script src="js/scrollax.min.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/jquery.min.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/popper.min.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/bootstrap.min.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/jquery.easing.1.3.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/jquery.waypoints.min.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/jquery.stellar.min.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/owl.carousel.min.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/jquery.magnific-popup.min.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/aos.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/jquery.animateNumber.min.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/scrollax.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script src="js/google-map.js"></script>
-
-<script src="js/main.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/google-map.js"></script>
+<script src="<%=request.getContextPath()%>/view/myJS/newJS.js"></script>
+<script src="<%=request.getContextPath()%>/view/js/main.js"></script>
 
 </body>
 </html>
