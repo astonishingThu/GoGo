@@ -7,8 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="Head.jsp"></jsp:include>
+<jsp:useBean id="loTrinh" class="com.gogo.swp_gogo.models.LoTrinh" scope="request"/>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
      id="ftco-navbar">
     <div class="container">
