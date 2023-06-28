@@ -2,11 +2,13 @@ const ttcts = document.querySelectorAll(".ttct");
 const ttLoTrinhs = document.querySelectorAll(".ttLoTrinh");
 const soDoGhes = document.querySelectorAll(".soDoGhe");
 const nhapThongTins = document.querySelectorAll(".nhapThongTin");
+const tiepTheo = document.getElementById("tiepTheo");
 function openSoDo(idLoTrinh) {
     console.log("soDoGhe"+idLoTrinh);
     let soDoGhe = document.getElementById("soDoGhe"+idLoTrinh);
     closeTTCT();
     closeTtLoTrinh();
+    tiepTheo.parentNode.querySelector("small").innerText = "";
     soDoGhe.classList.add("open");
     let titleGhe = document.getElementById("titleGhe");
     let soGhe = document.getElementById("soGhe");
@@ -88,10 +90,20 @@ function datGhe(idGhe) {
     if (ghe.classList.contains("empty")) {
         book = true;
         ghe.className = "ghe icon-bus col-md-5 btn m-1 choosing";
+        ghe.setAttribute("target", "dadatve");
     } else {
         book = false;
         ghe.className = "ghe icon-bus col-md-5 btn m-1 empty";
     }
+}
+
+function validateGhe() {
+    let isCheck = true;
+    let listGhe = document.querySelectorAll(".ghe[target]");
+    if (listGhe.length === 0) {
+        isCheck = false;
+        tiepTheo.parentNode.querySelector("small").innerText = "Bạn chưa chọn ghế";
+    } return isCheck;
 }
 
 function openTtLoTrinh(idLoTrinh){
@@ -115,8 +127,11 @@ function closeNhapThongTin(){
 }
 
 function chonLoTrinh(idLoTrinh){
-    closeSoDoGhe();
-    openTtLoTrinh(idLoTrinh);
+    let isValid = validateGhe();
+    if (isValid) {
+        closeSoDoGhe();
+        openTtLoTrinh(idLoTrinh);
+    }
 }
 
 function nhapThongTin(idLoTrinh){

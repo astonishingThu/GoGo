@@ -262,10 +262,11 @@
                                     <div><span>Tổng tiền: </span><span class="soTien"> 400.000đ</span></div>
                                 </div>
                                 <div class="col-md-12">
-                                    <button type="button" class="btn btn-primary w-100"
+                                    <button type="button" class="btn btn-primary w-100" id="tiepTheo"
                                             onclick="chonLoTrinh('${loTrinh.idLoTrinh}')">Tiếp
                                         theo
                                     </button>
+                                    <small></small>
                                 </div>
                             </div>
                         </div>
