@@ -94,6 +94,7 @@ function datGhe(idGhe) {
     } else {
         book = false;
         ghe.className = "ghe icon-bus col-md-5 btn m-1 empty";
+        ghe.removeAttribute("target");
     }
 }
 
