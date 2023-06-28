@@ -5,7 +5,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,21 +38,27 @@ public class NhaXe implements Account {
         String idXe = request.getParameter("bienSoXe");
         String moTaXe = request.getParameter("moTa");
         int giaGheVip = Integer.parseInt(request.getParameter("giaGhe"));
-        String[] vipList = request.getParameter("vipList").split(",");
+        List<String> vipList = Arrays.asList(request.getParameter("vipList").split(","));
         // process data, add xe, add gheXe to database
         xe = new Xe(idXe,moTaXe,soLuongGhe,loaiXe,idNhaXe);
         MyQueries.addXe(xe);
+        System.out.println("Xe là"+xe);
         List<GheXe> gheXeList = new ArrayList<>();
-        int i=0;
-        for (String idGhe : vipList) {
-            GheXe gheXe = new GheXe(idGhe, giaGheVip, idXe);
-            System.out.println(idGhe);
+
+        for (int i=1; i<=soLuongGhe; i++) {
+            GheXe gheXe = new GheXe(String.valueOf(i), 0, idXe);
+            if (vipList.contains(String.valueOf(i))) {
+                gheXe.setGiaGhe(giaGheVip);
+            }
             gheXeList.add(gheXe);
             MyQueries.addGheXe(gheXe);
-            i++;
         }
-        System.out.println("Length: "+vipList.length);
-        System.out.println("count = "+i);
+//        for (String idGhe : vipList) {
+//            GheXe gheXe = new GheXe(idGhe, giaGheVip, idXe);
+//            System.out.println(idGhe);
+//            gheXeList.add(gheXe);
+//            MyQueries.addGheXe(gheXe);
+//        }
         xe.setGheXeList(gheXeList);
         return true;
     }
@@ -127,11 +135,18 @@ public class NhaXe implements Account {
     private List<LocalDate> getThoiGianKhoiHanhList(HttpServletRequest request) {
         List<LocalDate> res = new ArrayList<>();
         String[] lapLaiList =  request.getParameter("ngayList").split(",");
+        try {
+            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("M/d/yyyy");
+            for (String s : lapLaiList) {
+                res.add(LocalDate.parse(s,dateTimeFormatter));
 
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("d/M/yyyy");
-        for (String s : lapLaiList) {
-            res.add(LocalDate.parse(s,dateTimeFormatter));
+            }
+        } catch (DateTimeParseException ex) {
+            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("d/M/yyyy");
+            for (String s : lapLaiList) {
+                res.add(LocalDate.parse(s,dateTimeFormatter));
 
+            }
         }
         return res;
     }

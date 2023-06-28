@@ -13,7 +13,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
      id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="view/index.html">GoGo</a>
+        <a class="navbar-brand" href="index.jsp">GoGo</a>
         <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
                 data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
@@ -21,8 +21,8 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav nav ml-auto">
-                <li class="nav-item"><a href="#home-section" class="nav-link"><span>Trang chủ</span></a></li>
-                <li class="nav-item"><a href="#tuyenDuong" class="nav-link"><span>Tuyến đường</span></a></li>
+                <li class="nav-item"><a href="index.jsp" class="nav-link"><span>Trang chủ</span></a></li>
+                <li class="nav-item"><a href="index.jsp#tuyenDuong" class="nav-link"><span>Tuyến đường</span></a></li>
                 <li class="nav-item"><a href="#uuDai" class="nav-link"><span>Ưu đãi</span></a></li>
                 <li class="nav-item has-children">
                     <a class="nav-link"><span>Đăng nhập</span></a>
@@ -68,8 +68,7 @@
                                             <label><span class="ion-ios-pin"></span> Nơi đến </label>
                                             <div class="form-field" style="background-color: #ffffff">
                                                 <input type="text" class="form-control checkin_date"
-                                                       placeholder="Nhập điểm trả"
-                                                       value="${loTrinhInput.tuyenDuong.dichDen}">
+                                                       placeholder="Nhập điểm trả" value="${loTrinhInput.tuyenDuong.dichDen}">
                                             </div>
                                         </div>
                                     </div>
@@ -78,8 +77,7 @@
                                             <label><span class="ion-ios-calendar"></span> Ngày đi</label>
                                             <div class="form-field" style="background-color: #ffffff">
                                                 <input type="text" class="form-control checkout_date"
-                                                       placeholder="Ngày đi"
-                                                       value="${loTrinhInput.thoiGianKhoiHanh.ngayKhoiHanh}">
+                                                       placeholder="Ngày đi" value="${loTrinhInput.thoiGianKhoiHanh.ngayKhoiHanh}">
                                             </div>
                                         </div>
                                     </div>
@@ -101,8 +99,7 @@
             <div class="col-md-9 ftco-animate pb-1">
                 <h1 class="mb-3 bread">Vé xe phù hợp</h1>
                 <p class="breadcrumbs"><span class="mr-2"><a href="index.jsp#search">Vé xe khách <i
-                        class="ion-ios-arrow-forward"></i></a></span>
-                    <span>${loTrinhInput.tuyenDuong.noiBatDau} → ${loTrinhInput.tuyenDuong.dichDen}</span></p>
+                        class="ion-ios-arrow-forward"></i></a></span> <span>${loTrinhInput.tuyenDuong.noiBatDau} → ${loTrinhInput.tuyenDuong.dichDen}</span></p>
             </div>
         </div>
     </div>
@@ -123,9 +120,7 @@
                                         class="icon-star"></span></span>
                                 </h3>
                                 <p class="mota-xe">
-                                        ${loTrinh.xe.loaiXe} - <span class="price"> <span
-                                        id="soGhe">${loTrinh.xe.soLuongGhe}</span> chỗ</span> -
-                                    <span>${loTrinh.xe.moTa}</span>
+                                        ${loTrinh.xe.loaiXe} - <span class="price"> <span id="soGhe">${loTrinh.xe.soLuongGhe}</span> chỗ</span> - <span>${loTrinh.xe.moTa}</span>
                                 </p>
                             </div>
                             <div class="loTrinh-xe">
@@ -144,12 +139,12 @@
                                     <span class="diemtra">${loTrinh.traKhach.noiTraKhach}</span>
                                 </div>
                             </div>
-                            <div class="ttct-btn" onclick="openTTCT('${loTrinh.idLoTrinh}')"> Thông tin chi tiết <span
+                            <div class="ttct-btn" onclick="openTTCT()"> Thông tin chi tiết <span
                                     class="ion-ios-arrow-dropdown"></span></div>
                         </div>
                         <div class="col-md-3 ftco-animate dsLoTrinh">
                             <div class="giaVe text-center">${loTrinh.giaLoTrinh} VNĐ</div>
-                            <p class="choTrong  text-center m-0">02 chỗ trống</p>
+                            <p class="choTrong  text-center m-0">... chỗ trống</p>
                             <a class="btn btn-black btn-chonCho" onclick="openSoDo('${loTrinh.idLoTrinh}')"
                                href="#soDoGhe">CHỌN CHỖ</a>
                         </div>

@@ -90,7 +90,7 @@
                     </div>
                 </div>
                 <div id="soDoGhe" class="col-md-6 soDoGhe pt-5 js-soDoGhe">
-                    <h4 id="titleGhe">32 ghế</h4>
+                    <h4 id="titleGhe"></h4>
                     <div class="row p-5">
                         <div class="col-md-6" id="hang-1"></div>
                         <div class="col-md-6" id="hang-2"></div>
@@ -101,7 +101,7 @@
                         <input type="hidden" id="vipList" name="vipList" />
                         <div class="mt-5">
                             <label>*Phụ thu ghế VIP:</label>
-                            <input name="giaGhe" type="number" class="form-control"  id="phuThu" min="1" max="1000000" required />
+                            <input name="giaGhe" type="number" class="form-control" step="10000" id="phuThu" min="0" max="1000000" required />
                             <small></small>
                         </div>
                     </div>
@@ -137,6 +137,7 @@
 <div class="col-md-12">
     <button class="btn btn-primary py-3 px-4 js-addXe" onclick="openModal()">Thêm xe</button>
 </div>
+<div id="#xe">
 <c:forEach var="xe" items="${nhaXe.xeList}">
     <section class="ftco-section ftco-services-2 ftco-no-pt">
         <div class="container">
@@ -178,7 +179,7 @@
                         </div>
                         <div class="del-cf js-del-cf" id="">
                             Bạn muốn xóa xe này? <br/>
-                            <button onclick="window.location.href='RemoveXe?idXe=${xe.idXe}&idNhaXe=${nhaXe.idNhaXe}'"
+                            <button onclick="window.location.href='RemoveXe?idXe=${xe.idXe}&idNhaXe=${nhaXe.idNhaXe}#xe'"
                                     class="btn btn-primary js-del">
                                 Xóa
                             </button>
@@ -192,7 +193,7 @@
         </div>
     </section>
 </c:forEach>
-
+</div>
 
 <!-- loader -->
 <div id="ftco-loader" class="show fullscreen">

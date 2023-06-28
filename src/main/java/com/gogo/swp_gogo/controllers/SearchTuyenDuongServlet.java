@@ -23,6 +23,9 @@ public class SearchTuyenDuongServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("view/searchTuyenDuong.jsp");
         List<LoTrinh> loTrinhList= MyQueries.searchLoTrinh(req.getParameter("noiBatDau"),req.getParameter("dichDen"), LocalDate.parse(req.getParameter("ngayKhoiHanh")));
+        for (LoTrinh loTrinh:loTrinhList) {
+            loTrinh.setGheDaDatList(MyQueries.getGheConTrongOfXe(loTrinh.getIdLoTrinh()));
+        }
         LoTrinh loTrinhInput = new LoTrinh();
         loTrinhInput.setTuyenDuong(new TuyenDuong(req.getParameter("noiBatDau"),req.getParameter("dichDen")));
         loTrinhInput.setThoiGianKhoiHanh(new ThoiGianKhoiHanh(LocalDate.parse(req.getParameter("ngayKhoiHanh"))));
