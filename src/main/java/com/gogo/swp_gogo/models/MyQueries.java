@@ -268,6 +268,23 @@ public class MyQueries {
         return null;
     }
 
+    public static GheXe getGheXeByCol(String col, String data) {
+        Connection connection = getConnection();
+        try {
+            String q = "Select * from GoGo.dbo.Xe where "+col+" = ?";
+            PreparedStatement statement = connection.prepareStatement(q);
+            statement.setString(1,data);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                return new GheXe(resultSet.getString("idGhe"),resultSet.getInt("giaGhe"),resultSet.getString("idXe"));
+            }
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
     public static TuyenDuong getTuyenDuongByCol(String col, String data) {
         Connection connection = getConnection();
         try {
@@ -447,6 +464,24 @@ public class MyQueries {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static List<GheXe> getGheConTrongOfXe(String idLoTrinh) {
+        Connection connection = getConnection();
+        List<GheXe> res = new ArrayList<>();
+        try {
+            PreparedStatement statement = connection.prepareStatement("select gx.idGhe from (select lt.idXe from VeXe v, LoTrinh lt where v.idLoTrinh = ? and v.idLoTrinh = lt.idLoTrinh) as selectedXe, GheXe gx where selectedXe.idXe = gx.idXe except select idGhe from VeXe where idLoTrinh = ?");
+            statement.setString(1, idLoTrinh);
+            statement.setString(2, idLoTrinh);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                res.add(MyQueries.getGheXeByCol("idGhe", resultSet.getString("idGhe")));
+            }
+            connection.close();
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+        return res;
     }
 
     public static void removeXe(String idXe) {

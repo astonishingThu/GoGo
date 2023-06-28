@@ -144,7 +144,6 @@
                         </div>
                         <div class="col-md-3 ftco-animate dsLoTrinh">
                             <div class="giaVe text-center">${loTrinh.giaLoTrinh} VNĐ</div>
-                            <p class="choTrong  text-center m-0">02 chỗ trống</p>
                             <a class="btn btn-black btn-chonCho" onclick="openSoDo()" href="#soDoGhe">CHỌN CHỖ</a>
                         </div>
                     </div>
