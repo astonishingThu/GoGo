@@ -2,13 +2,19 @@ const ttcts = document.querySelectorAll(".ttct");
 const ttLoTrinhs = document.querySelectorAll(".ttLoTrinh");
 const soDoGhes = document.querySelectorAll(".soDoGhe");
 const nhapThongTins = document.querySelectorAll(".nhapThongTin");
-const tiepTheo = document.getElementById("tiepTheo");
-function openSoDo(idLoTrinh) {
-    console.log("soDoGhe"+idLoTrinh);
-    let soDoGhe = document.getElementById("soDoGhe"+idLoTrinh);
+
+// Vé đang chọn
+let listVe = [];
+// Kết thúc đặt chỗ
+function reset(idLoTrinh){
+    listVe = null;
+}
+
+// Bắt đầu đặt chỗ, Hiển thị sơ đồ ghế
+function openSoDo(idLoTrinh, listTrong) {
     closeTTCT();
     closeTtLoTrinh();
-    tiepTheo.parentNode.querySelector("small").innerText = "";
+    let soDoGhe = document.getElementById("soDoGhe"+idLoTrinh);
     soDoGhe.classList.add("open");
     let titleGhe = document.getElementById("titleGhe");
     let soGhe = document.getElementById("soGhe");
@@ -17,27 +23,74 @@ function openSoDo(idLoTrinh) {
     // console.log(soGhe.toString());
     hang1.innerHTML = "";
     hang2.innerHTML = "";
+    let soGhe = document.getElementById("soGhe");
+    let titleGhe = document.getElementById("titleGhe");
     titleGhe.innerHTML = soGhe.innerText + " Ghế";
     for (let i = 1; i <= Math.round(Number(soGhe.innerText) / 2); i++) {
         let ghe = document.createElement("div");
         hang1.append(ghe);
-        ghe.className = "ghe icon-bus col-md-5 btn m-1 empty";
-        ghe.id = "" + Math.round(i);
-        ghe.innerHTML = " "+ ghe.id;
-        ghe.setAttribute("onclick", "datGhe(" + Math.round(i) + ")");
+        ghe.className = "ghe icon-bus col-md-5 btn m-1 choosed";
+        ghe.id = idLoTrinh + Math.round(i);
+        ghe.innerHTML = " "+ Math.round(i);
+        ghe.setAttribute("onclick", "datGhe('"+ idLoTrinh.toString() + "'," + Math.round(i) + ")");
     }
     for (let i = (Number(soGhe.innerText) / 2 + 1); i <= Number(soGhe.innerText); i++) {
         let ghe = document.createElement("div");
         hang2.append(ghe);
+        ghe.className = "ghe icon-bus col-md-5 btn m-1 choosed";
+        ghe.id = idLoTrinh + Math.round(i);
+        ghe.innerHTML = " "+ Math.round(i);
+        ghe.setAttribute("onclick", "datGhe('"+ idLoTrinh.toString() + "'," + Math.round(i) + ")");
+    }
+    for (let idGheChon of listVe){
+        let ghe = document.getElementById(idLoTrinh.concat(idGheChon.toString()));
+        ghe.className = "ghe icon-bus col-md-5 btn m-1 choosing";
+    }
+    // for (let idGheTrong of listTrong){
+    //     let ghe = document.getElementById(idLoTrinh.concat(idGheTrong.toString()));
+    //     ghe.className = "ghe icon-bus col-md-5 btn m-1 empty";
+    // }
+    console.log(listTrong);
+}
+
+// Chọn ghế trống
+function datGhe(idLoTrinh, idGhe) {
+    let book = false;
+    let ghe = document.getElementById(idLoTrinh.concat(idGhe.toString()));
+    if (ghe.classList.contains("empty")) {
+        book = true;
+        setSoVe("add",idLoTrinh, idGhe);
+        ghe.className = "ghe icon-bus col-md-5 btn m-1 choosing";
+    } else {
+        book = false;
+        setSoVe("remove",idLoTrinh, idGhe);
         ghe.className = "ghe icon-bus col-md-5 btn m-1 empty";
         ghe.id = "" + Math.round(i);
         ghe.innerHTML = " "+ ghe.id;
         ghe.setAttribute("onclick", "datGhe(" + Math.round(i) + ")");
     }
 }
-function closeSoDoGhe() {
-    for (let soDoGhe of soDoGhes){
-        soDoGhe.classList.remove("open");
+
+// Cập nhật danh sách và số lượng vé đặt
+function setSoVe(action,idLoTrinh, idGhe ){
+    let soVeEle = document.getElementById("soVe".concat(idLoTrinh));
+    let listVeEle = document.getElementById("listVe".concat(idLoTrinh));
+
+    switch (action){
+        case "add":
+            listVe.push(idGhe);
+            listVeEle.innerText = listVe.toString();
+            soVeEle.innerText = listVe.length.toString();
+            // listVeContent.concat(","+idGhe);
+            break;
+        case "remove":
+            listVe = listVe.filter(function (item){
+                return item != idGhe;
+            });
+            listVeEle.innerText = listVe.toString();
+            soVeEle.innerText = listVe.length.toString();
+            // listVeContent.remove(","+idGhe);
+            break;
     }
 }
 
@@ -47,11 +100,54 @@ function openTTCT(idLoTrinh) {
     ttct.classList.add("open");
     document.getElementById("hinhanh").classList.add("open");
 }
+
+function openTtLoTrinh(idLoTrinh){
+    let ttLoTrinh = document.getElementById("ttLoTrinh" + idLoTrinh);
+    closeNhapThongTin();
+    ttLoTrinh.classList.add("open");
+}
+
+function chonLoTrinh(idLoTrinh){
+    closeSoDoGhe();
+    openTtLoTrinh(idLoTrinh);
+}
+
+function openNhapThongTin(idLoTrinh){
+    let nhapThongTin = document.getElementById("nhapThongTin" + idLoTrinh);
+    nhapThongTin.classList.add("open");
+}
+
+
+function closeSoDoGhe() {
+    for (let soDoGhe of soDoGhes){
+        soDoGhe.classList.remove("open");
+    }
+}
+
 function closeTTCT() {
     for (let ttct of ttcts){
         ttct.classList.remove("open");
     }
 }
+
+function closeTtLoTrinh(){
+    for (let ttLoTrinh of ttLoTrinhs){
+        ttLoTrinh.classList.remove("open");
+    }
+}
+
+function nhapThongTin(idLoTrinh){
+    closeTtLoTrinh();
+    openNhapThongTin(idLoTrinh);
+}
+
+function closeNhapThongTin(){
+    for (let nhapThongTin of nhapThongTins){
+        nhapThongTin.classList.remove("open");
+    }
+}
+
+// Hiển thị thông tin chuyến xe: Hình ảnh, Tiện ích, Điểm đón trả, Chính sách, Đánh giá
 function hienthi(field){
     console.log(field.toString());
     allFields = document.querySelectorAll(".field");
@@ -128,11 +224,8 @@ function closeNhapThongTin(){
 }
 
 function chonLoTrinh(idLoTrinh){
-    let isValid = validateGhe();
-    if (isValid) {
-        closeSoDoGhe();
-        openTtLoTrinh(idLoTrinh);
-    }
+    closeSoDoGhe();
+    openTtLoTrinh(idLoTrinh);
 }
 
 function nhapThongTin(idLoTrinh){

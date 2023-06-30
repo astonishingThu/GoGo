@@ -68,7 +68,8 @@
                                             <label><span class="ion-ios-pin"></span> Nơi đến </label>
                                             <div class="form-field" style="background-color: #ffffff">
                                                 <input type="text" class="form-control checkin_date"
-                                                       placeholder="Nhập điểm trả" value="${loTrinhInput.tuyenDuong.dichDen}">
+                                                       placeholder="Nhập điểm trả"
+                                                       value="${loTrinhInput.tuyenDuong.dichDen}">
                                             </div>
                                         </div>
                                     </div>
@@ -77,7 +78,8 @@
                                             <label><span class="ion-ios-calendar"></span> Ngày đi</label>
                                             <div class="form-field" style="background-color: #ffffff">
                                                 <input type="text" class="form-control checkout_date"
-                                                       placeholder="Ngày đi" value="${loTrinhInput.thoiGianKhoiHanh.ngayKhoiHanh}">
+                                                       placeholder="Ngày đi"
+                                                       value="${loTrinhInput.thoiGianKhoiHanh.ngayKhoiHanh}">
                                             </div>
                                         </div>
                                     </div>
@@ -99,7 +101,8 @@
             <div class="col-md-9 ftco-animate pb-1">
                 <h1 class="mb-3 bread">Vé xe phù hợp</h1>
                 <p class="breadcrumbs"><span class="mr-2"><a href="index.jsp#search">Vé xe khách <i
-                        class="ion-ios-arrow-forward"></i></a></span> <span>${loTrinhInput.tuyenDuong.noiBatDau} → ${loTrinhInput.tuyenDuong.dichDen}</span></p>
+                        class="ion-ios-arrow-forward"></i></a></span>
+                    <span>${loTrinhInput.tuyenDuong.noiBatDau} → ${loTrinhInput.tuyenDuong.dichDen}</span></p>
             </div>
         </div>
     </div>
@@ -120,7 +123,9 @@
                                         class="icon-star"></span></span>
                                 </h3>
                                 <p class="mota-xe">
-                                        ${loTrinh.xe.loaiXe} - <span class="price"> <span id="soGhe">${loTrinh.xe.soLuongGhe}</span> chỗ</span> - <span>${loTrinh.xe.moTa}</span>
+                                        ${loTrinh.xe.loaiXe} - <span class="price"> <span
+                                        id="soGhe">${loTrinh.xe.soLuongGhe}</span> chỗ</span> -
+                                    <span>${loTrinh.xe.moTa}</span>
                                 </p>
                             </div>
                             <div class="loTrinh-xe">
@@ -139,13 +144,15 @@
                                     <span class="diemtra">${loTrinh.traKhach.noiTraKhach}</span>
                                 </div>
                             </div>
-                            <div class="ttct-btn" onclick="openTTCT()"> Thông tin chi tiết <span
-                                    class="ion-ios-arrow-dropdown"></span></div>
+                            <div class="ttct-btn" onclick="openTTCT('${loTrinh.idLoTrinh}')">
+                                Thông tin chi tiết
+                                <span class="ion-ios-arrow-dropdown"></span>
+                            </div>
                         </div>
                         <div class="col-md-3 ftco-animate dsLoTrinh">
                             <div class="giaVe text-center">${loTrinh.giaLoTrinh} VNĐ</div>
-                            <p class="choTrong  text-center m-0">... chỗ trống</p>
-                            <a class="btn btn-black btn-chonCho" onclick="openSoDo('${loTrinh.idLoTrinh}')"
+                            <p class="choTrong  text-center m-0">${loTrinh.gheConTrongList.size()} chỗ trống</p>
+                            <a class="btn btn-black btn-chonCho" onclick="openSoDo('${loTrinh.idLoTrinh}','${loTrinh.gheConTrongListStr}')"
                                href="#soDoGhe">CHỌN CHỖ</a>
                         </div>
                     </div>
@@ -258,7 +265,8 @@
                                     <span class="text-center">Đã đặt</span>
                                 </div>
                                 <div class="col-md-12 pt-2">
-                                    <div><span id="soVe${loTrinh.idLoTrinh}"></span>vé: <span id="listVe${loTrinh.idLoTrinh}"></span></div>
+                                    <div><span id="soVe${loTrinh.idLoTrinh}"></span> vé: <span
+                                            id="listVe${loTrinh.idLoTrinh}"></span></div>
                                     <div><span>Tổng tiền: </span><span class="soTien"> 400.000đ</span></div>
                                 </div>
                                 <div class="col-md-12">
@@ -324,7 +332,7 @@
                             <div class="row col-md-12 justify-content-between">
                                 <div class="col-md-3">
                                     <button type="button" class="btn btn-secondary w-100"
-                                            onclick="openSoDo('${loTrinh.idLoTrinh}')">Quay
+                                            onclick="openSoDo('${loTrinh.idLoTrinh}','${loTrinh.gheConTrongListStr}')">Quay
                                         lại
                                     </button>
                                 </div>

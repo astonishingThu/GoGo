@@ -18,6 +18,15 @@ public class LoTrinh {
     private NhaXe nhaXe;
     private LocalTime thoiGianKetThuc;
     private List<GheXe> gheConTrongList;
+    private String gheConTrongListStr;
+
+    public String getGheConTrongListStr() {
+        return gheConTrongListStr;
+    }
+
+    public void setGheConTrongListStr(String gheConTrongListStr) {
+        this.gheConTrongListStr = gheConTrongListStr;
+    }
 
     public String getIdLoTrinh() {
         return idLoTrinh;
@@ -103,10 +112,18 @@ public class LoTrinh {
         return gheConTrongList;
     }
 
-    public void setGheDaDatList(List<GheXe> gheConTrongList) {
+    public void setGheConTrongList(List<GheXe> gheConTrongList) {
         this.gheConTrongList = gheConTrongList;
+        setGheConTrongListStr(reFormatGheTrongList(gheConTrongList));
     }
 
+    public String reFormatGheTrongList(List<GheXe> gheConTrongList){
+        String val = "";
+        for (GheXe gheXe: gheConTrongList){
+            val = val.concat("{"+gheXe.getIdGhe() + ":" + gheXe.getGiaGhe() +"}");
+        }
+        return val;
+    }
     @Override
     public String toString() {
         return "LoTrinh{" +

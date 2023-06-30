@@ -271,7 +271,7 @@ public class MyQueries {
     public static GheXe getGheXeByCol(String col, String data) {
         Connection connection = getConnection();
         try {
-            String q = "Select * from GoGo.dbo.Xe where "+col+" = ?";
+            String q = "Select * from GoGo.dbo.GheXe where "+col+" = ?";
             PreparedStatement statement = connection.prepareStatement(q);
             statement.setString(1,data);
             ResultSet resultSet = statement.executeQuery();
