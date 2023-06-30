@@ -1,15 +1,153 @@
-const ttct = document.querySelector(".ttct");
-const soDoGhe = document.querySelector(".js-soDoGhe");
-const ttLoTrinh = document.getElementById("ttLoTrinh");
-const tagNhapThongTin = document.getElementById("nhapThongTin");
-function openTTCT() {
-    soDoGhe.classList.remove("open");
+const ttcts = document.querySelectorAll(".ttct");
+const ttLoTrinhs = document.querySelectorAll(".ttLoTrinh");
+const soDoGhes = document.querySelectorAll(".soDoGhe");
+const nhapThongTins = document.querySelectorAll(".nhapThongTin");
+
+// Vé đang chọn
+let listVe = [];
+// Kết thúc đặt chỗ
+function reset(idLoTrinh){
+    listVe = null;
+}
+
+// Bắt đầu đặt chỗ, Hiển thị sơ đồ ghế
+function openSoDo(idLoTrinh, listTrong) {
+    closeTTCT();
+    closeTtLoTrinh();
+    let soDoGhe = document.getElementById("soDoGhe"+idLoTrinh);
+    soDoGhe.classList.add("open");
+    let titleGhe = document.getElementById("titleGhe");
+    let soGhe = document.getElementById("soGhe");
+    var hang1 = document.getElementById("hang-1");
+    var hang2 = document.getElementById("hang-2");
+    // console.log(soGhe.toString());
+    hang1.innerHTML = "";
+    hang2.innerHTML = "";
+    let soGhe = document.getElementById("soGhe");
+    let titleGhe = document.getElementById("titleGhe");
+    titleGhe.innerHTML = soGhe.innerText + " Ghế";
+    for (let i = 1; i <= Math.round(Number(soGhe.innerText) / 2); i++) {
+        let ghe = document.createElement("div");
+        hang1.append(ghe);
+        ghe.className = "ghe icon-bus col-md-5 btn m-1 choosed";
+        ghe.id = idLoTrinh + Math.round(i);
+        ghe.innerHTML = " "+ Math.round(i);
+        ghe.setAttribute("onclick", "datGhe('"+ idLoTrinh.toString() + "'," + Math.round(i) + ")");
+    }
+    for (let i = (Number(soGhe.innerText) / 2 + 1); i <= Number(soGhe.innerText); i++) {
+        let ghe = document.createElement("div");
+        hang2.append(ghe);
+        ghe.className = "ghe icon-bus col-md-5 btn m-1 choosed";
+        ghe.id = idLoTrinh + Math.round(i);
+        ghe.innerHTML = " "+ Math.round(i);
+        ghe.setAttribute("onclick", "datGhe('"+ idLoTrinh.toString() + "'," + Math.round(i) + ")");
+    }
+    for (let idGheChon of listVe){
+        let ghe = document.getElementById(idLoTrinh.concat(idGheChon.toString()));
+        ghe.className = "ghe icon-bus col-md-5 btn m-1 choosing";
+    }
+    // for (let idGheTrong of listTrong){
+    //     let ghe = document.getElementById(idLoTrinh.concat(idGheTrong.toString()));
+    //     ghe.className = "ghe icon-bus col-md-5 btn m-1 empty";
+    // }
+    console.log(listTrong);
+}
+
+// Chọn ghế trống
+function datGhe(idLoTrinh, idGhe) {
+    let book = false;
+    let ghe = document.getElementById(idLoTrinh.concat(idGhe.toString()));
+    if (ghe.classList.contains("empty")) {
+        book = true;
+        setSoVe("add",idLoTrinh, idGhe);
+        ghe.className = "ghe icon-bus col-md-5 btn m-1 choosing";
+    } else {
+        book = false;
+        setSoVe("remove",idLoTrinh, idGhe);
+        ghe.className = "ghe icon-bus col-md-5 btn m-1 empty";
+        ghe.id = "" + Math.round(i);
+        ghe.innerHTML = " "+ ghe.id;
+        ghe.setAttribute("onclick", "datGhe(" + Math.round(i) + ")");
+    }
+}
+
+// Cập nhật danh sách và số lượng vé đặt
+function setSoVe(action,idLoTrinh, idGhe ){
+    let soVeEle = document.getElementById("soVe".concat(idLoTrinh));
+    let listVeEle = document.getElementById("listVe".concat(idLoTrinh));
+
+    switch (action){
+        case "add":
+            listVe.push(idGhe);
+            listVeEle.innerText = listVe.toString();
+            soVeEle.innerText = listVe.length.toString();
+            // listVeContent.concat(","+idGhe);
+            break;
+        case "remove":
+            listVe = listVe.filter(function (item){
+                return item != idGhe;
+            });
+            listVeEle.innerText = listVe.toString();
+            soVeEle.innerText = listVe.length.toString();
+            // listVeContent.remove(","+idGhe);
+            break;
+    }
+}
+
+function openTTCT(idLoTrinh) {
+    closeSoDoGhe();
+    let ttct = document.getElementById("ttct" + idLoTrinh);
     ttct.classList.add("open");
     document.getElementById("hinhanh").classList.add("open");
 }
-function closeTTCT() {
-    ttct.classList.remove("open");
+
+function openTtLoTrinh(idLoTrinh){
+    let ttLoTrinh = document.getElementById("ttLoTrinh" + idLoTrinh);
+    closeNhapThongTin();
+    ttLoTrinh.classList.add("open");
 }
+
+function chonLoTrinh(idLoTrinh){
+    closeSoDoGhe();
+    openTtLoTrinh(idLoTrinh);
+}
+
+function openNhapThongTin(idLoTrinh){
+    let nhapThongTin = document.getElementById("nhapThongTin" + idLoTrinh);
+    nhapThongTin.classList.add("open");
+}
+
+
+function closeSoDoGhe() {
+    for (let soDoGhe of soDoGhes){
+        soDoGhe.classList.remove("open");
+    }
+}
+
+function closeTTCT() {
+    for (let ttct of ttcts){
+        ttct.classList.remove("open");
+    }
+}
+
+function closeTtLoTrinh(){
+    for (let ttLoTrinh of ttLoTrinhs){
+        ttLoTrinh.classList.remove("open");
+    }
+}
+
+function nhapThongTin(idLoTrinh){
+    closeTtLoTrinh();
+    openNhapThongTin(idLoTrinh);
+}
+
+function closeNhapThongTin(){
+    for (let nhapThongTin of nhapThongTins){
+        nhapThongTin.classList.remove("open");
+    }
+}
+
+// Hiển thị thông tin chuyến xe: Hình ảnh, Tiện ích, Điểm đón trả, Chính sách, Đánh giá
 function hienthi(field){
     console.log(field.toString());
     allFields = document.querySelectorAll(".field");
@@ -39,72 +177,59 @@ function hienthi(field){
 }
 
 //Nhập id ghế vip và số ghế mới viết được cái này
-function openSoDo() {
-    closeTTCT();
-    closeTtLoTrinh();
-    soDoGhe.classList.add("open");
-    let titleGhe = document.getElementById("titleGhe");
-    let soGhe = document.getElementById("soGhe");
-    var hang1 = document.getElementById("hang-1");
-    var hang2 = document.getElementById("hang-2");
-    // console.log(soGhe.toString());
-    hang1.innerHTML = "";
-    hang2.innerHTML = "";
-    titleGhe.innerHTML = soGhe.innerText + " Ghế";
-    for (let i = 1; i <= Math.round(Number(soGhe.innerText) / 2); i++) {
-        let ghe = document.createElement("div");
-        hang1.append(ghe);
-        ghe.className = "ghe icon-bus col-md-5 btn m-1 empty";
-        ghe.id = "" + Math.round(i);
-        ghe.innerHTML = " "+ ghe.id;
-        ghe.setAttribute("onclick", "datGhe(" + Math.round(i) + ")");
-    }
-    for (let i = (Number(soGhe.innerText) / 2 + 1); i <= Number(soGhe.innerText); i++) {
-        let ghe = document.createElement("div");
-        hang2.append(ghe);
-        ghe.className = "ghe icon-bus col-md-5 btn m-1 empty";
-        ghe.id = "" + Math.round(i);
-        ghe.innerHTML = " "+ ghe.id;
-        ghe.setAttribute("onclick", "datGhe(" + Math.round(i) + ")");
-    }
-}
-function closeSoDoGhe() {
-    soDoGhe.classList.remove("open");
-}
 
-//Chọn ghế vip
-function datGhe(id) {
+
+//Chọn ghế mua
+function datGhe(idGhe) {
     let book = false;
-    let ghe = document.getElementById(id);
+    let ghe = document.getElementById(idGhe);
     if (ghe.classList.contains("empty")) {
         book = true;
         ghe.className = "ghe icon-bus col-md-5 btn m-1 choosing";
+        ghe.setAttribute("target", "dadatve");
     } else {
         book = false;
         ghe.className = "ghe icon-bus col-md-5 btn m-1 empty";
+        ghe.removeAttribute("target");
     }
 }
 
-function openTtLoTrinh(){
+function validateGhe() {
+    let isCheck = true;
+    let listGhe = document.querySelectorAll(".ghe[target]");
+    if (listGhe.length === 0) {
+        isCheck = false;
+        tiepTheo.parentNode.querySelector("small").innerText = "Bạn chưa chọn ghế";
+    } return isCheck;
+}
+
+function openTtLoTrinh(idLoTrinh){
+    let ttLoTrinh = document.getElementById("ttLoTrinh" + idLoTrinh);
     closeNhapThongTin();
     ttLoTrinh.classList.add("open");
 }
 function closeTtLoTrinh(){
-    ttLoTrinh.classList.remove("open");
+    for (let ttLoTrinh of ttLoTrinhs){
+        ttLoTrinh.classList.remove("open");
+    }
 }
-function openNhapThongTin(){
-    tagNhapThongTin.classList.add("open");
+function openNhapThongTin(idLoTrinh){
+    let nhapThongTin = document.getElementById("nhapThongTin" + idLoTrinh);
+    nhapThongTin.classList.add("open");
 }
 function closeNhapThongTin(){
-    tagNhapThongTin.classList.remove("open");
+    for (let nhapThongTin of nhapThongTins){
+        nhapThongTin.classList.remove("open");
+    }
 }
 
-function chonLoTrinh(){
+function chonLoTrinh(idLoTrinh){
     closeSoDoGhe();
-    openTtLoTrinh();
+    openTtLoTrinh(idLoTrinh);
 }
 
-function nhapThongTin(){
+function nhapThongTin(idLoTrinh){
     closeTtLoTrinh();
-    openNhapThongTin();
+    openNhapThongTin(idLoTrinh);
 }
+

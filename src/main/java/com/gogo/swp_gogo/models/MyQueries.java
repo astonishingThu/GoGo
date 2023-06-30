@@ -18,7 +18,7 @@ public class MyQueries {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             String connectionUrl = "jdbc:sqlserver://localhost:1433;database=GoGo;encrypt=false;trustServerCertificate=true";
-            Connection connection = DriverManager.getConnection(connectionUrl,"sa","140801");
+            Connection connection = DriverManager.getConnection(connectionUrl,"sa","092301");
             return connection;
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println("Cannot connect to the database");
@@ -271,7 +271,7 @@ public class MyQueries {
     public static GheXe getGheXeByCol(String col, String data) {
         Connection connection = getConnection();
         try {
-            String q = "Select * from GoGo.dbo.Xe where "+col+" = ?";
+            String q = "Select * from GoGo.dbo.GheXe where "+col+" = ?";
             PreparedStatement statement = connection.prepareStatement(q);
             statement.setString(1,data);
             ResultSet resultSet = statement.executeQuery();

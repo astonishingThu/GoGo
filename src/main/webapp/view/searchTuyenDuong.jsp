@@ -68,7 +68,8 @@
                                             <label><span class="ion-ios-pin"></span> Nơi đến </label>
                                             <div class="form-field" style="background-color: #ffffff">
                                                 <input type="text" class="form-control checkin_date"
-                                                       placeholder="Nhập điểm trả" value="${loTrinhInput.tuyenDuong.dichDen}">
+                                                       placeholder="Nhập điểm trả"
+                                                       value="${loTrinhInput.tuyenDuong.dichDen}">
                                             </div>
                                         </div>
                                     </div>
@@ -77,7 +78,8 @@
                                             <label><span class="ion-ios-calendar"></span> Ngày đi</label>
                                             <div class="form-field" style="background-color: #ffffff">
                                                 <input type="text" class="form-control checkout_date"
-                                                       placeholder="Ngày đi" value="${loTrinhInput.thoiGianKhoiHanh.ngayKhoiHanh}">
+                                                       placeholder="Ngày đi"
+                                                       value="${loTrinhInput.thoiGianKhoiHanh.ngayKhoiHanh}">
                                             </div>
                                         </div>
                                     </div>
@@ -99,7 +101,8 @@
             <div class="col-md-9 ftco-animate pb-1">
                 <h1 class="mb-3 bread">Vé xe phù hợp</h1>
                 <p class="breadcrumbs"><span class="mr-2"><a href="index.jsp#search">Vé xe khách <i
-                        class="ion-ios-arrow-forward"></i></a></span> <span>${loTrinhInput.tuyenDuong.noiBatDau} → ${loTrinhInput.tuyenDuong.dichDen}</span></p>
+                        class="ion-ios-arrow-forward"></i></a></span>
+                    <span>${loTrinhInput.tuyenDuong.noiBatDau} → ${loTrinhInput.tuyenDuong.dichDen}</span></p>
             </div>
         </div>
     </div>
@@ -120,7 +123,9 @@
                                         class="icon-star"></span></span>
                                 </h3>
                                 <p class="mota-xe">
-                                        ${loTrinh.xe.loaiXe} - <span class="price"> <span id="soGhe">${loTrinh.xe.soLuongGhe}</span> chỗ</span> - <span>${loTrinh.xe.moTa}</span>
+                                        ${loTrinh.xe.loaiXe} - <span class="price"> <span
+                                        id="soGhe">${loTrinh.xe.soLuongGhe}</span> chỗ</span> -
+                                    <span>${loTrinh.xe.moTa}</span>
                                 </p>
                             </div>
                             <div class="loTrinh-xe">
@@ -139,22 +144,26 @@
                                     <span class="diemtra">${loTrinh.traKhach.noiTraKhach}</span>
                                 </div>
                             </div>
-                            <div class="ttct-btn" onclick="openTTCT()"> Thông tin chi tiết <span
-                                    class="ion-ios-arrow-dropdown"></span></div>
+                            <div class="ttct-btn" onclick="openTTCT('${loTrinh.idLoTrinh}')">
+                                Thông tin chi tiết
+                                <span class="ion-ios-arrow-dropdown"></span>
+                            </div>
                         </div>
                         <div class="col-md-3 ftco-animate dsLoTrinh">
                             <div class="giaVe text-center">${loTrinh.giaLoTrinh} VNĐ</div>
-                            <a class="btn btn-black btn-chonCho" onclick="openSoDo()" href="#soDoGhe">CHỌN CHỖ</a>
+                            <p class="choTrong  text-center m-0">${loTrinh.gheConTrongList.size()} chỗ trống</p>
+                            <a class="btn btn-black btn-chonCho" onclick="openSoDo('${loTrinh.idLoTrinh}','${loTrinh.gheConTrongListStr}')"
+                               href="#soDoGhe">CHỌN CHỖ</a>
                         </div>
                     </div>
-                    <div class="ttct">
+                    <div id="ttct${loTrinh.idLoTrinh}" class="ttct">
                         <icon class="icon-close" onClick=closeTTCT()></icon>
                         <div>
                             <nav aria-label="...">
                                 <ul class="pagination  justify-content-center pagination-sm ">
                                     <li class="page-item">
-                                        <a class="page-link" href="#hinhanh" tabindex="-1" onclick="hienthi('hinhanh')">Hình
-                                            ảnh</a>
+                                        <a class="page-link" href="#hinhanh" tabindex="-1"
+                                           onclick="hienthi('hinhanh')">Hình ảnh</a>
                                     </li>
                                     <li class="page-item">
                                         <a class="page-link" href="#tienich" onclick="hienthi('tienich')">Tiện
@@ -179,25 +188,28 @@
                             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner col-md-5 mx-auto my-auto">
                                     <div class="carousel-item active">
-                                        <img class="d-block w-100" src="images/1575533534253.jpeg" alt="First slide">
+                                        <img class="d-block w-100" src="${resourcePath}images/1575533508897.jpeg"
+                                             alt="First slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img class="d-block w-100" src="images/1575533508673.jpeg" alt="Second slide">
+                                        <img class="d-block w-100" src="${resourcePath}images/1575533508673.jpeg"
+                                             alt="Second slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img class="d-block w-100" src="images/1575533508897.jpeg" alt="Third slide">
+                                        <img class="d-block w-100" src="${resourcePath}images/1575533495742.jpeg"
+                                             alt="Third slide">
                                     </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
                                    data-slide="prev">
-                                    <span class="carousel-control-prev-icon carousel-control"
-                                          aria-hidden="false"></span>
+                                        <span class="carousel-control-prev-icon carousel-control"
+                                              aria-hidden="false"></span>
                                         <%--                                <span class="sr-only">Previous</span>--%>
                                 </a>
                                 <a class="carousel-control-next" href="#carouselExampleControls" role="button"
                                    data-slide="next">
-                                    <span class="carousel-control-next-icon carousel-control"
-                                          aria-hidden="false"></span>
+                                        <span class="carousel-control-next-icon carousel-control"
+                                              aria-hidden="false"></span>
                                         <%--                                <span class="sr-only">Next</span>--%>
                                 </a>
                             </div>
@@ -233,8 +245,9 @@
                         <div id="danhgia" class="field"></div>
                     </div>
                     <form action="ThanhToan" method="post" class="datVe">
-                        <div id="soDoGhe" class="col-md-12 soDoGhe js-soDoGhe row flex-row justify-content-center">
-                            <icon class="icon-close" onClick=closeSoDoGhe()></icon>
+                        <div id="soDoGhe${loTrinh.idLoTrinh}"
+                             class="col-md-12 soDoGhe row flex-row justify-content-center">
+                            <icon class="icon-close" onClick="closeSoDoGhe('${loTrinh.idLoTrinh}')"></icon>
                             <div class="p-2 col-md-8 row">
                                 <h4 id="titleGhe" class="col-md-12">32 ghế</h4>
                                 <div class="col-md-6" id="hang-1"></div>
@@ -251,18 +264,21 @@
                                     <div class="icon-bus btn choosed p-2 col-md-12"></div>
                                     <span class="text-center">Đã đặt</span>
                                 </div>
-                                <div class="col-md-12 pt-5">
-                                    <div><span class="soVe">01 </span>vé: <span class="listVe"> A16, A17</span></div>
+                                <div class="col-md-12 pt-2">
+                                    <div><span id="soVe${loTrinh.idLoTrinh}"></span> vé: <span
+                                            id="listVe${loTrinh.idLoTrinh}"></span></div>
                                     <div><span>Tổng tiền: </span><span class="soTien"> 400.000đ</span></div>
                                 </div>
                                 <div class="col-md-12">
-                                    <button type="button" class="btn btn-primary w-100" onclick="chonLoTrinh()">Tiếp
+                                    <button type="button" class="btn btn-primary w-100" id="tiepTheo"
+                                            onclick="chonLoTrinh('${loTrinh.idLoTrinh}')">Tiếp
                                         theo
                                     </button>
+                                    <small></small>
                                 </div>
                             </div>
                         </div>
-                        <div id="ttLoTrinh" class="flex-column">
+                        <div id="ttLoTrinh${loTrinh.idLoTrinh}" class="flex-column ttLoTrinh">
                             <div class="row col-md-12">
                                 <div class="col-md-6">
                                     <h3 class="text-center">Điểm đón</h3>
@@ -315,18 +331,20 @@
                             </div>
                             <div class="row col-md-12 justify-content-between">
                                 <div class="col-md-3">
-                                    <button type="button" class="btn btn-secondary w-100" onclick="openSoDo()">Quay
+                                    <button type="button" class="btn btn-secondary w-100"
+                                            onclick="openSoDo('${loTrinh.idLoTrinh}','${loTrinh.gheConTrongListStr}')">Quay
                                         lại
                                     </button>
                                 </div>
                                 <div class="col-md-3">
-                                    <button type="button" class="btn btn-primary w-100" onclick="nhapThongTin()">Tiếp
+                                    <button type="button" class="btn btn-primary w-100"
+                                            onclick="nhapThongTin('${loTrinh.idLoTrinh}')">Tiếp
                                         theo
                                     </button>
                                 </div>
                             </div>
                         </div>
-                        <div id="nhapThongTin" class="flex-column">
+                        <div id="nhapThongTin${loTrinh.idLoTrinh}" class="flex-column nhapThongTin">
                             <div class="col-md-8 flex-column">
                                 <div class="form-group">
                                     <label>Họ tên<span class="star"> *</span></label>
@@ -343,7 +361,8 @@
                             </div>
                             <div class="row col-md-12 justify-content-between">
                                 <div class="col-md-3">
-                                    <button type="button" class="btn btn-secondary w-100" onclick="openTtLoTrinh()">Quay
+                                    <button type="button" class="btn btn-secondary w-100"
+                                            onclick="openTtLoTrinh('${loTrinh.idLoTrinh}')">Quay
                                         lại
                                     </button>
                                 </div>
