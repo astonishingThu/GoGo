@@ -24,7 +24,9 @@ public class SearchTuyenDuongServlet extends HttpServlet {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("view/searchTuyenDuong.jsp");
         List<LoTrinh> loTrinhList= MyQueries.searchLoTrinh(req.getParameter("noiBatDau"),req.getParameter("dichDen"), LocalDate.parse(req.getParameter("ngayKhoiHanh")));
         for (LoTrinh loTrinh:loTrinhList) {
-            loTrinh.setGheConTrongList(MyQueries.getGheConTrongOfXe(loTrinh.getIdLoTrinh()));
+            loTrinh.setGheDaDatList(MyQueries.getGheConTrongOfXe(loTrinh.getIdLoTrinh()));
+            System.out.println("Ghe con trong: ");
+            System.out.println(loTrinh.getgheConTrongList());
         }
         LoTrinh loTrinhInput = new LoTrinh();
         loTrinhInput.setTuyenDuong(new TuyenDuong(req.getParameter("noiBatDau"),req.getParameter("dichDen")));
