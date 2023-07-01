@@ -111,6 +111,9 @@
 <section class="ftco-section ftco-services-2 ftco-no-pt">
     <div class="container">
         <c:forEach var="loTrinh" items="${loTrinhList}">
+            <c:if test="${loTrinhList} == 0" >
+                <div type="hidden" class="thongbao">Không tìm thấy chuyến!</div>
+            </c:if>
             <div class="row">
                 <div class="col-md-10 mb-5">
                     <div class="row veXe">
@@ -124,7 +127,7 @@
                                 </h3>
                                 <p class="mota-xe">
                                         ${loTrinh.xe.loaiXe} - <span class="price"> <span
-                                        id="soGhe">${loTrinh.xe.soLuongGhe}</span> chỗ</span> -
+                                        id="soGhe${loTrinh.idLoTrinh}">${loTrinh.xe.soLuongGhe}</span> chỗ</span> -
                                     <span>${loTrinh.xe.moTa}</span>
                                 </p>
                             </div>
@@ -152,7 +155,7 @@
                         <div class="col-md-3 ftco-animate dsLoTrinh">
                             <div class="giaVe text-center">${loTrinh.giaLoTrinh} VNĐ</div>
                             <p class="choTrong  text-center m-0">${loTrinh.gheConTrongList.size()} chỗ trống</p>
-                            <a class="btn btn-black btn-chonCho" onclick="openSoDo('${loTrinh.idLoTrinh}','${loTrinh.gheConTrongListStr}')"
+                                <a class="btn btn-black btn-chonCho" onclick="openSoDo('${loTrinh.idLoTrinh}','${loTrinh.gheConTrongListStr}')"
                                href="#soDoGhe">CHỌN CHỖ</a>
                         </div>
                     </div>
@@ -267,7 +270,7 @@
                                 <div class="col-md-12 pt-2">
                                     <div><span id="soVe${loTrinh.idLoTrinh}"></span> vé: <span
                                             id="listVe${loTrinh.idLoTrinh}"></span></div>
-                                    <div><span>Tổng tiền: </span><span class="soTien"> 400.000đ</span></div>
+                                    <div><span>Tổng tiền: </span><span id="soTien${loTrinh.idLoTrinh}" class="soTien"> 0</span> VND</div>
                                 </div>
                                 <div class="col-md-12">
                                     <button type="button" class="btn btn-primary w-100" id="tiepTheo"
@@ -332,7 +335,7 @@
                             <div class="row col-md-12 justify-content-between">
                                 <div class="col-md-3">
                                     <button type="button" class="btn btn-secondary w-100"
-                                            onclick="openSoDo('${loTrinh.idLoTrinh}','${loTrinh.gheConTrongListStr}')">Quay
+                                            onclick="openSoDo('${loTrinh.idLoTrinh}','${loTrinh.gheConTrongListStr}','${loTrinh.giaLoTrinh}')">Quay
                                         lại
                                     </button>
                                 </div>

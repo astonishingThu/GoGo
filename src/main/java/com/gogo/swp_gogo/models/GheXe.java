@@ -34,4 +34,13 @@ public class GheXe {
     public void setIdXe(String idXe) {
         this.idXe = idXe;
     }
+
+    @Override
+    public String toString() {
+        return "GheXe{" +
+                "idGhe='" + idGhe + '\'' +
+                ", giaGhe=" + giaGhe +
+                ", idXe='" + idXe + '\'' +
+                '}';
+    }
 }
