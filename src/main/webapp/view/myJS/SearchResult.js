@@ -6,14 +6,16 @@ const tiepTheo = document.getElementById("tiepTheo");
 
 // Vé đang chọn
 let listVe = [];
+let soTien = 0;
 
 // Kết thúc đặt chỗ
 function reset(idLoTrinh) {
     listVe = null;
+    soTien = 0;
 }
 
 // Bắt đầu đặt chỗ, Hiển thị sơ đồ ghế
-function openSoDo(idLoTrinh, listTrongStr, ) {
+function openSoDo(idLoTrinh, listTrongStr, giaLoTrinh) {
     // Chuyển String thành mảng trong mảng
     let listTrong = listTrongStr.split(",");
     for (i = 0; i < listTrong.length; i++){
@@ -57,7 +59,7 @@ function openSoDo(idLoTrinh, listTrongStr, ) {
     for (let gheTrong of listTrong){
         let ghe = document.getElementById(idLoTrinh + gheTrong.idGhe);
         ghe.className = "ghe icon-bus col-md-5 btn m-1 empty";
-        ghe.setAttribute("onclick", "datGhe('" + idLoTrinh + "','" + gheTrong.idGhe + "','" + gheTrong.giaGhe+ "')");
+        ghe.setAttribute("onclick", "datGhe('" + idLoTrinh + "','" + gheTrong.idGhe + "','" + gheTrong.giaGhe + "','" + giaLoTrinh + "')");
     }
 
     // Đổ màu ghế chọn
@@ -69,15 +71,15 @@ function openSoDo(idLoTrinh, listTrongStr, ) {
 }
 
 // Chọn ghế trống
-function datGhe(idLoTrinh, idGhe, giaGhe) {
+function datGhe(idLoTrinh, idGhe, giaGhe, giaLoTrinh) {
     let ghe = document.getElementById(idLoTrinh + idGhe);
     if (ghe.classList.contains("empty")) {
-        setSoVe("add", idLoTrinh, idGhe, giaGhe);
+        setSoVe("add", idLoTrinh, idGhe, giaGhe, giaLoTrinh);
         ghe.className = "ghe icon-bus col-md-5 btn m-1 choosing";
         ghe.setAttribute("target", "dadatve");
 
     } else {
-        setSoVe("remove", idLoTrinh, idGhe, giaGhe);
+        setSoVe("remove", idLoTrinh, idGhe, giaGhe, giaLoTrinh);
         ghe.className = "ghe icon-bus col-md-5 btn m-1 empty";
         ghe.removeAttribute("target");
     }
@@ -85,25 +87,28 @@ function datGhe(idLoTrinh, idGhe, giaGhe) {
 
 
 // Cập nhật danh sách và số lượng vé đặt
-function setSoVe(action, idLoTrinh, idGhe, giaGhe) {
+function setSoVe(action, idLoTrinh, idGhe, giaGhe, giaLoTrinh) {
     let soVeEle = document.getElementById("soVe".concat(idLoTrinh));
     let listVeEle = document.getElementById("listVe".concat(idLoTrinh));
     let soTienEle = document.getElementById("soTien".concat(idLoTrinh));
-
+    let giaVe = Number(giaLoTrinh) + Number(giaGhe);
     switch (action) {
         case "add":
+            soTien = soTien + giaVe;
             listVe.push(idGhe);
             listVeEle.innerText = listVe.toString();
             soVeEle.innerText = listVe.length.toString();
-            soTienEle.innerText = Number(soTienEle.innerText) + Number(giaGhe);
-            // listVeContent.concat(","+idGhe);
+            soTienEle.innerText = soTien.toString();
             break;
         case "remove":
             listVe = listVe.filter(function (item) {
                 return item != idGhe;
             });
+            soTien = soTien - giaVe;
             listVeEle.innerText = listVe.toString();
             soVeEle.innerText = listVe.length.toString();
+            soTienEle.innerText = soTien.toString();
+
             break;
     }
 }

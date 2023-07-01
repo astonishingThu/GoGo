@@ -155,7 +155,7 @@
                         <div class="col-md-3 ftco-animate dsLoTrinh">
                             <div class="giaVe text-center">${loTrinh.giaLoTrinh} VNĐ</div>
                             <p class="choTrong  text-center m-0">${loTrinh.gheConTrongList.size()} chỗ trống</p>
-                                <a class="btn btn-black btn-chonCho" onclick="openSoDo('${loTrinh.idLoTrinh}','${loTrinh.gheConTrongListStr}')"
+                                <a class="btn btn-black btn-chonCho" onclick="openSoDo('${loTrinh.idLoTrinh}','${loTrinh.gheConTrongListStr}','${loTrinh.giaLoTrinh}')"
                                href="#soDoGhe">CHỌN CHỖ</a>
                         </div>
                     </div>
