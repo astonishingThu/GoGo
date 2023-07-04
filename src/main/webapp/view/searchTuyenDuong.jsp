@@ -122,7 +122,7 @@
                         </div>
                         <div class="col-md-6 ftco-animate">
                             <div class="text text-center">
-                                <h3 class="tenNhaXe">${loTrinh.nhaXe.tenNhaXe}<span class="rating">4.0<span
+                                <h3 class="tenNhaXe" onclick="abc()">${loTrinh.nhaXe.tenNhaXe}<span class="rating">4.0<span
                                         class="icon-star"></span></span>
                                 </h3>
                                 <p class="mota-xe">
@@ -418,5 +418,6 @@
 <script src="${resourcePath}js/google-map.js"></script>
 <script src="${resourcePath}js/main.js"></script>
 <script src="${resourcePath}myJS/SearchResult.js"></script>
+
 </body>
 </html>

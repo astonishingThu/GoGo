@@ -29,7 +29,7 @@ public class KhachHangLoginServlet extends HttpServlet {
             System.out.println("Succeeded");
             System.out.println(khachHang);
         } else {
-            requestDispatcher = req.getRequestDispatcher("Login_Khach.jsp");
+            requestDispatcher = req.getRequestDispatcher("/view/Login_Khach.jsp");
             req.setAttribute("connection",false);
             System.out.println("Fail");
         }

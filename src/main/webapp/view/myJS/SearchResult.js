@@ -32,6 +32,7 @@ function openSoDo(idLoTrinh, listTrongStr, giaLoTrinh) {
     // Tạo sơ đồ với ghế đã đặt
     let soDoGhe = document.getElementById("soDoGhe" + idLoTrinh);
     soDoGhe.classList.add("open");
+    // console.log(array);
     var hang1 = document.getElementById("hang-1");
     var hang2 = document.getElementById("hang-2");
     hang1.innerHTML = "";
@@ -239,3 +240,4 @@ function nhapThongTin(idLoTrinh) {
     closeTtLoTrinh();
     openNhapThongTin(idLoTrinh)
 }
+
