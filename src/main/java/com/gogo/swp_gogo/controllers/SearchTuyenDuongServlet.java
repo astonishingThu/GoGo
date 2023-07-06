@@ -33,11 +33,7 @@ public class SearchTuyenDuongServlet extends HttpServlet {
         loTrinhInput.setThoiGianKhoiHanh(new ThoiGianKhoiHanh(LocalDate.parse(req.getParameter("ngayKhoiHanh"))));
         req.setAttribute("loTrinhInput",loTrinhInput);
         req.setAttribute("loTrinhList",loTrinhList);
-        int[] a= {3,4};
-        req.setAttribute("hehe", a);
-        for (LoTrinh lt:loTrinhList) {
-            System.out.println(lt);
-        }
+
         requestDispatcher.forward(req,resp);
     }
 }

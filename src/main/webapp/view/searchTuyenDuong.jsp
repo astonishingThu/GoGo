@@ -52,14 +52,80 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="search-wrap-2 ftco-animate">
-                            <form action="#" class="search-property-1">
+                            <form action="SearchTuyenDuong" method="post" class="search-property-1">
                                 <div class="row">
                                     <div class="col-lg align-items-end">
                                         <div class="form-group">
                                             <label><span class="ion-ios-pin"></span> Nơi xuất phát </label>
                                             <div class="form-field" style="background-color: #ffffff">
-                                                <input type="text" class="form-control" placeholder=" Nhập điểm đón"
-                                                       value="${loTrinhInput.tuyenDuong.noiBatDau}">
+                                                <input list="places1" class="form-control" name="noiBatDau" placeholder="Nhập điểm đi" value="${loTrinhInput.tuyenDuong.noiBatDau}">
+                                                <datalist id="places1">
+                                                    <option value="An Giang">An Giang
+                                                    <option value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu
+                                                    <option value="Bắc Giang">Bắc Giang
+                                                    <option value="Bắc Kạn">Bắc Kạn
+                                                    <option value="Bạc Liêu">Bạc Liêu
+                                                    <option value="Bắc Ninh">Bắc Ninh
+                                                    <option value="Bến Tre">Bến Tre
+                                                    <option value="Bình Định">Bình Định
+                                                    <option value="Bình Dương">Bình Dương
+                                                    <option value="Bình Phước">Bình Phước
+                                                    <option value="Bình Thuận">Bình Thuận
+                                                    <option value="Bình Thuận">Bình Thuận
+                                                    <option value="Cà Mau">Cà Mau
+                                                    <option value="Cao Bằng">Cao Bằng
+                                                    <option value="Đắk Lắk">Đắk Lắk
+                                                    <option value="Đắk Nông">Đắk Nông
+                                                    <option value="Điện Biên">Điện Biên
+                                                    <option value="Đồng Nai">Đồng Nai
+                                                    <option value="Đồng Tháp">Đồng Tháp
+                                                    <option value="Đồng Tháp">Đồng Tháp
+                                                    <option value="Gia Lai">Gia Lai
+                                                    <option value="Hà Giang">Hà Giang
+                                                    <option value="Hà Nam">Hà Nam
+                                                    <option value="Hà Tĩnh">Hà Tĩnh
+                                                    <option value="Hải Dương">Hải Dương
+                                                    <option value="Hậu Giang">Hậu Giang
+                                                    <option value="Hòa Bình">Hòa Bình
+                                                    <option value="Hưng Yên">Hưng Yên
+                                                    <option value="Khánh Hòa">Khánh Hòa
+                                                    <option value="Kiên Giang">Kiên Giang
+                                                    <option value="Kon Tum">Kon Tum
+                                                    <option value="Lai Châu">Lai Châu
+                                                    <option value="Lâm Đồng">Lâm Đồng
+                                                    <option value="Lạng Sơn">Lạng Sơn
+                                                    <option value="Lào Cai">Lào Cai
+                                                    <option value="Long An">Long An
+                                                    <option value="Nam Định">Nam Định
+                                                    <option value="Nghệ An">Nghệ An
+                                                    <option value="Ninh Bình">Ninh Bình
+                                                    <option value="Ninh Thuận">Ninh Thuận
+                                                    <option value="Phú Thọ">Phú Thọ
+                                                    <option value="Quảng Bình">Quảng Bình
+                                                    <option value="Quảng Bình">Quảng Bình
+                                                    <option value="Quảng Ngãi">Quảng Ngãi
+                                                    <option value="Quảng Ninh">Quảng Ninh
+                                                    <option value="Quảng Trị">Quảng Trị
+                                                    <option value="Sóc Trăng">Sóc Trăng
+                                                    <option value="Sơn La">Sơn La
+                                                    <option value="Tây Ninh">Tây Ninh
+                                                    <option value="Thái Bình">Thái Bình
+                                                    <option value="Thái Nguyên">Thái Nguyên
+                                                    <option value="Thanh Hóa">Thanh Hóa
+                                                    <option value="Thừa Thiên Huế">Thừa Thiên Huế
+                                                    <option value="Tiền Giang">Tiền Giang
+                                                    <option value="Trà Vinh">Trà Vinh
+                                                    <option value="Tuyên Quang">Tuyên Quang
+                                                    <option value="Vĩnh Long">Vĩnh Long
+                                                    <option value="Vĩnh Phúc">Vĩnh Phúc
+                                                    <option value="Yên Bái">Yên Bái
+                                                    <option value="Phú Yên">Phú Yên
+                                                    <option value="Tp.Cần Thơ">Tp.Cần Thơ
+                                                    <option value="Tp.Đà Nẵng">Tp.Đà Nẵng
+                                                    <option value="Tp.Hải Phòng">Tp.Hải Phòng
+                                                    <option value="Tp.Hà Nội">Tp.Hà Nội
+                                                    <option value="TP  HCM">TP HCM
+                                                </datalist>
                                             </div>
                                         </div>
                                     </div>
@@ -67,9 +133,7 @@
                                         <div class="form-group">
                                             <label><span class="ion-ios-pin"></span> Nơi đến </label>
                                             <div class="form-field" style="background-color: #ffffff">
-                                                <input type="text" class="form-control checkin_date"
-                                                       placeholder="Nhập điểm trả"
-                                                       value="${loTrinhInput.tuyenDuong.dichDen}">
+                                                <input list="places1" class="form-control checkin_date" name="dichDen" placeholder="Nhập điểm đến" value="${loTrinhInput.tuyenDuong.dichDen}">
                                             </div>
                                         </div>
                                     </div>
@@ -77,8 +141,8 @@
                                         <div class="form-group">
                                             <label><span class="ion-ios-calendar"></span> Ngày đi</label>
                                             <div class="form-field" style="background-color: #ffffff">
-                                                <input type="text" class="form-control checkout_date"
-                                                       placeholder="Ngày đi"
+                                                <input type="date" class="form-control checkout_date" id="ngayDi"
+                                                       placeholder="Ngày đi" name="ngayKhoiHanh"
                                                        value="${loTrinhInput.thoiGianKhoiHanh.ngayKhoiHanh}">
                                             </div>
                                         </div>
@@ -96,6 +160,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
 
             <div class="col-md-9 ftco-animate pb-1">
@@ -110,10 +175,10 @@
 
 <section class="ftco-section ftco-services-2 ftco-no-pt">
     <div class="container">
+        <c:if test="${loTrinhList.size() == 0}" >
+            <div class="thongbao">Không tìm thấy tuyến xe phù hợp!</div>
+        </c:if>
         <c:forEach var="loTrinh" items="${loTrinhList}">
-            <c:if test="${loTrinhList} == 0" >
-                <div type="hidden" class="thongbao">Không tìm thấy chuyến!</div>
-            </c:if>
             <div class="row">
                 <div class="col-md-10 mb-5">
                     <div class="row veXe">
@@ -122,7 +187,7 @@
                         </div>
                         <div class="col-md-6 ftco-animate">
                             <div class="text text-center">
-                                <h3 class="tenNhaXe" onclick="abc()">${loTrinh.nhaXe.tenNhaXe}<span class="rating">4.0<span
+                                <h3 class="tenNhaXe">${loTrinh.nhaXe.tenNhaXe}<span class="rating">4.0<span
                                         class="icon-star"></span></span>
                                 </h3>
                                 <p class="mota-xe">
@@ -223,26 +288,34 @@
                         <div class="row justify-content-center field" id="diemdontra">
                             <div class="diemDon col-md-5">
                                 <h3>Điểm đón</h3>
-                                <div><span>17:00 </span>
+                                <div>
+                                    <span>17:00 </span>
                                     <icon class="icon-circle"></icon>
                                     <span> Bến xe A</span></div>
-                                <div><span>17:30 </span>
+                                <div>
+                                    <span>17:30 </span>
                                     <icon class="icon-circle"></icon>
-                                    <span> Bến xe B</span></div>
-                                <div><span>18:30 </span>
+                                    <span> Bến xe B</span>
+                                </div>
+                                <div>
+                                    <span>18:30 </span>
                                     <icon class="icon-circle"></icon>
-                                    <span> QL1A</span></div>
+                                    <span> QL1A</span>
+                                </div>
                             </div>
                             <div class="diemTra col-md-5">
                                 <h3>Điểm trả</h3>
-                                <div><span>20:00 </span>
+                                <div>
+                                    <span>20:00 </span>
                                     <icon class="icon-circle"></icon>
-                                    <span> Bến xe A</span></div>
-                                <div><span>20:30 </span>
+                                    <span> Bến xe A</span>
+                                </div>
+                                <div>
+                                    <span>20:30 </span>
                                     <icon class="icon-circle"></icon>
-                                    <span> Bến xe B</span></div>
+                                    <span> Bến xe B</span>
+                                </div>
                             </div>
-
                         </div>
                         <div id="chinhsach" class="field"></div>
                         <div id="danhgia" class="field"></div>
@@ -402,6 +475,7 @@
                 stroke="#F96D00"/>
     </svg>
 </div>
+<%--<script> var lotrinhL = '${loTrinhL}'</script>--%>
 <script src="${resourcePath}js/jquery.min.js"></script>
 <script src="${resourcePath}https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="${resourcePath}js/jquery-migrate-3.0.1.min.js"></script>
@@ -418,6 +492,5 @@
 <script src="${resourcePath}js/google-map.js"></script>
 <script src="${resourcePath}js/main.js"></script>
 <script src="${resourcePath}myJS/SearchResult.js"></script>
-
 </body>
 </html>

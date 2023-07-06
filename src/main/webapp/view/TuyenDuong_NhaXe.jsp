@@ -308,7 +308,6 @@
             </tr>
             </thead>
             <tbody>
-            hello
             <c:forEach var="loTrinh" items="${nhaXe.loTrinhList}">
                 <tr>
                     <th scope="row"></span> ${loTrinh.idLoTrinh} </span></th>

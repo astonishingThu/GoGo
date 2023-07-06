@@ -104,7 +104,7 @@
                                 <div class="form-group">
                                     <label><span class="ion-ios-pin"></span> Nơi xuất phát </label>
                                     <div class="form-field">
-                                        <input list="places1" class="form-control" name="noiBatDau">
+                                        <input list="places1" class="form-control" name="noiBatDau" placeholder="Nhập điểm đi">
                                         <datalist id="places1">
                                             <option value="An Giang">An Giang
                                             <option value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu
@@ -178,8 +178,7 @@
                             <div class="col-lg align-items-end">
                                 <div class="form-group">
                                     <label><span class="ion-ios-pin"></span> Nơi đến </label>
-                                    <input list="places1" class="form-control" name="dichDen">
-
+                                    <input list="places1" class="form-control" name="dichDen" placeholder="Nhập điểm đến">
                                 </div>
                             </div>
                             <div class="col-lg align-items-end">

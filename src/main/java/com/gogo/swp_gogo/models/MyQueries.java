@@ -182,23 +182,6 @@ public class MyQueries {
         return res;
     }
 
-//    public static String getKhachHangInfoByBase(String base, String col, String data) {
-//        Connection connection = getConnection();
-//        try {
-//            String q = "Select "+col+" from GoGo.dbo.KhachHang where "+base+" = ?";
-//            PreparedStatement statement = connection.prepareStatement(q);
-//            statement.setString(1,data);
-//            ResultSet resultSet = statement.executeQuery();
-//            while (resultSet.next()) {
-//                return resultSet.getString("1");
-//            }
-//            connection.close();
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//        return null;
-//    }
-
     public static String getTableInfoByBase(String base, String col, String data, String table) {
         Connection connection = getConnection();
         try {
@@ -391,8 +374,6 @@ public class MyQueries {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("res ne" + res);
-        System.out.println("Res size: "+res.size());
         return res;
     }
 
@@ -519,6 +500,7 @@ public class MyQueries {
             throw new RuntimeException(e);
         }
     }
+
 //    public static ArrayList searchTuyenDuong(String noiXuatPhat, String diemDen, Date ngayKhoiHanh) {
 //        Connection connection = getConnection();
 //        try {

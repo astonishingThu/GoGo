@@ -98,10 +98,11 @@
                             <label>*Chú thích:</label>
                             <div class="icon-bus col-md-8 btn btn-primary ml-3">Ghế VIP</div>
                         </div>
-                        <input type="hidden" id="vipList" name="vipList" />
+                        <input type="hidden" id="vipList" name="vipList"/>
                         <div class="mt-5">
                             <label>*Phụ thu ghế VIP:</label>
-                            <input name="giaGhe" type="number" class="form-control" step="10000" id="phuThu" min="0" max="1000000" required />
+                            <input name="giaGhe" type="number" class="form-control" step="10000" id="phuThu" min="0"
+                                   max="1000000" required/>
                             <small></small>
                         </div>
                     </div>
@@ -138,61 +139,61 @@
     <button class="btn btn-primary py-3 px-4 js-addXe" onclick="openModal()">Thêm xe</button>
 </div>
 <div id="#xe">
-<c:forEach var="xe" items="${nhaXe.xeList}">
-    <section class="ftco-section ftco-services-2 ftco-no-pt">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="row xe" id="xe">
-                        <div class="col-md-3 ftco-animate">
-                            <img src="${resourcePath}images/about.jpg" class="ill img-fluid"/>
-                        </div>
-                        <div class="col-md-5 ftco-animate">
-                            <div class="text">
-                                <h3>${xe.idXe}</h3>
-                                <p class="pos">
-                                    Giường nằm - <span class="price"> ${xe.gheXeList[3].giaGhe} </span> - 42 chỗ
-                                </p>
-                                <p>${xe.moTa}</p>
-                                <p>
-                                    <button class="btn btn-secondary">Chỉnh sửa</button>
-                                    <button class="btn btn-primary js-del-cf-btn" id=${xe.idXe}>Xóa</button>
-                                </p>
+    <c:forEach var="xe" items="${nhaXe.xeList}">
+        <section class="ftco-section ftco-services-2 ftco-no-pt">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row xe" id="xe">
+                            <div class="col-md-3 ftco-animate">
+                                <img src="${resourcePath}images/about.jpg" class="ill img-fluid"/>
                             </div>
-                        </div>
-                        <div class="col-md-4 ftco-animate dsLoTrinh">
-                            <h3>Tuyến chạy</h3>
-                            <div class="loTrinh">
-                                <div class="noiXuatPhat">Hà Nội</div>
-                                <div>
-                                    <div class="icon-exchange"></div>
+                            <div class="col-md-5 ftco-animate">
+                                <div class="text">
+                                    <h3>${xe.idXe}</h3>
+                                    <p class="pos">
+                                        Giường nằm - <span class="price"> ${xe.gheXeList[3].giaGhe} </span> - 42 chỗ
+                                    </p>
+                                    <p>${xe.moTa}</p>
+                                    <p>
+                                        <button class="btn btn-secondary">Chỉnh sửa</button>
+                                        <button class="btn btn-primary js-del-cf-btn" id=${xe.idXe}>Xóa</button>
+                                    </p>
                                 </div>
-                                <div class="dichDen">Đà Nẵng</div>
                             </div>
-                            <div class="loTrinh">
-                                <div class="noiXuatPhat">Hà Nội</div>
-                                <div>
-                                    <div class="icon-exchange"></div>
+                            <div class="col-md-4 ftco-animate dsLoTrinh">
+                                <h3>Tuyến chạy</h3>
+                                <div class="loTrinh">
+                                    <div class="noiXuatPhat">Hà Nội</div>
+                                    <div>
+                                        <div class="icon-exchange"></div>
+                                    </div>
+                                    <div class="dichDen">Đà Nẵng</div>
                                 </div>
-                                <div class="dichDen">Đà Nẵng</div>
+                                <div class="loTrinh">
+                                    <div class="noiXuatPhat">Hà Nội</div>
+                                    <div>
+                                        <div class="icon-exchange"></div>
+                                    </div>
+                                    <div class="dichDen">Đà Nẵng</div>
+                                </div>
                             </div>
+                            <div class="del-cf js-del-cf" id="">
+                                Bạn muốn xóa xe này? <br/>
+                                <button onclick="window.location.href='RemoveXe?idXe=${xe.idXe}&idNhaXe=${nhaXe.idNhaXe}#xe'"
+                                        class="btn btn-primary js-del">
+                                    Xóa
+                                </button>
+                                <button class="btn btn-black js-cancel">Hủy</button>
+                            </div>
+                            <div class="xe-overlay"></div>
                         </div>
-                        <div class="del-cf js-del-cf" id="">
-                            Bạn muốn xóa xe này? <br/>
-                            <button onclick="window.location.href='RemoveXe?idXe=${xe.idXe}&idNhaXe=${nhaXe.idNhaXe}#xe'"
-                                    class="btn btn-primary js-del">
-                                Xóa
-                            </button>
-                            <button class="btn btn-black js-cancel">Hủy</button>
-                        </div>
-                        <div class="xe-overlay"></div>
                     </div>
-                </div>
 
+                </div>
             </div>
-        </div>
-    </section>
-</c:forEach>
+        </section>
+    </c:forEach>
 </div>
 
 <!-- loader -->

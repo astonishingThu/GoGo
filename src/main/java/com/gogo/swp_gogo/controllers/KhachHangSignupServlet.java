@@ -21,7 +21,7 @@ public class KhachHangSignupServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         KhachHang khachHang = new KhachHang();
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("view/HomePage_HanhKhach.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("view/MainPage_KhachHang.jsp");
         if (khachHang.signup(req)) {
             req.setAttribute("connection",true);
             System.out.println("Succeeded");

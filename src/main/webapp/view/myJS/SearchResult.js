@@ -3,7 +3,6 @@ const ttLoTrinhs = document.querySelectorAll(".ttLoTrinh");
 const soDoGhes = document.querySelectorAll(".soDoGhe");
 const nhapThongTins = document.querySelectorAll(".nhapThongTin");
 const tiepTheo = document.getElementById("tiepTheo");
-
 // Vé đang chọn
 let listVe = [];
 let soTien = 0;
@@ -18,7 +17,7 @@ function reset(idLoTrinh) {
 function openSoDo(idLoTrinh, listTrongStr, giaLoTrinh) {
     // Chuyển String thành mảng trong mảng
     let listTrong = listTrongStr.split(",");
-    for (i = 0; i < listTrong.length; i++){
+       for (i = 0; i < listTrong.length; i++){
         listTrong[i] = {
             idGhe: listTrong[i].split(":")[0],
             giaGhe: listTrong[i].split(":")[1]
