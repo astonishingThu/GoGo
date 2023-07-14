@@ -135,6 +135,7 @@ public class NhaXe implements Account {
     private List<LocalDate> getThoiGianKhoiHanhList(HttpServletRequest request) {
         List<LocalDate> res = new ArrayList<>();
         String[] lapLaiList =  request.getParameter("ngayList").split(",");
+        System.out.println(lapLaiList);
         try {
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("M/d/yyyy");
             for (String s : lapLaiList) {
@@ -145,7 +146,6 @@ public class NhaXe implements Account {
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("d/M/yyyy");
             for (String s : lapLaiList) {
                 res.add(LocalDate.parse(s,dateTimeFormatter));
-
             }
         }
         return res;

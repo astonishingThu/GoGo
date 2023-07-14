@@ -451,12 +451,12 @@ public class MyQueries {
         Connection connection = getConnection();
         List<GheXe> res = new ArrayList<>();
         try {
-            PreparedStatement statement = connection.prepareStatement("select gx.idGhe from (select lt.idXe from VeXe v, LoTrinh lt where v.idLoTrinh = ? and v.idLoTrinh = lt.idLoTrinh) as selectedXe, GheXe gx where selectedXe.idXe = gx.idXe except select idGhe from VeXe where idLoTrinh = ?");
+            PreparedStatement statement = connection.prepareStatement("select gx.idGhe from (select lt.idXe from LoTrinh lt where lt.idLoTrinh = ?) as selectedXe, GheXe gx where selectedXe.idXe = gx.idXe except select idGhe from VeXe where idLoTrinh = ?");
             statement.setString(1, idLoTrinh);
             statement.setString(2, idLoTrinh);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                res.add(MyQueries.getGheXeByCol("idGhe", resultSet.getString("idGhe")));
+                    res.add(MyQueries.getGheXeByCol("idGhe", resultSet.getString("idGhe")));
             }
             connection.close();
         } catch (SQLException ex) {

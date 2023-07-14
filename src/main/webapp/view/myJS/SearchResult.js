@@ -16,6 +16,7 @@ function reset(idLoTrinh) {
 // Bắt đầu đặt chỗ, Hiển thị sơ đồ ghế
 function openSoDo(idLoTrinh, listTrongStr, giaLoTrinh) {
     // Chuyển String thành mảng trong mảng
+    console.log(listTrongStr);
     let listTrong = listTrongStr.split(",");
        for (i = 0; i < listTrong.length; i++){
         listTrong[i] = {

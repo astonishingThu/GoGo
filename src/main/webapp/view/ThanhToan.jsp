@@ -7,10 +7,9 @@
              <h2 class="text-center">Thời gian giữ vé</h2>
          </div>
          <div class="col-md-8">
-
              <div>
                  <h3>Phương thức thanh toán</h3>
-                 <div><input type="radio" class="">Thanh toán VNPAY - QR</div>
+                 <div><input type="radio" class="" onclick="thanhToan()">Thanh toán VNPAY - QR</div>
                  <div class="desc">
                      Thiết bị cần cài đặt Ứng dụng ngân hàng (Mobile Banking) hoặc ví VNPAY.
                      Nhập mã "VNPAYVXRT6" - Nhận ngay ưu đãi 5% tối đa 20K -
@@ -22,7 +21,39 @@
                  </div>
              </div>
          </div>
-         <div class="col-md-4"><h3>Thông tin chuyến đi</h3></div>
+         <div class="col-md-4"><h3>Thông tin chuyến đi</h3>
+             <div class="ttHanhKhach">
+                <div>
+                    <span>Hành khách</span>
+                    <div>Bảo Ngọc</div>
+                </div>
+                 <div>
+                    <span>Số điện thoại</span>
+                    <div>0947730012</div>
+                </div>
+                 <div>
+                     <span>Email</span>
+                     <div>baongoc.bnx@gmail.com</div>
+                 </div>
+             </div>
+             <div class="ttVeXe">
+                 <div>
+                     <span>Nhà xe</span>
+                     <div>Tân Quang Dũng</div>
+                 </div>
+                 <div>
+                     <span>Điểm đón</span>
+                     <div>BX</div>
+                 </div>
+                 <div>
+                     <span>Điểm trả</span>
+                     <div>BX</div>
+                 </div>
+             </div>
+         </div>
+         <div class="ttBaoMat">
+             <button>Thanh toán bảo mật</button>
+         </div>
      </div>
  </section>
  <script src="${resourcePath}js/jquery.min.js"></script>

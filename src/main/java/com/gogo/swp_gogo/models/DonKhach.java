@@ -39,4 +39,9 @@ public class DonKhach {
     public void setIdDonKhach(String idDonKhach) {
         this.idDonKhach = idDonKhach;
     }
+
+    @Override
+    public String toString() {
+        return noiDonKhach;
+    }
 }

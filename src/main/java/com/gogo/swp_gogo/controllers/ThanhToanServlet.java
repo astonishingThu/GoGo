@@ -14,14 +14,12 @@ public class ThanhToanServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/view/ThanhToan.jsp");
-        System.out.println("Hello");
         requestDispatcher.forward(req,resp);
 
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("Hiii");
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/view/ThanhToan.jsp");
         requestDispatcher.forward(req,resp);
     }

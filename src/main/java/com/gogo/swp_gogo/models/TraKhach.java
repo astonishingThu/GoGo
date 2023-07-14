@@ -38,4 +38,9 @@ public class TraKhach {
     public void setIdTraKhach(String idTraKhach) {
         this.idTraKhach = idTraKhach;
     }
+
+    @Override
+    public String toString() {
+        return noiTraKhach;
+    }
 }

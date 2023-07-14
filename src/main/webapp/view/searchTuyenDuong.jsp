@@ -289,31 +289,16 @@
                             <div class="diemDon col-md-5">
                                 <h3>Điểm đón</h3>
                                 <div>
-                                    <span>17:00 </span>
+<%--                                    <span>17:00 </span>--%>
                                     <icon class="icon-circle"></icon>
-                                    <span> Bến xe A</span></div>
-                                <div>
-                                    <span>17:30 </span>
-                                    <icon class="icon-circle"></icon>
-                                    <span> Bến xe B</span>
-                                </div>
-                                <div>
-                                    <span>18:30 </span>
-                                    <icon class="icon-circle"></icon>
-                                    <span> QL1A</span>
+                                    <span>${loTrinh.donKhach}</span>
                                 </div>
                             </div>
                             <div class="diemTra col-md-5">
                                 <h3>Điểm trả</h3>
                                 <div>
-                                    <span>20:00 </span>
                                     <icon class="icon-circle"></icon>
-                                    <span> Bến xe A</span>
-                                </div>
-                                <div>
-                                    <span>20:30 </span>
-                                    <icon class="icon-circle"></icon>
-                                    <span> Bến xe B</span>
+                                    <span>${loTrinh.traKhach}</span>
                                 </div>
                             </div>
                         </div>
@@ -359,22 +344,11 @@
                                 <div class="col-md-6">
                                     <h3 class="text-center">Điểm đón</h3>
                                     <div class="form-check">
-                                        <input type="radio" class="form-check-input" id="radio1" name="optradio"
-                                               value="hello" checked>
+                                        <input type="radio" class="form-check-input" id="radio2" name="optradio2"
+                                               checked>
                                         <div>
-                                            <span>17:00 </span>
                                             <icon class="icon-circle"></icon>
-                                            <span> Bến xe A</span>
-                                        </div>
-                                        <label class="form-check-label" for="radio1"></label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="radio" class="form-check-input" id="radio2" name="optradio"
-                                               value="hello" checked>
-                                        <div>
-                                            <span>17:00 </span>
-                                            <icon class="icon-circle"></icon>
-                                            <span> Bến xe A</span>
+                                            <span>${loTrinh.traKhach}</span>
                                         </div>
                                         <label class="form-check-label" for="radio2"></label>
                                     </div>
@@ -382,26 +356,13 @@
                                 <div div class="col-md-6">
                                     <h3 class="text-center">Điểm trả</h3>
                                     <div class="form-check">
-                                        <input type="radio" class="form-check-input" id="radio3" name="optradio"
-                                               value="hello"
+                                        <input type="radio" class="form-check-input" id="radio3" name="optradio3"
                                                checked>
                                         <div>
-                                            <span>17:00 </span>
                                             <icon class="icon-circle"></icon>
-                                            <span> Bến xe A</span>
+                                            <span>${loTrinh.traKhach}</span>
                                         </div>
-                                        <label class="form-check-label" for="radio1"></label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="radio" class="form-check-input" id="radio4" name="optradio"
-                                               value="hello"
-                                               checked>
-                                        <div>
-                                            <span>17:00 </span>
-                                            <icon class="icon-circle"></icon>
-                                            <span> Bến xe A</span>
-                                        </div>
-                                        <label class="form-check-label" for="radio2"></label>
+                                        <label class="form-check-label" for="radio3"></label>
                                     </div>
                                 </div>
                             </div>

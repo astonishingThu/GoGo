@@ -27,11 +27,14 @@ public class LoTrinh {
     }
 
     public void setGheConTrongListStr(List<GheXe> gheConTrongList) {
+        System.out.println(gheConTrongList);
         String val = "";
         for (GheXe gheXe: gheConTrongList){
             val = val.concat("," + gheXe.getIdGhe() + ":" + gheXe.getGiaGhe());
         }
-        this.gheConTrongListStr = val.substring(1);
+        if (val.length() > 2){
+            this.gheConTrongListStr = val.substring(1);
+        }
     }
 
     public String getIdLoTrinh() {
