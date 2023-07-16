@@ -7,6 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -141,6 +142,28 @@ public class MyQueries {
             statement.setString(5,loTrinh.getTuyenDuong().getIdTuyenDuong());
             statement.setString(6,loTrinh.getThoiGianKhoiHanh().getIdThoiGian());
             statement.setString(7,loTrinh.getNhaXe().getIdNhaXe());
+            statement.executeUpdate();
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void addVeXe(VeXe veXe){
+        Connection connection = getConnection();
+        try {
+            PreparedStatement statement = connection.prepareStatement("insert into GoGo.dbo.VeXe(idVe, rating, comment, ngayDatVe, idGhe, idLoTrinh, idKhachHang, idMaGiamGia)  values (?,?,?,?,?,?,?,?);");
+            statement.setString(1, veXe.getIdVeXe());
+//            statement.setString(2, String.valueOf(veXe.getRating()));
+            statement.setString(2, null);
+            statement.setString(3, veXe.getComment());
+
+            statement.setString(4, String.valueOf(veXe.getNgayDatVe()));
+            System.out.println(veXe.getNgayDatVe());
+            statement.setString(5, veXe.getIdGhe());
+            statement.setString(6, veXe.getIdLoTrinh());
+            statement.setString(7, veXe.getIdKhachHang());
+            statement.setString(8, veXe.getIdMaGiamGia());
             statement.executeUpdate();
             connection.close();
         } catch (SQLException e) {

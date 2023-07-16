@@ -53,12 +53,6 @@ public class NhaXe implements Account {
             gheXeList.add(gheXe);
             MyQueries.addGheXe(gheXe);
         }
-//        for (String idGhe : vipList) {
-//            GheXe gheXe = new GheXe(idGhe, giaGheVip, idXe);
-//            System.out.println(idGhe);
-//            gheXeList.add(gheXe);
-//            MyQueries.addGheXe(gheXe);
-//        }
         xe.setGheXeList(gheXeList);
         return true;
     }
@@ -73,7 +67,6 @@ public class NhaXe implements Account {
         TuyenDuong tuyenDuong = addTuyenDuong(request);
         int giaLoTrinh = Integer.parseInt(request.getParameter("giaLoTrinh"));
         int khoangThoiGianDiChuyen = Integer.parseInt(request.getParameter("khoangThoiGianDiChuyen"));
-
         for (LocalDate date:ngayChayList) {
             LoTrinh tempLoTrinh = new LoTrinh();
             String idLoTrinh = MyRandom.generateRandomId(5,"LT");
@@ -140,7 +133,6 @@ public class NhaXe implements Account {
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("M/d/yyyy");
             for (String s : lapLaiList) {
                 res.add(LocalDate.parse(s,dateTimeFormatter));
-
             }
         } catch (DateTimeParseException ex) {
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("d/M/yyyy");

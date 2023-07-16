@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: ASUS
@@ -6,9 +5,11 @@
   Time: 10:19 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:include page="Head.jsp"></jsp:include>
 <jsp:useBean id="loTrinhInput" class="com.gogo.swp_gogo.models.LoTrinh" scope="request"/>
+<jsp:useBean id="khachHang" class="com.gogo.swp_gogo.models.KhachHang" scope="request"/>
+<jsp:include page="Head.jsp"></jsp:include>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
      id="ftco-navbar">
@@ -24,20 +25,35 @@
                 <li class="nav-item"><a href="index.jsp" class="nav-link"><span>Trang chủ</span></a></li>
                 <li class="nav-item"><a href="index.jsp#tuyenDuong" class="nav-link"><span>Tuyến đường</span></a></li>
                 <li class="nav-item"><a href="#uuDai" class="nav-link"><span>Ưu đãi</span></a></li>
-                <li class="nav-item has-children">
-                    <a class="nav-link"><span>Đăng nhập</span></a>
-                    <ul class="dropdown">
-                        <li><a href="GoGoLogin">Hành khách</a></li>
-                        <li><a href="NhaXeGoGoLogin">Nhà xe</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item has-children">
-                    <a href="view/SignUp_Khach.jsp" class="nav-link"><span>Đăng ký</span></a>
-                    <ul class="dropdown">
-                        <li><a href="view/SignUp_Khach.jsp">Hành khách</a></li>
-                        <li><a href="view/SignUp_NhaXe.jsp">Nhà xe</a></li>
-                    </ul>
-                </li>
+                <c:choose>
+                    <c:when test="${khachHang.ten == null}">
+                        <li class="nav-item has-children">
+                            <a class="nav-link"><span>Đăng nhập</span></a>
+                            <ul class="dropdown">
+                                <li><a href="GoGoLogin">Hành khách</a></li>
+                                <li><a href="NhaXeGoGoLogin">Nhà xe</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-children">
+                            <a href="view/SignUp_Khach.jsp" class="nav-link"><span>Đăng ký</span></a>
+                            <ul class="dropdown">
+                                <li><a href="view/SignUp_Khach.jsp">Hành khách</a></li>
+                                <li><a href="view/SignUp_NhaXe.jsp">Nhà xe</a></li>
+                            </ul>
+                        </li>
+                    </c:when>
+                    <c:when test="${khachHang.ten != null}">
+                        <li class="nav-item has-children">
+                            <a class="nav-link" id="logout">
+                                <icon class="icon-account_circle"></icon>
+                                <span> ${khachHang.ten}</span></a>
+                            <ul class="dropdown">
+                                <li><a href="${pageContext.request.contextPath}/view/VeCuaToi.jsp">Vé của tôi</a></li>
+                                <li><a href="${pageContext.request.contextPath}/index.jsp">Logout</a></li>
+                            </ul>
+                        </li>
+                    </c:when>
+                </c:choose>
             </ul>
         </div>
     </div>
@@ -53,12 +69,15 @@
                     <div class="col-md-12">
                         <div class="search-wrap-2 ftco-animate">
                             <form action="SearchTuyenDuong" method="post" class="search-property-1">
+                                <input type="hidden" name="idKhachHang" value="${khachHang.idKhachHang}"/>
                                 <div class="row">
                                     <div class="col-lg align-items-end">
                                         <div class="form-group">
                                             <label><span class="ion-ios-pin"></span> Nơi xuất phát </label>
                                             <div class="form-field" style="background-color: #ffffff">
-                                                <input list="places1" class="form-control" name="noiBatDau" placeholder="Nhập điểm đi" value="${loTrinhInput.tuyenDuong.noiBatDau}">
+                                                <input list="places1" class="form-control" name="noiBatDau"
+                                                       placeholder="Nhập điểm đi"
+                                                       value="${loTrinhInput.tuyenDuong.noiBatDau}">
                                                 <datalist id="places1">
                                                     <option value="An Giang">An Giang
                                                     <option value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu
@@ -133,7 +152,9 @@
                                         <div class="form-group">
                                             <label><span class="ion-ios-pin"></span> Nơi đến </label>
                                             <div class="form-field" style="background-color: #ffffff">
-                                                <input list="places1" class="form-control checkin_date" name="dichDen" placeholder="Nhập điểm đến" value="${loTrinhInput.tuyenDuong.dichDen}">
+                                                <input list="places1" class="form-control checkin_date" name="dichDen"
+                                                       placeholder="Nhập điểm đến"
+                                                       value="${loTrinhInput.tuyenDuong.dichDen}">
                                             </div>
                                         </div>
                                     </div>
@@ -175,7 +196,7 @@
 
 <section class="ftco-section ftco-services-2 ftco-no-pt">
     <div class="container">
-        <c:if test="${loTrinhList.size() == 0}" >
+        <c:if test="${loTrinhList.size() == 0}">
             <div class="thongbao">Không tìm thấy tuyến xe phù hợp!</div>
         </c:if>
         <c:forEach var="loTrinh" items="${loTrinhList}">
@@ -220,7 +241,8 @@
                         <div class="col-md-3 ftco-animate dsLoTrinh">
                             <div class="giaVe text-center">${loTrinh.giaLoTrinh} VNĐ</div>
                             <p class="choTrong  text-center m-0">${loTrinh.gheConTrongList.size()} chỗ trống</p>
-                                <a class="btn btn-black btn-chonCho" onclick="openSoDo('${loTrinh.idLoTrinh}','${loTrinh.gheConTrongListStr}','${loTrinh.giaLoTrinh}')"
+                            <a class="btn btn-black btn-chonCho"
+                               onclick="openSoDo('${loTrinh.idLoTrinh}','${loTrinh.gheConTrongListStr}','${loTrinh.giaLoTrinh}')"
                                href="#soDoGhe">CHỌN CHỖ</a>
                         </div>
                     </div>
@@ -289,7 +311,7 @@
                             <div class="diemDon col-md-5">
                                 <h3>Điểm đón</h3>
                                 <div>
-<%--                                    <span>17:00 </span>--%>
+                                        <%--                                    <span>17:00 </span>--%>
                                     <icon class="icon-circle"></icon>
                                     <span>${loTrinh.donKhach}</span>
                                 </div>
@@ -306,6 +328,9 @@
                         <div id="danhgia" class="field"></div>
                     </div>
                     <form action="ThanhToan" method="post" class="datVe">
+                        <input type="hidden" name="idKhachHang" value="${khachHang.idKhachHang}"/>
+                        <input type="hidden" name="idLoTrinh" value="${loTrinh.idLoTrinh}"/>
+                        <input type="hidden" name="listVe" id="listVe"/>
                         <div id="soDoGhe${loTrinh.idLoTrinh}"
                              class="col-md-12 soDoGhe row flex-row justify-content-center">
                             <icon class="icon-close" onClick="closeSoDoGhe('${loTrinh.idLoTrinh}')"></icon>
@@ -326,14 +351,15 @@
                                     <span class="text-center">Đã đặt</span>
                                 </div>
                                 <div class="col-md-12 pt-2">
-                                    <div><span id="soVe${loTrinh.idLoTrinh}"></span> vé: <span
-                                            id="listVe${loTrinh.idLoTrinh}"></span></div>
-                                    <div><span>Tổng tiền: </span><span id="soTien${loTrinh.idLoTrinh}" class="soTien"> 0</span> VND</div>
+                                    <div><span id="soVe${loTrinh.idLoTrinh}"></span> vé:
+                                        <span id="listVe${loTrinh.idLoTrinh}"></span></div>
+                                    <div><span>Tổng tiền: </span><span id="soTien${loTrinh.idLoTrinh}"
+                                                                       class="soTien"> 0</span> VND
+                                    </div>
                                 </div>
                                 <div class="col-md-12">
                                     <button type="button" class="btn btn-primary w-100" id="tiepTheo"
-                                            onclick="chonLoTrinh('${loTrinh.idLoTrinh}')">Tiếp
-                                        theo
+                                            onclick="chonLoTrinh('${loTrinh.idLoTrinh}')">Tiếp theo
                                     </button>
                                     <small></small>
                                 </div>
@@ -348,7 +374,7 @@
                                                checked>
                                         <div>
                                             <icon class="icon-circle"></icon>
-                                            <span>${loTrinh.traKhach}</span>
+                                            <span>${loTrinh.donKhach}</span>
                                         </div>
                                         <label class="form-check-label" for="radio2"></label>
                                     </div>
@@ -369,7 +395,8 @@
                             <div class="row col-md-12 justify-content-between">
                                 <div class="col-md-3">
                                     <button type="button" class="btn btn-secondary w-100"
-                                            onclick="openSoDo('${loTrinh.idLoTrinh}','${loTrinh.gheConTrongListStr}','${loTrinh.giaLoTrinh}')">Quay
+                                            onclick="openSoDo('${loTrinh.idLoTrinh}','${loTrinh.gheConTrongListStr}','${loTrinh.giaLoTrinh}')">
+                                        Quay
                                         lại
                                     </button>
                                 </div>

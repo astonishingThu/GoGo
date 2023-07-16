@@ -27,6 +27,7 @@
                     <ul class="dropdown">
                         <li><a href="GoGoLogin">Hành khách</a></li>
                         <li><a href="NhaXeGoGoLogin">Nhà xe</a></li>
+                        <li><a href="#">Admin</a></li>
                     </ul>
                 </li>
                 <li class="nav-item has-children">

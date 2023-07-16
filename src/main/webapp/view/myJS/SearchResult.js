@@ -98,6 +98,7 @@ function setSoVe(action, idLoTrinh, idGhe, giaGhe, giaLoTrinh) {
             soTien = soTien + giaVe;
             listVe.push(idGhe);
             listVeEle.innerText = listVe.toString();
+            document.getElementById("listVe").value = listVe.toString();
             soVeEle.innerText = listVe.length.toString();
             soTienEle.innerText = soTien.toString();
             break;
@@ -106,10 +107,10 @@ function setSoVe(action, idLoTrinh, idGhe, giaGhe, giaLoTrinh) {
                 return item != idGhe;
             });
             soTien = soTien - giaVe;
+            document.getElementById("listVe").value = listVe.toString();
             listVeEle.innerText = listVe.toString();
             soVeEle.innerText = listVe.length.toString();
             soTienEle.innerText = soTien.toString();
-
             break;
     }
 }

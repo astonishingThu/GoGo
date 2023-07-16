@@ -2,6 +2,11 @@ package com.gogo.swp_gogo.models;
 
 import jakarta.servlet.http.HttpServletRequest;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.List;
+
 public class KhachHang implements Account {
     private String idKhachHang;
     private String email;
@@ -10,6 +15,7 @@ public class KhachHang implements Account {
     private String hoTenLot;
     private String ten;
 
+    private VeXe veXe;
     public KhachHang(){}
 
     public KhachHang(String idKhachHang, String email, String phoneNumber, String password, String hoTenLot, String ten) {
@@ -19,6 +25,24 @@ public class KhachHang implements Account {
         this.password = password;
         this.hoTenLot = hoTenLot;
         this.ten = ten;
+    }
+
+    public void addVeXe(HttpServletRequest request){
+        System.out.println("vao ham add ve");
+        List<String> listVe = List.of(request.getAttribute("listVe").toString().split(","));
+        LocalDate ngayDatVe = LocalDate.now();
+        System.out.println("ngay dat ve .now truoc khi parse" + ngayDatVe.toString());
+//        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy/m/d");
+//        LocalDate.parse(ngayDatVe.toString(), dateTimeFormatter);
+//        System.out.println("ngay dat ve .now" + ngayDatVe.toString());
+        String idLoTrinh = request.getParameter("idLoTrinh");
+        String idKhachHang = request.getParameter("idKhachHang");
+        for (int i = 0; i < listVe.size(); i++){
+            String idVeXe = MyRandom.generateRandomId(5,"VE");
+            String idGhe = listVe.get(i);
+            VeXe veXe = new VeXe(idVeXe, 0, null, ngayDatVe, idGhe, idLoTrinh, idKhachHang, null);
+            MyQueries.addVeXe(veXe);
+        }
     }
 
     @Override
@@ -33,7 +57,6 @@ public class KhachHang implements Account {
 
     @Override
     public boolean login(HttpServletRequest request) {
-
         KhachHangLogin khachHangLogin = new KhachHangLogin(request);
         if (khachHangLogin.run()) {
             setFullInfo(MyQueries.getKhachHangByCol("email",request.getParameter("email")));

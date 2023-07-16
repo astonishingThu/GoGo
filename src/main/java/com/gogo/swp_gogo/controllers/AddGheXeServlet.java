@@ -22,7 +22,7 @@ public class AddGheXeServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        NhaXe nhaXe = MyQueries.getNhaXeByCol("idNhaXe",req.getParameter("idNhaXe"));
+        NhaXe nhaXe = MyQueries.getNhaXeByCol("idNhaXe", req.getParameter("idNhaXe"));
         nhaXe.addXe(req);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("NhaXeMainPage");
         nhaXe.setXeList(MyQueries.getAllXeOfOneNhaXeByCol("idNhaXe",nhaXe.getIdNhaXe()));

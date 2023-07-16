@@ -27,12 +27,9 @@ public class KhachHangLoginServlet extends HttpServlet {
             requestDispatcher = req.getRequestDispatcher("KhachHangMainPage");
             req.setAttribute("connection",true);
             req.setAttribute("khachHang",khachHang);
-            System.out.println("Succeeded");
-            System.out.println(khachHang);
         } else {
             requestDispatcher = req.getRequestDispatcher("/view/Login_Khach.jsp");
             req.setAttribute("connection",false);
-            System.out.println("Fail");
         }
         requestDispatcher.forward(req,resp);
     }

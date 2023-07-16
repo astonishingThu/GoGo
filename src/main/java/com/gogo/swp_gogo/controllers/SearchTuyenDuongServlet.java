@@ -22,6 +22,8 @@ public class SearchTuyenDuongServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("view/searchTuyenDuong.jsp");
+        KhachHang khachHang = MyQueries.getKhachHangByCol("idKhachHang",req.getParameter("idKhachHang"));
+        req.setAttribute("khachHang",khachHang);
         List<LoTrinh> loTrinhList= MyQueries.searchLoTrinh(req.getParameter("noiBatDau"),req.getParameter("dichDen"), LocalDate.parse(req.getParameter("ngayKhoiHanh")));
         for (LoTrinh loTrinh:loTrinhList) {
             loTrinh.setGheConTrongList(MyQueries.getGheConTrongOfXe(loTrinh.getIdLoTrinh()));
@@ -31,7 +33,6 @@ public class SearchTuyenDuongServlet extends HttpServlet {
         loTrinhInput.setThoiGianKhoiHanh(new ThoiGianKhoiHanh(LocalDate.parse(req.getParameter("ngayKhoiHanh"))));
         req.setAttribute("loTrinhInput",loTrinhInput);
         req.setAttribute("loTrinhList",loTrinhList);
-
         requestDispatcher.forward(req,resp);
     }
 }

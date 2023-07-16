@@ -48,7 +48,6 @@
     </div>
   </div>
 </nav>
-
 <section id="home-section" class="hero">
   <img src="<%=request.getContextPath()%>/view/images/blob-shape-3.svg" class="svg-blob" alt="Colorlib Free Template">
   <div class="home-slider owl-carousel">
@@ -95,6 +94,7 @@
       <div class="col-md-12">
         <div class="search-wrap-1 ftco-animate p-4">
           <form action="SearchTuyenDuong" class="search-property-1" method="post">
+            <input type="hidden" name="idKhachHang" value="${khachHang.idKhachHang}"/>
             <div class="row">
               <div class="col-lg align-items-end">
                 <div class="form-group">
