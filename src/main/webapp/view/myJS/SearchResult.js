@@ -3,6 +3,15 @@ const ttLoTrinhs = document.querySelectorAll(".ttLoTrinh");
 const soDoGhes = document.querySelectorAll(".soDoGhe");
 const nhapThongTins = document.querySelectorAll(".nhapThongTin");
 const tiepTheo = document.getElementById("tiepTheo");
+function handleThanhToan (idKhachHang){
+    const thanhToanBtn = document.getElementById("thanhToan-Btn");
+    if (idKhachHang == null){
+        alert("Vui lòng đăng ký để thực hiện thanh toán");
+        thanhToanBtn.setAttribute("type", "button");
+    } else {
+        thanhToanBtn.setAttribute("type", "submit");
+    }
+}
 // Vé đang chọn
 let listVe = [];
 let soTien = 0;

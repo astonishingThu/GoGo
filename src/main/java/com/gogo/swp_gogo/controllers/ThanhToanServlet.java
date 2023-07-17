@@ -27,15 +27,8 @@ public class ThanhToanServlet extends HttpServlet {
         req.setAttribute("idLoTrinh", req.getParameter("idLoTrinh"));
         req.setAttribute("idKhachHang", req.getParameter("idKhachHang"));
         khachHang.addVeXe(req);
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/view/ThanhToan.jsp");
-            requestDispatcher.forward(req,resp);
-//        try{
-//        } catch (Exception e){
-//            System.out.println("Vui long dang nhap de thanh toan");
-//            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/GoGoLogin");
-//            requestDispatcher.forward(req,resp);
-//        }
-
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/view/ThanhToan.jsp");
+        requestDispatcher.forward(req,resp);
     }
 }
 

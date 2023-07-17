@@ -49,7 +49,7 @@
                                 <span> ${khachHang.ten}</span></a>
                             <ul class="dropdown">
                                 <li><a href="${pageContext.request.contextPath}/view/VeCuaToi.jsp">Vé của tôi</a></li>
-                                <li><a href="${pageContext.request.contextPath}/index.jsp">Logout</a></li>
+                                <li><a href="${pageContext.request.contextPath}/index.jsp">Đăng xuất</a></li>
                             </ul>
                         </li>
                     </c:when>
@@ -196,9 +196,6 @@
 
 <section class="ftco-section ftco-services-2 ftco-no-pt">
     <div class="container">
-        <c:if test="${loTrinhList.size() == 0}">
-            <div class="thongbao">Không tìm thấy tuyến xe phù hợp!</div>
-        </c:if>
         <c:forEach var="loTrinh" items="${loTrinhList}">
             <div class="row">
                 <div class="col-md-10 mb-5">
@@ -208,14 +205,9 @@
                         </div>
                         <div class="col-md-6 ftco-animate">
                             <div class="text text-center">
-                                <h3 class="tenNhaXe">${loTrinh.nhaXe.tenNhaXe}<span class="rating">4.0<span
-                                        class="icon-star"></span></span>
+                                <h3 class="tenNhaXe">${loTrinh.nhaXe.tenNhaXe}<span class="rating">4.0<span class="icon-star"></span></span>
                                 </h3>
-                                <p class="mota-xe">
-                                        ${loTrinh.xe.loaiXe} - <span class="price"> <span
-                                        id="soGhe${loTrinh.idLoTrinh}">${loTrinh.xe.soLuongGhe}</span> chỗ</span> -
-                                    <span>${loTrinh.xe.moTa}</span>
-                                </p>
+                                <p class="mota-xe"> ${loTrinh.xe.loaiXe} - <span class="price" id= "soGhe${loTrinh.idLoTrinh}">${loTrinh.xe.soLuongGhe}</span> chỗ - <span>${loTrinh.xe.moTa}</span></p>
                             </div>
                             <div class="loTrinh-xe">
                                 <div class="xuatPhat">
@@ -234,16 +226,15 @@
                                 </div>
                             </div>
                             <div class="ttct-btn" onclick="openTTCT('${loTrinh.idLoTrinh}')">
-                                Thông tin chi tiết
-                                <span class="ion-ios-arrow-dropdown"></span>
+                                Thông tin chi tiết <span class="ion-ios-arrow-dropdown"></span>
                             </div>
                         </div>
                         <div class="col-md-3 ftco-animate dsLoTrinh">
                             <div class="giaVe text-center">${loTrinh.giaLoTrinh} VNĐ</div>
                             <p class="choTrong  text-center m-0">${loTrinh.gheConTrongList.size()} chỗ trống</p>
                             <a class="btn btn-black btn-chonCho"
-                               onclick="openSoDo('${loTrinh.idLoTrinh}','${loTrinh.gheConTrongListStr}','${loTrinh.giaLoTrinh}')"
-                               href="#soDoGhe">CHỌN CHỖ</a>
+                               onclick="openSoDo('${loTrinh.idLoTrinh}','${loTrinh.gheConTrongListStr}','${loTrinh.giaLoTrinh}')" href="#soDoGhe">CHỌN CHỖ
+                            </a>
                         </div>
                     </div>
                     <div id="ttct${loTrinh.idLoTrinh}" class="ttct">
@@ -256,20 +247,16 @@
                                            onclick="hienthi('hinhanh')">Hình ảnh</a>
                                     </li>
                                     <li class="page-item">
-                                        <a class="page-link" href="#tienich" onclick="hienthi('tienich')">Tiện
-                                            ích</a>
+                                        <a class="page-link" href="#tienich" onclick="hienthi('tienich')">Tiện ích</a>
                                     </li>
                                     <li class="page-item">
-                                        <a class="page-link" href="#diemdontra" onclick="hienthi('diemdontra')">Điểm
-                                            đón trả</a>
+                                        <a class="page-link" href="#diemdontra" onclick="hienthi('diemdontra')">Điểm đón trả</a>
                                     </li>
                                     <li class="page-item">
-                                        <a class="page-link" href="#chinhsach" onclick="hienthi('chinhsach')">Chính
-                                            sách</a>
+                                        <a class="page-link" href="#chinhsach" onclick="hienthi('chinhsach')">Chính sách</a>
                                     </li>
                                     <li class="page-item">
-                                        <a class="page-link" href="#danhgia" onclick="hienthi('danhgia')">Đánh
-                                            giá</a>
+                                        <a class="page-link" href="#danhgia" onclick="hienthi('danhgia')">Đánh giá</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -294,13 +281,11 @@
                                    data-slide="prev">
                                         <span class="carousel-control-prev-icon carousel-control"
                                               aria-hidden="false"></span>
-                                        <%--                                <span class="sr-only">Previous</span>--%>
                                 </a>
                                 <a class="carousel-control-next" href="#carouselExampleControls" role="button"
                                    data-slide="next">
                                         <span class="carousel-control-next-icon carousel-control"
                                               aria-hidden="false"></span>
-                                        <%--                                <span class="sr-only">Next</span>--%>
                                 </a>
                             </div>
                         </div>
@@ -351,7 +336,7 @@
                                     <span class="text-center">Đã đặt</span>
                                 </div>
                                 <div class="col-md-12 pt-2">
-                                    <div><span id="soVe${loTrinh.idLoTrinh}"></span> vé:
+                                    <div><span id="soVe${loTrinh.idLoTrinh}">0</span> vé:
                                         <span id="listVe${loTrinh.idLoTrinh}"></span></div>
                                     <div><span>Tổng tiền: </span><span id="soTien${loTrinh.idLoTrinh}"
                                                                        class="soTien"> 0</span> VND
@@ -415,23 +400,22 @@
                                     <input type="text" placeholder="Tên người đi" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label>Số điện thoại<span class="star"> *</span></label>
+                                    <label>Số điện thoại <span class="star"> *</span></label>
                                     <input type="number" placeholder="Nhập số điện thoại" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label>Email để nhận thông tin vé<span class="star"> *</span></label>
+                                    <label>Email để nhận thông tin vé <span class="star"> *</span></label>
                                     <input placeholder="Email nhận thông tin vé" class="form-control">
                                 </div>
                             </div>
                             <div class="row col-md-12 justify-content-between">
                                 <div class="col-md-3">
                                     <button type="button" class="btn btn-secondary w-100"
-                                            onclick="openTtLoTrinh('${loTrinh.idLoTrinh}')">Quay
-                                        lại
+                                            onclick="openTtLoTrinh('${loTrinh.idLoTrinh}')">Quay lại
                                     </button>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="submit" class="btn btn-primary w-100" value="Thanh toán">
+                                    <button type="submit" class="btn btn-primary w-100" id="thanhToan-Btn" onclick="handleThanhToan(${khachHang.idKhachHang})">Thanh Toán</button>
                                 </div>
                             </div>
                         </div>
@@ -441,20 +425,24 @@
         </c:forEach>
     </div>
 </section>
-<nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-        <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1">Trước</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-            <a class="page-link" href="#">Sau</a>
-        </li>
-    </ul>
-</nav>
-<!-- .section -->
+
+<%--Phân trang dựa vào số lượng tuyến đường tìm được--%>
+<c:choose >
+    <c:when test="${loTrinhList.size() == 0}"><div class="thongbao">Không tìm thấy tuyến xe phù hợp!</div></c:when>
+    <c:when test="${loTrinhList.size() != 0}">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Trước</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#page1">1</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Sau</a>
+                </li>
+            </ul>
+        </nav>
+    </c:when>
+</c:choose>
 
 <div id="ftco-loader" class="show fullscreen">
     <svg class="circular" width="48px" height="48px">

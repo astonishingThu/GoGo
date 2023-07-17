@@ -1,53 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ASUS
-  Date: 07-Jun-23
-  Time: 10:08 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:include page="Head.jsp"></jsp:include>
-<jsp:useBean id="khachHang" class="com.gogo.swp_gogo.models.KhachHang" scope="request"/>
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
-     id="ftco-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="view/index.html">GoGo</a>
-    <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
-            data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="oi oi-menu"></span> Menu
-    </button>
-
-    <div class="collapse navbar-collapse" id="ftco-nav">
-      <ul class="navbar-nav nav ml-auto">
-        <li class="nav-item"><a href="#home-section" class="nav-link"><span>Trang chủ</span></a></li>
-        <li class="nav-item"><a href="#tuyenDuong" class="nav-link"><span>Tuyến đường</span></a></li>
-        <li class="nav-item"><a href="#uuDai" class="nav-link"><span>Ưu đãi</span></a></li>
-        <li class="nav-item has-children">
-          <a class="nav-link" id="logout">
-            <icon class="icon-account_circle"></icon>
-            <span> ${khachHang.ten}</span></a>
-          <ul class="dropdown">
-            <li><a href="${pageContext.request.contextPath}/view/VeCuaToi.jsp">Vé của tôi</a></li>
-            <li><a href="${pageContext.request.contextPath}/index.jsp">Đăng xuất</a></li>
-          </ul>
-        </li>
-        <%--                <li class="nav-item has-children">--%>
-        <%--                    <a class="nav-link" id="logout">--%>
-        <%--                        <icon class="icon-account_circle"></icon>--%>
-        <%--                        <span> Bao Ngoc </span></a>--%>
-        <%--                    <ul class="dropdown">--%>
-        <%--                        <li><a href="${pageContext.request.contextPath}/index.jsp">Logout</a></li>--%>
-        <%--                    </ul>--%>
-        <%--                </li>--%>
-        <!-- <li class="nav-item"><a href="#destination-section" class="nav-link"><span>Destination</span></a></li>
-        <li class="nav-item"><a href="#restaurant-section" class="nav-link"><span>Restaurant</span></a></li>
-        <li class="nav-item"><a href="#blog-section" class="nav-link"><span>Blog</span></a></li>
-        <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li> -->
-      </ul>
-    </div>
-  </div>
-</nav>
 <section id="home-section" class="hero">
   <img src="<%=request.getContextPath()%>/view/images/blob-shape-3.svg" class="svg-blob" alt="Colorlib Free Template">
   <div class="home-slider owl-carousel">
@@ -94,7 +45,6 @@
       <div class="col-md-12">
         <div class="search-wrap-1 ftco-animate p-4">
           <form action="SearchTuyenDuong" class="search-property-1" method="post">
-            <input type="hidden" name="idKhachHang" value="${khachHang.idKhachHang}"/>
             <div class="row">
               <div class="col-lg align-items-end">
                 <div class="form-group">

@@ -41,7 +41,7 @@
                 <li class="nav-item has-children">
                     <a class="nav-link" id="logout"><icon class="icon-account_circle"> </icon><span> ${nhaXe.tenNhaXe}</span></a>
                     <ul class="dropdown">
-                        <li><a href="${pageContext.request.contextPath}/index.jsp">Logout</a></li>
+                        <li><a href="${pageContext.request.contextPath}/index.jsp">Đăng xuất</a></li>
                     </ul>
                 </li>
             </ul>
