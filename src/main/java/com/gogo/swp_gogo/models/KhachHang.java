@@ -15,7 +15,7 @@ public class KhachHang implements Account {
     private String hoTenLot;
     private String ten;
 
-    private VeXe veXe;
+    private List<VeXe> veXeList;
     public KhachHang(){}
 
     public KhachHang(String idKhachHang, String email, String phoneNumber, String password, String hoTenLot, String ten) {
@@ -32,9 +32,6 @@ public class KhachHang implements Account {
         List<String> listVe = List.of(request.getAttribute("listVe").toString().split(","));
         LocalDate ngayDatVe = LocalDate.now();
         System.out.println("ngay dat ve .now truoc khi parse" + ngayDatVe.toString());
-//        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy/m/d");
-//        LocalDate.parse(ngayDatVe.toString(), dateTimeFormatter);
-//        System.out.println("ngay dat ve .now" + ngayDatVe.toString());
         String idLoTrinh = request.getParameter("idLoTrinh");
         String idKhachHang = request.getParameter("idKhachHang");
         for (int i = 0; i < listVe.size(); i++){
@@ -53,6 +50,14 @@ public class KhachHang implements Account {
             MyQueries.addKhachHang(this);
             return true;
         } else return false;
+    }
+
+    public List<VeXe> getVeXeList() {
+        return veXeList;
+    }
+
+    public void setVeXeList(List<VeXe> veXeList) {
+        this.veXeList = veXeList;
     }
 
     @Override

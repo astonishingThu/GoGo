@@ -81,7 +81,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="message">Mô tả</label>
+                        <label for="message">Mô tả <span class="star">*</span></label>
                         <textarea name="moTa" id="message" cols="30" rows="2" class="form-control"></textarea>
                     </div>
                     <div class="form-group">
@@ -108,7 +108,6 @@
                 </div>
             </form>
         </div>
-
     </div>
 </div>
 
@@ -151,7 +150,7 @@
                                 <div class="text">
                                     <h3>${xe.idXe}</h3>
                                     <p class="pos">
-                                        Giường nằm - <span class="price"> ${xe.gheXeList[3].giaGhe} </span> - 42 chỗ
+                                        Giường nằm - ${xe.soLuongGhe}
                                     </p>
                                     <p>${xe.moTa}</p>
                                     <p>
@@ -177,7 +176,7 @@
                                     <div class="dichDen">Đà Nẵng</div>
                                 </div>
                             </div>
-                            <div class="del-cf js-del-cf" id="">
+                            <div class="del-cf js-del-cf" id="${xe.idNhaXe}del-cf">
                                 Bạn muốn xóa xe này? <br/>
                                 <button onclick="window.location.href='RemoveXe?idXe=${xe.idXe}&idNhaXe=${nhaXe.idNhaXe}#xe'"
                                         class="btn btn-primary js-del">

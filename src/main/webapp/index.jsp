@@ -35,6 +35,8 @@
                     <ul class="dropdown">
                         <li><a href="GoGoSignup">Hành khách</a></li>
                         <li><a href="GoGoNhaXeSignup">Nhà xe</a></li>
+                        <li><a href="#">Admin</a></li>
+
                     </ul>
                 </li>
                 <%--                <li class="nav-item has-children">--%>

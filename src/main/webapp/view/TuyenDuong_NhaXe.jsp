@@ -154,7 +154,6 @@
 
                         <div class="form-group col-md-6">
                             <label>Nơi đến *</label>
-<%--                            <input type="text" class="form-control" id="name" name="dichDen"/>--%>
                             <select name= "dichDen" class="form-control">
                                 <option value="An Giang">An Giang
                                 <option value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu
@@ -297,8 +296,8 @@
             <thead>
             <tr>
                 <th scope="col">Id Lộ Trình</th>
-                <th scope="col">Điểm đi</th>
-                <th scope="col">Điểm đến</th>
+                <th scope="col">Điểm đi </th>
+                <th scope="col"> Điểm đến</th>
                 <th scope="col">Thời điểm xuất phát</th>
                 <th scope="col">Ngày khởi hành</th>
                 <th scope="col">Thời gian di chuyển(phút)</th>
@@ -318,31 +317,19 @@
                     <td>${loTrinh.khoangThoiGianDiChuyen}</td>
                     <td>${loTrinh.giaLoTrinh}</td>
                     <td>${loTrinh.xe.idXe}</td>
-                    <td><button onclick="window.location.href='RemoveLoTrinh?idLoTrinh=${loTrinh.idLoTrinh}&idNhaXe=${nhaXe.idNhaXe}'" class="btn btn-primary js-del">
-                    </button></td>
-                        <%--                <td><span class="icon-edit"> | </span><span class="icon-trash"> </span></td>--%>
+                    <td>
+                        <button onclick="window.location.href='RemoveLoTrinh?idLoTrinh=${loTrinh.idLoTrinh}&idNhaXe=${nhaXe.idNhaXe}'" class="btn btn-primary js-del">
+                        <span class="icon-trash"> </span>
+                        </button>
+                        <button class="btn btn-primary js-del">
+                        <span class="icon-edit"> </span>
+                        </button>
+                        <button onclick="window.location.href='RemoveLoTrinh?idLoTrinh=${loTrinh.idLoTrinh}&idNhaXe=${nhaXe.idNhaXe}'" class="btn btn-primary js-del">
+                        <span class="icon-people"> </span>
+                        </button>
+                    </td>
                 </tr>
             </c:forEach>
-
-<%--            <tr>--%>
-<%--                <th scope="row"></span> TU0011 </span></th>--%>
-<%--                <td>Mark</td>--%>
-<%--                <td>Otto</td>--%>
-<%--                <td>@mdo</td>--%>
-<%--                <td>@mdo</td>--%>
-<%--                <td>@mdo</td>--%>
-<%--                <td><span class="icon-edit"> | </span><span class="icon-trash"> </span></td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <th scope="row"></span> TU0011 </span></th>--%>
-<%--                <td>Mark</td>--%>
-<%--                <td>Otto</td>--%>
-<%--                <td>@mdo</td>--%>
-<%--                <td>@mdo</td>--%>
-<%--                <td>@mdo</td>--%>
-<%--                <td><span class="icon-edit"> | </span><span class="icon-trash"> </span></td>--%>
-<%--            </tr>--%>
-
             </tbody>
         </table>
         <div class="col-md-12 ">
@@ -351,9 +338,7 @@
             </p>
         </div>
     </div>
-
-
-    <!-- loader -->
+        <!-- loader -->
     <div id="ftco-loader" class="show fullscreen">
         <svg class="circular" width="48px" height="48px">
             <circle
