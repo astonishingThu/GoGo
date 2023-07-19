@@ -48,7 +48,7 @@
                                 <icon class="icon-account_circle"></icon>
                                 <span> ${khachHang.ten}</span></a>
                             <ul class="dropdown">
-                                <li><a href="${pageContext.request.contextPath}/view/VeCuaToi.jsp">Vé của tôi</a></li>
+                                <li><a href="${pageContext.request.contextPath}/view/UserInfo.jsp">Vé của tôi</a></li>
                                 <li><a href="${pageContext.request.contextPath}/index.jsp">Đăng xuất</a></li>
                             </ul>
                         </li>

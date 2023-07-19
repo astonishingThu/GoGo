@@ -167,11 +167,11 @@
                                             <option value="Vĩnh Phúc">Vĩnh Phúc
                                             <option value="Yên Bái">Yên Bái
                                             <option value="Phú Yên">Phú Yên
-                                            <option value="Tp.Cần Thơ">Tp.Cần Thơ
-                                            <option value="Tp.Đà Nẵng">Tp.Đà Nẵng
-                                            <option value="Tp.Hải Phòng">Tp.Hải Phòng
-                                            <option value="Tp.Hà Nội">Tp.Hà Nội
-                                            <option value="TP  HCM">TP HCM
+                                            <option value="Cần Thơ">Tp.Cần Thơ
+                                            <option value="Đà Nẵng">Tp.Đà Nẵng
+                                            <option value="Hải Phòng">Tp.Hải Phòng
+                                            <option value="Hà Nội">Tp.Hà Nội
+                                            <option value="HCM">TP HCM
                                         </datalist>
                                     </div>
                                 </div>

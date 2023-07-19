@@ -9,6 +9,7 @@
 <jsp:include page="Head.jsp"></jsp:include>
 <jsp:useBean id="khachHang" class="com.gogo.swp_gogo.models.KhachHang" scope="request"/>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+<h1>${khachHang.idKhachHang}</h1>
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
      id="ftco-navbar">
   <div class="container">
@@ -28,7 +29,7 @@
             <icon class="icon-account_circle"></icon>
             <span> ${khachHang.ten}</span></a>
           <ul class="dropdown">
-            <li><a href="${pageContext.request.contextPath}/view/VeCuaToi.jsp">Vé của tôi</a></li>
+            <li><a href="khachHangDashboard">Thông tin khách hàng</a></li>
             <li><a href="${pageContext.request.contextPath}/index.jsp">Đăng xuất</a></li>
           </ul>
         </li>
