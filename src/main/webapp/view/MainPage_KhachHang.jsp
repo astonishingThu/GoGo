@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="Head.jsp"></jsp:include>
-<jsp:useBean id="khachHang" class="com.gogo.swp_gogo.models.KhachHang" scope="request"/>
+<jsp:useBean id="khachHang" class="com.gogo.swp_gogo.models.KhachHang" scope="application"/>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
      id="ftco-navbar">
@@ -28,22 +28,10 @@
             <icon class="icon-account_circle"></icon>
             <span> ${khachHang.ten}</span></a>
           <ul class="dropdown">
-            <li><a href="${pageContext.request.contextPath}/view/VeCuaToi.jsp">Vé của tôi</a></li>
+            <li><a href="VeCuaToi?idKH=${khachHang.idKhachHang}">Vé của tôi</a></li>
             <li><a href="${pageContext.request.contextPath}/index.jsp">Đăng xuất</a></li>
           </ul>
         </li>
-        <%--                <li class="nav-item has-children">--%>
-        <%--                    <a class="nav-link" id="logout">--%>
-        <%--                        <icon class="icon-account_circle"></icon>--%>
-        <%--                        <span> Bao Ngoc </span></a>--%>
-        <%--                    <ul class="dropdown">--%>
-        <%--                        <li><a href="${pageContext.request.contextPath}/index.jsp">Logout</a></li>--%>
-        <%--                    </ul>--%>
-        <%--                </li>--%>
-        <!-- <li class="nav-item"><a href="#destination-section" class="nav-link"><span>Destination</span></a></li>
-        <li class="nav-item"><a href="#restaurant-section" class="nav-link"><span>Restaurant</span></a></li>
-        <li class="nav-item"><a href="#blog-section" class="nav-link"><span>Blog</span></a></li>
-        <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li> -->
       </ul>
     </div>
   </div>

@@ -5,6 +5,52 @@ import java.util.Date;
 
 public class VeXe
 {
+    private String gioKhoiHanh;
+    private String ngayKhoiHanh;
+    private String diemDi;
+    private String diemDen;
+    private String tenNhaXe;
+
+    public String getGioKhoiHanh() {
+        return gioKhoiHanh;
+    }
+
+    public void setGioKhoiHanh(String gioKhoiHanh) {
+        this.gioKhoiHanh = gioKhoiHanh;
+    }
+
+    public String getNgayKhoiHanh() {
+        return ngayKhoiHanh;
+    }
+
+    public void setNgayKhoiHanh(String ngayKhoiHanh) {
+        this.ngayKhoiHanh = ngayKhoiHanh;
+    }
+
+    public String getDiemDi() {
+        return diemDi;
+    }
+
+    public void setDiemDi(String diemDi) {
+        this.diemDi = diemDi;
+    }
+
+    public String getDiemDen() {
+        return diemDen;
+    }
+
+    public void setDiemDen(String diemDen) {
+        this.diemDen = diemDen;
+    }
+
+    public String getTenNhaXe() {
+        return tenNhaXe;
+    }
+
+    public void setTenNhaXe(String tenNhaXe) {
+        this.tenNhaXe = tenNhaXe;
+    }
+
     private String idVeXe;
     private int rating;
     private String comment;

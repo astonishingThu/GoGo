@@ -26,9 +26,6 @@
                 <input class="col-md-12" type="password" id="password" name="password" required/>
                 <small></small>
             </div>
-
-            <p class="alter">Quên mật khẩu?</p>
-
             <button type="submit" class="btn btn-primary py-3 px-5 py-2 px-5 mt-2 col-md-12 mb-4">
                 Đăng nhập
             </button>
