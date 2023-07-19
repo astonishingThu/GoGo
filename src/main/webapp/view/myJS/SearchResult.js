@@ -257,8 +257,7 @@ function hienthi(field) {
 
 function validateGhe() {
     let isCheck = true;
-    let listGhe = document.querySelectorAll(".ghe[target]");
-    if (listGhe.length === 0) {
+    if (listVe.length === 0) {
         isCheck = false;
         tiepTheo.parentNode.querySelector("small").innerText = "Bạn chưa chọn ghế";
     }
