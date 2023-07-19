@@ -34,7 +34,7 @@ function validateSignUp() {
 
 function validateEmail() {
     let isCheck = true;
-    let format = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let format = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!format.test(email.value)) {
         isCheck = false;
         setError(email,"Vui lòng nhập đúng định dạng!");
@@ -56,7 +56,7 @@ function validatePassword() {
 
 function validateSoDienThoai() {
     let isCheck = true;
-    let format = /(((\+|)84)|0)(3|5|7|8|9)+([0-9]{8})\b/;
+    let format = /(((\+|)84)|0)([35789])+([0-9]{8})\b/;
     if (!format.test(phoneNumber.value)) {
         isCheck = false;
         setError(phoneNumber, "Vui lòng nhập đúng định dạng!");
