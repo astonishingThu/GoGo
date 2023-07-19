@@ -72,20 +72,21 @@ modal__closer.addEventListener("click", closeModal);
 modal__opener.addEventListener("click", openModal);
 
 // --------------- Tắt bật Overlay ------------------------
-$(document).ready(function () {
-    $(".js-del").click(function () {
-        $(".js-del-cf").hide();
-        $(".xe-overlay").hide();
-    });
-    $(".js-cancel").click(function () {
-        $(".js-del-cf").hide();
-        $(".xe-overlay").hide();
-    });
-    $(".js-del-cf-btn").click(function () {
-        $(".js-del-cf").show();
-        $(".xe-overlay").show();
-    });
-});
+
+function batOverlayXoa(idXe) {
+    let xe = $("#"+idXe);
+    let xeOverlay = $("#xe-overlay"+idXe);
+    xe.show();
+    xeOverlay.show();
+}
+
+function tatOverlayXoa(idXe) {
+    let xe = $("#"+idXe);
+    let xeOverlay = $("#xe-overlay"+idXe);
+    xe.hide();
+    xeOverlay.hide();
+}
+
 xemSoDo.addEventListener("click", function () {
     let isValid = validateSoGhe();
     if (isValid) {

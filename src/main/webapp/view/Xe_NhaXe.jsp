@@ -155,7 +155,7 @@
                                     <p>${xe.moTa}</p>
                                     <p>
                                         <button class="btn btn-secondary">Chỉnh sửa</button>
-                                        <button class="btn btn-primary js-del-cf-btn" id=${xe.idXe}>Xóa</button>
+                                        <button class="btn btn-primary" onclick="batOverlayXoa('${xe.idXe}')">Xóa</button>
                                     </p>
                                 </div>
                             </div>
@@ -176,15 +176,15 @@
                                     <div class="dichDen">Đà Nẵng</div>
                                 </div>
                             </div>
-                            <div class="del-cf js-del-cf" id="${xe.idNhaXe}del-cf">
+                            <div class="del-cf" id="${xe.idXe}">
                                 Bạn muốn xóa xe này? <br/>
                                 <button onclick="window.location.href='RemoveXe?idXe=${xe.idXe}&idNhaXe=${nhaXe.idNhaXe}#xe'"
                                         class="btn btn-primary js-del">
                                     Xóa
                                 </button>
-                                <button class="btn btn-black js-cancel">Hủy</button>
+                                <button class="btn btn-black js-cancel" onclick="tatOverlayXoa('${xe.idXe}')">Hủy</button>
                             </div>
-                            <div class="xe-overlay"></div>
+                            <div id="xe-overlay${xe.idXe}" class="xe-overlay"></div>
                         </div>
                     </div>
 
