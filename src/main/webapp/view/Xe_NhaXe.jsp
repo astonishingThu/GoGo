@@ -82,7 +82,7 @@
 
                     <div class="form-group">
                         <label for="message">Mô tả <span class="star">*</span></label>
-                        <textarea name="moTa" id="message" cols="30" rows="2" class="form-control"></textarea>
+                        <textarea name="moTa" id="message" cols="30" rows="2" class="form-control">Mô tả</textarea>
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Thêm xe" class="btn py-3 px-5 btn-primary" id="themXe"/>
@@ -219,5 +219,6 @@
 <script src="${resourcePath}js/google-map.js"></script>
 <script src="${resourcePath}js/main.js"></script>
 <script src="${resourcePath}myJS/Xe_NhaXe.js"></script>
+<script src="${resourcePath}myJS/Validate.js"></script>
 </body>
 </html>

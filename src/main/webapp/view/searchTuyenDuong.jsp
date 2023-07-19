@@ -397,15 +397,18 @@
                             <div class="col-md-8 flex-column">
                                 <div class="form-group">
                                     <label>Họ tên<span class="star"> *</span></label>
-                                    <input type="text" placeholder="Tên người đi" class="form-control">
+                                    <input type="text" placeholder="Tên người đi" id="tenNguoiDi" class="form-control" required >
+                                    <small></small>
                                 </div>
                                 <div class="form-group">
                                     <label>Số điện thoại <span class="star"> *</span></label>
-                                    <input type="number" placeholder="Nhập số điện thoại" class="form-control">
+                                    <input type="telNo" placeholder="Nhập số điện thoại" id="soDienThoai" class="form-control" required>
+                                    <small></small>
                                 </div>
                                 <div class="form-group">
                                     <label>Email để nhận thông tin vé <span class="star"> *</span></label>
-                                    <input placeholder="Email nhận thông tin vé" class="form-control">
+                                    <input placeholder="Email nhận thông tin vé" id="email" class="form-control" required>
+                                    <small></small>
                                 </div>
                             </div>
                             <div class="row col-md-12 justify-content-between">
@@ -415,7 +418,7 @@
                                     </button>
                                 </div>
                                 <div class="col-md-3">
-                                    <button type="submit" class="btn btn-primary w-100" id="thanhToan-Btn" onclick="handleThanhToan(${khachHang.idKhachHang})">Thanh Toán</button>
+                                    <button type="button" class="btn btn-primary w-100" id="thanhToan-Btn" onclick="handleThanhToan(${khachHang.idKhachHang})">Thanh Toán</button>
                                 </div>
                             </div>
                         </div>
@@ -468,5 +471,6 @@
 <script src="${resourcePath}js/google-map.js"></script>
 <script src="${resourcePath}js/main.js"></script>
 <script src="${resourcePath}myJS/SearchResult.js"></script>
+<script src="${resourcePath}myJS/Validate.js"></script>
 </body>
 </html>

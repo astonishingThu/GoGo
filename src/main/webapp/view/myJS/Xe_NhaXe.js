@@ -100,14 +100,7 @@ themXe.addEventListener("click", function () {
 });
 
 // ----------------- VALIDATE DỮ LIỆU -------------------
-function setError(ele, message) {
-    ele.classList.add('alert-danger');
-    ele.parentNode.querySelector('small').innerText = message;
-}
-function setSuccess(ele) {
-    ele.classList.add('alert-success');
-    ele.parentNode.querySelector('small').innerText = "";
-}
+
 function validateSoGhe() {
     let isCheck = true;
     let soGhe = document.getElementById("soGhe");
