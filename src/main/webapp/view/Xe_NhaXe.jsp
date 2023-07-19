@@ -144,7 +144,7 @@
                     <div class="col-md-12">
                         <div class="row xe" id="xe">
                             <div class="col-md-3 ftco-animate">
-                                <img src="${resourcePath}images/about.jpg" class="ill img-fluid"/>
+                                <img src="${resourcePath}images/vinbus.png" class="ill img-fluid"/>
                             </div>
                             <div class="col-md-5 ftco-animate">
                                 <div class="text">
