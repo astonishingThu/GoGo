@@ -76,16 +76,16 @@ function validateTuyenDuong() {
     let thoiGianDiChuyen = document.getElementById("thoiGianDiChuyen");
     let giaVe = document.getElementById("giaVe");
     let isCheck = true;
-    if (diemDon === "") {
+    if (diemDon.value === "") {
         setError(diemDon, "Điểm đón không được bỏ trống");
         isCheck = false;
-    } else if (diemTra === "") {
+    } else if (diemTra.value === "") {
         setError(diemTra, "Điểm trả không được bỏ trống");
         isCheck = false
-    } else if (thoiGianDiChuyen === "") {
+    } else if (thoiGianDiChuyen.value === "") {
         setError(thoiGianDiChuyen, "Thời gian di chuyển không được bỏ trống");
         isCheck = false;
-    } else if (giaVe === "") {
+    } else if (giaVe.value === "") {
         setError(giaVe, "Giá vé không được bỏ trống");
         isCheck = false;
     }

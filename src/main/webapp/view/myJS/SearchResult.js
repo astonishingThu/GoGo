@@ -5,12 +5,59 @@ const nhapThongTins = document.querySelectorAll(".nhapThongTin");
 const tiepTheo = document.getElementById("tiepTheo");
 function handleThanhToan (idKhachHang){
     const thanhToanBtn = document.getElementById("thanhToan-Btn");
-    if (idKhachHang == null){
-        alert("Vui lòng đăng ký để thực hiện thanh toán");
-        thanhToanBtn.setAttribute("type", "button");
-    } else {
-        thanhToanBtn.setAttribute("type", "submit");
+    let isValid = validateNhapThongTin();
+    if (isValid) {
+        if (idKhachHang == null){
+            alert("Vui lòng đăng ký để thực hiện thanh toán");
+            thanhToanBtn.setAttribute("type", "button");
+        } else {
+            thanhToanBtn.setAttribute("type", "submit");
+        }
     }
+}
+
+function validateEmail() {
+    let isCheck = true;
+    let email = document.getElementById("email");
+    let format = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!format.test(email.value)) {
+        isCheck = false;
+        setError(email,"Email không đúng định dạng");
+    } return isCheck;
+}
+function validateSoDienThoai() {
+    let isCheck = true;
+    let soDienThoai = document.getElementById("soDienThoai");
+    let format = /(((\+|)84)|0)(3|5|7|8|9)+([0-9]{8})\b/;
+    if (!format.test(soDienThoai.value)) {
+        isCheck = false;
+        setError(soDienThoai, "Số điện thoại không đúng định dạng ở Việt Nam");
+    } return isCheck;
+}
+function validateNhapThongTin() {
+    let isCheck = true;
+    let tenNguoiDi = document.getElementById("tenNguoiDi");
+    let soDienThoai = document.getElementById("soDienThoai");
+    let email = document.getElementById("email");
+    if (tenNguoiDi.value === "") {
+        setError(tenNguoiDi,"Tên người đi không được bỏ trống");
+        isCheck = false;
+    } else if (soDienThoai.value === "") {
+        setError(soDienThoai,"Số điện thoại không được bỏ trống");
+        isCheck = false;
+    } else if (!validateSoDienThoai()) {
+        isCheck = false;
+    } else if (validateSoDienThoai()) {
+        setSuccess(soDienThoai);
+        isCheck = true;
+    }
+    else if (email.value === "") {
+        setError(email,"Email không được bỏ trống");
+        isCheck = false;
+    } else if (!validateEmail()) {
+        isCheck = false;
+    }
+    return isCheck;
 }
 // Vé đang chọn
 let listVe = [];
@@ -27,7 +74,7 @@ function openSoDo(idLoTrinh, listTrongStr, giaLoTrinh) {
     // Chuyển String thành mảng trong mảng
     console.log(listTrongStr);
     let listTrong = listTrongStr.split(",");
-       for (i = 0; i < listTrong.length; i++){
+       for (let i = 0; i < listTrong.length; i++){
         listTrong[i] = {
             idGhe: listTrong[i].split(":")[0],
             giaGhe: listTrong[i].split(":")[1]
@@ -239,11 +286,6 @@ function closeNhapThongTin() {
     for (let nhapThongTin of nhapThongTins) {
         nhapThongTin.classList.remove("open");
     }
-}
-
-function chonLoTrinh(idLoTrinh) {
-    closeSoDoGhe();
-    openTtLoTrinh(idLoTrinh);
 }
 
 function nhapThongTin(idLoTrinh) {

@@ -364,7 +364,7 @@
     </div>
 </section>
 <script src="${resourcePath}myJS/TuyenDuong_NhaXe.js"></script>
-<script src="${resourcePath}myJS/Xe_NhaXe.js"></script>
+<script src="${resourcePath}myJS/Validate.js"></script>
 <script src="${resourcePath}js/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="${resourcePath}js/jquery-migrate-3.0.1.min.js"></script>
