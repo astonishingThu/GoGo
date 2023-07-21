@@ -41,6 +41,22 @@ public class MyQueries {
         }
     }
 
+    public static void addNhaXe(NhaXe nhaXe) {
+        Connection connection = getConnection();
+        try {
+            PreparedStatement statement = connection.prepareStatement("Insert Into GoGo.dbo.NhaXe(idNhaXe,tenNhaXe,username,password,adminUsername) Values(?,?,?,?,?)");
+            statement.setString(1, nhaXe.getIdNhaXe());
+            statement.setString(2, nhaXe.getTenNhaXe());
+            statement.setString(3, nhaXe.getUsername());
+            statement.setString(4, nhaXe.getPassword());
+            statement.setString(5, nhaXe.getAdminUsername());
+            statement.executeUpdate();
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static void addXe(Xe xe) {
         Connection connection = getConnection();
         try {
@@ -321,6 +337,22 @@ public class MyQueries {
         return null;
     }
 
+    public static Admin getAdminBy(String col, String data) {
+        Connection connection = getConnection();
+        try {
+            PreparedStatement statement = connection.prepareStatement("Select * from GoGo.dbo.Admin where " + col + " = ?");
+            statement.setString(1, data);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                return new Admin(resultSet.getString("username"), resultSet.getString("password"));
+            }
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
 
     public static List<Xe> getAllXeOfOneNhaXeByCol(String col, String data) {
         Connection connection = getConnection();
@@ -333,6 +365,23 @@ public class MyQueries {
             List<Xe> res = new ArrayList<>();
             while (resultSet.next()) {
                 res.add(new Xe(resultSet.getString("idXe"), resultSet.getString("moTa"), Byte.parseByte(resultSet.getString("soLuongGhe")), resultSet.getString("loaiXe"), resultSet.getString("idNhaXe")));
+            }
+            connection.close();
+            return res;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static List<NhaXe> getAllNhaXeBasedOn(String col, String data) {
+        Connection connection = getConnection();
+        try {
+            PreparedStatement statement = connection.prepareStatement("Select * from GoGo.dbo.NhaXe where "+col+" = "+" ? ");
+            System.out.println("col: "+col+" data: "+data);
+            statement.setString(1,data);
+            ResultSet resultSet = statement.executeQuery();
+            List<NhaXe> res = new ArrayList<>();
+            while (resultSet.next()) {
+                res.add(new NhaXe(resultSet.getString("idNhaXe"), resultSet.getString("tenNhaXe"), resultSet.getString("username"), resultSet.getString("password"), resultSet.getString("adminUsername")));
             }
             connection.close();
             return res;
@@ -558,6 +607,24 @@ public class MyQueries {
             statement.executeUpdate();
             statement2.executeUpdate();
             statement3.executeUpdate();
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void removeNhaXe(String idNhaXe) {
+        Connection connection = getConnection();
+        try {
+            PreparedStatement xoaLoTrinh = connection.prepareStatement("Delete from GoGo.dbo.LoTrinh where idNhaXe = ?");
+            xoaLoTrinh.setString(1,idNhaXe);
+            PreparedStatement xoaXe = connection.prepareStatement("Delete from GoGo.dbo.Xe where idNhaXe = ?");
+            xoaXe.setString(1, idNhaXe);
+            PreparedStatement xoaNhaXe = connection.prepareStatement("Delete from GoGo.dbo.NhaXe where idNhaXe = ?");
+            xoaNhaXe.setString(1, idNhaXe);
+            xoaLoTrinh.executeUpdate();
+            xoaXe.executeUpdate();
+            xoaNhaXe.executeUpdate();
             connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
