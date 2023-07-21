@@ -107,22 +107,27 @@ public class NhaXe implements Account {
             tempLoTrinh.setKhoangThoiGianDiChuyen(khoangThoiGianDiChuyen);
             tempLoTrinh.setDonKhach(setDonKhach(request,idLoTrinh));
             tempLoTrinh.setTraKhach(setTraKhach(request,idLoTrinh));
-            String idThoiGian = MyRandom.generateRandomId(5,"TG");
             ThoiGianKhoiHanh thoiGianKhoiHanh = new ThoiGianKhoiHanh();
-            thoiGianKhoiHanh.setIdThoiGian(idThoiGian);
             thoiGianKhoiHanh.setNgayKhoiHanh(date);
             tempLoTrinh.setThoiGianKhoiHanh(thoiGianKhoiHanh);
             thoiGianKhoiHanh.setGioKhoiHanh(LocalTime.parse(request.getParameter("gioKhoiHanh")));
             tempLoTrinhList.add(tempLoTrinh);
         }
-        for (LoTrinh lt:tempLoTrinhList) {
-            System.out.println("Id lo trinh: "+lt.getThoiGianKhoiHanh().getIdThoiGian());
-        }
     }
 
     public void addLoTrinh(HttpServletRequest request) {
         for (LoTrinh loTrinh:tempLoTrinhList) {
-            MyQueries.addThoiGianKhoiHanh(loTrinh.getThoiGianKhoiHanh());
+            ThoiGianKhoiHanh thoiGianKhoiHanh = loTrinh.getThoiGianKhoiHanh();
+            LocalDate ngayKhoiHanh = thoiGianKhoiHanh.getNgayKhoiHanh();
+            LocalTime gioKhoiHanh = thoiGianKhoiHanh.getGioKhoiHanh();
+            if (!DataValidator.isThoiGianKhoiHanhExist(ngayKhoiHanh,gioKhoiHanh)) {
+                String idThoiGian = MyRandom.generateRandomId(5,"TG");
+                thoiGianKhoiHanh.setIdThoiGian(idThoiGian);
+                MyQueries.addThoiGianKhoiHanh(thoiGianKhoiHanh);
+            } else {
+                thoiGianKhoiHanh = MyQueries.getThoiGianKhoiHanhExist(ngayKhoiHanh,gioKhoiHanh);
+            }
+            loTrinh.setThoiGianKhoiHanh(thoiGianKhoiHanh);
             loTrinh.setXe(MyQueries.getXeByCol("idXe",request.getParameter("idXe")));
             MyQueries.addLoTrinh(loTrinh);
             MyQueries.addNoiDonKhach(loTrinh.getDonKhach());

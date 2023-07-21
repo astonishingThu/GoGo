@@ -15,7 +15,7 @@ public class MyQueries {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             String connectionUrl = "jdbc:sqlserver://localhost:1433;database=GoGo;encrypt=false;trustServerCertificate=true";
-            Connection connection = DriverManager.getConnection(connectionUrl, "sa", "092301");
+            Connection connection = DriverManager.getConnection(connectionUrl, "sa", "140801");
             return connection;
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println("Cannot connect to the database");
@@ -198,16 +198,37 @@ public class MyQueries {
         }
     }
 
+    public static ThoiGianKhoiHanh getThoiGianKhoiHanhExist(LocalDate date, LocalTime time) {
+        Connection connection = getConnection();
+        try {
+            PreparedStatement statement = connection.prepareStatement("Select * from ThoiGianKhoiHanh where ngayKhoiHanh = ? and gioKhoiHanh = ?");
+            System.out.println(date.toString());
+            System.out.println(time.toString());
+            statement.setString(1, date.toString());
+            statement.setString(2, time.toString());
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                return new ThoiGianKhoiHanh(resultSet.getString(1), LocalTime.parse(resultSet.getString("gioKhoiHanh")), LocalDate.parse(resultSet.getString("ngayKhoiHanh")));
+            }
+            connection.close();
+            return null;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static List<String> getAllTableInfo(String col, String table) {
         Connection connection = getConnection();
         List<String> res = new ArrayList<>();
         try {
             String q = "Select " + col + " from GoGo.dbo." + table;
+            System.out.println(q);
             PreparedStatement statement = connection.prepareStatement(q);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 res.add(resultSet.getString(1));
             }
+            System.out.println(res.size());
             connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -499,7 +520,7 @@ public class MyQueries {
         List<String> allIdXeFromLoTrinh = new ArrayList<>();
 
         try {
-            PreparedStatement allXeFromLoTrinh = connection.prepareStatement("select lt.idXe, tg.* from Xe x, ThoiGianKhoiHanh tg, LoTrinh lt where x.idNhaXe = ? and x.idXe = lt.idXe and lt.idThoiGian = tg.idThoiGian ");
+            PreparedStatement allXeFromLoTrinh = connection.prepareStatement("select lt.idXe, tg.* from Xe x, ThoiGianKhoiHanh tg, LoTrinh lt where x.idNhaXe = ? and x.idXe = lt.idXe and tg.ngayKhoiHanh>=CAST( GETDATE() AS Date ) and lt.idThoiGian = tg.idThoiGian ");
             allXeFromLoTrinh.setString(1, idNhaXe);
             ResultSet allXeFromLoTrinhSet = allXeFromLoTrinh.executeQuery();
             while (allXeFromLoTrinhSet.next()) {
@@ -509,7 +530,7 @@ public class MyQueries {
                 }
             }
 
-            PreparedStatement trungNgayKhoiHanh = connection.prepareStatement("select lt.idXe, tg.* from Xe x, ThoiGianKhoiHanh tg, LoTrinh lt where x.idNhaXe = ? and x.idXe = lt.idXe and lt.idThoiGian = tg.idThoiGian and tg.ngayKhoiHanh = ?");
+            PreparedStatement trungNgayKhoiHanh = connection.prepareStatement("select lt.idXe, tg.* from Xe x, ThoiGianKhoiHanh tg, LoTrinh lt where x.idNhaXe = ? and x.idXe = lt.idXe and lt.idThoiGian = tg.idThoiGian and tg.ngayKhoiHanh = ? ");
             trungNgayKhoiHanh.setString(1, idNhaXe);
             for (LocalDate ngayChay : ngayChayList) {
                 trungNgayKhoiHanh.setString(2, ngayChay.toString());
@@ -528,7 +549,7 @@ public class MyQueries {
                 }
             }
 
-            PreparedStatement selectIdXeOutsideLoTrinh = connection.prepareStatement("select idXe from Xe except select lt.idXe from LoTrinh lt, Xe x where x.idNhaXe = ? and lt.idNhaXe = x.idNhaXe ");
+            PreparedStatement selectIdXeOutsideLoTrinh = connection.prepareStatement("select idXe from Xe except select lt.idXe from LoTrinh lt, Xe x, ThoiGianKhoiHanh tg where x.idNhaXe = ? and lt.idNhaXe = x.idNhaXe and tg.ngayKhoiHanh>=CAST( GETDATE() AS Date ) and lt.idThoiGian = tg.idThoiGian");
             selectIdXeOutsideLoTrinh.setString(1, idNhaXe);
             ResultSet selectIdXeOutsideLoTrinhSet = selectIdXeOutsideLoTrinh.executeQuery();
             while (selectIdXeOutsideLoTrinhSet.next()) {
@@ -635,12 +656,6 @@ public class MyQueries {
         try {
             PreparedStatement statement = connection.prepareStatement("Delete from GoGo.dbo.Xe where idXe = ?");
             statement.setString(1, idXe);
-            PreparedStatement statement2 = connection.prepareStatement("Delete from GoGo.dbo.GheXe where idXe = ?");
-            statement2.setString(1, idXe);
-            PreparedStatement statement3 = connection.prepareStatement("Delete from GoGo.dbo.LoTrinh where idXe = ?");
-            statement3.setString(1, idXe);
-            statement2.executeUpdate();
-            statement3.executeUpdate();
             statement.executeUpdate();
             connection.close();
         } catch (SQLException e) {
@@ -651,15 +666,9 @@ public class MyQueries {
     public static void removeLoTrinh(String idLoTrinh) {
         Connection connection = getConnection();
         try {
-            PreparedStatement statement = connection.prepareStatement("Delete from GoGo.dbo.DonKhach where idLoTrinh = ?");
+            PreparedStatement statement = connection.prepareStatement("Delete from GoGo.dbo.LoTrinh where idLoTrinh = ?");
             statement.setString(1, idLoTrinh);
-            PreparedStatement statement2 = connection.prepareStatement("Delete from GoGo.dbo.TraKhach where idLoTrinh = ?");
-            statement2.setString(1, idLoTrinh);
-            PreparedStatement statement3 = connection.prepareStatement("Delete from GoGo.dbo.LoTrinh where idLoTrinh = ?");
-            statement3.setString(1, idLoTrinh);
             statement.executeUpdate();
-            statement2.executeUpdate();
-            statement3.executeUpdate();
             connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);

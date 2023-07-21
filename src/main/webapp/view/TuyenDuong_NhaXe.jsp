@@ -93,7 +93,6 @@
                                 <option value="Bình Dương">Bình Dương
                                 <option value="Bình Phước">Bình Phước
                                 <option value="Bình Thuận">Bình Thuận
-                                <option value="Bình Thuận">Bình Thuận
                                 <option value="Cà Mau">Cà Mau
                                 <option value="Cao Bằng">Cao Bằng
                                 <option value="Đắk Lắk">Đắk Lắk
@@ -123,7 +122,6 @@
                                 <option value="Ninh Bình">Ninh Bình
                                 <option value="Ninh Thuận">Ninh Thuận
                                 <option value="Phú Thọ">Phú Thọ
-                                <option value="Quảng Bình">Quảng Bình
                                 <option value="Quảng Bình">Quảng Bình
                                 <option value="Quảng Ngãi">Quảng Ngãi
                                 <option value="Quảng Ninh">Quảng Ninh
@@ -165,7 +163,6 @@
                                 <option value="Bình Dương">Bình Dương
                                 <option value="Bình Phước">Bình Phước
                                 <option value="Bình Thuận">Bình Thuận
-                                <option value="Bình Thuận">Bình Thuận
                                 <option value="Cà Mau">Cà Mau
                                 <option value="Cao Bằng">Cao Bằng
                                 <option value="Đắk Lắk">Đắk Lắk
@@ -195,7 +192,6 @@
                                 <option value="Ninh Bình">Ninh Bình
                                 <option value="Ninh Thuận">Ninh Thuận
                                 <option value="Phú Thọ">Phú Thọ
-                                <option value="Quảng Bình">Quảng Bình
                                 <option value="Quảng Bình">Quảng Bình
                                 <option value="Quảng Ngãi">Quảng Ngãi
                                 <option value="Quảng Ninh">Quảng Ninh
@@ -302,7 +298,7 @@
                 <th scope="col">Thời gian di chuyển(phút)</th>
                 <th scope="col">Giá Lộ Trình</th>
                 <th scope="col">Xe chạy</th>
-                <th>Actions</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -323,9 +319,6 @@
                         </button>
                         <button class="btn btn-primary js-del">
                         <span class="icon-edit"> </span>
-                        </button>
-                        <button onclick="window.location.href='RemoveLoTrinh?idLoTrinh=${loTrinh.idLoTrinh}&idNhaXe=${nhaXe.idNhaXe}'" class="btn btn-primary js-del">
-                        <span class="icon-people"> </span>
                         </button>
                     </td>
                 </tr>
