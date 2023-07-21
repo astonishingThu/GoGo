@@ -161,3 +161,10 @@ margin-bottom: 10px;
 .thongbao{
     color: #b21f2d;
 }
+.danhgia-group{
+    display: flex;
+    flex-direction: column;
+}
+.icon-star{
+    color: #e0a800;
+}

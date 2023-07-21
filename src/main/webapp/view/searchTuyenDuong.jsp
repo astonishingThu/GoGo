@@ -48,7 +48,8 @@
                                 <icon class="icon-account_circle"></icon>
                                 <span> ${khachHang.ten}</span></a>
                             <ul class="dropdown">
-                                <li><a href="${pageContext.request.contextPath}/view/UserInfo.jsp">Thông tin khách hàng</a></li>
+                                <li><a href="${pageContext.request.contextPath}/view/UserInfo.jsp">Thông tin khách
+                                    hàng</a></li>
                                 <li><a href="VeCuaToi?idKH=${khachHang.idKhachHang}">Vé của tôi</a></li>
                                 <li><a href="${pageContext.request.contextPath}/index.jsp">Đăng xuất</a></li>
                             </ul>
@@ -206,9 +207,13 @@
                         </div>
                         <div class="col-md-6 ftco-animate">
                             <div class="text text-center">
-                                <h3 class="tenNhaXe">${loTrinh.nhaXe.tenNhaXe}<span class="rating" id="rating${loTrinh.nhaXe.idNhaXe}"><span class="icon-star"> </span> ${loTrinh.nhaXe.star}</span>
+                                <h3 class="tenNhaXe">${loTrinh.nhaXe.tenNhaXe}<span class="rating"
+                                                                                    id="rating${loTrinh.nhaXe.idNhaXe}"><span
+                                        class="icon-star"> </span> ${loTrinh.nhaXe.star}</span>
                                 </h3>
-                                <p class="mota-xe"> ${loTrinh.xe.loaiXe} - <span class="price" id= "soGhe${loTrinh.idLoTrinh}">${loTrinh.xe.soLuongGhe}</span> chỗ - <span>${loTrinh.xe.moTa}</span></p>
+                                <p class="mota-xe"> ${loTrinh.xe.loaiXe} - <span class="price"
+                                                                                 id="soGhe${loTrinh.idLoTrinh}">${loTrinh.xe.soLuongGhe}</span>
+                                    chỗ - <span>${loTrinh.xe.moTa}</span></p>
                             </div>
                             <div class="loTrinh-xe">
                                 <div class="xuatPhat">
@@ -234,7 +239,8 @@
                             <div class="giaVe text-center">${loTrinh.giaLoTrinh} VNĐ</div>
                             <p class="choTrong  text-center m-0">${loTrinh.gheConTrongList.size()} chỗ trống</p>
                             <a class="btn btn-black btn-chonCho"
-                               onclick="openSoDo('${loTrinh.idLoTrinh}','${loTrinh.gheConTrongListStr}','${loTrinh.giaLoTrinh}')" href="#soDoGhe">CHỌN CHỖ
+                               onclick="openSoDo('${loTrinh.idLoTrinh}','${loTrinh.gheConTrongListStr}','${loTrinh.giaLoTrinh}')"
+                               href="#soDoGhe">CHỌN CHỖ
                             </a>
                         </div>
                     </div>
@@ -248,16 +254,16 @@
                                            onclick="hienthi('hinhanh','${loTrinh.idLoTrinh}')">Hình ảnh</a>
                                     </li>
                                     <li class="page-item">
-                                        <a class="page-link" href="#tienich${loTrinh.idLoTrinh}" onclick="hienthi('tienich','${loTrinh.idLoTrinh}')">Tiện ích</a>
+                                        <a class="page-link" href="#tienich${loTrinh.idLoTrinh}"
+                                           onclick="hienthi('tienich','${loTrinh.idLoTrinh}')">Tiện ích</a>
                                     </li>
                                     <li class="page-item">
-                                        <a class="page-link" href="#diemdontra${loTrinh.idLoTrinh}" onclick="hienthi('diemdontra','${loTrinh.idLoTrinh}')">Điểm đón trả</a>
+                                        <a class="page-link" href="#diemdontra${loTrinh.idLoTrinh}"
+                                           onclick="hienthi('diemdontra','${loTrinh.idLoTrinh}')">Điểm đón trả</a>
                                     </li>
                                     <li class="page-item">
-                                        <a class="page-link" href="#sodoghe${loTrinh.idLoTrinh}" onclick="hienthi('sodoghe')">Sơ đồ ghế</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#danhgia${loTrinh.idLoTrinh}" onclick="hienthi('danhgia','${loTrinh.idLoTrinh}')">Đánh giá</a>
+                                        <a class="page-link" href="#danhgia${loTrinh.idLoTrinh}"
+                                           onclick="hienthi('danhgia','${loTrinh.idLoTrinh}')">Đánh giá</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -293,8 +299,8 @@
                         <div id="tienich${loTrinh.idLoTrinh}" class="field">
                             <p>${loTrinh.xe.moTa}</p>
                         </div>
-                        <div class="row justify-content-center field" id="diemdontra${loTrinh.idLoTrinh}">
-                            <div class="diemDon col-md-5">
+                        <div class="row flex-row field" id="diemdontra${loTrinh.idLoTrinh}">
+                            <div class="diemDon col-md-6">
                                 <h3>Điểm đón</h3>
                                 <div>
                                         <%--                                    <span>17:00 </span>--%>
@@ -302,7 +308,7 @@
                                     <span>${loTrinh.donKhach}</span>
                                 </div>
                             </div>
-                            <div class="diemTra col-md-5">
+                            <div class="diemTra col-md-6">
                                 <h3>Điểm trả</h3>
                                 <div>
                                     <icon class="icon-circle"></icon>
@@ -311,23 +317,87 @@
                             </div>
                         </div>
 
+                            <%--                        <div id="sodoghe${loTrinh.idLoTrinh}" class="js-soDoGhe field">--%>
+                            <%--                            new changes--%>
+                            <%--                            <h4 id="soLuongGhe">${loTrinh.xe.soLuongGhe}</h4><h4>Ghế</h4>--%>
+                            <%--                            <div class="row p-5">--%>
+                            <%--                                <div class="col-md-6" id="hang-3"></div>--%>
+                            <%--                                <div class="col-md-6" id="hang-4"></div>--%>
+                            <%--                            </div>--%>
+                            <%--                        </div>--%>
 
-                        <div id="sodoghe${loTrinh.idLoTrinh}" class="js-soDoGhe field">
-<%--                            new changes--%>
-                            <h4 id="soLuongGhe">${loTrinh.xe.soLuongGhe}</h4><h4>Ghế</h4>
-                            <div class="row p-5">
-                                <div class="col-md-6" id="hang-3"></div>
-                                <div class="col-md-6" id="hang-4"></div>
+                        <div id="danhgia${loTrinh.idLoTrinh}" class="rating-group field">
+                            <div id="ratingCarousel" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner col-md-5 mx-auto my-auto">
+                                    <h4 class="carousel-item active text-center">Passenger comment</h4>
+                                    <c:forEach var="ratingInfo" items="${loTrinh.nhaXe.ratingList}">
+                                        <div class="carousel-item">
+                                            <ul class="comment-list">
+                                                <li class="comment">
+                                                    <div class="vcard bio">
+                                                        <img src="${resourcePath}images/person_1.jpg"
+                                                             alt="Image placeholder">
+                                                    </div>
+                                                    <div class="comment-body">
+                                                        <h3>${ratingInfo.tenKhachHang}</h3>
+                                                        <div class="meta">${ratingInfo.ngayDatVe}</div>
+                                                        <c:choose>
+                                                            <c:when test="${ratingInfo.rating == 5}">
+                                                                <p class="rate"><span><i class="icon-star"></i><i
+                                                                        class="icon-star"></i><i
+                                                                        class="icon-star"></i><i
+                                                                        class="icon-star"></i><i class="icon-star"></i></span>
+                                                                </p>
+                                                            </c:when>
+                                                            <c:when test="${ratingInfo.rating == 4}">
+                                                                <p class="rate"><span><i class="icon-star"></i><i
+                                                                        class="icon-star"></i><i
+                                                                        class="icon-star"></i><i
+                                                                        class="icon-star"></i><i
+                                                                        class="icon-star-o"></i> 30 Ratings</span></p>
+                                                            </c:when>
+                                                            <c:when test="${ratingInfo.rating == 3}">
+                                                                <p class="rate"><span><i class="icon-star"></i><i
+                                                                        class="icon-star"></i><i
+                                                                        class="icon-star"></i><i
+                                                                        class="icon-star-o"></i><i
+                                                                        class="icon-star-o"></i> 5 Ratings</span></p>
+                                                            </c:when>
+                                                            <c:when test="${ratingInfo.rating == 2}">
+                                                                <p class="rate"><span><i class="icon-star"></i><i
+                                                                        class="icon-star"></i><i
+                                                                        class="icon-star-o"></i><i
+                                                                        class="icon-star-o"></i><i
+                                                                        class="icon-star-o"></i> 0 Ratings</span></p>
+                                                            </c:when>
+                                                            <c:when test="${ratingInfo.rating == 1}">
+                                                                <p class="rate"><span><i class="icon-star"></i><i
+                                                                        class="icon-star-o"></i><i
+                                                                        class="icon-star-o"></i><i
+                                                                        class="icon-star-o"></i><i
+                                                                        class="icon-star-o"></i> 0 Ratings</span></p>
+                                                            </c:when>
+                                                        </c:choose>
+                                                        <p>${ratingInfo.comment}</p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </c:forEach>
+                                    <a class="carousel-control-prev" href="#ratingCarousel" role="button"
+                                       data-slide="prev">
+                                        <span class="carousel-control-prev-icon carousel-control"
+                                              aria-hidden="false"></span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#ratingCarousel" role="button"
+                                       data-slide="next">
+                                        <span class="carousel-control-next-icon carousel-control"
+                                              aria-hidden="false"></span>
+                                    </a>
+                                </div>
+                                </a>
                             </div>
-                        </div>
 
-                        <div id="danhgia${loTrinh.idLoTrinh}" class="field">
-                            <c:forEach var="ratingInfo" items="${loTrinh.nhaXe.ratingList}">
-                                <div>${ratingInfo.tenKhachHang}</div>
-                                <div>${ratingInfo.ngayDatVe}</div>
-                                <div>${ratingInfo.rating}</div>
-                                <div>${ratingInfo.comment}</div>
-                            </c:forEach>
                         </div>
                     </div>
                     <form action="ThanhToan" method="post" class="datVe">
@@ -399,14 +469,13 @@
                                 <div class="col-md-3">
                                     <button type="button" class="btn btn-secondary w-100"
                                             onclick="openSoDo('${loTrinh.idLoTrinh}','${loTrinh.gheConTrongListStr}','${loTrinh.giaLoTrinh}')">
-                                        Quay
-                                        lại
+                                        Quay lại
                                     </button>
                                 </div>
                                 <div class="col-md-3">
                                     <button type="button" class="btn btn-primary w-100"
-                                            onclick="nhapThongTin('${loTrinh.idLoTrinh}')">Tiếp
-                                        theo
+                                            onclick="nhapThongTin('${loTrinh.idLoTrinh}')">
+                                        Tiếp theo
                                     </button>
                                 </div>
                             </div>
@@ -415,17 +484,26 @@
                             <div class="col-md-8 flex-column">
                                 <div class="form-group">
                                     <label>Họ tên<span class="star"> *</span></label>
-                                    <input type="text" placeholder="Tên người đi" id="tenNguoiDi" class="form-control" required >
+                                    <input type="text" value="${khachHang.hoTenLot.concat(" ").concat(khachHang.ten)}"
+                                           id="tenNguoiDi" class="form-control" required>
                                     <small></small>
                                 </div>
                                 <div class="form-group">
                                     <label>Số điện thoại <span class="star"> *</span></label>
-                                    <input type="telNo" placeholder="Nhập số điện thoại" id="soDienThoai" class="form-control" required>
+                                    <input type="telNo" value="${khachHang.phoneNumber}" id="soDienThoai"
+                                           class="form-control" required>
                                     <small></small>
                                 </div>
                                 <div class="form-group">
                                     <label>Email để nhận thông tin vé <span class="star"> *</span></label>
-                                    <input placeholder="Email nhận thông tin vé" id="email" class="form-control" required>
+                                    <input value="${khachHang.email}" id="email" class="form-control" required>
+                                    <small></small>
+                                </div>
+                                <div class="form-group">
+                                    <label>Nhu cầu khác về dịch vụ <span> (Không bắt buộc)</span></label>
+                                    <textarea
+                                            placeholder="Bạn có nhu cầu về thuốc say xe, nhiệt độ điều hòa, hay các dịch vụ khác không?"
+                                            id="text" class="form-control"></textarea>
                                     <small></small>
                                 </div>
                             </div>
@@ -436,7 +514,9 @@
                                     </button>
                                 </div>
                                 <div class="col-md-3">
-                                    <button type="submit" class="btn btn-primary w-100" id="thanhToan-Btn" onclick="handleThanhToan(${khachHang.idKhachHang})">Thanh Toán</button>
+                                    <button type="submit" class="btn btn-primary w-100" id="thanhToan-Btn"
+                                            onclick="handleThanhToan(${khachHang.idKhachHang})">Thanh Toán
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -448,8 +528,10 @@
 </section>
 
 <%--Phân trang dựa vào số lượng tuyến đường tìm được--%>
-<c:choose >
-    <c:when test="${loTrinhList.size() == 0}"><div class="thongbao">Không tìm thấy tuyến xe phù hợp!</div></c:when>
+<c:choose>
+    <c:when test="${loTrinhList.size() == 0}">
+        <div class="thongbao">Không tìm thấy tuyến xe phù hợp!</div>
+    </c:when>
     <c:when test="${loTrinhList.size() != 0}">
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">

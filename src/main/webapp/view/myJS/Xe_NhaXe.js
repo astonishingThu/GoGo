@@ -138,10 +138,12 @@ function validateBienSoXe() {
     if (bienSoXe.value === "") {
         setError(bienSoXe, "Biển số xe không được bỏ trống");
         isCheck = false;
-    } else if (!format.test(bienSoXe.value)) {
-        setError(bienSoXe, "Vui lòng nhập đúng định dạng!");
-        isCheck = false;
-    } else {
+    }
+    // else if (!format.test(bienSoXe.value)) {
+    //     setError(bienSoXe, "Vui lòng nhập đúng định dạng!");
+    //     isCheck = false;
+    // }
+    else {
         setSuccess(bienSoXe);
     }
     return isCheck;

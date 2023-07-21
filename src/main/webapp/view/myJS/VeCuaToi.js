@@ -14,8 +14,8 @@ function setStatus(idVe, ngayKHstr, gioKHstr){
     let rating_btn = document.getElementById("rating"+idVe+"btn");
     if(Date.parse(ngayKHstr) < Date.now()){
         status.innerText = "Đã hoàn thành";
-        rating_btn.setAttribute("disabled", "disabled");
     } else {
+        rating_btn.setAttribute("disabled", "disabled");
         status.innerHTML = "Chưa thanh toán";
     }
 }
