@@ -234,6 +234,7 @@
                             <div class="giaVe text-center">${loTrinh.giaLoTrinh} VNĐ</div>
                             <p class="choTrong  text-center m-0">${loTrinh.gheConTrongList.size()} chỗ trống</p>
                             <a class="btn btn-black btn-chonCho"
+                               id="chonCho"
                                onclick="openSoDo('${loTrinh.idLoTrinh}','${loTrinh.gheConTrongListStr}','${loTrinh.giaLoTrinh}')" href="#soDoGhe">CHỌN CHỖ
                             </a>
                         </div>
@@ -254,7 +255,7 @@
                                         <a class="page-link" href="#diemdontra" onclick="hienthi('diemdontra')">Điểm đón trả</a>
                                     </li>
                                     <li class="page-item">
-                                        <a class="page-link" href="#chinhsach" onclick="hienthi('chinhsach')">Chính sách</a>
+                                        <a class="page-link" href="#sodoghe" onclick="hienthi('sodoghe')">Sơ đồ ghế</a>
                                     </li>
                                     <li class="page-item">
                                         <a class="page-link" href="#danhgia" onclick="hienthi('danhgia')">Đánh giá</a>
@@ -310,7 +311,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="chinhsach" class="field"></div>
+                        <div id="sodoghe" class="js-soDoGhe field">
+                            <h4 id="soLuongGhe">${loTrinh.xe.soLuongGhe}</h4><h4>Ghế</h4>
+                            <div class="row p-5">
+                                <div class="col-md-6" id="hang-3"></div>
+                                <div class="col-md-6" id="hang-4"></div>
+                            </div>
+                        </div>
                         <div id="danhgia" class="field"></div>
                     </div>
                     <form action="ThanhToan" method="post" class="datVe">
@@ -473,5 +480,11 @@
 <script src="${resourcePath}js/main.js"></script>
 <script src="${resourcePath}myJS/SearchResult.js"></script>
 <script src="${resourcePath}myJS/Validate.js"></script>
+<script>
+    const chonCho = document.getElementById("chonCho");
+    if ('${khachHang.idKhachHang}' === '') {
+        chonCho.style.display = "none";
+    }
+</script>
 </body>
 </html>

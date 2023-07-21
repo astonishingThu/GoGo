@@ -243,8 +243,25 @@ function hienthi(field) {
         case "diemdontra":
             document.getElementById("diemdontra").classList.add("open");
             break;
-        case "chinhsach":
-            document.getElementById("chinhsach").classList.add("open");
+        case "sodoghe":
+            document.getElementById("sodoghe").classList.add("open");
+            let soLuongGhe = document.getElementById("soLuongGhe").innerHTML;
+            let hang3 = document.getElementById("hang-3");
+            let hang4 = document.getElementById("hang-4");
+            hang3.innerHTML = "";
+            hang4.innerHTML = "";
+            for (let i = 1; i <= Math.round(soLuongGhe/2); i++) {
+                let ghe = document.createElement("div");
+                hang3.append(ghe);
+                ghe.innerHTML = " " + Math.round(i);
+                ghe.className = "ghe icon-bus col-md-5 btn btn-secondary m-1";
+            }
+            for (let i = (soLuongGhe/2 + 1); i <= soLuongGhe; i++) {
+                let ghe = document.createElement("div");
+                hang4.append(ghe);
+                ghe.innerHTML = " " + Math.round(i);
+                ghe.className = "ghe icon-bus col-md-5 btn btn-secondary m-1";
+            }
             break;
         case "danhgia":
             document.getElementById("danhgia").classList.add("open");
