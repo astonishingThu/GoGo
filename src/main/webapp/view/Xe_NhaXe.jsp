@@ -49,13 +49,13 @@
     <div class="addXe">
         <div class="icon-close js-close"></div>
         <div class="col-md-12">
-            <form class="p-5 bg-light row" action="AddGheXe" method="post">
+            <form class="p-5 bg-light row" action="AddGheXe" onsubmit="return validateThemXe()" n method="post">
                 <div col-md-6>
                     <h3 class="mb-5">Thêm xe</h3>
                     <input type="hidden" id="idNhaXe" name="idNhaXe" value="${nhaXe.idNhaXe}"/>
                     <div class="form-group">
                         <label>Biển số xe *</label>
-                        <input type="text" class="form-control" id="bienSoXe" name="bienSoXe" required/>
+                        <input type="text" class="form-control" id="bienSoXe" name="bienSoXe"/>
                         <small></small>
                     </div>
                     <div class="form-group">
@@ -100,8 +100,7 @@
                         <input type="hidden" id="vipList" name="vipList"/>
                         <div class="mt-5">
                             <label>*Phụ thu ghế VIP:</label>
-                            <input name="giaGhe" type="number" class="form-control" step="10000" id="phuThu" min="0"
-                                   max="1000000" required/>
+                            <input name="giaGhe" type="number" class="form-control" step="10000" id="phuThu"/>
                             <small></small>
                         </div>
                     </div>
@@ -159,7 +158,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="col-md-4 ftco-animate dsLoTrinh">
+                        <%--    <div class="col-md-4 ftco-animate dsLoTrinh">
                                 <h3>Tuyến chạy</h3>
                                 <div class="loTrinh">
                                     <div class="noiXuatPhat">Hà Nội</div>
@@ -175,7 +174,7 @@
                                     </div>
                                     <div class="dichDen">Đà Nẵng</div>
                                 </div>
-                            </div>
+                            </div> --%>
                             <div class="del-cf" id="${xe.idXe}">
                                 Bạn muốn xóa xe này? <br/>
                                 <button onclick="window.location.href='RemoveXe?idXe=${xe.idXe}&idNhaXe=${nhaXe.idNhaXe}#xe'"

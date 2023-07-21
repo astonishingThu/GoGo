@@ -120,17 +120,43 @@ function validateSoGhe() {
 }
 function validateThemXe() {
     let isCheck = true;
+    if (!validateBienSoXe()) {
+        isCheck = false;
+    } else if (!validatePhuThu()) {
+        isCheck = false;
+    } else if (!validateSoGhe()) {
+        isCheck = false;
+    }
+    return isCheck;
+}
+function validateBienSoXe() {
+    let isCheck = true;
     let bienSoXe = document.getElementById("bienSoXe");
-    let phuThu = document.getElementById("phuThu");
+    let format = /([0-9]{2})+([a-zA-z])+-+([0-9]{5})/
     bienSoXe.classList.remove("alert-danger");
     bienSoXe.classList.remove("alert-success");
-    phuThu.classList.remove("alert-danger");
-    phuThu.classList.remove("alert-success");
     if (bienSoXe.value === "") {
         setError(bienSoXe, "Biển số xe không được bỏ trống");
         isCheck = false;
-    } else if (phuThu.value === "") {
-        setError(phuThu, "Phụ thu không được bỏ trống");
+    } else if (!format.test(bienSoXe.value)) {
+        setError(bienSoXe, "Vui lòng nhập đúng định dạng!");
+        isCheck = false;
+    } else {
+        setSuccess(bienSoXe);
+    }
+    return isCheck;
+}
+
+function validatePhuThu() {
+    let isCheck = true;
+    let phuThu = document.getElementById("phuThu");
+    phuThu.classList.remove("alert-danger");
+    phuThu.classList.remove("alert-success");
+    if (phuThu.value < 1) {
+        setError(phuThu, "Phụ thu không được âm hoặc bằng 0");
+        isCheck = false;
+    } else if (phuThu.value > 1000000) {
+        setError(phuThu, "Phụ thu không được quá 1,000,000vnd");
         isCheck = false;
     }
     return isCheck;
