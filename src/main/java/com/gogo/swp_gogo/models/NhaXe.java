@@ -16,6 +16,7 @@ public class NhaXe implements Account {
     private String tenNhaXe;
     private String username;
     private String password;
+    private String adminUsername;
     private Xe xe;
     private List<Xe> xeList;
     private List<LoTrinh> tempLoTrinhList = new ArrayList<>();
@@ -31,6 +32,14 @@ public class NhaXe implements Account {
         this.tenNhaXe = tenNhaXe;
         this.username = username;
         this.password = password;
+    }
+
+    public NhaXe(String idNhaXe, String tenNhaXe, String username, String password, String adminUsername) {
+        this.idNhaXe = idNhaXe;
+        this.tenNhaXe = tenNhaXe;
+        this.username = username;
+        this.password = password;
+        this.adminUsername = adminUsername;
     }
 
     public boolean addXe(HttpServletRequest request) {
@@ -201,6 +210,14 @@ public class NhaXe implements Account {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getAdminUsername() {
+        return adminUsername;
+    }
+
+    public void setAdminUsername(String adminUsername) {
+        this.adminUsername = adminUsername;
     }
 
     public List<Xe> getXeList() {

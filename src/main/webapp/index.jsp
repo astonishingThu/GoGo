@@ -27,7 +27,6 @@
                     <ul class="dropdown">
                         <li><a href="GoGoLogin">Hành khách</a></li>
                         <li><a href="NhaXeGoGoLogin">Nhà xe</a></li>
-                        <li><a href="#">Admin</a></li>
                     </ul>
                 </li>
                 <li class="nav-item has-children">
@@ -35,8 +34,6 @@
                     <ul class="dropdown">
                         <li><a href="GoGoSignup">Hành khách</a></li>
                         <li><a href="GoGoNhaXeSignup">Nhà xe</a></li>
-                        <li><a href="#">Admin</a></li>
-
                     </ul>
                 </li>
                 <%--                <li class="nav-item has-children">--%>
@@ -407,7 +404,6 @@
                             <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span
                                     class="ion-ios-arrow-round-forward"></span></a></p>
                             <p class="ml-auto mb-0">
-                                <a href="#" class="mr-2">Admin</a>
                                 <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
                             </p>
                         </div>
@@ -435,7 +431,6 @@
                             <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span
                                     class="ion-ios-arrow-round-forward"></span></a></p>
                             <p class="ml-auto mb-0">
-                                <a href="#" class="mr-2">Admin</a>
                                 <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
                             </p>
                         </div>
@@ -463,7 +458,6 @@
                             <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span
                                     class="ion-ios-arrow-round-forward"></span></a></p>
                             <p class="ml-auto mb-0">
-                                <a href="#" class="mr-2">Admin</a>
                                 <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
                             </p>
                         </div>

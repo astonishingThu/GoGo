@@ -72,20 +72,21 @@ modal__closer.addEventListener("click", closeModal);
 modal__opener.addEventListener("click", openModal);
 
 // --------------- Tắt bật Overlay ------------------------
-$(document).ready(function () {
-    $(".js-del").click(function () {
-        $(".js-del-cf").hide();
-        $(".xe-overlay").hide();
-    });
-    $(".js-cancel").click(function () {
-        $(".js-del-cf").hide();
-        $(".xe-overlay").hide();
-    });
-    $(".js-del-cf-btn").click(function () {
-        $(".js-del-cf").show();
-        $(".xe-overlay").show();
-    });
-});
+
+function batOverlayXoa(idXe) {
+    let xe = $("#"+idXe);
+    let xeOverlay = $("#xe-overlay"+idXe);
+    xe.show();
+    xeOverlay.show();
+}
+
+function tatOverlayXoa(idXe) {
+    let xe = $("#"+idXe);
+    let xeOverlay = $("#xe-overlay"+idXe);
+    xe.hide();
+    xeOverlay.hide();
+}
+
 xemSoDo.addEventListener("click", function () {
     let isValid = validateSoGhe();
     if (isValid) {
@@ -100,14 +101,7 @@ themXe.addEventListener("click", function () {
 });
 
 // ----------------- VALIDATE DỮ LIỆU -------------------
-function setError(ele, message) {
-    ele.classList.add('alert-danger');
-    ele.parentNode.querySelector('small').innerText = message;
-}
-function setSuccess(ele) {
-    ele.classList.add('alert-success');
-    ele.parentNode.querySelector('small').innerText = "";
-}
+
 function validateSoGhe() {
     let isCheck = true;
     let soGhe = document.getElementById("soGhe");
@@ -126,17 +120,43 @@ function validateSoGhe() {
 }
 function validateThemXe() {
     let isCheck = true;
+    if (!validateBienSoXe()) {
+        isCheck = false;
+    } else if (!validatePhuThu()) {
+        isCheck = false;
+    } else if (!validateSoGhe()) {
+        isCheck = false;
+    }
+    return isCheck;
+}
+function validateBienSoXe() {
+    let isCheck = true;
     let bienSoXe = document.getElementById("bienSoXe");
-    let phuThu = document.getElementById("phuThu");
+    let format = /([0-9]{2})+([a-zA-z])+-+([0-9]{5})/
     bienSoXe.classList.remove("alert-danger");
     bienSoXe.classList.remove("alert-success");
-    phuThu.classList.remove("alert-danger");
-    phuThu.classList.remove("alert-success");
     if (bienSoXe.value === "") {
         setError(bienSoXe, "Biển số xe không được bỏ trống");
         isCheck = false;
-    } else if (phuThu.value === "") {
-        setError(phuThu, "Phụ thu không được bỏ trống");
+    } else if (!format.test(bienSoXe.value)) {
+        setError(bienSoXe, "Vui lòng nhập đúng định dạng!");
+        isCheck = false;
+    } else {
+        setSuccess(bienSoXe);
+    }
+    return isCheck;
+}
+
+function validatePhuThu() {
+    let isCheck = true;
+    let phuThu = document.getElementById("phuThu");
+    phuThu.classList.remove("alert-danger");
+    phuThu.classList.remove("alert-success");
+    if (phuThu.value < 1) {
+        setError(phuThu, "Phụ thu không được âm hoặc bằng 0");
+        isCheck = false;
+    } else if (phuThu.value > 1000000) {
+        setError(phuThu, "Phụ thu không được quá 1,000,000vnd");
         isCheck = false;
     }
     return isCheck;

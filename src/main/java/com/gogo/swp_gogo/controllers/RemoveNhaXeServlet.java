@@ -1,8 +1,7 @@
 package com.gogo.swp_gogo.controllers;
 
+import com.gogo.swp_gogo.models.Admin;
 import com.gogo.swp_gogo.models.MyQueries;
-import com.gogo.swp_gogo.models.NhaXe;
-import com.gogo.swp_gogo.models.Xe;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -12,20 +11,20 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name="addGheXeServlet", value = "/AddGheXe")
-public class AddGheXeServlet extends HttpServlet {
+@WebServlet(name="removeNhaXeServlet", value = "/removeNhaXe")
+public class RemoveNhaXeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        Admin admin = MyQueries.getAdminBy("username",req.getParameter("adminUsername"));
+        MyQueries.removeNhaXe(req.getParameter("idNhaXe"));
+        admin.setNhaXeList(MyQueries.getAllNhaXeBasedOn("adminUsername",req.getParameter("adminUsername")));
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("adminDashboard");
+        req.setAttribute("admin",admin);
+        requestDispatcher.forward(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        NhaXe nhaXe = MyQueries.getNhaXeByCol("idNhaXe", req.getParameter("idNhaXe"));
-        nhaXe.addXe(req);
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("NhaXeMainPage");
-        nhaXe.setXeList(MyQueries.getAllXeOfOneNhaXeByCol("idNhaXe",nhaXe.getIdNhaXe()));
-        req.setAttribute("nhaXe",nhaXe);
-        requestDispatcher.forward(req,resp);
+
     }
 }

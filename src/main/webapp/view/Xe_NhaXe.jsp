@@ -49,13 +49,13 @@
     <div class="addXe">
         <div class="icon-close js-close"></div>
         <div class="col-md-12">
-            <form class="p-5 bg-light row" action="AddGheXe" method="post">
+            <form class="p-5 bg-light row" action="AddGheXe" onsubmit="return validateThemXe()" n method="post">
                 <div col-md-6>
                     <h3 class="mb-5">Thêm xe</h3>
                     <input type="hidden" id="idNhaXe" name="idNhaXe" value="${nhaXe.idNhaXe}"/>
                     <div class="form-group">
                         <label>Biển số xe *</label>
-                        <input type="text" class="form-control" id="bienSoXe" name="bienSoXe" required/>
+                        <input type="text" class="form-control" id="bienSoXe" name="bienSoXe"/>
                         <small></small>
                     </div>
                     <div class="form-group">
@@ -82,7 +82,7 @@
 
                     <div class="form-group">
                         <label for="message">Mô tả <span class="star">*</span></label>
-                        <textarea name="moTa" id="message" cols="30" rows="2" class="form-control"></textarea>
+                        <textarea name="moTa" id="message" cols="30" rows="2" class="form-control">Mô tả</textarea>
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Thêm xe" class="btn py-3 px-5 btn-primary" id="themXe"/>
@@ -100,8 +100,7 @@
                         <input type="hidden" id="vipList" name="vipList"/>
                         <div class="mt-5">
                             <label>*Phụ thu ghế VIP:</label>
-                            <input name="giaGhe" type="number" class="form-control" step="10000" id="phuThu" min="0"
-                                   max="1000000" required/>
+                            <input name="giaGhe" type="number" class="form-control" step="10000" id="phuThu"/>
                             <small></small>
                         </div>
                     </div>
@@ -144,7 +143,7 @@
                     <div class="col-md-12">
                         <div class="row xe" id="xe">
                             <div class="col-md-3 ftco-animate">
-                                <img src="${resourcePath}images/about.jpg" class="ill img-fluid"/>
+                                <img src="${resourcePath}images/vinbus.png" class="ill img-fluid"/>
                             </div>
                             <div class="col-md-5 ftco-animate">
                                 <div class="text">
@@ -155,11 +154,11 @@
                                     <p>${xe.moTa}</p>
                                     <p>
                                         <button class="btn btn-secondary">Chỉnh sửa</button>
-                                        <button class="btn btn-primary js-del-cf-btn" id=${xe.idXe}>Xóa</button>
+                                        <button class="btn btn-primary" onclick="batOverlayXoa('${xe.idXe}')">Xóa</button>
                                     </p>
                                 </div>
                             </div>
-                            <div class="col-md-4 ftco-animate dsLoTrinh">
+                        <%--    <div class="col-md-4 ftco-animate dsLoTrinh">
                                 <h3>Tuyến chạy</h3>
                                 <div class="loTrinh">
                                     <div class="noiXuatPhat">Hà Nội</div>
@@ -175,16 +174,16 @@
                                     </div>
                                     <div class="dichDen">Đà Nẵng</div>
                                 </div>
-                            </div>
-                            <div class="del-cf js-del-cf" id="${xe.idNhaXe}del-cf">
+                            </div> --%>
+                            <div class="del-cf" id="${xe.idXe}">
                                 Bạn muốn xóa xe này? <br/>
                                 <button onclick="window.location.href='RemoveXe?idXe=${xe.idXe}&idNhaXe=${nhaXe.idNhaXe}#xe'"
                                         class="btn btn-primary js-del">
                                     Xóa
                                 </button>
-                                <button class="btn btn-black js-cancel">Hủy</button>
+                                <button class="btn btn-black js-cancel" onclick="tatOverlayXoa('${xe.idXe}')">Hủy</button>
                             </div>
-                            <div class="xe-overlay"></div>
+                            <div id="xe-overlay${xe.idXe}" class="xe-overlay"></div>
                         </div>
                     </div>
 
@@ -219,5 +218,6 @@
 <script src="${resourcePath}js/google-map.js"></script>
 <script src="${resourcePath}js/main.js"></script>
 <script src="${resourcePath}myJS/Xe_NhaXe.js"></script>
+<script src="${resourcePath}myJS/Validate.js"></script>
 </body>
 </html>

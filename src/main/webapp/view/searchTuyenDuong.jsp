@@ -254,6 +254,9 @@
                                         <a class="page-link" href="#diemdontra${loTrinh.idLoTrinh}" onclick="hienthi('diemdontra','${loTrinh.idLoTrinh}')">Điểm đón trả</a>
                                     </li>
                                     <li class="page-item">
+                                        <a class="page-link" href="#sodoghe${loTrinh.idLoTrinh}" onclick="hienthi('sodoghe')">Sơ đồ ghế</a>
+                                    </li>
+                                    <li class="page-item">
                                         <a class="page-link" href="#danhgia${loTrinh.idLoTrinh}" onclick="hienthi('danhgia','${loTrinh.idLoTrinh}')">Đánh giá</a>
                                     </li>
                                 </ul>
@@ -307,6 +310,17 @@
                                 </div>
                             </div>
                         </div>
+
+
+                        <div id="sodoghe${loTrinh.idLoTrinh}" class="js-soDoGhe field">
+<%--                            new changes--%>
+                            <h4 id="soLuongGhe">${loTrinh.xe.soLuongGhe}</h4><h4>Ghế</h4>
+                            <div class="row p-5">
+                                <div class="col-md-6" id="hang-3"></div>
+                                <div class="col-md-6" id="hang-4"></div>
+                            </div>
+                        </div>
+
                         <div id="danhgia${loTrinh.idLoTrinh}" class="field">
                             <c:forEach var="ratingInfo" items="${loTrinh.nhaXe.ratingList}">
                                 <div>${ratingInfo.tenKhachHang}</div>
@@ -401,15 +415,18 @@
                             <div class="col-md-8 flex-column">
                                 <div class="form-group">
                                     <label>Họ tên<span class="star"> *</span></label>
-                                    <input type="text" placeholder="Tên người đi" class="form-control">
+                                    <input type="text" placeholder="Tên người đi" id="tenNguoiDi" class="form-control" required >
+                                    <small></small>
                                 </div>
                                 <div class="form-group">
                                     <label>Số điện thoại <span class="star"> *</span></label>
-                                    <input type="number" placeholder="Nhập số điện thoại" class="form-control">
+                                    <input type="telNo" placeholder="Nhập số điện thoại" id="soDienThoai" class="form-control" required>
+                                    <small></small>
                                 </div>
                                 <div class="form-group">
                                     <label>Email để nhận thông tin vé <span class="star"> *</span></label>
-                                    <input placeholder="Email nhận thông tin vé" class="form-control">
+                                    <input placeholder="Email nhận thông tin vé" id="email" class="form-control" required>
+                                    <small></small>
                                 </div>
                             </div>
                             <div class="row col-md-12 justify-content-between">
@@ -419,7 +436,7 @@
                                     </button>
                                 </div>
                                 <div class="col-md-3">
-                                    <button type="submit" class="btn btn-primary w-100" id="thanhToan-Btn" onclick="handleThanhToan(${khachHang.idKhachHang})">Thanh Toán</button>
+                                    <button type="button" class="btn btn-primary w-100" id="thanhToan-Btn" onclick="handleThanhToan(${khachHang.idKhachHang})">Thanh Toán</button>
                                 </div>
                             </div>
                         </div>
@@ -472,5 +489,12 @@
 <script src="${resourcePath}js/google-map.js"></script>
 <script src="${resourcePath}js/main.js"></script>
 <script src="${resourcePath}myJS/SearchResult.js"></script>
+<script src="${resourcePath}myJS/Validate.js"></script>
+<script>
+    const chonCho = document.getElementById("chonCho");
+    if ('${khachHang.idKhachHang}' === '') {
+        chonCho.style.display = "none";
+    }
+</script>
 </body>
 </html>
