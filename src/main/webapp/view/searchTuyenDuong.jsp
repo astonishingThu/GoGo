@@ -436,7 +436,7 @@
                                     </button>
                                 </div>
                                 <div class="col-md-3">
-                                    <button type="button" class="btn btn-primary w-100" id="thanhToan-Btn" onclick="handleThanhToan(${khachHang.idKhachHang})">Thanh Toán</button>
+                                    <button type="submit" class="btn btn-primary w-100" id="thanhToan-Btn" onclick="handleThanhToan(${khachHang.idKhachHang})">Thanh Toán</button>
                                 </div>
                             </div>
                         </div>
