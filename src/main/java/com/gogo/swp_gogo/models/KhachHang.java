@@ -31,7 +31,7 @@ public class KhachHang implements Account {
         System.out.println("vao ham add ve");
         List<String> listVe = List.of(request.getAttribute("listVe").toString().split(","));
         LocalDate ngayDatVe = LocalDate.now();
-        System.out.println("ngay dat ve .now truoc khi parse" + ngayDatVe.toString());
+//        System.out.println("ngay dat ve .now truoc khi parse" + ngayDatVe.toString());
         String idLoTrinh = request.getParameter("idLoTrinh");
         String idKhachHang = request.getParameter("idKhachHang");
         for (int i = 0; i < listVe.size(); i++){

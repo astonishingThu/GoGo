@@ -42,12 +42,12 @@ function openSoDo(idLoTrinh, listTrongStr, giaLoTrinh) {
     let soDoGhe = document.getElementById("soDoGhe" + idLoTrinh);
     soDoGhe.classList.add("open");
     // console.log(array);
-    var hang1 = document.getElementById("hang-1");
-    var hang2 = document.getElementById("hang-2");
+    var hang1 = document.getElementById("hang-1"+idLoTrinh);
+    var hang2 = document.getElementById("hang-2"+idLoTrinh);
     hang1.innerHTML = "";
     hang2.innerHTML = "";
     let soGhe = document.getElementById("soGhe" + idLoTrinh);
-    let titleGhe = document.getElementById("titleGhe");
+    let titleGhe = document.getElementById("titleGhe"+ idLoTrinh);
     titleGhe.innerHTML = soGhe.innerText + " Ghế";
     for (let i = 1; i <= Math.round(Number(soGhe.innerText) / 2); i++) {
         let ghe = document.createElement("div");
@@ -106,8 +106,8 @@ function setSoVe(action, idLoTrinh, idGhe, giaGhe, giaLoTrinh) {
         case "add":
             soTien = soTien + giaVe;
             listVe.push(idGhe);
-            listVeEle.innerText = listVe.toString();
-            document.getElementById("listVe").value = listVe.toString();
+            listVeEle.innerText = listVe.toString()
+            document.getElementById("listVeXe" +idLoTrinh).value = listVe.toString();
             soVeEle.innerText = listVe.length.toString();
             soTienEle.innerText = soTien.toString();
             break;
@@ -116,7 +116,7 @@ function setSoVe(action, idLoTrinh, idGhe, giaGhe, giaLoTrinh) {
                 return item != idGhe;
             });
             soTien = soTien - giaVe;
-            document.getElementById("listVe").value = listVe.toString();
+            document.getElementById("listVeXe" +idLoTrinh).value = listVe.toString();
             listVeEle.innerText = listVe.toString();
             soVeEle.innerText = listVe.length.toString();
             soTienEle.innerText = soTien.toString();
@@ -128,7 +128,7 @@ function openTTCT(idLoTrinh) {
     closeSoDoGhe();
     let ttct = document.getElementById("ttct" + idLoTrinh);
     ttct.classList.add("open");
-    document.getElementById("hinhanh").classList.add("open");
+    document.getElementById("hinhanh"+idLoTrinh).classList.add("open");
 }
 
 function openTtLoTrinh(idLoTrinh) {
@@ -181,26 +181,23 @@ function closeNhapThongTin() {
 }
 
 // Hiển thị thông tin chuyến xe: Hình ảnh, Tiện ích, Điểm đón trả, Chính sách, Đánh giá
-function hienthi(field) {
+function hienthi(field,idLoTrinh) {
     allFields = document.querySelectorAll(".field");
     for (let one of allFields) {
         one.classList.remove("open");
     }
     switch (field) {
         case "hinhanh":
-            document.getElementById("hinhanh").classList.add("open");
+            document.getElementById("hinhanh"+idLoTrinh).classList.add("open");
             break;
         case "tienich":
-            document.getElementById("tienich").classList.add("open");
+            document.getElementById("tienich"+idLoTrinh).classList.add("open");
             break;
         case "diemdontra":
-            document.getElementById("diemdontra").classList.add("open");
-            break;
-        case "chinhsach":
-            document.getElementById("chinhsach").classList.add("open");
+            document.getElementById("diemdontra"+idLoTrinh).classList.add("open");
             break;
         case "danhgia":
-            document.getElementById("danhgia").classList.add("open");
+            document.getElementById("danhgia"+idLoTrinh).classList.add("open");
             break;
         default:
             ttct.classList.remove("open");

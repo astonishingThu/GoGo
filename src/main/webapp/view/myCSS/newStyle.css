@@ -94,6 +94,7 @@ h4 {
 
 .open {
   display: flex !important;
+  /*position: relative;*/
 }
 .icon-close {
   position: absolute;
@@ -161,4 +162,36 @@ small{
 }
 .star{
   color:red;
+}
+.rating-modal{
+  display: none;
+}
+.rating-modal-inner{
+  position: relative;
+  background-color: #e2c0bb;
+  padding: 20px;
+}
+.detail-modal{
+  display: none;
+}
+.detail-modal-inner{
+  position: relative;
+  background-color: #e2c0bb;
+  padding: 20px;
+  width: 50%;
+}
+.cancel-cf{
+  justify-content: center;
+  padding: 20px;
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: fit-content;
+  margin: auto;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.8);
 }

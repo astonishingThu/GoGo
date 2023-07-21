@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="ttBaoMat">
-            <button>Thanh toán bảo mật</button>
+            <button class="btn btn-primary">Thanh toán bảo mật</button>
         </div>
     </div>
 </section>

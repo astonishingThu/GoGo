@@ -9,7 +9,16 @@ public class VeXe
     private String ngayKhoiHanh;
     private String diemDi;
     private String diemDen;
+    private String idNhaXe;
     private String tenNhaXe;
+
+    public String getIdNhaXe() {
+        return idNhaXe;
+    }
+
+    public void setIdNhaXe(String idNhaXe) {
+        this.idNhaXe = idNhaXe;
+    }
 
     public String getGioKhoiHanh() {
         return gioKhoiHanh;
@@ -135,7 +144,7 @@ public class VeXe
         this.idMaGiamGia = idMaGiamGia;
     }
 
-    @Override
+        @Override
     public String toString() {
         return "VeXe{" +
                 "idVeXe='" + idVeXe + '\'' +

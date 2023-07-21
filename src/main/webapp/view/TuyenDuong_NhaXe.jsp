@@ -48,7 +48,6 @@
         </div>
     </div>
 </nav>
-
 <section
         class="hero-wrap"
         style="background-image: url('${resourcePath}images/destination-single.jpg')"
@@ -307,6 +306,7 @@
             </tr>
             </thead>
             <tbody>
+
             <c:forEach var="loTrinh" items="${nhaXe.loTrinhList}">
                 <tr>
                     <th scope="row"></span> ${loTrinh.idLoTrinh} </span></th>

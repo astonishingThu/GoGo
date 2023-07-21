@@ -206,7 +206,7 @@
                         </div>
                         <div class="col-md-6 ftco-animate">
                             <div class="text text-center">
-                                <h3 class="tenNhaXe">${loTrinh.nhaXe.tenNhaXe}<span class="rating">4.0<span class="icon-star"></span></span>
+                                <h3 class="tenNhaXe">${loTrinh.nhaXe.tenNhaXe}<span class="rating" id="rating${loTrinh.nhaXe.idNhaXe}"><span class="icon-star"> </span> ${loTrinh.nhaXe.star}</span>
                                 </h3>
                                 <p class="mota-xe"> ${loTrinh.xe.loaiXe} - <span class="price" id= "soGhe${loTrinh.idLoTrinh}">${loTrinh.xe.soLuongGhe}</span> chỗ - <span>${loTrinh.xe.moTa}</span></p>
                             </div>
@@ -244,25 +244,22 @@
                             <nav aria-label="...">
                                 <ul class="pagination  justify-content-center pagination-sm ">
                                     <li class="page-item">
-                                        <a class="page-link" href="#hinhanh" tabindex="-1"
-                                           onclick="hienthi('hinhanh')">Hình ảnh</a>
+                                        <a class="page-link" href="#hinhanh${loTrinh.idLoTrinh}" tabindex="-1"
+                                           onclick="hienthi('hinhanh','${loTrinh.idLoTrinh}')">Hình ảnh</a>
                                     </li>
                                     <li class="page-item">
-                                        <a class="page-link" href="#tienich" onclick="hienthi('tienich')">Tiện ích</a>
+                                        <a class="page-link" href="#tienich${loTrinh.idLoTrinh}" onclick="hienthi('tienich','${loTrinh.idLoTrinh}')">Tiện ích</a>
                                     </li>
                                     <li class="page-item">
-                                        <a class="page-link" href="#diemdontra" onclick="hienthi('diemdontra')">Điểm đón trả</a>
+                                        <a class="page-link" href="#diemdontra${loTrinh.idLoTrinh}" onclick="hienthi('diemdontra','${loTrinh.idLoTrinh}')">Điểm đón trả</a>
                                     </li>
                                     <li class="page-item">
-                                        <a class="page-link" href="#chinhsach" onclick="hienthi('chinhsach')">Chính sách</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#danhgia" onclick="hienthi('danhgia')">Đánh giá</a>
+                                        <a class="page-link" href="#danhgia${loTrinh.idLoTrinh}" onclick="hienthi('danhgia','${loTrinh.idLoTrinh}')">Đánh giá</a>
                                     </li>
                                 </ul>
                             </nav>
                         </div>
-                        <div id="hinhanh" class="field">
+                        <div id="hinhanh${loTrinh.idLoTrinh}" class="field hinhanh">
                             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner col-md-5 mx-auto my-auto">
                                     <div class="carousel-item active">
@@ -290,10 +287,10 @@
                                 </a>
                             </div>
                         </div>
-                        <div id="tienich" class="field">
+                        <div id="tienich${loTrinh.idLoTrinh}" class="field">
                             <p>${loTrinh.xe.moTa}</p>
                         </div>
-                        <div class="row justify-content-center field" id="diemdontra">
+                        <div class="row justify-content-center field" id="diemdontra${loTrinh.idLoTrinh}">
                             <div class="diemDon col-md-5">
                                 <h3>Điểm đón</h3>
                                 <div>
@@ -310,20 +307,26 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="chinhsach" class="field"></div>
-                        <div id="danhgia" class="field"></div>
+                        <div id="danhgia${loTrinh.idLoTrinh}" class="field">
+                            <c:forEach var="ratingInfo" items="${loTrinh.nhaXe.ratingList}">
+                                <div>${ratingInfo.tenKhachHang}</div>
+                                <div>${ratingInfo.ngayDatVe}</div>
+                                <div>${ratingInfo.rating}</div>
+                                <div>${ratingInfo.comment}</div>
+                            </c:forEach>
+                        </div>
                     </div>
                     <form action="ThanhToan" method="post" class="datVe">
                         <input type="hidden" name="idKhachHang" value="${khachHang.idKhachHang}"/>
                         <input type="hidden" name="idLoTrinh" value="${loTrinh.idLoTrinh}"/>
-                        <input type="hidden" name="listVe" id="listVe"/>
+                        <input type="hidden" name="listVe" id="listVeXe${loTrinh.idLoTrinh}"/>
                         <div id="soDoGhe${loTrinh.idLoTrinh}"
                              class="col-md-12 soDoGhe row flex-row justify-content-center">
                             <icon class="icon-close" onClick="closeSoDoGhe('${loTrinh.idLoTrinh}')"></icon>
                             <div class="p-2 col-md-8 row">
-                                <h4 id="titleGhe" class="col-md-12">32 ghế</h4>
-                                <div class="col-md-6" id="hang-1"></div>
-                                <div class="col-md-6" id="hang-2"></div>
+                                <h4 id="titleGhe${loTrinh.idLoTrinh}" class="col-md-12">32 ghế</h4>
+                                <div class="col-md-6" id="hang-1${loTrinh.idLoTrinh}"></div>
+                                <div class="col-md-6" id="hang-2${loTrinh.idLoTrinh}"></div>
                             </div>
                             <div class="col-md-4 row">
                                 <div class="col-md-4">

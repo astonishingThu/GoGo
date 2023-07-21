@@ -1,11 +1,8 @@
 package com.gogo.swp_gogo.models;
 
 import java.sql.*;
-import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -153,9 +150,7 @@ public class MyQueries {
 //            statement.setString(2, String.valueOf(veXe.getRating()));
             statement.setString(2, null);
             statement.setString(3, veXe.getComment());
-
             statement.setString(4, String.valueOf(veXe.getNgayDatVe()));
-            System.out.println(veXe.getNgayDatVe());
             statement.setString(5, veXe.getIdGhe());
             statement.setString(6, veXe.getIdLoTrinh());
             statement.setString(7, veXe.getIdKhachHang());
@@ -349,7 +344,7 @@ public class MyQueries {
                     "       where idKhachHang = ?\n" +
                     "and vx.idLoTrinh = lt.idLoTrinh\n" +
                     "and lt.idThoiGian = tgkh.idThoiGian\n" +
-                    "and lt.idNhaXe = nx.idNhaXe\n"+
+                    "and lt.idNhaXe = nx.idNhaXe\n" +
                     "and lt.idTuyenDuong = td.idTuyenDuong;";
             PreparedStatement statement = connection.prepareStatement(q);
             statement.setString(1, idKH);
@@ -357,9 +352,9 @@ public class MyQueries {
             List<VeXe> veXeList = new ArrayList<>();
             while (resultSet.next()) {
                 int rating;
-                try{
+                try {
                     rating = Integer.parseInt(resultSet.getString("rating"));
-                } catch (Exception e){
+                } catch (Exception e) {
                     rating = Integer.parseInt("0");
                 }
                 VeXe newVeXe = new VeXe(
@@ -380,6 +375,66 @@ public class MyQueries {
             }
             connection.close();
             return veXeList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void updateVeXe(VeXe veXe) {
+        Connection connection = getConnection();
+        try {
+            String q = "Update GoGo.dbo.VeXe set rating=?, comment=? where idVe=?";
+            PreparedStatement statement = connection.prepareStatement(q);
+            statement.setInt(1, veXe.getRating());
+            statement.setString(2, veXe.getComment());
+            statement.setString(3, veXe.getIdVeXe());
+            statement.executeUpdate();
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static VeXe getVeXeByIdVe(String idVe) {
+        Connection connection = getConnection();
+        try {
+            String q = "Select idVe, rating, comment, ngayDatVe, idGhe, vx.idLoTrinh, idKhachHang, idMaGiamGia, tgkh.ngayKhoiHanh, tgkh.gioKhoiHanh, td.noiBatDau, td.dichDen, nx.idNhaXe, nx.tenNhaXe\n" +
+                    "       from GoGo.dbo.VeXe as vx, GoGo.dbo.ThoiGianKhoiHanh as tgkh, GoGo.dbo.LoTrinh as lt, GoGo.dbo.TuyenDuong as td, GoGo.dbo.NhaXe as nx\n" +
+                    "       where idVe = ?\n" +
+                    "and vx.idLoTrinh = lt.idLoTrinh\n" +
+                    "and lt.idThoiGian = tgkh.idThoiGian\n" +
+                    "and lt.idNhaXe = nx.idNhaXe\n" +
+                    "and lt.idTuyenDuong = td.idTuyenDuong;";
+            PreparedStatement statement = connection.prepareStatement(q);
+            statement.setString(1, idVe);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                int rating;
+                try {
+                    rating = Integer.parseInt(resultSet.getString("rating"));
+                } catch (Exception e) {
+                    rating = Integer.parseInt("0");
+                }
+                VeXe veXe = new VeXe(
+                        resultSet.getString("idVe"),
+                        rating,
+                        resultSet.getString("comment"),
+                        LocalDate.parse(resultSet.getString("ngayDatVe")),
+                        resultSet.getString("idGhe"),
+                        resultSet.getString("idLoTrinh"),
+                        resultSet.getString("idKhachHang"),
+                        resultSet.getString("idMaGiamGia"));
+                veXe.setNgayKhoiHanh(resultSet.getString("ngayKhoiHanh"));
+                veXe.setGioKhoiHanh(resultSet.getString("gioKhoiHanh"));
+                veXe.setIdNhaXe(resultSet.getString("idNhaXe"));
+                veXe.setTenNhaXe(resultSet.getString("tenNhaXe"));
+                veXe.setDiemDi(resultSet.getString("noiBatDau"));
+                veXe.setDiemDen(resultSet.getString("dichDen"));
+                return veXe;
+            }
+            connection.close();
+            return null;
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -428,11 +483,6 @@ public class MyQueries {
                 res.add(getXeByCol("idXe", selectIdXeOutsideLoTrinhSet.getString("idXe")));
             }
 
-
-//            List<String> idXeListWithoutDuplicates = idXeList.stream().distinct().collect(Collectors.toList());
-//            for (String idXe:idXeListWithoutDuplicates) {
-//                res.add(getXeByCol("idXe",idXe));
-//            }
             connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -563,18 +613,51 @@ public class MyQueries {
             throw new RuntimeException(e);
         }
     }
+    public static void cancelVe(String idVe){
+        Connection connection = getConnection();
+        try {
+            PreparedStatement statement = connection.prepareStatement("Delete from GoGo.dbo.VeXe where idVe = ?");
+            statement.setString(1, idVe);
+            statement.executeUpdate();
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static List<VeXe> getListVeOfNhaXe(String idNhaXe){
+        Connection connection = getConnection();
+        try {
+            List<VeXe> veXeList = new ArrayList<>();
+            PreparedStatement statement = connection.prepareStatement("Select vx.rating, vx.comment, vx.tenKhachHang from GoGo.dbo.VeXe as vx, GoGo.dbo.loTrinh as lt, GoGo.dbo.NhaXe as nx where vx.idLoTrinh = lt.idLoTrinh and lt.idNhaXe = nx.idNhaXe and lt.idNhaXe = ?");
+            statement.setString(1, idNhaXe);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                VeXe veXe = new VeXe(resultSet.getString(1), resultSet.getInt(2), resultSet.getString(3), LocalDate.parse(resultSet.getString(4)), resultSet.getString(5), resultSet.getString(6), resultSet.getString(7), resultSet.getString(8));
+                veXeList.add(veXe);
+            }
+            connection.close();
+            System.out.println(veXeList);
+            return veXeList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-//    public static ArrayList searchTuyenDuong(String noiXuatPhat, String diemDen, Date ngayKhoiHanh) {
-//        Connection connection = getConnection();
-//        try {
-//            PreparedStatement statement = connection.prepareStatement("Select from GoGo.dbo.DonKhach where idLoTrinh = ?");
-//            statement.setString(1,idLoTrinh);
-//
-//            statement.executeUpdate();
-//
-//            connection.close();
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
+    public static List<RatingInfo> getRatingOfNhaXe (String idNhaXe){
+        Connection connection = getConnection();
+        List<RatingInfo> ratingList = new ArrayList<>();
+        try {
+            PreparedStatement statement = connection.prepareStatement("Select kh.ten, vx.rating, vx.comment, vx.ngayDatVe from GoGo.dbo.VeXe as vx, GoGo.dbo.loTrinh as lt, GoGo.dbo.NhaXe as nx, GoGo.dbo.KhachHang as kh where vx.idLoTrinh = lt.idLoTrinh and lt.idNhaXe = nx.idNhaXe and vx.idKhachHang = kh.idKhachHang and lt.idNhaXe = ?");
+            statement.setString(1, idNhaXe);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                RatingInfo rating = new RatingInfo(resultSet.getString(1), resultSet.getInt(2), resultSet.getString(3), LocalDate.parse(resultSet.getString(4)));
+                ratingList.add(rating);
+            }
+            connection.close();
+            return ratingList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

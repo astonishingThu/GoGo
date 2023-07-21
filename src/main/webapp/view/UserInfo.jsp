@@ -66,12 +66,13 @@
                     </td>
                     <td> ${veXe.diemDi} <span class="icon-arrow-right"></span> ${veXe.diemDen}
                         <button onclick="window.location.href='ViewDetailVe?idVeXe=${veXe.idVeXe}&idLoTrinh=${veXe.idLoTrinh}'" class="btn btn-primary js-del">
-                            <span class="icon-eye"></span> Xem chi tiết
+                            <span class="icon-eye"></span>
                         </button>
                     </td>
                     <td>${veXe.tenNhaXe}</td>
                     <td>${veXe.idGhe}</td>
                     <td>${veXe.ngayDatVe}</td>
+
                     <td>
                         <button onclick="window.location.href='Rating?idVeXe=${veXe.idVeXe}'" class="btn btn-primary js-del">
                             <span class="icon-rate_review">Đánh giá</span>

@@ -13,7 +13,6 @@ public class MyRandom {
             char a = (char) (r.nextInt(26) + 'a');
             set.add(a);
         }
-        System.out.println("count");
         System.out.println(set.toString().replaceAll("\\,|\\[|\\]|\\s", ""));
         return set.toString().replaceAll("\\,|\\[|\\]|\\s", "");
     }

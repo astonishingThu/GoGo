@@ -122,10 +122,10 @@ margin-bottom: 10px;
     padding: 10px;
     border-radius: 45px;
 }
-#hinhanh{
+.hinhanh{
     height: 300px;
 }
-#hinhanh img{
+.hinhanh img{
     height: 300px;
     object-fit: cover;
     margin-bottom: auto;

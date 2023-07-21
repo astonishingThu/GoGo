@@ -22,6 +22,7 @@ public class LoTrinh {
 
     private String gheConTrongListStr;
 
+
     public String getGheConTrongListStr() {
         return gheConTrongListStr;
     }
@@ -36,6 +37,8 @@ public class LoTrinh {
             this.gheConTrongListStr = val.substring(1);
         }
     }
+
+
 
     public String getIdLoTrinh() {
         return idLoTrinh;
@@ -126,13 +129,6 @@ public class LoTrinh {
         setGheConTrongListStr(gheConTrongList);
     }
 
-//    public String reFormatGheTrongList(List<GheXe> gheConTrongList){
-//        String val = "";
-//        for (GheXe gheXe: gheConTrongList){
-//            val = val.concat("{"+gheXe.getIdGhe() + ":" + gheXe.getGiaGhe() +"}");
-//        }
-//        return val;
-//    }
     @Override
     public String toString() {
         return "LoTrinh{" +

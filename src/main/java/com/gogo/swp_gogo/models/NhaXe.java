@@ -21,6 +21,9 @@ public class NhaXe implements Account {
     private List<LoTrinh> tempLoTrinhList = new ArrayList<>();
     private List<LoTrinh> loTrinhList = new ArrayList<>();
 
+    private List<RatingInfo> ratingList;
+    private int luotRate;
+    private double star;
     public NhaXe(){}
 
     public NhaXe(String idNhaXe, String tenNhaXe, String username, String password) {
@@ -57,10 +60,28 @@ public class NhaXe implements Account {
         return true;
     }
 
+    public List<RatingInfo> getRatingList() {
+        return ratingList;
+    }
+
+    public void setRatingList(List<RatingInfo> ratingList) {
+        this.ratingList = ratingList;
+    }
+
+    public double getStar() {
+        return star;
+    }
+
+    public void setStar(List<RatingInfo> ratingList) {
+        double ratingSum = 0;
+            for (int i = 0; i < ratingList.size(); i++){
+                ratingSum = ratingSum + ratingList.get(i).getRating();
+            }
+        this.star = Math.round((ratingSum/ratingList.size())*10)/10.0;
+    }
     public List<Xe> getAvailableXe(HttpServletRequest request) {
         return MyQueries.getAvailableXeOfNhaXe(request.getParameter("idNhaXe"),getThoiGianKhoiHanhList(request));
     }
-
     public void setTempLoTrinhList(HttpServletRequest request){
         List<LocalDate> ngayChayList = getThoiGianKhoiHanhList(request);
         NhaXe nhaXe = MyQueries.getNhaXeByCol("idNhaXe",request.getParameter("idNhaXe"));
@@ -149,7 +170,6 @@ public class NhaXe implements Account {
         return startDate.datesUntil(endDate)
                 .collect(Collectors.toList());
     }
-
 
     public String getIdNhaXe() {
         return idNhaXe;
