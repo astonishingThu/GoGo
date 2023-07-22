@@ -16,7 +16,8 @@ public class NhaXeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("Inside get nha xe main page");
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/view/Xe_NhaXe.jsp");
-        req.setAttribute("nhaXe",req.getAttribute("nhaxe"));
+        req.setAttribute("nhaXe",req.getAttribute("nhaXe"));
+
         requestDispatcher.forward(req,resp);
     }
 
@@ -24,7 +25,8 @@ public class NhaXeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("Inside post nha xe main page");
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/view/Xe_NhaXe.jsp");
-        req.setAttribute("nhaXe",req.getAttribute("nhaxe"));
+        System.out.println(req.getAttribute("nhaXe"));
+        req.setAttribute("nhaXe",req.getAttribute("nhaXe"));
         requestDispatcher.forward(req,resp);
     }
 }

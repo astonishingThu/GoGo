@@ -26,6 +26,7 @@ public class ThanhToanServlet extends HttpServlet {
         req.setAttribute("listVe", req.getParameter("listVe"));
         req.setAttribute("idLoTrinh", req.getParameter("idLoTrinh"));
         req.setAttribute("idKhachHang", req.getParameter("idKhachHang"));
+        req.setAttribute("khachHang", khachHang);
         khachHang.addVeXe(req);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/view/ThanhToan.jsp");
         requestDispatcher.forward(req,resp);

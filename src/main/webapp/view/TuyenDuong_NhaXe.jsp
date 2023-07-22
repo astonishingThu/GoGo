@@ -3,51 +3,7 @@
 <jsp:include page="Head.jsp"></jsp:include>
 <jsp:useBean id="nhaXe" class="com.gogo.swp_gogo.models.NhaXe" scope="request"/>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-<nav
-        class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
-        id="ftco-navbar">
-    <div class="container">
-        <a class="navbar-brand" href="index.jsp">GoGo</a>
-        <button
-                class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle"
-                type="button"
-                data-toggle="collapse"
-                data-target="#ftco-nav"
-                aria-controls="ftco-nav"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-        >
-            <span class="oi oi-menu"></span> Menu
-        </button>
-
-        <div class="collapse navbar-collapse" id="ftco-nav">
-            <ul class="navbar-nav nav ml-auto">
-                <li class="nav-item">
-                    <a href="index.jsp" class="nav-link"
-                    ><span>Trang chủ</span></a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a href="ViewXe?idNhaXe=${nhaXe.idNhaXe}#xe" class="nav-link"
-                    ><span>Xe</span></a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a href="#tuyenDuong" class="nav-link"><span>Tuyến xe</span></a>
-                </li>
-                <li class="nav-item">
-                    <a href="${resourcePath}HanhKhach_NhaXe.jsp" class="nav-link"><span>Doanh thu</span></a>
-                </li>
-                <li class="nav-item has-children">
-                    <a class="nav-link" id="logout"><icon class="icon-account_circle"> </icon><span> ${nhaXe.tenNhaXe}</span></a>
-                    <ul class="dropdown">
-                        <li><a href="${pageContext.request.contextPath}/index.jsp">Đăng xuất</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<jsp:include page="components/Navbar.jsp"></jsp:include>
 <section
         class="hero-wrap"
         style="background-image: url('${resourcePath}images/destination-single.jpg')"

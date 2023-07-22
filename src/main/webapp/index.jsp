@@ -8,51 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="view/Head.jsp"></jsp:include>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
-     id="ftco-navbar">
-    <div class="container">
-        <a class="navbar-brand" href="index.jsp">GoGo</a>
-        <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
-                data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="oi oi-menu"></span> Menu
-        </button>
-
-        <div class="collapse navbar-collapse" id="ftco-nav">
-            <ul class="navbar-nav nav ml-auto">
-                <li class="nav-item"><a href="#home-section" class="nav-link"><span>Trang chủ</span></a></li>
-                <li class="nav-item"><a href="#tuyenDuong" class="nav-link"><span>Tuyến đường</span></a></li>
-                <li class="nav-item"><a href="#uuDai" class="nav-link"><span>Ưu đãi</span></a></li>
-                <li class="nav-item has-children">
-                    <a class="nav-link"><span>Đăng nhập</span></a>
-                    <ul class="dropdown">
-                        <li><a href="GoGoLogin">Hành khách</a></li>
-                        <li><a href="NhaXeGoGoLogin">Nhà xe</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item has-children">
-                    <a href="view/SignUp_Khach.jsp" class="nav-link"><span>Đăng ký</span></a>
-                    <ul class="dropdown">
-                        <li><a href="GoGoSignup">Hành khách</a></li>
-                        <li><a href="GoGoNhaXeSignup">Nhà xe</a></li>
-                    </ul>
-                </li>
-                <%--                <li class="nav-item has-children">--%>
-                <%--                    <a class="nav-link" id="logout">--%>
-                <%--                        <icon class="icon-account_circle"></icon>--%>
-                <%--                        <span> Bao Ngoc </span></a>--%>
-                <%--                    <ul class="dropdown">--%>
-                <%--                        <li><a href="${pageContext.request.contextPath}/index.jsp">Logout</a></li>--%>
-                <%--                    </ul>--%>
-                <%--                </li>--%>
-                <!-- <li class="nav-item"><a href="#destination-section" class="nav-link"><span>Destination</span></a></li>
-                <li class="nav-item"><a href="#restaurant-section" class="nav-link"><span>Restaurant</span></a></li>
-                <li class="nav-item"><a href="#blog-section" class="nav-link"><span>Blog</span></a></li>
-                <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li> -->
-            </ul>
-        </div>
-    </div>
-</nav>
-
+<jsp:include page="view/components/Navbar.jsp"></jsp:include>
 <section id="home-section" class="hero">
     <img src="<%=request.getContextPath()%>/view/images/blob-shape-3.svg" class="svg-blob" alt="Colorlib Free Template">
     <div class="home-slider owl-carousel">
@@ -256,17 +212,17 @@
                             <div class="col-md-12 ftco-animate">
                                 <div class="project">
                                     <div class="img">
-                                        <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img
+                                        <a href="#search"><img
                                                 src="<%=request.getContextPath()%>/view/images/destination-2.jpg"
                                                 class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
                                         <h4 class="price">300 000Đ</h4>
-                                        <span>2 giờ 30 phút</span>
-                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Đà Nẵng
+                                        <span>200 phút</span>
+                                        <h3><a href="#search">Đà Nẵng
                                             - Quảng Bình</a></h3>
                                     </div>
-                                    <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg"
+                                    <a href="#search"
                                        class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
                                     </a>
@@ -279,17 +235,17 @@
                             <div class="col-md-12 ftco-animate">
                                 <div class="project">
                                     <div class="img">
-                                        <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img
+                                        <a href="#search"><img
                                                 src="<%=request.getContextPath()%>/view/images/destination-2.jpg"
                                                 class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
                                         <h4 class="price">250000Đ</h4>
-                                        <span>2 giờ 30 phút</span>
-                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Đà Nẵng
+                                        <span>200 phút</span>
+                                        <h3><a href="#search">Đà Nẵng
                                             - Quảng Bình</a></h3>
                                     </div>
-                                    <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg"
+                                    <a href="#search"
                                        class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
                                     </a>
@@ -302,17 +258,17 @@
                             <div class="col-md-12 ftco-animate">
                                 <div class="project">
                                     <div class="img">
-                                        <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img
+                                        <a href="#search"><img
                                                 src="<%=request.getContextPath()%>/view/images/destination-2.jpg"
                                                 class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
                                         <h4 class="price">250000Đ</h4>
-                                        <span>2 giờ 30 phút</span>
-                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Đà Nẵng
+                                        <span>200 phút</span>
+                                        <h3><a href="#search">Đà Nẵng
                                             - Quảng Bình</a></h3>
                                     </div>
-                                    <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg"
+                                    <a href="#search"
                                        class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
                                     </a>
@@ -325,17 +281,17 @@
                             <div class="col-md-12 ftco-animate">
                                 <div class="project">
                                     <div class="img">
-                                        <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img
+                                        <a href="#search"><img
                                                 src="<%=request.getContextPath()%>/view/images/destination-2.jpg"
                                                 class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
                                         <h4 class="price">250000Đ</h4>
-                                        <span>2 giờ 30 phút</span>
-                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Đà Nẵng
+                                        <span>200 phút</span>
+                                        <h3><a href="#search">Đà Nẵng
                                             - Quảng Bình</a></h3>
                                     </div>
-                                    <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg"
+                                    <a href="#search"
                                        class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
                                     </a>
@@ -348,17 +304,17 @@
                             <div class="col-md-12 ftco-animate">
                                 <div class="project">
                                     <div class="img">
-                                        <a href="<%=request.getContextPath()%>/view/destination-single.jsp"><img
+                                        <a href="#search"><img
                                                 src="<%=request.getContextPath()%>/view/images/destination-2.jpg"
                                                 class="img-fluid" alt="Colorlib Template"></a>
                                     </div>
                                     <div class="text">
                                         <h4 class="price">250000Đ</h4>
-                                        <span>2 giờ 30 phút</span>
-                                        <h3><a href="<%=request.getContextPath()%>/view/destination-single.jsp">Đà Nẵng
+                                        <span>200 phút</span>
+                                        <h3><a href="#search">Đà Nẵng
                                             - Quảng Bình</a></h3>
                                     </div>
-                                    <a href="<%=request.getContextPath()%>/view/images/destination-2.jpg"
+                                    <a href="#search"
                                        class="icon image-popup d-flex justify-content-center align-items-center">
                                         <span class="icon-expand"></span>
                                     </a>
@@ -373,109 +329,13 @@
     </div>
 </section>
 
-
-<section class="ftco-section bg-light" id="uuDai">
-    <div class="container">
-        <div class="row justify-content-center mb-5">
-            <div class="col-md-7 heading-section text-center ftco-animate">
-                <h2 class="mb-4">Ưu đãi nổi bật</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-            </div>
-        </div>
-        <div class="row d-flex">
-            <div class="col-md-6 col-lg-4 d-flex ftco-animate">
-                <div class="blog-entry justify-content-end">
-                    <a href="single.jsp" class="block-20" style="background-image: url('view/images/image_1.jpg');">
-                    </a>
-                    <div class="text float-right d-block">
-                        <div class="d-flex align-items-center pt-5 mb-4 topp">
-                            <div class="one mr-2">
-                                <span class="day">20%</span>
-                            </div>
-                            <div class="two">
-                                <span class="yr"></span>
-                                <span class="mos">Bạn mới</span>
-                            </div>
-                        </div>
-                        <h3 class="heading"><a href="single.jsp">Why Lead Generation is Key for Business Growth</a></h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary
-                            regelialia.</p>
-                        <div class="d-flex align-items-center mt-4 meta">
-                            <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span
-                                    class="ion-ios-arrow-round-forward"></span></a></p>
-                            <p class="ml-auto mb-0">
-                                <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 d-flex ftco-animate">
-                <div class="blog-entry justify-content-end">
-                    <a href="single.jsp" class="block-20" style="background-image: url('view/images/image_2.jpg');">
-                    </a>
-                    <div class="text float-right d-block">
-                        <div class="d-flex align-items-center mt-5 mb-4 topp">
-                            <div class="one mr-2">
-                                <span class="day">10%</span>
-                            </div>
-                            <div class="two">
-                                <span class="yr">Thanh toán bằng</span>
-                                <span class="mos">VNPay</span>
-                            </div>
-                        </div>
-                        <h3 class="heading"><a href="single.jsp">Why Lead Generation is Key for Business Growth</a></h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary
-                            regelialia.</p>
-                        <div class="d-flex align-items-center mt-4 meta">
-                            <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span
-                                    class="ion-ios-arrow-round-forward"></span></a></p>
-                            <p class="ml-auto mb-0">
-                                <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 d-flex ftco-animate">
-                <div class="blog-entry">
-                    <a href="single.jsp" class="block-20" style="background-image: url('view/images/image_3.jpg');">
-                    </a>
-                    <div class="text float-right d-block">
-                        <div class="d-flex align-items-center pt-2 mb-4 topp">
-                            <div class="one mr-2">
-                                <span class="day">12</span>
-                            </div>
-                            <div class="two">
-                                <span class="yr">2019</span>
-                                <span class="mos">april</span>
-                            </div>
-                        </div>
-                        <h3 class="heading"><a href="single.jsp">Ưu đãi</a></h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary
-                            regelialia.</p>
-                        <div class="d-flex align-items-center mt-4 meta">
-                            <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span
-                                    class="ion-ios-arrow-round-forward"></span></a></p>
-                            <p class="ml-auto mb-0">
-                                <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <footer class="ftco-footer ftco-section" id="footer">
     <div class="container">
         <div class="row mb-5">
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">About <span><a href="view/index.html">Ecoland</a></span></h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                        live the blind texts.</p>
+                    <h2 class="ftco-heading-2">About <span><a href="view/index.html">GoGo System</a></span></h2>
+                    <p>Far far away, behind the word GoGo, let us "service" you.</p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                         <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                         <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -484,41 +344,15 @@
                 </div>
             </div>
             <div class="col-md">
-                <div class="ftco-footer-widget mb-4 ml-md-4">
-                    <h2 class="ftco-heading-2">Information</h2>
-                    <ul class="list-unstyled">
-                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Online Enquiry</a></li>
-                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>General Enquiry</a></li>
-                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Booking</a></li>
-                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Privacy</a></li>
-                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Refund Policy</a></li>
-                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Call Us</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Experience</h2>
-                    <ul class="list-unstyled">
-                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Adventure</a></li>
-                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Hotel and Restaurant</a></li>
-                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Beach</a></li>
-                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Nature</a></li>
-                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Camping</a></li>
-                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Party</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
                     <h2 class="ftco-heading-2">Have a Questions?</h2>
                     <div class="block-23 mb-3">
                         <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span>
+                            <li><span class="icon icon-map-marker"></span><span class="text">FPT Urban area, Ngu Hanh Son District, Da Nang city, VietNam</span>
                             </li>
                             <li><a href="#"><span class="icon icon-phone"></span><span
-                                    class="text">+2 392 3929 210</span></a></li>
-                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a>
+                                    class="text">+84 94 730 012</span></a></li>
+                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">gogo@gmail.com</span></a>
                             </li>
                         </ul>
                     </div>
@@ -530,9 +364,9 @@
 
                 <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                    All rights reserved | This template is made with <i class="icon-heart color-danger"
+                    All rights reserved | This website is made with <i class="icon-heart color-danger"
                                                                         aria-hidden="true"></i> by <a
-                            href="https://colorlib.com" target="_blank">Colorlib</a>
+                            href="https://colorlib.com" target="_blank">GoGo Team</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
             </div>
         </div>

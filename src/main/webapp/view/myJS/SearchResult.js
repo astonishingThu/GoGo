@@ -275,6 +275,7 @@ function hienthi(field,idLoTrinh) {
 
 function validateGhe() {
     let isCheck = true;
+
     if (listVe.length === 0) {
         isCheck = false;
         tiepTheo.parentNode.querySelector("small").innerText = "Bạn chưa chọn ghế";

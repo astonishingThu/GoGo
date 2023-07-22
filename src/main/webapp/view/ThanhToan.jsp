@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="Head.jsp"></jsp:include>
 <body>
+<jsp:include page="components/Navbar.jsp"></jsp:include>
+<jsp:useBean id="khachHang" class="com.gogo.swp_gogo.models.KhachHang" scope="request"/>
 <section>
     <div class=" container row">
         <div class="thoigian col-md-12">

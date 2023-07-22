@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
@@ -15,7 +16,26 @@
                     <a href="<%=request.getContextPath()%>/index.jsp" class="nav-link"><span>Trang chủ</span></a>
                 </li>
                 <c:choose>
-                    <c:when test="${khachHang.ten == null}">
+                    <c:when test="${nhaXe.idNhaXe!=null}">
+                        <li class="nav-item">
+                            <a href="#xe" class="nav-link"><span>Xe</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="AddTuyenXe?idNhaXe=${nhaXe.idNhaXe}" class="nav-link"><span>Tuyến xe</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="${resourcePath}HanhKhach_NhaXe.jsp" class="nav-link"><span>Hành khách</span></a>
+                        </li>
+                        <li class="nav-item has-children">
+                            <a class="nav-link" id="logout">
+                                <icon class="icon-account_circle"></icon>
+                                <span> ${nhaXe.tenNhaXe}</span></a>
+                            <ul class="dropdown">
+                                <li><a href="${pageContext.request.contextPath}/index.jsp">Logout</a></li>
+                            </ul>
+                        </li>
+                    </c:when>
+                    <c:when test="${(khachHang.ten == null) && (nhaXe.idNhaXe == null)}">
                         <li class="nav-item"><a href="index.jsp#tuyenDuong"
                                                 class="nav-link"><span>Tuyến đường</span></a></li>
                         <li class="nav-item"><a href="#uuDai" class="nav-link"><span>Ưu đãi</span></a></li>
@@ -48,25 +68,7 @@
                             </ul>
                         </li>
                     </c:when>
-                    <c:when>
-                        <li class="nav-item">
-                            <a href="#xe" class="nav-link"><span>Xe</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="AddTuyenXe?idNhaXe=${nhaXe.idNhaXe}" class="nav-link"><span>Tuyến xe</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="${resourcePath}HanhKhach_NhaXe.jsp" class="nav-link"><span>Hành khách</span></a>
-                        </li>
-                        <li class="nav-item has-children">
-                            <a class="nav-link" id="logout">
-                                <icon class="icon-account_circle"></icon>
-                                <span> ${nhaXe.tenNhaXe}</span></a>
-                            <ul class="dropdown">
-                                <li><a href="${pageContext.request.contextPath}/index.jsp">Logout</a></li>
-                            </ul>
-                        </li>
-                    </c:when>
+
                 </c:choose>
             </ul>
         </div>

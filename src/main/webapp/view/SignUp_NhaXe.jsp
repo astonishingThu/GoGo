@@ -8,43 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="Head.jsp"></jsp:include>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
-     id="ftco-navbar">
-    <div class="container">
-        <a class="navbar-brand" href="<%=request.getContextPath()%>/index.jsp">GoGo</a>
-        <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
-                data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="oi oi-menu"></span> Menu
-        </button>
-        <div class="collapse navbar-collapse" id="ftco-nav">
-            <ul class="navbar-nav nav ml-auto">
-                <li class="nav-item"><a href="<%=request.getContextPath()%>/index.jsp" class="nav-link"><span>Trang chủ</span></a></li>
-                <li class="nav-item"><a href="index.html#uuDai" class="nav-link"><span>Ưu đãi</span></a></li>
-                <li class="nav-item"><a href="<%=request.getContextPath()%>/index.jsp#tuyenDuong" class="nav-link"><span>Tuyến đường</span></a></li>
-                <li class="nav-item has-children">
-                    <a class="nav-link"><span>Đăng nhập</span></a>
-                    <ul class="dropdown">
-                        <li><a href="GoGoLogin">Hành khách</a></li>
-                        <li><a href="NhaXeGoGoLogin">Nhà xe</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item has-children">
-                    <a href="SignUp_Khach.jsp" class="nav-link"><span>Đăng ký</span></a>
-                    <ul class="dropdown">
-                        <li><a href="GoGoSignup">Hành khách</a></li>
-                        <li><a href="GoGoNhaXeSignup">Nhà xe</a></li>
-                    </ul>
-                </li>
-                <!-- <li class="nav-item"><a href="#destination-section" class="nav-link"><span>Destination</span></a></li>
-                <li class="nav-item"><a href="#hotel-section" class="nav-link"><span>Hotel</span></a></li>
-                <li class="nav-item"><a href="#restaurant-section" class="nav-link"><span>Restaurant</span></a></li>
-                <li class="nav-item"><a href="#blog-section" class="nav-link"><span>Blog</span></a></li>
-                <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li> -->
-            </ul>
-        </div>
-    </div>
-</nav>
-
+<jsp:include page="components/Navbar.jsp"></jsp:include>
 <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
     <div class="container">
         <div class="row justify-content-center pb-3">
