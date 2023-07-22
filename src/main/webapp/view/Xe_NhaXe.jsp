@@ -118,7 +118,7 @@
                                     </p>
                                     <p>${xe.moTa}</p>
                                     <p>
-                                        <button class="btn btn-secondary">Chỉnh sửa</button>
+<%--                                        <button class="btn btn-secondary">Chỉnh sửa</button>--%>
                                         <button class="btn btn-primary" onclick="batOverlayXoa('${xe.idXe}')">Xóa</button>
                                     </p>
                                 </div>

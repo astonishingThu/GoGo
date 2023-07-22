@@ -1,5 +1,6 @@
 package com.gogo.swp_gogo.controllers;
 
+import com.gogo.swp_gogo.models.LoTrinh;
 import com.gogo.swp_gogo.models.MyQueries;
 import com.gogo.swp_gogo.models.NhaXe;
 import com.gogo.swp_gogo.models.Xe;

@@ -1,4 +1,6 @@
 package com.gogo.swp_gogo.models;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 public class DataValidator {
@@ -19,6 +21,18 @@ public class DataValidator {
         for (String s:noiBatDauList) {
             if (noiBatDau.equals(s)) {
                 if (dichDen.equals(MyQueries.getTableInfoByBase("noiBatDau","dichDen",noiBatDau,"TuyenDuong"))) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean isThoiGianKhoiHanhExist(LocalDate date, LocalTime time) {
+        List<String> thoiGianKhoiHanhList = MyQueries.getAllTableInfo("ngayKhoiHanh","ThoiGianKhoiHanh");
+        for (String s:thoiGianKhoiHanhList) {
+            if (date.equals(LocalDate.parse(s))) {
+                if (time.equals(LocalTime.parse(MyQueries.getTableInfoByBase("ngayKhoiHanh","gioKhoiHanh",date.toString(),"ThoiGianKhoiHanh")))) {
                     return true;
                 }
             }
