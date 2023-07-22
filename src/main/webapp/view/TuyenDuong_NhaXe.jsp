@@ -35,9 +35,9 @@
                 <li class="nav-item">
                     <a href="#tuyenDuong" class="nav-link"><span>Tuyến xe</span></a>
                 </li>
-                <li class="nav-item">
-                    <a href="${resourcePath}HanhKhach_NhaXe.jsp" class="nav-link"><span>Doanh thu</span></a>
-                </li>
+<%--                <li class="nav-item">--%>
+<%--                    <a href="${resourcePath}HanhKhach_NhaXe.jsp" class="nav-link"><span>Doanh thu</span></a>--%>
+<%--                </li>--%>
                 <li class="nav-item has-children">
                     <a class="nav-link" id="logout"><icon class="icon-account_circle"> </icon><span> ${nhaXe.tenNhaXe}</span></a>
                     <ul class="dropdown">
@@ -317,9 +317,9 @@
                         <button onclick="window.location.href='RemoveLoTrinh?idLoTrinh=${loTrinh.idLoTrinh}&idNhaXe=${nhaXe.idNhaXe}'" class="btn btn-primary js-del">
                         <span class="icon-trash"> </span>
                         </button>
-                        <button class="btn btn-primary js-del">
-                        <span class="icon-edit"> </span>
-                        </button>
+<%--                        <button onclick="window.location.href='updateTuyenXe?idLoTrinh=${loTrinh.idLoTrinh}&idNhaXe=${nhaXe.idNhaXe}'" class="btn btn-primary js-del">--%>
+<%--                        <span class="icon-edit"> </span>--%>
+<%--                        </button>--%>
                     </td>
                 </tr>
             </c:forEach>

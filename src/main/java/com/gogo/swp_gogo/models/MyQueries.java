@@ -587,6 +587,23 @@ public class MyQueries {
         }
     }
 
+    public static LoTrinh getLoTrinhByCol(String col, String data) {
+        Connection connection = getConnection();
+        try {
+            String q = "Select * from GoGo.dbo.LoTrinh where " + col + " = ?";
+            PreparedStatement statement = connection.prepareStatement(q);
+            statement.setString(1, data);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                return new LoTrinh(resultSet.getString("idLoTrinh"),Integer.parseInt(resultSet.getString("giaLoTrinh")),Integer.parseInt(resultSet.getString("khoangThoiGianDiChuyen")),MyQueries.getXeByCol("idXe",resultSet.getString("idXe")),MyQueries.getThoiGianKhoiHanhByCol("idThoiGian",resultSet.getString("idThoiGian")),MyQueries.getTuyenDuongByCol("idTuyenDuong",resultSet.getString("idTuyenDuong")),MyQueries.getNhaXeByCol("idNhaXe",resultSet.getString("idNhaXe")));
+            }
+            connection.close();
+            return null;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static String searchIdTuyenDuong(String noiBatDau, String dichDen) {
         Connection connection = getConnection();
         String res = null;

@@ -29,9 +29,9 @@
                 <li class="nav-item">
                     <a href="AddTuyenXe?idNhaXe=${nhaXe.idNhaXe}" class="nav-link"><span>Tuyến xe</span></a>
                 </li>
-                <li class="nav-item">
-                    <a href="${resourcePath}HanhKhach_NhaXe.jsp" class="nav-link"><span>Hành khách</span></a>
-                </li>
+<%--                <li class="nav-item">--%>
+<%--                    <a href="${resourcePath}HanhKhach_NhaXe.jsp" class="nav-link"><span>Hành khách</span></a>--%>
+<%--                </li>--%>
                 <li class="nav-item has-children">
                     <a class="nav-link" id="logout">
                         <icon class="icon-account_circle"></icon>
@@ -153,7 +153,7 @@
                                     </p>
                                     <p>${xe.moTa}</p>
                                     <p>
-                                        <button class="btn btn-secondary">Chỉnh sửa</button>
+<%--                                        <button class="btn btn-secondary">Chỉnh sửa</button>--%>
                                         <button class="btn btn-primary" onclick="batOverlayXoa('${xe.idXe}')">Xóa</button>
                                     </p>
                                 </div>

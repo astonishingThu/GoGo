@@ -12,7 +12,10 @@ public class LoTrinh {
     private String idLoTrinh;
     private int giaLoTrinh;
     private int khoangThoiGianDiChuyen;
-
+    private String idXe;
+    private String idTuyenDuong;
+    private String idThoiGian;
+    private String idNhaXe;
     private Xe xe;
     private ThoiGianKhoiHanh thoiGianKhoiHanh;
     private TuyenDuong tuyenDuong;
@@ -22,6 +25,18 @@ public class LoTrinh {
 
     private String gheConTrongListStr;
 
+    public LoTrinh(){}
+
+
+    public LoTrinh(String idLoTrinh, int giaLoTrinh, int khoangThoiGianDiChuyen, Xe xe, ThoiGianKhoiHanh thoiGianKhoiHanh, TuyenDuong tuyenDuong, NhaXe nhaXe) {
+        this.idLoTrinh = idLoTrinh;
+        this.giaLoTrinh = giaLoTrinh;
+        this.khoangThoiGianDiChuyen = khoangThoiGianDiChuyen;
+        this.xe = xe;
+        this.thoiGianKhoiHanh = thoiGianKhoiHanh;
+        this.tuyenDuong = tuyenDuong;
+        this.nhaXe = nhaXe;
+    }
 
     public String getGheConTrongListStr() {
         return gheConTrongListStr;

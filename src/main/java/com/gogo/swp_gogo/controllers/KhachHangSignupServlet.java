@@ -21,12 +21,14 @@ public class KhachHangSignupServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         KhachHang khachHang = new KhachHang();
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("view/MainPage_KhachHang.jsp");
+        RequestDispatcher requestDispatcher;
         if (khachHang.signup(req)) {
+            requestDispatcher = req.getRequestDispatcher("GoGoLogin");
             req.setAttribute("connection",true);
             System.out.println("Succeeded");
             System.out.println(khachHang);
         } else {
+            requestDispatcher = req.getRequestDispatcher("/view/SignUp_Khach.jsp");
             req.setAttribute("connection",false);
             System.out.println("Fail");
         }
